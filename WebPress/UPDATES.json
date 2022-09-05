@@ -1,0 +1,10 @@
+{
+	"versions":{
+		"0.0.1":{
+				"text": "Version 0.0.1 has been released!",
+				"icon": "fas fa-check",
+				"tag":"offical",
+				"show": true
+		}
+	}
+}

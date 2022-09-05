@@ -1,0 +1,262 @@
+body{
+width:100%;
+height:100%;	
+}
+#webpress-spinner{
+	font-size:45px;
+	animation: webpress-spin 1s linear infinite;
+}
+@keyframes webpress-spin{
+	100%{
+		transform: rotate(360deg); 
+	}
+}
+.theme.theme-active{
+	border:3px solid rgba(0,255,0, 0.6);
+}
+.plugin.plugin-active{
+	border:3px solid rgba(0,255,0, 0.6);
+}
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 15px;
+  background:#ace5ee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(105,105,105);
+  border-radius: 15px;
+}
+
+.avatar:hover{
+	 transform: scale(1.1);
+}
+
+/*HTML tags*/
+address{
+    font-style: italic;
+	display:block;
+    line-height:normal;
+	margin: auto;
+}
+pre{
+	margin:auto;
+}
+.marker{
+	background-color:yellow;
+}
+.special-container{
+	background:#eeeeee;
+	border:1px solid #cccccc;
+	padding:5px 10px;
+}
+tt{
+	font-family: monospace;
+}
+
+/*editor*/
+.editor{
+	position:relative;
+	height:35%;
+}
+#editing, #highlighting {
+  /* Both elements need the same text and space styling so they are directly on top of each other */
+  margin: 10px;
+  padding: 10px;
+  border: 0;
+  width: calc(100% - 32px);
+  height: 150px;
+  display: block;
+}
+
+#editing, #highlighting, #highlighting * {
+  /* Also add text styles to highlighting tokens */
+  /*font-size: 15pt;*/
+  font-family: monospace;
+  line-height: 20pt;
+   tab-size: 2;
+}
+
+#editing, #highlighting {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#editing {
+  z-index: 1;
+}
+
+#highlighting {
+  z-index: 0;
+}
+
+#editing {
+  color: transparent;
+  background: transparent;
+  caret-color: black; /* Or choose your favorite color */
+}
+#editing, #highlighting {
+  overflow: auto;
+  white-space: nowrap; /* Allows textarea to scroll horizontally */
+}
+
+#editing {
+  resize: none;
+}
+.wysiwyg-editor .dropdown-menu li{
+	background-color:rgba(60,20,20,0.15);
+}
+
+.blockquote{
+	border-left: 8px solid gray;
+	padding-left: 3px;
+}
+
+.editPromptBtn{
+	z-index:-1;
+	background-color:transparent;
+	border:0;
+	width:0;
+}
+
+#highlighting-content pre.viewCode{
+background:rgba(206,206,206,0.4)!important;
+width:100%;
+height:95%;
+overflow:auto;	
+}
+
+.editorpanel[expended="true"]{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:8000;
+	width:100%;
+	height:100%;
+	background:white;
+}
+
+.executer{
+	width:100%;
+	height:25%;
+	background-color:black;
+	color:lime;
+	border:3px solid gray;
+	outline:none;
+}
+.plugin-icon:hover{
+	transform: scale(1.05);
+}
+#panel-notify{
+	position:absolute;
+	right:calc(0% + 0%);
+	top: calc(0% + 100%);
+	z-index:1000;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-info);
+}
+.contact-options i{
+	cursor:pointer;
+}
+
+.msgbox:not(.msgbox.to){
+  width: 300px;
+  margin: 50px auto;
+  border: 4px solid #00bfb6;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: #dddddd;
+  font-family: arial;
+  position: relative;
+  background: #00bfb6;
+  border-radius: 15px;
+}
+.msgbox:not(.msgbox.from){
+  width: 300px;
+  margin: 50px auto;
+  border: 4px solid #7f7f77;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: #dddddd;
+  font-family: arial;
+  position: relative;
+  background: #7f7f77;
+  border-radius: 15px;
+}
+
+.from:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #00bfb6;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -23px;
+}
+
+.from:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -17px;
+}
+
+
+.to:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid #7f7f77;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  right: -23px;
+}
+
+.to:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transform;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  right: -17px;
+}
+
+.from .usertag, .from .senttime{
+	float: left!important;
+	color:#b8b8b8!important;
+	font-size: 13px;
+	font-style: italic;
+	font-weight:bold;
+}
+.to .usertag, .to .senttime{
+	float: right!important;
+	color:#b8b8b8!important;
+	font-size: 13px;
+	font-style: italic;
+	font-weight:bold;
+}

@@ -1,0 +1,27 @@
+{
+    "name": {
+        "en": "Notify"
+    },
+    "active": "",
+    "version": "0.0.1",
+    "desc": {
+        "en": "Allow Users to get Notify on page load"
+    },
+    "options": {
+        "canDisabled": true,
+        "config": {
+            "use": true,
+            "banners": {
+                "demo": {
+                    "name": "demo",
+                    "type": "success",
+                    "msg": "<i class='fa-solid fa-circle-info'></i> This is a demo banner",
+                    "active": "on"
+                }
+            }
+        },
+        "usedLang": [
+            "en-US"
+        ]
+    }
+}
