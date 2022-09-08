@@ -21,7 +21,6 @@ class HTMLForm{
 		}
 		return '';
 	}
-	
 	public static function form($action, $controls, $class='', $method='post', $enctype=false)
 	{
 		global $token;
@@ -89,7 +88,7 @@ class HTMLForm{
 		$class = $class!='' ? ' class="form-control '.$class.'"' : ' class="form-control"';
 		$desc = $desc!='' ? '<small class="form-text text-muted">' .$myLang[$desc]. '</small>' : '';
 		$disabled = $disabled==true ? ' disabled' : '';
-		$selected = $_POST[$name] && isset($options[$_POST[$name]]) ? $_POST[$name] : $default;
+		$selected = $default;
 		$out = '<div class="form-group">
 				  <label class="form-label" for="' .$name. '">' .(isset($myLang[$name]) ? $myLang[$name] : ''). '</label>
                   <select id="' .$name. '" name="' .$name. '"' .$class . $disabled. '>';
@@ -102,23 +101,23 @@ class HTMLForm{
                 </div>';
 		return $out;
 	}
-		public static function submit($button='submit', $class='', $icon='')
+		public static function submit($name, $button='submit', $class='', $icon='')
 	{	
 		global $myLang;
 		$out = '';
 		$class = $class!='' ? ' class="'.$class.'"' : ' class="btn btn-primary btn-lg"';
 		$icon = $icon!='' ? '<i class="' .$icon. '"></i>&nbsp;' : '';
 	
-		return  $out.= '<button' .$class. ' type="submit">' . $icon .$myLang[$button]. '</button>';
+		return  $out.= '<button name="'.$name.'" ' .$class. ' type="submit">' . $icon .$myLang[$button]. '</button>';
 	}	
 	
-	public static function simple_submit($button='submit', $class='', $icon='')
+	public static function simple_submit($name, $button='submit', $class='', $icon='', $cancel=false)
 	{
 		global $myLang;
 		$class = $class!='' ? ' class="'.$class.'"' : ' class="btn btn-primary"';
 		$icon = $icon!='' ? '<i class="' .$icon. '"></i>&nbsp;' : '';
 		$cancel = $cancel==true ? '&nbsp;<button type="reset" class="btn btn-secondary btn-lg" onclick="$(\'#form\').remove();"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;' .$myLang['cancel']. '</button>' : '';	
-		return  '<button' .$class. ' type="submit">' . $icon . $myLang[$button] . '</button>';
+		return  '<button name="'.$name.'" ' .$class. ' type="submit">' . $icon . $myLang[$button] . '</button>';
 	}
 	public static function checkBox($name, $default='', $desc='')
 	{

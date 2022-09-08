@@ -7,19 +7,25 @@
     "desc": {
         "en": "Allow Users to get Notify on page load"
     },
+    "config": {
+        "use": true,
+        "banners": {
+            "demo": {
+                "name": "demo",
+                "type": "success",
+                "msg": "<i class='fa-solid fa-circle-info'></i> This is a demo banner",
+                "active": "on"
+            },
+            "test": {
+                "name": "test",
+                "type": "danger",
+                "msg": "test",
+                "active": ""
+            }
+        }
+    },
     "options": {
         "canDisabled": true,
-        "config": {
-            "use": true,
-            "banners": {
-                "demo": {
-                    "name": "demo",
-                    "type": "success",
-                    "msg": "<i class='fa-solid fa-circle-info'></i> This is a demo banner",
-                    "active": "on"
-                }
-            }
-        },
         "usedLang": [
             "en-US"
         ]

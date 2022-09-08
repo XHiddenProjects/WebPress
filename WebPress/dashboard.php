@@ -592,9 +592,10 @@ $out.='</ul>';
 }elseif(preg_match('/\/dashboard(?:\.php)\/plugins/', $_SERVER['REQUEST_URI'])){
 $out.='<ul class="list-group list-group-flush list-group-horizontal">';
 foreach(Files::Scan(ROOT.'plugins') as $plugins){
-	if(!file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json'))
+	if(!file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
 		echo Plugin::forceExecute('install', $plugins);
-	$config = Plugin::hook('config');
+	}
+		
 	if(file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
 		$lgs = '';
 		$pluginsConfig = WebDB::getDB('PLUGINS', $plugins.DS.'plugin', '.dat.json');
@@ -621,18 +622,18 @@ foreach(Files::Scan(ROOT.'plugins') as $plugins){
 '.(!$pluginsConfig['options']['canDisabled'] ? '<div data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['btn.disabled'].'">' : '').'
 <a'.($pluginsConfig['options']['canDisabled'] ? ' href="../config.php?name='.$plugins.'&action='.($pluginsConfig['active']!=='' ? 'deactive' : 'active').'"' : '').'><button '.(!$pluginsConfig['options']['canDisabled'] ? 'disabled="disabled"   ' : '').' class="plugin-btn '.($pluginsConfig['active']!=='' ? 'btn-success' : 'btn-danger').' w-100 m-0 btn theme-btn-active">'.($pluginsConfig['active']!=='' ? $lang['plugin.active'] : $lang['plugin.deactive']).'</button></a>
 '.(!$pluginsConfig['options']['canDisabled'] ? '</div>' : '').'
-'.(isset($pluginsConfig['options']['config']['use'])&&$pluginsConfig['options']['config']['use']&&$pluginsConfig['active'] ? '<div data-bs-toggle="modal" data-bs-target="#'.$plugins.'Modal" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['config.label'].$plugins.'"><button class="btn btn-secondary w-100 m-0">'.$lang['config.label'].'<i class="fas fa-user-cog"></i></button></div>' : '').'
+'.(isset($pluginsConfig['config']['use'])&&$pluginsConfig['config']['use']&&$pluginsConfig['active'] ? '<div data-bs-toggle="modal" data-bs-target="#'.$plugins.'Modal" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['config.label'].$plugins.'"><button class="btn btn-secondary w-100 m-0">'.$lang['config.label'].'<i class="fas fa-user-cog"></i></button></div>' : '').'
 </div>
 </div>';
-$out .= '<div class="modal fade modal-xl" id="'.$plugins.'Modal" tabindex="-1" aria-labelledby="'.$plugins.'Label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+$out .= '<div class="modal fade" id="'.$plugins.'Modal" tabindex="-1" aria-labelledby="'.$plugins.'Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content h-100">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">'.$lang['config'].$plugins.'</h5>
+        <h5 class="modal-title" id="exampleModalLabel">'.$lang['config'].'<em>'.$plugins.'</em></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <iframe class="w-100" frameborder="0" title="'.$plugins.'" src="../config.php/plugin/'.$plugins.'"></iframe>
+        <iframe class="w-100 h-100" frameborder="0" title="'.$plugins.'" src="../config.php/plugin/'.$plugins.'"></iframe>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">'.$lang['btn.close'].'</button>

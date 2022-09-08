@@ -42,6 +42,8 @@ if(!is_dir('api')||!file_exists('api/')){
 #defined
 !defined('DS') ? define('DS', '/') : '';
 !defined('ROOT') ? define('ROOT', __DIR__.DS) : '';
+!defined('CONFIG_SAVE') ? define('CONFIG_SAVE','../save/') : '';
+!defined('CONFIG_LOAD') ? define('CONFIG_LOAD','../plugin/') : '';
 $BASEPATH = '.';
 
 
