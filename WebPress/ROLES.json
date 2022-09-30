@@ -1,0 +1,88 @@
+{
+	"roles":{
+		"admin":{
+			"name": "admin",
+			"description": "Has full access to all actions and ban/warn and see all panel elements",
+			"options":{
+					"view":true,
+					"write": true,
+					"read": true,
+					"delete": true,
+					"ban": true,
+					"warn": true,
+					"post": true,
+					"reply": true,
+					"onComingMessages": true,
+					"activePlugins": true,
+					"activeThemes": true,
+					"config": true,
+					"changeRoles": true,
+					"filemanager": true,
+					"changeProfile": true
+			}
+		},
+		"moderator":{
+			"name": "moderator",
+			"description": "Has co-admin actions can warn users and remove users posts(like admins)",
+			"options":{
+					"view":true,
+					"write": true,
+					"read": true,
+					"delete": true,
+					"ban": false,
+					"warn": true,
+					"post": true,
+					"reply": true,
+					"onComingMessages": true,
+					"activePlugins": false,
+					"activeThemes": false,
+					"config": false,
+					"changeRoles": false,
+					"filemanager": false,
+					"changeProfile": true
+			}
+		},
+		"member":{
+			"name": "member",
+			"description": "Just like regular users, they can post/read/edit posts for themselves, nobody else, but reply and report",
+				"options":{
+					"view":true,
+					"write": true,
+					"read": true,
+					"delete": true,
+					"ban": false,
+					"warn": false,
+					"post": true,
+					"reply": true,
+					"onComingMessages": true,
+					"activePlugins": false,
+					"activeThemes": false,
+					"config": false,
+					"changeRoles": false,
+					"filemanager": false,
+					"changeProfile": true
+				}
+			},
+		"guest":{
+			"name": "guest",
+			"description": "Boring users, they must register to do stuff.",
+			"options":{
+					"view":true,
+					"write": false,
+					"read": true,
+					"delete": false,
+					"ban": false,
+					"warn": false,
+					"post": false,
+					"reply": false,
+					"onComingMessages": false,
+					"activePlugins": false,
+					"activeThemes": false,
+					"config": false,
+					"changeRoles": false,
+					"filemanager": false,
+					"changeProfile": false
+				}	
+			}		
+		}
+	}

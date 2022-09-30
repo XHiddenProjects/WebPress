@@ -1,0 +1,287 @@
+[17-Sep-2022 21:55:27 America/New_York] PHP Parse error:  syntax error, unexpected token "(string)", expecting variable in C:\xampp\htdocs\WebPress\libs\toolkit.lib.php on line 59
+[20-Sep-2022 06:36:15 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: parse_url() expects at least 1 argument, 0 given in C:\xampp\htdocs\WebPress\dashboard.php:1182
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\dashboard.php(1182): parse_url()
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1182
+[22-Sep-2022 17:33:37 America/New_York] PHP Warning:  Undefined variable $setClass in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[22-Sep-2022 17:33:49 America/New_York] PHP Warning:  Undefined variable $setClass in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[22-Sep-2022 17:34:11 America/New_York] PHP Warning:  Undefined variable $setClass in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[22-Sep-2022 17:34:45 America/New_York] PHP Warning:  Undefined variable $setClass in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[22-Sep-2022 17:34:59 America/New_York] PHP Warning:  Undefined variable $setClass in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[23-Sep-2022 06:06:46 America/New_York] PHP Deprecated:  show_source(): Passing null to parameter #1 ($filename) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[23-Sep-2022 06:06:46 America/New_York] PHP Warning:  show_source(): Failed opening '' for highlighting in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[23-Sep-2022 06:06:46 America/New_York] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\WebPress\libs\Editor.lib.php:87
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\Editor.lib.php(87): show_source('')
+#1 C:\xampp\htdocs\WebPress\dashboard.php(1183): Editor->createEditor('wysiwyg', false)
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:31 America/New_York] PHP Warning:  file_get_contents({ROOT.$path.$send}): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:45:42 America/New_York] PHP Warning:  file_get_contents(ROOT.$path.$send): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 87
+[24-Sep-2022 06:49:43 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:49:43 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:50:11 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:50:11 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:50:48 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:50:48 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:52:19 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:52:20 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:53:38 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 06:53:38 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 07:00:14 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 07:00:14 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 07:02:56 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 07:02:56 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 12:57:20 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 12:57:20 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 12:58:16 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 12:58:16 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 13:00:30 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 13:00:30 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 13:00:50 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 13:00:50 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 13:03:46 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[24-Sep-2022 13:03:46 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[25-Sep-2022 13:10:22 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1181
+[25-Sep-2022 13:10:22 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1194
+[25-Sep-2022 13:10:41 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1194
+[25-Sep-2022 13:11:42 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1195
+[25-Sep-2022 13:12:43 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1196
+[25-Sep-2022 13:12:54 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1196
+[25-Sep-2022 13:13:05 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1196
+[25-Sep-2022 13:13:23 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1196
+[25-Sep-2022 13:13:49 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1196
+[25-Sep-2022 13:14:15 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1195
+[25-Sep-2022 13:15:00 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1194
+[25-Sep-2022 13:15:31 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1194
+[25-Sep-2022 13:15:54 America/New_York] PHP Fatal error:  Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\WebPress\dashboard.php:1194
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\dashboard.php(1194): implode(' ', 'conf/')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1194
+[25-Sep-2022 13:16:25 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1194
+[25-Sep-2022 13:17:20 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:19:43 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:21:54 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:22:27 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:23:12 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:24:19 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:25:32 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:33:57 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 13:35:00 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1193
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 185
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 186
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Undefined variable $lang in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:43:30 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 187
+[25-Sep-2022 19:44:34 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1190
+[25-Sep-2022 19:46:00 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1190
+[26-Sep-2022 06:26:03 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1190
+[26-Sep-2022 15:43:48 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function FileOpts() in C:\xampp\htdocs\WebPress\dashboard.php:1173
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1173
+[26-Sep-2022 15:44:06 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function FileOpts() in C:\xampp\htdocs\WebPress\dashboard.php:1173
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1173
+[26-Sep-2022 15:44:56 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined method Files::FileOpts() in C:\xampp\htdocs\WebPress\dashboard.php:1173
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1173
+[26-Sep-2022 15:54:03 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1245
+[26-Sep-2022 20:08:52 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1272
+[26-Sep-2022 20:08:52 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1272
+[26-Sep-2022 20:08:52 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1272
+[26-Sep-2022 20:11:21 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1276
+[26-Sep-2022 20:11:21 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1276
+[26-Sep-2022 20:11:21 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1276
+[26-Sep-2022 20:12:10 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1279
+[26-Sep-2022 20:12:10 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1279
+[26-Sep-2022 20:12:10 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1279
+[26-Sep-2022 20:12:15 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1279
+[26-Sep-2022 20:12:15 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1279
+[26-Sep-2022 20:12:15 America/New_York] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\WebPress\dashboard.php on line 1279
+[26-Sep-2022 20:16:19 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1275
+[26-Sep-2022 20:28:17 America/New_York] PHP Warning:  Undefined array key "read" in C:\xampp\htdocs\WebPress\dashboard.php on line 1269
+[26-Sep-2022 20:28:17 America/New_York] PHP Warning:  Undefined array key "write" in C:\xampp\htdocs\WebPress\dashboard.php on line 1270
+[26-Sep-2022 20:28:17 America/New_York] PHP Warning:  Undefined array key "exec" in C:\xampp\htdocs\WebPress\dashboard.php on line 1271
+[26-Sep-2022 21:07:33 America/New_York] PHP Warning:  Undefined variable $zero in C:\xampp\htdocs\WebPress\dashboard.php on line 1277
+[26-Sep-2022 21:07:49 America/New_York] PHP Warning:  Undefined variable $zero in C:\xampp\htdocs\WebPress\dashboard.php on line 1277
+[26-Sep-2022 21:26:05 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1295
+[27-Sep-2022 06:30:51 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1298
+[27-Sep-2022 06:31:02 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1298
+[28-Sep-2022 06:31:55 America/New_York] PHP Parse error:  syntax error, unexpected single-quoted string "expect.lang", expecting ")" in C:\xampp\htdocs\WebPress\lang\en-US.php on line 406
+[28-Sep-2022 21:35:43 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1320
+[28-Sep-2022 21:36:50 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:37:02 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:37:42 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1322
+[28-Sep-2022 21:37:50 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:37:59 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:38:07 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:38:13 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:38:35 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1321
+[28-Sep-2022 21:45:46 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1317
+[28-Sep-2022 21:50:01 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\dashboard.php on line 1340
+[28-Sep-2022 21:50:22 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\dashboard.php on line 1340
+[28-Sep-2022 21:52:57 America/New_York] PHP Warning:  Undefined array key "oldname" in C:\xampp\htdocs\WebPress\dashboard.php on line 1340
+[28-Sep-2022 21:53:11 America/New_York] PHP Warning:  Undefined array key "oldname" in C:\xampp\htdocs\WebPress\dashboard.php on line 1340
+[28-Sep-2022 22:05:13 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: getlastmod() expects exactly 0 arguments, 1 given in C:\xampp\htdocs\WebPress\dashboard.php:1162
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\dashboard.php(1162): getlastmod('C:\\xampp\\htdocs...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1162
+[29-Sep-2022 06:21:30 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1385
+[29-Sep-2022 06:21:38 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1385
+[29-Sep-2022 06:33:55 America/New_York] PHP Warning:  fopen(C:\xampp\htdocs\WebPress/): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\dashboard.php on line 1156
+[29-Sep-2022 17:29:33 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:29:33 America/New_York] PHP Warning:  filter_var(): Unknown filter with ID 787 in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:29:33 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\auth.php on line 192
+[29-Sep-2022 17:29:33 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\auth.php on line 192
+[29-Sep-2022 17:31:48 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:31:48 America/New_York] PHP Warning:  filter_var(): Unknown filter with ID 787 in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:31:48 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\auth.php on line 192
+[29-Sep-2022 17:31:48 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\auth.php on line 192
+[29-Sep-2022 17:31:53 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:31:53 America/New_York] PHP Warning:  filter_var(): Unknown filter with ID 787 in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:31:53 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\auth.php on line 192
+[29-Sep-2022 17:31:53 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\auth.php on line 192
+[29-Sep-2022 17:32:39 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:32:39 America/New_York] PHP Warning:  filter_var(): Unknown filter with ID 787 in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:32:39 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\auth.php on line 193
+[29-Sep-2022 17:32:39 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\auth.php on line 193
+[29-Sep-2022 17:33:41 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 17:38:06 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1400
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:06 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:43:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:45:37 America/New_York] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 190
+[29-Sep-2022 17:59:39 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1400
+[29-Sep-2022 19:34:21 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[29-Sep-2022 19:41:39 America/New_York] PHP Warning:  Undefined array key "createFile" in C:\xampp\htdocs\WebPress\dashboard.php on line 1166
+[29-Sep-2022 20:02:09 America/New_York] PHP Parse error:  syntax error, unexpected token "public", expecting end of file in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 70
+[29-Sep-2022 20:14:22 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1459
