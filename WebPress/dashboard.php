@@ -1249,6 +1249,7 @@ if(isset($_POST['createFolder'])){
 	$audio = array('mp3', 'wav', 'ogg');
 	$video = array('mp4', 'mov', 'avi');
 	$compress = array('zip', '7z', 'rar', 'gz');
+	$pkg = array('webpkg', 'wpkg');
 	#sender 
 	foreach(Files::Scan(ROOT.$path) as $send){
 		$type = @end(explode('.',strtolower($send)));
@@ -1265,6 +1266,8 @@ if(isset($_POST['createFolder'])){
 			$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $compress)){
 			$out.= '<a style="text-decoration:none;color:#29ab87;" href="../download.php?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'path='.ROOT.$path.$send.'&name='.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-sharp fa-solid fa-file-zipper"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $pkg)){
+			$out.= '<a style="text-decoration:none;color:#39ff14;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-box"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $html)){
 			$out.= '<a style="text-decoration:none;color:#00ffff" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-html5"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $css)){
@@ -1447,6 +1450,7 @@ if(isset($_GET['edit'])){
 $out.='<div class="modal d-block" tabindex="-1" id="filemanager">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
+	<form method="post">
       <div class="modal-header">
         <h5 class="modal-title">'.$lang['file.manager.title'].'</h5>
       </div>
@@ -1456,13 +1460,20 @@ $out.='<div class="modal d-block" tabindex="-1" id="filemanager">
       <div class="modal-footer">
 	  <span class="text-secondary position-absolute start-0">'.(isset($_GET['edit']) ? str_replace('/','\\',$_GET['edit']) : '').'</span>
         <a href="./files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : '').'"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
-        <button type="button" class="btn btn-primary">'.$lang['btn.save'].'</button>
+        <button type="submit" name="saveFile" class="btn btn-success">'.$lang['btn.save'].'</button>
       </div>
+	  </form>
     </div>
   </div>
 </div>';
 }
 
+if(isset($_POST['saveFile'])){
+	$data = isset($_POST['editorText']) ? $_POST['editorText'] : '';
+	$open = fopen($_GET['edit'], 'w+');
+	fwrite($open, $data);
+	echo fclose($open) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'].'&' : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
+}
 	
 
 	
