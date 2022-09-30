@@ -1,0 +1,19 @@
+.line-numbers .line-numbers-rows{
+	left: -1.8em;
+}
+.line-numbers-rows > span{
+	 line-height: 1.2rem;
+}
+.fileeditor{
+	height:100%!important;
+}
+.fileeditor #editing, .fileeditor #highlighting{
+	height: 550px;
+}
+.fileeditor #highlighting-content{
+	padding-left:2%;
+	position:absolute;
+}
+.fileeditor #editing{
+	padding-left:2.5%;
+}
