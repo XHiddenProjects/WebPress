@@ -1,0 +1,13 @@
+{
+	"name": {
+		"en": "Default"
+	},
+	"active": "on",
+	"desc": {
+		"en":"This is a always active default theme that runs WebPress software with a bit of animations and style"
+	},
+	"options":{
+		"canDisabled": false,
+		"usedLang": ["en-US"]
+	}
+}
