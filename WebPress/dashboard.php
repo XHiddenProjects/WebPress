@@ -1472,7 +1472,12 @@ if(isset($_POST['saveFile'])){
 	$data = isset($_POST['editorText']) ? $_POST['editorText'] : '';
 	$open = fopen($_GET['edit'], 'w+');
 	fwrite($open, $data);
-	echo fclose($open) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'].'&' : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
+	echo @fclose($open) ? '<div style="z-index:10000;" class="alert alert-success alert-dismissible fade show position-absolute w-100 top-0" role="alert">'.$lang['files.manager.saved'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>' : '<div style="z-index:10000;" class="alert alert-danger w-100 position-absolute top-0 alert-dismissible fade show" role="alert">'.$lang['files.manager.error'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+	echo '<script>
+	setTimeout(function(){
+		window.open(window.location.href, "_self");
+	}, 3000);
+	</script>';
 }
 	
 

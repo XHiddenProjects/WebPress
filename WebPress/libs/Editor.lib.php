@@ -10,6 +10,7 @@ class Editor{
 	}
 	public function createEditor($editor, $displayUI=true, $customCode=null, $show_source=null){
 		$code='';
+		$show_source = $show_source;
 		$out = '';
 		$out .= '<div class="editorpanel" expended="false">';
 		$out .= Plugin::hook('editor');
@@ -83,7 +84,7 @@ class Editor{
 		}
 	
 		$out .= '<div class="editor">';
-		$out .= '<textarea id="editing" class="form-control lined" spellcheck="false" onkeydown="check_tab(this, event); createLineNum(event);" oninput="syntaxHighlight(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onselect="selectedString(this, \''.$editor.'\');">'.($show_source!==null ? htmlentities(file_get_contents($show_source)) : '').'</textarea>';
+		$out .= '<textarea id="editing" name="editorText" class="form-control lined" spellcheck="false" onkeydown="check_tab(this, event); createLineNum(event);" oninput="syntaxHighlight(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onselect="selectedString(this, \''.$editor.'\');">'.($show_source!==null ? htmlentities(file_get_contents($show_source)) : '').'</textarea>';
 		$out .= '	';
 		$out .= '<pre id="highlighting">
 					<code class="language-'.$code.'" id="highlighting-content">'.($show_source!==null ? htmlentities(file_get_contents($show_source)) : '').'</code>
