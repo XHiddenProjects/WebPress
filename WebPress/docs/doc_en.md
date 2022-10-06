@@ -114,7 +114,7 @@ Bans and Warnings should be use very rearly, but you (the admin) will have all a
 2. Username
 3. Hardware ID(Hard Ban)
 
-It can be temporary by using (`m-d-YtH:i:s`) format or type (`-1`) for _unlimited_ time
+It can be temporary by using (`m-d-Y H:i:s`) format or type (`-1`) for _unlimited_ time
 
 ###### __Warnings:__
 This can be used for counts how many times the user has been warned, this just counts up until banned/removed

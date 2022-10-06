@@ -2,16 +2,14 @@
     "name": {
         "en": "Notify"
     },
-    "active": "on",
+    "active": "",
     "version": "0.0.1",
     "desc": {
         "en": "Allow Users to get Notify on page load"
     },
     "config": {
         "use": true,
-        "banners": {
-            
-        }
+        "banners": []
     },
     "options": {
         "canDisabled": true,

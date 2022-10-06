@@ -16,6 +16,8 @@ echo head('Register', $BASEPATH);
 echo head('Login', $BASEPATH);		
 }elseif(preg_match('/\/logout/', $_SERVER['REQUEST_URI'])){
 echo head('Logout', $BASEPATH);		
+}elseif(preg_match('/\/delete/', $_SERVER['REQUEST_URI'])){
+echo head('Delete', $BASEPATH);		
 }
 
 ?>
@@ -166,6 +168,11 @@ echo $output;
 echo $output;
 }elseif(preg_match('/\/logout/', $_SERVER['REQUEST_URI'])){
 	echo Utils::redirect('auth.logout', 'auth.logout.desc', '../', 'danger');
+	session_unset();
+}elseif(preg_match('/\/delete/', $_SERVER['REQUEST_URI'])){
+	$user = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : 'error';
+	unset($user[$_GET['user']]);
+	echo @WebDB::saveDB('users', 'users', $user) ? Utils::redirect('auth.logout', 'auth.logout.desc', '../', 'danger') : 'error';
 	session_unset();
 }
 ?>

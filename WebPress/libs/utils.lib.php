@@ -6,7 +6,7 @@ class Utils{
 	public static function redirect($title, $desc, $redirect, $type='success'){
 		global $lang;
 		echo '
-		<div class="modal position-static d-block" tabindex="-1" style="z-index:1000;">
+		<div class="modal position-static d-block" tabindex="-1" style="z-index:10000;">
     <div class="modal-dialog">
       <div class="modal-content text-light bg-'.$type.'">
         <div class="modal-header">

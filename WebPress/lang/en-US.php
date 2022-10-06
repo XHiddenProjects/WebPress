@@ -60,6 +60,7 @@ $lang = array(
 'dashboard.config.panel.editor'=>'Editor',
 'dashboard.config.panel.emaildisabled'=>'You cannot change this, please upgrade',
 'dashboard.config.panel.emailHelp'=>'Enter your custom domain to allow it',
+'dashboard.config.panel.icons'=>'Website Logo',
 'dashboard.userKey'=>'Public Key',
 'dashboard.userKey.copy'=>'Copy Public Key',
 'dashboard.userPKey'=>'Private Key',
@@ -112,7 +113,7 @@ $lang = array(
 'dashboard.graph.views.unique'=>'unique',
 'dashboard.graph.views.y'=>'Views on webpage',
 'dashboard.graph.views.subtitle'=>'This will be clear out on ',
-'dashboard.profile.title'=>'About the Admin',
+'dashboard.profile.title'=>'About the User',
 'dashboard.profile.hardwareID'=>'Hardware ID: ',
 'dashboard.profile.about'=>'<b>About: </b>',
 'dashboard.profile.timezone'=>'<b>Timezone: </b>',
@@ -199,6 +200,7 @@ $lang = array(
 'modal.profile.name'=>'Enter Name',
 'modal.profile.oldpsw'=>'Old Password',
 'modal.profile.newpsw'=>'Enter New Password',
+'modal.profile.delete'=>'Delete Account',
 'modal.profile.newpsw.note'=>'Must have Old Password',
 'modal.profile.about'=>'About Yourself',
 'modal.profile.upload'=>'Upload Logo(PNG files only)',
@@ -253,7 +255,7 @@ $lang = array(
 'contact.email.placeholder'=>'Enter Your Email Address',
 'contact.emailto'=>'<i class="fas fa-asterisk text-danger"></i> To:',
 'contact.emailto.placeholder'=>'Enter Persons Email Address: (use \',\' to seperate)',
-'contact.to.example'=>'Example: {user1}:<{email1}>, {user2}:<{email2}>...',
+'contact.to.example'=>'Example: user1:<{email1}>, user2:<{email2}>...',
 'contact.senderAs'=>'Sending as',
 'contact.name'=>'<i class="fas fa-asterisk text-danger"></i> Name',
 'contact.name.placeholder'=>'Enter Full Name',
@@ -391,6 +393,7 @@ $lang = array(
 # files
 'file.locked.folder'=>'This folder is locked',
 'file.locked.file'=>'This file is locked',
+'file.locked.file'=>'This file is locked',
 'file.manager.title'=>'File Manager',
 'file.managerchmod.title'=>'Change Permissions',
 'file.managerchmod.u'=>'Owner Rights',
@@ -415,8 +418,10 @@ $lang = array(
 'file.manager.fileUpload'=>'Upload Files here: ',
 'file.manager.folderUpload'=>'Upload Folders here: ',
 'files.uploadFiles.msg'=>'Upload Files',
+'files.manager.saved'=>'File Successfully saved, reloading page to update file...',
+'files.manager.error'=>'Error: could not save file, reloading page to update file..',
 #expectations
 'expect.lang'=>'You must have '.$conf['lang'].'.php',
-'expect.guest'=>'<i class="fa-sharp fa-solid fa-triangle-exclamation"></i> You are in guest mode, you cannot do anything but read/view/register/login'
+'expect.guest'=>'<i class="fa-sharp fa-solid fa-triangle-exclamation"></i> You are in guest mode, you cannot do anything but read/view/register/login, please <a href="./auth.php/login">login</a> or <a href="./auth.php/register">register</a> and account'
 );
 ?>

@@ -131,7 +131,3 @@ deny from all
 
 # Sitemaps
 RewriteRule ^sitemap\.xml/?$ sitemap.php
-
-
-
-

@@ -48,8 +48,8 @@ public static function hasPermission($access){
 	$getRole = WebDB::getDB('users', 'users')[$_SESSION['user']]['type'];
 	return isset($roles['roles'][$getRole]['options'][$access])&&$roles['roles'][$getRole]['options'][$access] ? true : false;
 }
-public static function getRole(){
-	return @WebDB::getDB('users', 'users')[$_SESSION['user']]['type'];
+public static function getRole($name=null){
+	return @WebDB::getDB('users', 'users')[($name!=='' ? $name : $_SESSION['user'])]['type'];
 }
 #list Users
 public static function ListUsers(){
@@ -111,7 +111,8 @@ public static function editProfile($base=''){
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">'.$lang['btn.close'].'</button>
+	    '.(!Users::isAdmin() ? '<a href="../auth.php/delete?user='.$_SESSION['user'].'"><button type="button" class="btn btn-danger">'.$lang['modal.profile.delete'].'</button></a>' : '').
+        '<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">'.$lang['btn.close'].'</button>
       </div>
     </div>
   </div>
@@ -234,6 +235,31 @@ public static function editProfile($base=''){
 	 }
 	 
  } 
+ /*actions*/
+ public static function ban($username, $type, $time='-1', $reason=''){
+	 $db = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : '';
+	 $db[$username]['ban']['isBanned'] = true;
+	 $db[$username]['ban']['reason'] = $reason;
+	 $db[$username]['ban']['time'] = $time!==(int)'-1' ? date_format(date_create($time), 'm/d/Y H:i:s') : (int)'-1';
+	 $db[$username]['ban']['duration'] = date_diff(date_create(date('m/d/Y H:i:s')),date_format(date_create($time), 'm/d/Y H:i:s'));
+	 $db[$username]['ban']['bannedBy'] = $type;
+	 WebDB::saveDB('users', 'users', $db);
+ }
+ public static function unban($username){
+	 $db = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : '';
+	 $db[$username]['ban']['isBanned'] = false;
+	 $db[$username]['ban']['reason'] = '';
+	 $db[$username]['ban']['time'] = '';
+	 $db[$username]['ban']['duration'] = '';
+	 $db[$username]['ban']['bannedBy'] = '';
+	 WebDB::saveDB('users', 'users', $db);
+ }
+ public static function warn($username, $level=0, $desc=''){
+	 $db = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : '';
+	 $db[$username]['warn']['level'] = (int) $level;
+	 $db[$username]['warn']['desc'] = $desc;
+	 WebDB::saveDB('users', 'users', $db);
+ }
 }
 
 

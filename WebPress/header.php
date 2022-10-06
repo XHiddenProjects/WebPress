@@ -45,6 +45,7 @@ Users::isProVersion() ? '@webpress.com' : $conf['allowedEmail'];
 		 fclose($open);
 	 }
 
+
 if(Users::getSession()){
 	$d = WebDB::DBexists('users', 'users') ? WebDB::getDB('users', 'users') : '';
 	if($d[Users::getSession()]['ip']!==Users::getRealIP()){
@@ -164,7 +165,10 @@ isset($conf['page']['public'])&&!$conf['page']['public'] ? $header.='<script>win
 $header.= ($pageTheme!=="default" ? '<link rel="stylesheet" href="'.$basePath.'/themes/default/css/style.css?v='.uniqid().'"></link>' : '');
 $themeSelect = array_diff(scandir('themes/'.$pageTheme.'/css/'), ['.','..']);
 foreach($themeSelect as $themes){
-	$header.= '<link rel="stylesheet" href="'.$basePath.'/themes/'.$pageTheme.'/css/'.$themes.'?v='.uniqid().'"></link>';
+	$getDB = WebDB::getDB('themes', $pageTheme.'/theme', '.conf.json');
+	if($getDB['active']){
+	$header.= '<link rel="stylesheet" href="'.$basePath.'/themes/'.$pageTheme.'/css/'.$themes.'?v='.uniqid().'"></link>';	
+	}
 }
 $header.= Plugin::hook('head');
 $header.='</head>';

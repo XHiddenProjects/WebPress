@@ -44,11 +44,12 @@ if(isset($_SESSION['guest'])){
 			<?php
 			if(!Users::getSession()){
 			echo '<li><a class="dropdown-item" href="./auth.php/login"> '.$lang['index.loginbtn'].'</a></li>';
-			}elseif(!Users::isAdmin() && !Users::isMod()){
+			}elseif(!Users::isAdmin() && !Users::isMod() && !Users::isMember()){
 			echo '<li><a class="dropdown-item" href="./auth.php/logout"> '.$lang['index.loginoutbtn'].'</a></li>';	
 			}else{
 				echo '<li><a class="dropdown-item" href="./dashboard">'.$lang['index.dashboardbtn'].'</a></li>';
 			}
+
 			?>
        
          </ul>

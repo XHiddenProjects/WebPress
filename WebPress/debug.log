@@ -3,3 +3,222 @@
 " in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 156
 [29-Sep-2022 20:20:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 156
 [29-Sep-2022 20:20:02 America/New_York] PHP Warning:  file_get_contents(C:\xampp\htdocs\WebPress/ROLES.json): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 47
+[30-Sep-2022 06:06:03 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[30-Sep-2022 06:10:29 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1462
+[30-Sep-2022 06:10:30 America/New_York] PHP Fatal error:  Cannot redeclare head() (previously declared in C:\xampp\htdocs\WebPress\header.php:91) in C:\xampp\htdocs\WebPress\header.php on line 91
+[30-Sep-2022 06:12:31 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:13:18 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:14:00 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:17:51 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:17:58 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:18:06 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:19:55 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:20:12 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:20:45 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:21:36 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:21:41 America/New_York] PHP Warning:  file_get_contents(1): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 86
+[30-Sep-2022 06:21:41 America/New_York] PHP Warning:  file_get_contents(1): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\Editor.lib.php on line 89
+[30-Sep-2022 06:21:41 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:22:10 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:23:48 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:24:07 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:24:54 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:24:57 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:25:53 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:26:33 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:26:43 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:26:55 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:27:55 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:28:01 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:28:34 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:28:40 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:29:08 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:29:14 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:29:23 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:30:03 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:30:07 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:30:19 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[30-Sep-2022 06:30:45 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:18:56 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 07:20:04 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:20:22 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:25:54 America/New_York] PHP Warning:  Undefined array key "btn.filemanagerSave" in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:25:54 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:26:09 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:26:15 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:27:20 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:27:51 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:29:38 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:30:52 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:32:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:33:00 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:33:04 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:33:09 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:35:12 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:35:17 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:35:44 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:35:53 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:35:57 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:01 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:05 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:09 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:13 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:16 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:30 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:36:50 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:37:18 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:37:26 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:37:30 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:37:49 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:37:53 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 07:47:11 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1463
+[01-Oct-2022 11:58:27 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 11:58:48 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 11:58:56 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 12:14:44 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 12:16:16 America/New_York] PHP Warning:  Undefined array key "TestSub" in C:\xampp\htdocs\WebPress\dashboard.php on line 758
+[01-Oct-2022 12:16:19 America/New_York] PHP Warning:  Undefined array key "TestSub" in C:\xampp\htdocs\WebPress\dashboard.php on line 758
+[01-Oct-2022 12:16:45 America/New_York] PHP Warning:  Undefined array key "TestSub" in C:\xampp\htdocs\WebPress\dashboard.php on line 758
+[01-Oct-2022 12:23:31 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\header.php on line 43
+[01-Oct-2022 12:23:31 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\header.php on line 43
+[01-Oct-2022 12:23:31 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\header.php on line 43
+[01-Oct-2022 12:23:31 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\header.php on line 43
+[01-Oct-2022 12:24:19 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 12:34:44 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 12:36:38 America/New_York] PHP Fatal error:  Uncaught Error: Class "User" not found in C:\xampp\htdocs\WebPress\index.php:47
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\WebPress\index.php on line 47
+[01-Oct-2022 12:37:53 America/New_York] PHP Fatal error:  Uncaught Error: Class "User" not found in C:\xampp\htdocs\WebPress\index.php:47
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\WebPress\index.php on line 47
+[01-Oct-2022 12:39:30 America/New_York] PHP Fatal error:  Uncaught Error: Class "User" not found in C:\xampp\htdocs\WebPress\index.php:47
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\WebPress\index.php on line 47
+[01-Oct-2022 12:40:13 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 12:47:44 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[01-Oct-2022 12:52:32 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[02-Oct-2022 07:01:32 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 5 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 5 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 6 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 6 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 7 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 7 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 8 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 8 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 9 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:04:42 America/New_York] PHP Warning:  Undefined array key 9 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 5 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 5 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 6 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 6 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 7 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 7 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 8 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 8 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 9 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:05:20 America/New_York] PHP Warning:  Undefined array key 9 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 5 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 5 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 6 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 6 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 7 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 7 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 8 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 8 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 9 in C:\xampp\htdocs\WebPress\dashboard.php on line 1532
+[02-Oct-2022 07:06:29 America/New_York] PHP Warning:  Undefined array key 9 in C:\xampp\htdocs\WebPress\dashboard.php on line 1533
+[02-Oct-2022 07:19:56 America/New_York] PHP Warning:  scandir(C:\xampp\htdocs\WebPress/packages/): The system cannot find the file specifi (code: 2) in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 133
+[02-Oct-2022 07:19:56 America/New_York] PHP Warning:  scandir(C:\xampp\htdocs\WebPress/packages/): Failed to open directory: No such file or directory in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 133
+[02-Oct-2022 07:19:56 America/New_York] PHP Warning:  scandir(): (errno 2): No such file or directory in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 133
+[02-Oct-2022 07:19:56 America/New_York] PHP Fatal error:  Uncaught TypeError: array_diff(): Argument #1 ($array) must be of type array, bool given in C:\xampp\htdocs\WebPress\libs\files.lib.php:133
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\files.lib.php(133): array_diff(false, Array)
+#1 C:\xampp\htdocs\WebPress\dashboard.php(1262): Files::Scan('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\files.lib.php on line 133
+[02-Oct-2022 07:23:31 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\dashboard.php on line 1427
+[02-Oct-2022 07:23:40 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\dashboard.php on line 1427
+[02-Oct-2022 07:28:04 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1428
+[02-Oct-2022 07:30:40 America/New_York] PHP Warning:  file_get_contents(C:\xampp\htdocs\WebPress/VERSION): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 138
+[02-Oct-2022 07:30:40 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 156
+[02-Oct-2022 07:30:40 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 156
+[02-Oct-2022 07:30:40 America/New_York] PHP Warning:  file_get_contents(C:\xampp\htdocs\WebPress/VERSION): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 130
+[02-Oct-2022 07:30:41 America/New_York] PHP Warning:  file_get_contents(C:\xampp\htdocs\WebPress/VERSION): Failed to open stream: No such file or directory in C:\xampp\htdocs\WebPress\libs\utils.lib.php on line 130
+[02-Oct-2022 16:34:03 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 174
+[02-Oct-2022 16:36:07 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1474
+[02-Oct-2022 16:59:21 America/New_York] PHP Parse error:  Unclosed '[' does not match ')' in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 16:59:46 America/New_York] PHP Warning:  Undefined variable $BASEPATH in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:10:43 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:10:58 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:11:25 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:11:26 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:11:37 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:20 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:21 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:21 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:21 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:21 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:32 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:32 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:33 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:33 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:38 America/New_York] PHP Parse error:  syntax error, unexpected token ":" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:43 America/New_York] PHP Parse error:  syntax error, unexpected token "?" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:12:59 America/New_York] PHP Parse error:  syntax error, unexpected single-quoted string "<a href="../auth.php?delete=" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:13:03 America/New_York] PHP Parse error:  syntax error, unexpected token ")" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 114
+[02-Oct-2022 17:14:13 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[02-Oct-2022 17:17:12 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[02-Oct-2022 17:17:12 America/New_York] PHP Warning:  Undefined array key "test" in C:\xampp\htdocs\WebPress\auth.php on line 199
+[02-Oct-2022 17:17:12 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\auth.php on line 199
+[02-Oct-2022 17:17:25 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[02-Oct-2022 17:18:04 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\auth.php on line 174
+[02-Oct-2022 18:38:02 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Oct-2022 20:43:29 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Oct-2022 20:46:55 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Oct-2022 20:47:12 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Oct-2022 20:47:21 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[05-Oct-2022 06:36:03 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[05-Oct-2022 20:35:12 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[05-Oct-2022 20:39:54 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\header.php on line 169
+[05-Oct-2022 20:40:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\header.php on line 170
+[05-Oct-2022 20:40:18 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\header.php on line 170
+[05-Oct-2022 20:40:40 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\header.php on line 171
+[05-Oct-2022 20:52:49 America/New_York] PHP Warning:  Undefined array key "page-icon" in C:\xampp\htdocs\WebPress\dashboard.php on line 424
+[05-Oct-2022 20:52:49 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 424
+[05-Oct-2022 20:52:49 America/New_York] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\WebPress\dashboard.php on line 424
+[05-Oct-2022 20:53:08 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 424
+[05-Oct-2022 20:53:08 America/New_York] PHP Warning:  Undefined array key "page-icon" in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:53:08 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:53:08 America/New_York] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:53:20 America/New_York] PHP Warning:  Undefined array key "page-icon" in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:53:20 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:53:20 America/New_York] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:54:18 America/New_York] PHP Warning:  Undefined array key "page-icon" in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:54:18 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:54:18 America/New_York] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:54:53 America/New_York] PHP Warning:  Undefined array key "page-icon" in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:54:53 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:54:53 America/New_York] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\WebPress\dashboard.php on line 425
+[05-Oct-2022 20:55:14 America/New_York] PHP Warning:  Undefined array key "page-icon" in C:\xampp\htdocs\WebPress\dashboard.php on line 426
+[05-Oct-2022 20:55:14 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 426
+[05-Oct-2022 20:55:14 America/New_York] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\xampp\htdocs\WebPress\dashboard.php on line 426
+[06-Oct-2022 18:14:22 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[06-Oct-2022 18:23:09 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:26:00 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:26:26 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:26:52 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:27:28 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:28:44 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:29:35 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1546
+[06-Oct-2022 18:29:58 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:30:15 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:32:02 America/New_York] PHP Fatal error:  Uncaught TypeError: implode(): Argument #2 ($array) must be of type ?array, string given in C:\xampp\htdocs\WebPress\dashboard.php:1545
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\dashboard.php(1545): implode(' ', 'Save Changes')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\dashboard.php on line 1545
+[06-Oct-2022 18:32:16 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1545

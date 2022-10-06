@@ -249,8 +249,10 @@ $out.='</div>';
 	<div class="row">
 	<div class="col">
 	<p class="card-text overflow-auto h-100">'.$lang['dashboard.profile.about'].$d[$_SESSION['user']]['about'].'</p>
-	</div>
-	<div class="col">
+	</div>';
+	
+	if(Users::isAdmin()){
+			$out.='<div class="col">
 		<label class="form-label" for="user-api"><b>'.$lang['dashboard.userKey'].'</b></label>
 	<div class="input-group">
 	  <input type="text" id="user-api" class="form-control" readonly="" value="'.$token.'"/>
@@ -263,9 +265,9 @@ $out.='</div>';
 	  <input type="text" id="user-private-api" class="form-control" readonly="" value="'.(!file_exists(ROOT.'api'.DS.'KEYS') ? CSRF::generate() : hash('gost', hash('sha512',CSRF::hide()))).'"/>
 	<button onclick="copyPrivateKey()" class="btn btn-secondary input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['dashboard.userPKey.copy'].'"><i class="fas fa-copy"></i></button>
 	</div>
-	</div>
-
-	</div>
+	</div>';
+	}
+	$out.='</div>
 	
 		<div class="row" '.(Users::isAdmin() ? '' : 'hidden="hidden"').'>
 	<div class="col">
@@ -413,6 +415,56 @@ Utils::isPost('removedAvatar', false, function(){
 	</select>
 	</div>
 	</div>';
+	$out.='<div class="row">
+	<h4>'.$lang['dashboard.config.panel.icons'].'</h4>
+	<div class="col">
+	<label class="form-label">16x16</label>
+	<div class="input-group">	
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon16" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['16']).'"/>
+	</div>
+	<label class="form-label">24x24</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon24" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['24']).'"/>
+	</div>
+	<label class="form-label">32x32</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon32" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['32']).'"/>
+	</div>
+	<label class="form-label">48x48</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon48" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['48']).'"/>
+	</div>
+	<label class="form-label">64x64</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon64" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['64']).'"/>
+	</div>
+	<label class="form-label">96x96</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon96" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['96']).'"/>
+	</div>
+	<label class="form-label">128x128</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon128" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['128']).'"/>
+	</div>
+	<label class="form-label">256x256</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon256" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['256']).'"/>
+	</div>
+	<label class="form-label">512x512</label>
+	<div class="input-group">
+	<label class="input-group-text">themes/</label>
+	<input type="text" name="icon512" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['512']).'"/>
+	</div>
+	</div>
+	</div>';
 	$out.='<hr class="border border-5 border-primary"/>';
 	$out.='<h1 class="text-center">'.$lang['dashboard.config.seo.title'].' </h1>';
 	$out.='<h5><a href="'.$BASEPATH.'/sitemap.xml">'.$lang['sitemap.title'].'</a></h5>';
@@ -529,6 +581,16 @@ Utils::isPost('removedAvatar', false, function(){
 		#$catche = isset($_POST['clearCatche'])&&$_POST['clearCatche']!=='' ? $_POST['clearCatche'] : '';
 		$emaildomain = isset($_POST['customemaildomain'])&&$_POST['customemaildomain']!==''&&Users::isProVersion() ? '@'.$_POST['customemaildomain'] : $conf['allowedEmail'];
 		$editor = isset($_POST['editor'])&&$_POST['editor']!=='' ? $_POST['editor'] : $conf['editor'];
+		$icon16 = isset($_POST['icon16'])&&$_POST['icon16']!=='' ? 'themes/'.$_POST['icon16'] : $conf['page']['page-icon']['16'];
+		$icon24 = isset($_POST['icon24'])&&$_POST['icon24']!=='' ? 'themes/'.$_POST['icon24'] : $conf['page']['page-icon']['24'];
+		$icon32 = isset($_POST['icon32'])&&$_POST['icon32']!=='' ? 'themes/'.$_POST['icon32'] : $conf['page']['page-icon']['32'];
+		$icon48 = isset($_POST['icon48'])&&$_POST['icon48']!=='' ? 'themes/'.$_POST['icon16'] : $conf['page']['page-icon']['48'];
+		$icon64 = isset($_POST['icon64'])&&$_POST['icon64']!=='' ? 'themes/'.$_POST['icon64'] : $conf['page']['page-icon']['64'];
+		$icon96 = isset($_POST['icon96'])&&$_POST['icon96']!=='' ? 'themes/'.$_POST['icon96'] : $conf['page']['page-icon']['96'];
+		$icon128 = isset($_POST['icon128'])&&$_POST['icon128']!=='' ? 'themes/'.$_POST['icon128'] : $conf['page']['page-icon']['128'];
+		$icon256 = isset($_POST['icon256'])&&$_POST['icon256']!=='' ? 'themes/'.$_POST['icon256'] : $conf['page']['page-icon']['256'];
+		$icon512 = isset($_POST['icon512'])&&$_POST['icon512']!=='' ? 'themes/'.$_POST['icon512'] : $conf['page']['page-icon']['512'];
+		
 		
 		$d['page']['errors']['400'] = $e400;
 		$d['page']['errors']['401'] = $e401;
@@ -555,6 +617,16 @@ Utils::isPost('removedAvatar', false, function(){
 		$d['page']['panel']['console'] = $displayConsole;
 		$d['allowedEmail'] = $emaildomain;
 		$d['editor'] = $editor;
+		$d['page']['page-icon']['16'] = $icon16;
+		$d['page']['page-icon']['24'] = $icon24;
+		$d['page']['page-icon']['32'] = $icon32;
+		$d['page']['page-icon']['48'] = $icon48;
+		$d['page']['page-icon']['64'] = $icon64;
+		$d['page']['page-icon']['96'] = $icon96;
+		$d['page']['page-icon']['128'] = $icon128;
+		$d['page']['page-icon']['256'] = $icon256;
+		$d['page']['page-icon']['512'] = $icon512;
+		
 		
 		WebDB::saveDB('CONFIG', 'config', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/configs', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/config', 'danger');
 	});
@@ -736,6 +808,7 @@ foreach(Files::Scan('data/mail/') as $mails){
 	$mail = WebDB::getDB('mail', $mails);
 	$emailExp = '/\s\&lt\;([\w\W]+)\&gt\;/';
 	$users = WebDB::getDB('users', 'users');
+	if(isset($mail['msg']['to'][$session])){
 	$out.='<div class="alert'.($mail['msg']['status']==='new' ? ' alert-light' : ' alert-dark').'"><i class="fas fa-envelope"></i> '.$mail['msg']['subject'].'  <span class="float-end contact-options"><a href="./mail?sub='.$mails.($mail['msg']['status']==='new' ? '' : '&unread=true').'"><i class="fas fa-eye" data-bs-toggle="tooltip" data-bs-placement="top" title="'.($mail['msg']['status']==='new' ? $lang['contact.markasread'] : $lang['contact.markasunread']).'"></i></a>&nbsp;&nbsp;<i data-bs-toggle="modal" data-bs-target="#'.$mails.'_view" class="fab fa-readme" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['contact.readme'].'"></i></span></div>';
 	$out.='<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="'.$mails.'_view" tabindex="-1" aria-labelledby="'.$mails.'Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
@@ -792,6 +865,8 @@ foreach(Files::Scan('data/mail/') as $mails){
     </div>
   </div>
 </div>';
+	}
+	
 $out.='<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="sendMessageUI" tabindex="-1" aria-labelledby="sendMessageLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
@@ -1058,9 +1133,11 @@ if(isset($_GET['removeMessage'])){
     </tr>
   </thead><tbody>';
 	foreach($users as $user => $data){
+		$out.='<tr>';
 		$out.='<td>'.$user.'</td>';
 		$out.='<td>'.$data['type'].'</td>';
-		$out.='<td><button type="button"'.(Users::getRole()==='admin' ? ' disabled="disabled" ' : '').'class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#editRole" data-bs-user="'.$user.'"><i class="fa-solid fa-pencil"></i></button></td>';
+		$out.='<td><button type="button"'.(Users::getRole($user)==='admin' ? ' disabled="disabled" ' : '').'class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#editRole" data-bs-user="'.$user.'"><i class="fa-solid fa-pencil"></i></button></td>';
+		$out.='</tr>';
 	}
 	$out.='</tbody></table>';
 	$out.='<div class="modal fade" id="editRole" tabindex="-1" aria-labelledby="editRoleLabel" aria-hidden="true">
@@ -1082,7 +1159,9 @@ if(isset($_GET['removeMessage'])){
             <select type="text" class="form-control" id="roleSelect" name="roleSelect">';
 			$getRoles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
 			foreach($getRoles['roles'] as $role=>$info){
+				if($role!=='guest'){
 				$out .= '<option data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$info['description'].'" value="'.$role.'">'.$role.'</option>';
+				}
 			}
 			$out.='</select>
           </div>
@@ -1209,6 +1288,7 @@ if(isset($_POST['uploadFiles'])){
 	
 if(isset($_POST['createFile'])){
 	$name = isset($_POST['filename']) ? $_POST['filename'] : '';
+	$name = !strpos($name, '.') ? $name.'.file' : $name;
 	$file = fopen($_GET['createFile'].$name, 'w+') or die('Unable to open file');
 	@fclose($file) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
 }
@@ -1260,8 +1340,10 @@ if(isset($_POST['createFolder'])){
 			}else{
 			$out.= '<a href="./files?path='.$path.$send.'/" style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action"><span><i class="fa-solid fa-folder" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}	
+		}elseif(Files::LockedItem($send, array()) || !is_writable(ROOT.$path.$send)){
+		$out.= '<a><li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.file'].'" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-lock"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $apache)){
-			$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+			$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-circle-info"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $code)){
 			$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $compress)){
@@ -1445,12 +1527,12 @@ if(isset($_POST['renameFile'])){
 }
 # other
 if(isset($_GET['edit'])){
-	 preg_match('/((\w+\.\w+\.\w+)|(\w+\.\w+))/', $_GET['edit'], $out);
-	 $type = @end(explode('.',$out[0]));
+	 preg_match('/((\w+\.\w+\.\w+)|(\w+\.\w+))/', $_GET['edit'], $d);
+	 $type = @end(explode('.',$d[0]));
 $out.='<div class="modal d-block" tabindex="-1" id="filemanager">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
-	<form method="post">
+	<form method="post" style="height: 75%;">
       <div class="modal-header">
         <h5 class="modal-title">'.$lang['file.manager.title'].'</h5>
       </div>
