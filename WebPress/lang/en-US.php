@@ -255,7 +255,7 @@ $lang = array(
 'contact.email.placeholder'=>'Enter Your Email Address',
 'contact.emailto'=>'<i class="fas fa-asterisk text-danger"></i> To:',
 'contact.emailto.placeholder'=>'Enter Persons Email Address: (use \',\' to seperate)',
-'contact.to.example'=>'Example: user1:<{email1}>, user2:<{email2}>...',
+'contact.to.example'=>'Example: user1:<{user1email}>, user2:<{user2email}>...',
 'contact.senderAs'=>'Sending as',
 'contact.name'=>'<i class="fas fa-asterisk text-danger"></i> Name',
 'contact.name.placeholder'=>'Enter Full Name',
