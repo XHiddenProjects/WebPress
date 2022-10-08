@@ -669,7 +669,7 @@ foreach(Files::Scan(DATA_THEMES) as $themes){
 <div class="card-footer p-0">
 
 '.($themes==='default'&&!$themeConfig['options']['canDisabled'] ? '<div data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['btn.disabled'].'">' : '').'
-<button '.($themes==='default'&&!$themeConfig['options']['canDisabled'] ? 'disabled="disabled"   ' : '').' class="theme-btn '.($themeConfig['active']!=='' ? 'btn-success' : 'btn-danger').' w-100 m-0 btn theme-btn-active">'.($themeConfig['active']!=='' ? $lang['theme.active'] : $lang['theme.deactive']).'</button>
+<a'.($themeConfig['options']['canDisabled'] ? ' href="../config.php?type=themes&name='.$themes.'&action='.($themeConfig['active']!=='' ? 'deactive' : 'active').'"' : '').'><button '.($themes==='default'&&!$themeConfig['options']['canDisabled'] ? 'disabled="disabled"   ' : '').' class="theme-btn '.($themeConfig['active']!=='' ? 'btn-success' : 'btn-danger').' w-100 m-0 btn theme-btn-active">'.($themeConfig['active']!=='' ? $lang['theme.active'] : $lang['theme.deactive']).'</button></a>
 '.($themes==='default'&&!$themeConfig['options']['canDisabled'] ? '</div>' : '').'
 </div>
 </div></li>';
@@ -1296,7 +1296,6 @@ if(isset($_POST['createFolder'])){
 		$name = isset($_POST['filename']) ? $_POST['filename'] : '';
 	@mkdir($_GET['createFolder'].$name) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
 }
-	
 	$out.='<ol class="breadcrumb text-big container-p-x py-3 m-0">
 	<li class="breadcrumb-item"> 
 	<a href="./files">'.str_replace('/','',str_replace($_SERVER['DOCUMENT_ROOT'].'/','',str_replace('\\','/',ROOT))).'</a>

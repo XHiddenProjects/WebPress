@@ -40,7 +40,33 @@ if(preg_match('/\/config(?:\.php)\/save\/[\w]+/', $_SERVER['REQUEST_URI'])){
 	$out .= Plugin::hook('onSubmit');
 	echo $out;
 }
-if(isset($_GET['name'])&&isset($_GET['action'])){
+if(isset($_GET['type'])&&isset($_GET['name'])&&isset($_GET['action'])){
+	global $lang, $selLang;
+	include_once('lang/'.$selLang.'.php');
+	$out = '';
+	$out .= head('config', './');
+	echo $out;
+	$name = $_GET['name'];
+	$act = $_GET['action'];
+	$set='';
+	$d = WebDB::DBexists('themes', $name.'/theme', '.conf.json') ? WebDB::getDB('themes', $name.'/theme','.conf.json') : '';
+	if($act==='active'){
+		$set .= 'on';
+	}elseif($act==='deactive'){
+		$set.='';
+	}
+	
+	$d['active'] = $set;
+	for($i=0;$i<=3000;$i++){
+		if($i==3000){
+			$rewriteDB = fopen('themes/'.$name.'/theme.conf.json', 'w+');
+			$data = json_encode($d, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+			fwrite($rewriteDB, $data);
+			echo @fclose($rewriteDB) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/themes', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/themes', 'danger');
+		}
+	}
+	
+}elseif(isset($_GET['name'])&&isset($_GET['action'])){
 		global $lang, $selLang;
 	include_once('lang/'.$selLang.'.php');
 	$out = '';
