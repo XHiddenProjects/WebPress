@@ -121,10 +121,15 @@ class Utils{
 		}
 		
 	}
-	public static function isREQUEST($reciver, $func){
-		if(isset($_REQUEST[$reciver])){
+	public static function isREQUEST($reciver, $returnBool=false, $func=''){
+		if(!$returnBool){
+			if(isset($_REQUEST[$reciver])){
 		 return $func();
+			}
+		}else{
+			return isset($_REQUEST[$reciver]) && is_string($_REQUEST[$reciver]);
 		}
+		
 	}
 	public static function checkVersion(){
 		$v1 = file_get_contents(ROOT.'VERSION');

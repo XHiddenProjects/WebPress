@@ -122,7 +122,7 @@ date_default_timezone_set($timezone);
 	global $pageTitle, $defaultIcon, $appleIcon, $conf, $pageTheme, $lang;
 $header='';
 $email = '';
-$db = WebDB::getDB('USERS', 'users');
+$db = @WebDB::dbExists('USERS', 'users') ? WebDB::getDB('USERS', 'users') : [];
 foreach($db as $u => $data){
 	if($data['type'] === 'admin'){
 		$email = $data['email'];

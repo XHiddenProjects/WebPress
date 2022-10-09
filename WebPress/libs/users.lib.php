@@ -227,7 +227,7 @@ public static function editProfile($base=''){
     return md5($salt.md5($result));
 }
  public static function isBanned($username=null){
-	 $getUser = file_get_contents(DATA_USERS.'users.dat.json');
+	 $getUser = @file_get_contents(DATA_USERS.'users.dat.json');
 	 $d = json_decode($getUser, true);
 	 if(isset($d[$username]['ban']['isBanned'])||isset($d[self::getSession()]['ban']['isBanned'])){
 		$getUser = $username!==null ? $d[$username]['ban']['isBanned'] : $d[self::getSession()]['ban']['isBanned'];
