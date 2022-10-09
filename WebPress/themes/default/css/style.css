@@ -118,7 +118,7 @@ tt{
 	background-color:rgba(60,20,20,0.15);
 }
 
-.blockquote{
+.blockquote:not(.token){
 	border-left: 8px solid gray;
 	padding-left: 3px;
 }

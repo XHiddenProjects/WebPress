@@ -48,6 +48,8 @@ class Editor{
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->links().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->table().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->uploads().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->imgs().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->vids().'</li>';
 			$out .= '</ul>';
 			$out .= $this->WYSIWYG->divEdit();
 			$out .= $this->WYSIWYG->anchorEdit();
@@ -72,14 +74,38 @@ class Editor{
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->links().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->listing().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->align().'</li>';
-			$out .= $this->WYSIWYG->linksEdit();
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->uploads().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->imgs().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->vids().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->fullScreen().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->selectAll().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->copyText().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->pasteText().'</li>';
+			
 			$out .= '</ul>';
+			$out .= $this->WYSIWYG->linksEdit();
+			$out .= $this->WYSIWYG->uploadEdit();
 			}
 			
 		}elseif($editor==="markdown"){
 			$code='md';
 			if($displayUI){
-				
+					$out .= '<ul class="list-group flex-wrap border border-0 list-group-flush list-group-horizontal list-group-horizontal-sm wysiwyg-editor">';
+			$out.= '<li class="list-group-item">'.$this->WYSIWYG->paragraphFormat().'</li>';
+			$out.= '<li class="list-group-item">'.$this->WYSIWYG->bold().'</li>';
+			$out.= '<li class="list-group-item">'.$this->WYSIWYG->italic().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->links().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->blockqoute().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->listing().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->uploads().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->imgs().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->fullScreen().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->selectAll().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->copyText().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->pasteText().'</li>';
+			$out .= '</ul>';
+			$out .= $this->WYSIWYG->linksEdit();
+			$out .= $this->WYSIWYG->uploadEdit();
 			}
 		}
 	

@@ -278,10 +278,10 @@ public static function removeDir($dir){
 public static function minify($text, $type){
 		switch($type){
 			case 'css':
-			return preg_replace('/(\n)|(\n\r)|(\t)|(^\/\*[\w\W]+\*\/)$/', '', $text);
+			return preg_replace('/(\n)|(\n\r)|(\t)|(\/\*[\w\W]+\*\/)/', '', $text);
 			break;
 			case 'js':
-			return preg_replace('/(\n)|(\n\r)|(\t)|(^\/\*[\w\W]+\*\/$)|(^\/\/[^\n\r]+$)/', '', $text);
+			return preg_replace('/(\n)|(\n\r)|(\t)|(\/\*[\w\W]+\*\/)|(\/\/[^\n\r]+)/', '', $text);
 			break;
 		}
 	}

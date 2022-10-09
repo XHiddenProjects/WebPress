@@ -150,8 +150,8 @@ class BBCode extends BBlight
 	      return ($cur=='home') ? '🏞&hellip;' : '<img src="'.$match[1].'" class="img-fluid img-thumbnail" alt="image">'; 
 	    };
 
-		// Replace [img width=150,height=120]...[/img] with <img style="width:150px; height:120px" src="..."/>
-	    $this->bbcode_table["/\[img width=(\d+),height=(\d+)\](.*?)\[\/img\]/is"] = function ($match) {
+		// Replace [img width=150 height=120]...[/img] with <img style="width:150px; height:120px" src="..."/>
+	    $this->bbcode_table["/\[img width=(\d+) height=(\d+)\](.*?)\[\/img\]/is"] = function ($match) {
 		  global $cur;
 		  return ($cur=='home') ? '🏞&hellip;' : '<img style="width:' .$match[1]. 'px;height:' .$match[2]. 'px" src="' .$match[3]. '" class="img-fluid img-thumbnail" alt="image">';
 	    };
@@ -197,7 +197,7 @@ class BBCode extends BBlight
 	    };   
 
 	    // Replace [video]...[/video] with <iframe src="..."></iframe>
-	    $this->bbcode_table["/\[video width=(\d+),height=(\d+)\](.*?)\[\/video\]/s"] = function ($match) {
+	    $this->bbcode_table["/\[video width=(\d+) height=(\d+)\](.*?)\[\/video\]/s"] = function ($match) {
 		  global $cur;
 		  return ($cur=='home') ? '🎬&hellip; ' : '<video width="' .$match[1]. '" height="' .$match[2]. '" controls><source src="' .$match[3]. '" type="video/mp4">Your browser does not support the video tag or the file format of this video.</video>';	  
 	    }; 	     	    

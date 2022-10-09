@@ -301,6 +301,12 @@ class WYSIWYG
 				),
 				'selectAll'=>array(
 					'label'=>'<i class="fas fa-highlighter"></i>'
+				),
+				'imgs'=>array(
+					'label'=>'<i class="fa-solid fa-image"></i>'
+				),
+				'vids'=>array(
+					'label'=>'<i class="fa-solid fa-video"></i>'
 				)
 				
 		)
@@ -1089,6 +1095,24 @@ return $out;
 
 # end uploads
 
+function imgs(){
+		$out='';
+		$out .= '<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="div" onclick="createImg();">
+    '.$this->dict[$this->lang]['imgs']['label'].'
+  </button>
+</div>';
+return $out;
+}
+function vids(){
+	$out='';
+		$out .= '<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="div" onclick="createVids();">
+    '.$this->dict[$this->lang]['vids']['label'].'
+  </button>
+</div>';
+return $out;
+}
 
 
 	}
