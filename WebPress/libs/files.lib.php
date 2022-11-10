@@ -1,4 +1,4 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class Files{
 	protected function __construct(){
 		
@@ -62,7 +62,7 @@ public static function uploadToFileManager($name, $path){
   				$file = $_FILES[$name]['name'][$i];
  
   				// Upload file to $path
-  				return @move_uploaded_file($_FILES[$name]['tmp_name'][$i], $file);
+  				return @move_uploaded_file($_FILES[$name]['tmp_name'][$i], $path.$file);
  
  			}
 		}
@@ -285,5 +285,8 @@ public static function minify($text, $type){
 			break;
 		}
 	}
+public static function removeExtension($file, $type=DB_EXTENSIONS){
+	return @str_replace($type,'',$file);
+}
 }
 ?>

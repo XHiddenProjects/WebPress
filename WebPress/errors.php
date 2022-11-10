@@ -1,20 +1,10 @@
 <?php
-require('config.php');
-require('header.php');
+require_once('config.php');
+require_once('header.php');
 global $pageError, $conf;
-$type = http_response_code();
-$code='';
-if($type===400){
-	$code=400;
-}elseif($type===401){
-	$code=401;
-}elseif($type===403){
-	$code=403;
-}elseif($type===404){
-	$code=404;
-}elseif($type===500){
-	$code=500;
-}
+preg_match('/[\d]+/', $_SERVER['REQUEST_URI'], $type);
+$type = $type[0];
+$code=$type;
 ?>
 <html>
 <head>
@@ -22,16 +12,17 @@ if($type===400){
 </head>
 <body>
 <?php
-if($code===400){
-echo "{$pageError['400']}";	
-}elseif($code===401){
-echo "{$pageError['401']}";
-}elseif($code===403){
-echo "{$pageError['403']}";
-}elseif($code===404){
-echo "{$pageError['404']}";	
-}elseif($code===500){
-echo "{$pageError['500']}";
+global $code;
+if((int)$code===400){
+echo $pageError['400'];	
+}elseif((int)$code===401){
+echo $pageError['401'];
+}elseif((int)$code===403){
+echo $pageError['403'];
+}elseif((int)$code===404){
+echo $pageError['404'];	
+}elseif((int)$code===500){
+echo $pageError['500'];
 }
 ?>
 </body>

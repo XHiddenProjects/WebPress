@@ -1,4 +1,4 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class WYSIWYG
 {
 		# ~
@@ -505,7 +505,7 @@ function align($options=[]){
 return $out;
 }
 
-function blockqoute(){
+function blockquote(){
 	$out='';
 		$out .= '<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="blockquote" onclick="createBlockQuote();">
@@ -1075,7 +1075,7 @@ function uploadEdit(){
       <div class="modal-body">
 
 	  <label class="from-label">'.$this->dict[$this->lang]['modal']['uploads']['label'].'</label>
-        <input type="file" name="fileUpload" required="" class="form-control"/>
+        <input type="file" name="fileUpload" class="form-control"/>
 		
       </div>
       <div class="modal-footer">

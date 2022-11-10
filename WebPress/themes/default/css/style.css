@@ -1,3 +1,6 @@
+*{
+	box-sizing: border-box;
+}
 body{
 width:100%;
 height:100%;
@@ -251,16 +254,18 @@ overflow:auto;
 .from .usertag, .from .senttime{
 	float: left!important;
 	color:#b8b8b8!important;
-	font-size: 13px;
+	font-size: 11px;
 	font-style: italic;
 	font-weight:bold;
+	margin-left: 3px;
 }
 .to .usertag, .to .senttime{
 	float: right!important;
 	color:#b8b8b8!important;
-	font-size: 13px;
+	font-size: 11px;
 	font-style: italic;
 	font-weight:bold;
+	margin-right: 3px;
 }
 .lineCount{
 	position:absolute;
@@ -289,4 +294,157 @@ overflow:auto;
 
 #filemanager .editor, #filemanager .editor textarea, #filemanager .editor .code-toolbar, #filemanager .editor pre, #filemanager .editor pre code{
 	height:100%!important;
+}
+
+/*Badges*/
+.badge-admin{
+	background-color:#00ced1;
+	  animation-name: pulseAdmin;
+            animation-duration: 2.0s;
+            animation-timing-function: ease-out;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+}
+
+@-webkit-keyframes pulseAdmin {
+    0% {box-shadow: 0px 0px 5px rgba(0,206,209, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(0,206,209, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(0,206,209 0.75);}
+}
+@-moz-keyframes pulseAdmin {
+    0% {box-shadow: -1px -1px 5px rgba(0,206,209, 0.75);}
+    50% {box-shadow: -1px -1px 13px rgba(0,206,209, 0.75);}
+    100% {box-shadow: -1px -1px 5px rgba(0,206,209, 0.75);}
+}
+@keyframes pulseAdmin {
+    0% {box-shadow: 0px 0px 5px rgba(0,206,209, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(0,206,209, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(0,206,209, 0.75);}
+}
+
+.badge-moderator{
+	background-color:#6b8e23;
+	  animation-name: pulseMod;
+            animation-duration: 2.0s;
+            animation-timing-function: ease-out;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+}
+
+@-webkit-keyframes pulseMod {
+    0% {box-shadow: 0px 0px 5px rgba(107,142,35, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(107,142,35, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(107,142,35 0.75);}
+}
+@-moz-keyframes pulseMod {
+    0% {box-shadow: -1px -1px 5px rgba(107,142,35, 0.75);}
+    50% {box-shadow: -1px -1px 13px rgba(107,142,35, 0.75);}
+    100% {box-shadow: -1px -1px 5px rgba(107,142,35, 0.75);}
+}
+@keyframes pulseMod {
+    0% {box-shadow: 0px 0px 5px rgba(107,142,35, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(107,142,35, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(107,142,35, 0.75);}
+}
+
+.badge-member{
+	background-color:#ff8c00;
+	  animation-name: pulseMember;
+            animation-duration: 2.0s;
+            animation-timing-function: ease-out;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+}
+
+@-webkit-keyframes pulseMember {
+    0% {box-shadow: 0px 0px 5px rgba(255,140,0, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(255,140,0, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(255,140,0, 0.75);}
+}
+@-moz-keyframes pulseMember {
+    0% {box-shadow: -1px -1px 5px rgba(255,140,0, 0.75);}
+    50% {box-shadow: -1px -1px 13px rgba(255,140,0, 0.75);}
+    100% {box-shadow: -1px -1px 5px rgba(255,140,0, 0.75);}
+}
+@keyframes pulseMember {
+    0% {box-shadow: 0px 0px 5px rgba(255,140,0, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(255,140,0, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(255,140,0, 0.75);}
+}
+
+/*autofill*/
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  /*display: inline-block;*/
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+/*  background-color: #f1f1f1;*/
+  width: 100%;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+/*status*/
+.avatar-status{
+	border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left: -34px;
+    position: absolute;
+    border: 1px solid #fff;
+}
+.avatar-status.red {
+    background: rgba(255, 82, 82, 1);
+    box-shadow: 0 0 0 0 rgb(255 82 82);
+    animation: pulse-red 2s infinite;
+}
+.avatar-status.green {
+    background: rgba(8, 252, 180,1);
+    box-shadow: 0 0 0 0 rgb(8 252 180);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% {box-shadow: 0px 0px 5px rgba(255 82 82, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(255 82 82);}
+    100% {box-shadow: 0px 0px 5px rgba(255 82 82, 0.75);}
+}
+
+@keyframes pulse-green {
+    0% {box-shadow: 0px 0px 5px rgba(8, 252, 180, 0.75);}
+    50% {box-shadow: 0px 0px 13px rgba(8, 252, 180, 0.75);}
+    100% {box-shadow: 0px 0px 5px rgba(8, 252, 180, 0.75);}
 }

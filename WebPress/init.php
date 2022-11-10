@@ -39,6 +39,16 @@ if(!is_dir('data/mail')||!file_exists('data/mail')){
 if(!is_dir('api')||!file_exists('api/')){
 	 mkdir('api/');
 }
+if(!is_dir('data/replys')||!file_exists('data/replys')){
+	 mkdir('data/replys');
+}
+if(!is_dir('data/topics')||!file_exists('data/topics')){
+	 mkdir('data/topics');
+}
+if(!is_dir('data/forums')||!file_exists('data/forums')){
+	 mkdir('data/forums');
+}
+
 #defined
 !defined('DS') ? define('DS', '/') : '';
 !defined('ROOT') ? define('ROOT', __DIR__.DS) : '';
@@ -46,15 +56,18 @@ if(!is_dir('api')||!file_exists('api/')){
 !defined('CONFIG_LOAD') ? define('CONFIG_LOAD','../plugin/') : '';
 $BASEPATH = '.';
 
-
 !defined('DATA_USERS') ? define('DATA_USERS', ROOT.'data'.DS.'users'.DS) : '';
 !defined('DATA_PLUGINS') ? define('DATA_PLUGINS', ROOT.'data'.DS.'plugins'.DS) : '';
 !defined('DATA_THEMES') ? define('DATA_THEMES', ROOT.'data'.DS.'themes'.DS) : '';
 !defined('DATA_MAIL') ? define('DATA_MAIL', ROOT.'data'.DS.'mail'.DS) : '';
 !defined('DATA_UPLOADS') ? define('DATA_UPLOADS', ROOT.'uploads'.DS) : '';
+!defined('DATA_TOPICS') ? define('DATA_TOPICS', ROOT.'data'.DS.'topics'.DS) : '';
+!defined('DATA_FORUMS') ? define('DATA_FORUMS', ROOT.'data'.DS.'forums'.DS) : '';
+!defined('DATA_REPLYS') ? define('DATA_REPLYS', ROOT.'data'.DS.'replys'.DS) : '';
 !defined('DATA_AVATARS') ? define('DATA_AVATARS', '/uploads'.DS.'avatars'.DS) : '';
 !defined('DATA_CONFIG') ? define('DATA_CONFIG', $BASEPATH.'/conf'.DS) : '';
 !defined('DATA') ? define('DATA', ROOT.'data'.DS) : '';
+!defined('DB_EXTENSIONS') ? define('DB_EXTENSIONS', '.dat.json') : '';
 #Project Info
 !defined('PROJECT_NAME') ? define('PROJECT_NAME', 'WebPress') : '';
 !defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '220626 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('22-06-26')).'</span>') : '';
@@ -65,6 +78,7 @@ require_once('init.php');
 	 
 #config(run JSON)
 $conf = json_decode(file_get_contents('conf/config.dat.json'), true);
+!defined('CHARSET') ? define('CHARSET', $conf['page']['charset']) : '';
 $defaultIcon = $conf['page']['page-icon']['16'];
 $appleIcon = $conf['page']['page-icon']['64'];
 $pageTitle = $conf['page']['page-title'];
@@ -73,6 +87,8 @@ $pageTheme = $conf['page']['themes'];
 $captchaSettings = $conf['page']['captcha']['settings'];
 /*language*/
 $selLang = $conf['lang'];
+$topicsArr = array('pinned'=>array(), 'topics'=>array());
+$replaysArr = array('replys'=>array());
 
 function errormsg($errno, $errstr, $errfile, $errline, $errcontext){
 	echo '<div class="alert alert-danger"><i class="fas fa-times-circle"></i> '.$errstr.'</div>';

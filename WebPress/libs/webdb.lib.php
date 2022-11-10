@@ -1,24 +1,18 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class WebDB{
 	protected function __construct(){
 		
 	}
 	public static function getDB($type, $name, $dbType='.dat.json'){
 		$e = constant('DATA_'.strtoupper($type));
-		return json_decode(file_exists($e.$name.$dbType) ? file_get_contents($e.$name.$dbType) : '', true);
+		return json_decode((file_exists($e.$name.$dbType) ? file_get_contents($e.$name.$dbType) : ''), true);
 	}
 	public static function makeDB($type, $name, $dbType='.dat.json'){
 		$e = constant('DATA_'.strtoupper($type));
 	 if(!file_exists($e.$name.$dbType)){
-		 if(@explode('/', $name)){
-			 @mkdir($e.explode('/', $name)[0].'/', 0777, true);
-		 }
 				$createDB = fopen($e.$name.$dbType, 'w+');
 			fwrite($createDB, '');
 			fclose($createDB); 
-		 
-	
-		
 		}
 	}
 	public static function saveDB($type, $name, $data, $dbType='.dat.json'){

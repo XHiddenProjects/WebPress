@@ -3,10 +3,10 @@ function foot($basepath){
 	global $pageTitle, $defaultIcon, $conf ,$pageTheme, $lang;
 $footer='';
 $footer.=Plugin::hook('afterLoad');
-$footer.='<footer class="bg-light text-center text-white position-sticky bottom-0">
+$footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0" style="z-index:999;">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 '.(date('Y')==='2022' ? '' : ' - '.date('Y')).' '.$lang['index.label.copyright'].':
-    <a class="text-white" href="#">SurveyBuilderTeams</a> '.$lang['index.label.license'].' <a class="text-white" href="https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE" target="_blank">MIT</a>
+    <a class="link-primary" href="#">SurveyBuilderTeams</a> '.$lang['index.label.license'].' <a class="link-primary" href="https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE" target="_blank">MIT</a>
 	<section class="mb-0">
       <!-- Github -->
       <a
@@ -49,14 +49,32 @@ $footer .= '<script src="'.$basepath.DS.str_replace('{version}', $conf['bootstra
 $footer.= '<script src="'.$basepath.DS.str_replace('{version}', $conf['fontawesome']['version'], $conf['fontawesome']['jsurl']).'?v=1"></script>';
 $footer.= '<script src="'.$basepath.DS.str_replace('{version}', $conf['notify']['version'], $conf['notify']['jsurl']).'?v=1"></script>';
 $footer.='<script src="'.$basepath.DS.str_replace('{version}', $conf['prism']['version'], $conf['prism']['jsurl']).'?v=1"></script>';
-
 $themeSelect = array_diff(scandir('themes/'.$pageTheme.'/js/'), ['.','..']);
 $footer .= ($pageTheme!=="default" ? '<script src="'.$basepath.'/themes/default/js/script.js?v='.uniqid().'"></script>' : '');
 foreach($themeSelect as $themes){
 	$footer.= '<script src="'.$basepath.'/themes/'.$pageTheme.'/js/'.$themes.'?v='.uniqid().'"></script>';
 }
+	$footer.="<script>
+		var emailSelector = [";
+		$db = WebDB::getDB('users', 'users');
+		$i=1;
+		foreach($db as $users=>$info){
+			if($i<count($db)){
+				$comma = ',';
+			}else{
+				$comma='';
+			}
+			$footer.='"'.$info['username'].':&lt;'.$info['email'].'&gt;'.'"'.$comma;
+		}
+		$footer.="];
+		</script>";
+$footer.='<script>
+if(document.querySelector("#toemail")){
+	autocomplete(document.querySelector("#toemail"), emailSelector);
+}
+</script>';
 $footer.= Plugin::hook('footerJS');
-$footer.='</html>';
+
 return $footer;	
 }
 ?>

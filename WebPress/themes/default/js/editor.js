@@ -322,6 +322,11 @@ function createBlockQuote(){
 			code.innerText = targetItem.value.replace(selectedItem, '> '+selectedItem);
 			targetItem.value = targetItem.value.replace(selectedItem, '> '+selectedItem);
 			 Prism.highlightElement(code);
+		}else if(selectedEditor==='bbcode'){
+				let code = document.querySelector('#highlighting-content');
+			code.innerText = targetItem.value.replace(selectedItem, '[quote]'+selectedItem+'[/quote]');
+			targetItem.value = targetItem.value.replace(selectedItem, '[quote]'+selectedItem+'[/quote]');
+			 Prism.highlightElement(code);
 		}
 		
 	}

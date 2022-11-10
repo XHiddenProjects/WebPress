@@ -1,6 +1,9 @@
-<?php
+<?php 
 declare(strict_types=1);
 namespace WebPress;
+
+defined('WEBPRESS') or die('Webpress community');
+
 class toolkits{
 	public $colors = ['#000000'=>'Black',
 					  '#ffffff'=>'White',

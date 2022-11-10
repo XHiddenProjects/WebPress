@@ -1,10 +1,23 @@
 {
-	"versions":{
-		"0.0.1":{
-				"text": "Version 0.0.1 has been released!",
-				"icon": "fas fa-check",
-				"tag":"offical",
-				"show": true
+    "versions": {
+        "0.0.1": {
+            "textsets": [
+                {
+                    "text": "Version 0.0.1 has been released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                }
+            ]
+        },
+		"0.0.2":{
+			"textsets":[{
+					"text": "Version 0.0.2 has been released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+			}]
 		}
-	}
+    },
+    "needsAttation": false
 }

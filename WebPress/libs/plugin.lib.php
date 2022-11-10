@@ -1,4 +1,4 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class Plugin{
 	public $pluginName;
 	public $pluginDB;
@@ -42,6 +42,9 @@ class Plugin{
 	}
 	public static function forceExecute($hook, $plugin, $param=null){
 		return self::myHook($hook, $plugin, $param);
+	}
+	public static function isHere($pluginName){
+		return file_exists(DATA_PLUGINS.$pluginName)&&is_dir(DATA_PLUGINS.$pluginName) ? true : false;
 	}
 }
 ?>

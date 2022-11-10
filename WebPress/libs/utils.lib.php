@@ -1,4 +1,4 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class Utils{
 	protected function __construct(){
 		
@@ -38,43 +38,25 @@ class Utils{
     return array_combine( $keys, $array );
 		}
 
-	public static function profileSave($type, $name, $data){
+	public static function profileSave($data){
 		global $lang;
-			$e = constant('DATA_'.strtoupper($type));
-	 $db = json_decode(file_exists($e.$name.'.dat.json') ? file_get_contents($e.$name.'.dat.json') : '', true);
+	 $db = WebDB::getDB('users','users');
 	//$saved	= json_encode($data, JSON_PRETTY_PRINT);
 	foreach($data as $d=>$v){
-		if($d==="username"){
-			$save = array($v=>$db[$_SESSION['user']]);
-			$save[$v]['username'] = $v;
-			unset($db[$_SESSION['user']]);
-			$saveData = json_encode($save, JSON_PRETTY_PRINT);
-			file_exists($e.$name.'.dat.json') ? file_put_contents($e.$name.'.dat.json', $saveData) : '';
-			$_SESSION['user'] = $v;
-		}elseif($d==="name"){
-		$db = json_decode(file_exists($e.$name.'.dat.json') ? file_get_contents($e.$name.'.dat.json') : '', true);
-		$save = array($_SESSION['user']=>$db[$_SESSION['user']]);
-		$save[$_SESSION['user']]['name'] = $v;
-		$saveData = json_encode($save, JSON_PRETTY_PRINT);
-		file_exists($e.$name.'.dat.json') ? file_put_contents($e.$name.'.dat.json', $saveData) : '';
+		if($d==="name"){
+			$db[$_SESSION['user']]['name'] = $v;
 		}elseif($d==="about"){
-		$db = json_decode(file_exists($e.$name.'.dat.json') ? file_get_contents($e.$name.'.dat.json') : '', true);
-		$save = array($_SESSION['user']=>$db[$_SESSION['user']]);
-		$save[$_SESSION['user']]['about'] = $v;
-		$saveData = json_encode($save, JSON_PRETTY_PRINT);
-		file_exists($e.$name.'.dat.json') ? file_put_contents($e.$name.'.dat.json', $saveData) : '';
+		$db = WebDB::getDB('users', 'users');
+		$db[$_SESSION['user']]['about'] = $v;
 		}elseif($d==="password"){
-			
 					$psws = explode('+',$v);
 					if($psws[0]!==''||$psws[1]!==''){
 						if(preg_match('/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/', $psws[0]) && preg_match('/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/', $psws[1])){
-				$db = json_decode(file_exists($e.$name.'.dat.json') ? file_get_contents($e.$name.'.dat.json') : '', true);
-				$save = array($_SESSION['user']=>$db[$_SESSION['user']]);
-				if(password_verify($psws[0], $save[$_SESSION['user']]['psw'])){
+				$db = WebDB::getDB('users', 'users');
+				if(password_verify($psws[0], $db[$_SESSION['user']]['psw'])){
 				$changepsw = password_hash($psws[1], PASSWORD_BCRYPT, ['cost'=>15]);
-				$save[$_SESSION['user']]['psw']= $changepsw;
-				$saveData = json_encode($save, JSON_PRETTY_PRINT);
-				file_exists($e.$name.'.dat.json') ? file_put_contents($e.$name.'.dat.json', $saveData) : '';	
+				$db[$_SESSION['user']]['psw']= $changepsw;
+					
 				}else{
 				echo '<div class="alert alert-danger">'.$lang['modal.pedit.psw.match'].'</div>';	
 				}
@@ -84,6 +66,7 @@ class Utils{
 					}
 		}
 	}
+	WebDB::dbExists('users','users') ? WebDB::saveDB('users','users', $db) : '';
 	
 	
 	}
@@ -181,16 +164,36 @@ class Utils{
 		}
 	}
 	public static function notification($version='', $file='UPDATES'){
+		global $lang;
 		$out='';
 		$id = uniqid();
+		$updates = json_decode(file_get_contents(ROOT.$file.'.json'), true);
 		$out.='<div class="notify-container">
-	   <button type="button" style="background-color:transparent;border:0;" data-bs-toggle="collapse" data-bs-target="#panel-notify" aria-expanded="false" aria-controls="panelNotify"><i class="fas fa-bell"></i></button>
+	   <button type="button" class="position-relative" style="background-color:transparent;border:0;" data-bs-toggle="collapse" data-bs-target="#panel-notify" aria-expanded="false" aria-controls="panelNotify"><i class="fas fa-bell"></i>'.
+	   ($updates['needsAttation'] ? 
+	   '<span class="position-absolute top-0 start-75 translate-middle p-1 bg-danger border border-light rounded-circle"><span class="visually-hidden">New alerts</span></span>' : 
+	   '').
+	   '</button>
 		<div id="panel-notify" class="collapse text-bg-secondary">
+		 <a href="./mail?notify=clear" class="link-light">'.$lang['notify.clear'].'</a>
 			'.Utils::getUpdates($version, (!preg_match('/\.json/',$file) ? $file.'.json' : $file)).'
 		</div>
 	</div>';
 	return $out;
 	}
-	
+	public static function loadIcons(){
+		global $lang;
+		$out='';
+		$icons = json_decode(file_get_contents(ROOT.'icons.json'), true);
+		$out.='<div class="row mt-1">';
+		$out.='<div class="input-group"><button class="btn btn-secondary" onclick="openIconList(this);" type="button">'.$lang['forum.selectIcon'].'('.(number_format(count($icons)+1)).')</button><input name="iconpicker" class="form-control" type="text"/></div>';
+		$out.='<div class="grid text-wrap bg-secondary position-absolute iconList" style="border-radius:15px; transition:all 0.25s linear;height:0;overflow:auto;top:92%;">';
+			foreach($icons as $icon=>$args){
+				$out.= '<span class="text-bg-secondary p-2 m-2 fs-6"><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="fa-solid fa-'.$icon.'" onclick="selectIcon(this, \'fa-solid fa-'.$icon.'\')" style="height:45px;cursor:pointer;" class="fa-solid fa-'.$icon.'"></i></span>';
+			}
+			$out.='</div>';
+		$out.='</div>';
+			return $out;
+	}
 }
 ?>

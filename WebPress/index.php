@@ -49,9 +49,8 @@ if(isset($_SESSION['guest'])){
 			}else{
 				echo '<li><a class="dropdown-item" href="./dashboard">'.$lang['index.dashboardbtn'].'</a></li>';
 			}
-
 			?>
-       
+			<li><a class="dropdown-item" href="<?php echo './forum?p=1';?>"><?php echo "{$lang['index.forumbtn']}";?></a></li>
          </ul>
 		 </span>
 	</div>

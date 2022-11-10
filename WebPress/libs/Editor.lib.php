@@ -1,4 +1,4 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class Editor{
 	public $MD;
 	public $BB;
@@ -8,7 +8,7 @@ class Editor{
 	public function __construct(){
 		$this->WYSIWYG = new WYSIWYG(Users::getLang());
 	}
-	public function createEditor($editor, $displayUI=true, $customCode=null, $show_source=null){
+	public function createEditor($editor, $displayUI=true, $customCode=null, $show_source=null, $raw=false){
 		$code='';
 		$show_source = $show_source;
 		$out = '';
@@ -35,7 +35,7 @@ class Editor{
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->superscript().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->subscript().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->align().'</li>';
-			$out.='<li class="list-group-item">'.$this->WYSIWYG->blockqoute().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->blockquote().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->div().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->copyText().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->pasteText().'</li>';
@@ -73,6 +73,7 @@ class Editor{
 			$out.= '<li class="list-group-item">'.$this->WYSIWYG->subscript().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->links().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->listing().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->blockquote().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->align().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->uploads().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->imgs().'</li>';
@@ -95,7 +96,7 @@ class Editor{
 			$out.= '<li class="list-group-item">'.$this->WYSIWYG->bold().'</li>';
 			$out.= '<li class="list-group-item">'.$this->WYSIWYG->italic().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->links().'</li>';
-			$out.='<li class="list-group-item">'.$this->WYSIWYG->blockqoute().'</li>';
+			$out.='<li class="list-group-item">'.$this->WYSIWYG->blockquote().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->listing().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->uploads().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->imgs().'</li>';
@@ -110,10 +111,10 @@ class Editor{
 		}
 	
 		$out .= '<div class="editor">';
-		$out .= '<textarea id="editing" name="editorText" class="form-control lined" spellcheck="false" onkeydown="check_tab(this, event); createLineNum(event);" oninput="syntaxHighlight(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onselect="selectedString(this, \''.$editor.'\');">'.($show_source!==null ? htmlentities(file_get_contents($show_source)) : '').'</textarea>';
+		$out .= '<textarea id="editing" name="editorText" class="form-control lined" spellcheck="false" onkeydown="check_tab(this, event); createLineNum(event);" oninput="syntaxHighlight(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onselect="selectedString(this, \''.$editor.'\');">'.($show_source!==null ? htmlentities((!$raw ? file_get_contents($show_source) : $show_source)) : '').'</textarea>';
 		$out .= '	';
 		$out .= '<pre id="highlighting">
-					<code class="language-'.$code.'" id="highlighting-content">'.($show_source!==null ? htmlentities(file_get_contents($show_source)) : '').'</code>
+					<code class="language-'.$code.'" id="highlighting-content">'.($show_source!==null ? htmlentities((!$raw ? file_get_contents($show_source) : $show_source)) : '').'</code>
 					<span aria-hidden="true" class="lineCount">
 						<span></span>
 					</span>

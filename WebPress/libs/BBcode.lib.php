@@ -1,4 +1,4 @@
-<?php 
+<?php defined('WEBPRESS') or die('Webpress community');
 
 class BBCode extends BBlight
 {
@@ -29,20 +29,32 @@ class BBCode extends BBlight
 	    $this->bbcode_table["/\[blockquote\](.*?)\[\/blockquote\]/is"] = function ($match) {
 	      return "<blockquote><p>$match[1]</p></blockquote>";
 	    };
-    	
-	    // Replace [quote]2017-03-221103009fd11[/quote] with <blockquote>User</blockquote>
-	    $this->bbcode_table["/\[quote\](\d{4}-\d{2}-\d{8}[a-z\d]{5})\[\/quote\]/is"] = function ($match) {
+    	// Replace [quote]2022-10-e84c4c14[/quote] with <blockquote>User</blockquote>
+	      $this->bbcode_table["/\[quote\](\d{4}-\d{2}-[a-z\d]{8})\[\/quote\]/is"] = function ($match) {
 		    $reply = $match[1];
-			if(flatDB::isValidEntry('reply', $reply))
+			if(WebDB::DBexists('replys', $reply))
 			{
-			    global $lang;
-				$replyEntry = flatDB::readEntry('reply', $reply);
-				$topicEntry = flatDB::readEntry('topic', $replyEntry['topic']);
-				return '<a class="badge badge-pill badge-info" href="view.php/topic/' .$replyEntry['topic']. '/p/' .Util::onPage($reply, $topicEntry['reply']). '#' .$reply. '" data-toggle="tooltip" data-placement="top" title="' .$lang['quote_by']. ' ' .$replyEntry['trip']. '"><i class="fa fa-quote-left"></i></a>&nbsp;';
+			    global $lang, $BASEPATH;
+				$replyEntry = WebDB::getDB('replys', $reply);
+				$topicEntry = WebDB::getDB('topics', $replyEntry['topic']);
+				return '<div class="col col-lg-6 mb-4 mb-lg-0">
+          <a style="text-decoration:none;" href="./view?id='.$replyEntry['topic'].'#'.$replyEntry['id'].'" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['quote_direct'].'">
+		  <figure class="bg-white p-3 rounded mb-0" style="border-left: 0.25rem solid rgb(163, 78, 120);">
+            <blockquote class="blockquote pb-2">
+			<img class="img-fluid rounded img-thumbnail" src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$replyEntry['author'].'.png') ? $BASEPATH.DATA_AVATARS.$replyEntry['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png' ).'"/>
+              <p class="text-bg-secondary">
+               '.$replyEntry['msg'].'
+              </p>
+            </blockquote>
+            <figcaption class="blockquote-footer mb-0 font-italic">
+              '.$replyEntry['author'].'
+            </figcaption>
+          </figure></a>
+        </div>';
 			}
 			else
 			{
-				return '<a class="badge badge-pill badge-info">[?]</a>';
+				return '<a class="badge badge-pill text-bg-info">[?]</a>';
 			}
 	    };	
 

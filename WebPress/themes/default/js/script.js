@@ -241,3 +241,23 @@ setTimeout(function(){
 	}
 
 });
+
+// Icons
+function openIconList(elem){
+	let list = elem.parentElement.parentElement.querySelector('.iconList');
+	if(list.style.height==='0px'){
+		list.style.height = '320px';
+	}else{
+		list.style.height = '0px';
+	}
+}
+function selectIcon(elem, icon){
+	let displayIcon = elem.parentElement.parentElement.parentElement.querySelector('input[type="text"]');
+	displayIcon.value = icon;
+	elem.parentElement.parentElement.parentElement.querySelector('.iconList').style.height = '0px';
+}
+
+function copyReplyID(id){
+	if(navigator.clipboard.writeText(id))
+			console.log('Copied');
+}

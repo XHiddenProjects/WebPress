@@ -1,4 +1,4 @@
-<?php
+<?php defined('WEBPRESS') or die('Webpress community');
 class Users{
 	private function __construct(){
 		
@@ -31,17 +31,23 @@ public static function getSession(){
 	return isset($_SESSION['user'])&&WebDB::getDB('users', 'users') ? $_SESSION['user'] : false;
 }
 public static function isAdmin(){
-	return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']==='admin' ? true : false;
+	if(isset($_SESSION['user']) ){
+		return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']==='admin' ? true : false;
 }
+	}
+	
 public static function isMod(){
-	return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']==='mod' ? true : false;
+	return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']==='mod' ? true : false;
 }
 public static function isMember(){
-	return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']==='member' ? true : false;
+	return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']==='member' ? true : false;
+}
+public static function isGuest(){
+	return isset($_SESSION['guest']) ? true : false;
 }
 # Custom roles
 public static function isRole($role){
-	return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']===$role ? true : false;
+	return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']===$role ? true : false;
 }
 public static function hasPermission($access){
 	$roles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
@@ -72,11 +78,11 @@ public static function editProfile($base=''){
 		<div class="row">
 		<div class="col">
 		<label for="webuser" class="form-label">'.$lang['modal.profile.username'].'</label>
-		<input type="text" id="webuser" name="webuser" class="form-control" value="'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'" placeholder="'.$lang['modal.profile.username'].'"/>
+		<input type="text" readonly="" id="webuser" name="webuser" class="form-control" value="'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'" placeholder="'.$lang['modal.profile.username'].'"/>
 		</div>
 		<div class="col">
 		<label for="webname" class="form-label">'.$lang['modal.profile.name'].'</label>
-		<input type="text" id="webname" name="webname" class="form-control" value="'.(isset($d[$_SESSION['user']]['name']) ? $d[$_SESSION['user']]['name'] : '').'" placeholder="'.$lang['modal.profile.username'].'"/>
+		<input type="text" disabled="" id="webname" name="webname" class="form-control" value="'.(isset($d[$_SESSION['user']]['name']) ? $d[$_SESSION['user']]['name'] : '').'" placeholder="'.$lang['modal.profile.username'].'"/>
 		</div>
 		</div>
 		<div class="row">
@@ -254,11 +260,45 @@ public static function editProfile($base=''){
 	 $db[$username]['ban']['bannedBy'] = '';
 	 WebDB::saveDB('users', 'users', $db);
  }
- public static function warn($username, $level=0, $desc=''){
-	 $db = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : '';
-	 $db[$username]['warn']['level'] = (int) $level;
-	 $db[$username]['warn']['desc'] = $desc;
-	 WebDB::saveDB('users', 'users', $db);
+ public static function createBadge($username){
+	  $getUser = @file_get_contents(DATA_USERS.'users.dat.json');
+	 $d = json_decode($getUser, true);
+	 return isset($d[$username]) ? '<span class=" ms-2 me-2 badge badge-'.$d[$username]['type'].'">'.$d[$username]['type'].'</span>' : false;
+ }
+ public static function crawler_handler($user_agent){
+     $crawlers = array(
+    array('Google', 'Google'),
+    array('msnbot', 'MSN'),
+    array('Rambler', 'Rambler'),
+    array('Yahoo', 'Yahoo'),
+    array('AbachoBOT', 'AbachoBOT'),
+    array('accoona', 'Accoona'),
+    array('AcoiRobot', 'AcoiRobot'),
+    array('ASPSeek', 'ASPSeek'),
+    array('CrocCrawler', 'CrocCrawler'),
+    array('Dumbot', 'Dumbot'),
+    array('FAST-WebCrawler', 'FAST-WebCrawler'),
+    array('GeonaBot', 'GeonaBot'),
+    array('Gigabot', 'Gigabot'),
+    array('Lycos', 'Lycos spider'),
+    array('MSRBOT', 'MSRBOT'),
+    array('Scooter', 'Altavista robot'),
+    array('AltaVista', 'Altavista robot'),
+    array('IDBot', 'ID-Search Bot'),
+    array('eStyle', 'eStyle Bot'),
+    array('Scrubby', 'Scrubby robot')
+    );
+
+    foreach ($crawlers as $c)
+    {
+        if (stristr($user_agent, $c[0]))
+        {
+            return($c[1]);
+        }
+    }
+
+    return false;
+		
  }
 }
 

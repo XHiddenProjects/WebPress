@@ -262,7 +262,7 @@ if(isset($_POST['webpresscreate'])){
 			 $users = fopen(DATA_USERS.'users.dat.json', 'w+');
 			 $date=date('m-d-Y+h:i:sa');
 			 $timezone = gettype(Users::ipInfo(Users::getRealIP(), 'timezone'))==="string" ? Users::ipInfo(Users::getRealIP(), 'timezone') : Users::ipInfo(Users::getRealIP())['timezone'];
-			 $data = array($user=>array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'id'=>Users::hardwareID(),'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''),'warn'=>array('level'=>0, 'desc'=>''), 'about'=>''));
+			 $data = array($user=>array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'id'=>Users::hardwareID(),'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>''));
 			 $store = json_encode($data, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 			 fwrite($users, $store);
 			 fclose($users);
@@ -283,7 +283,7 @@ if(isset($_POST['webpresscreate'])){
 			}
 			$date = date('m-d-Y+h:i:sa');
 						 $timezone = gettype(Users::ipInfo(Users::getRealIP(), 'timezone'))==="string" ? Users::ipInfo(Users::getRealIP(), 'timezone') : Users::ipInfo(Users::getRealIP(), 'timezone');
-			 $store = array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''),'warn'=>array('level'=>0, 'desc'=>''), 'about'=>'');
+			 $store = array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>'');
 			$users[$user] = $store;
 			$users = json_encode($users, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 			$openUsers = fopen(DATA_USERS.'users.dat.json', 'w+');

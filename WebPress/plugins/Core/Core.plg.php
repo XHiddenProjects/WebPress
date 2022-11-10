@@ -4,7 +4,8 @@ function Core_install(){
 	$plugin = 'Core';
 	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
 
-$data = array('name'=>array('en'=>'Core'),
+$data = array(
+'name'=>array('en'=>'Core'),
 'active'=>'on',
 'version'=>'0.0.2', 
 'desc'=>array('en'=>'Easy way to run WebPress, activates and creates editors and etc...'), 

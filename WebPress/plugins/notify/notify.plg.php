@@ -69,7 +69,6 @@ function notify_onSubmit(){
 		$out='';
 		$plugin = 'notify';
 		if(isset($_POST['notify_submit'])){
-		
 		$active = isset($_POST['notify_active']) ? $_POST['notify_active'] : '';
 		$msg = $_POST['notify_msg'];
 		$type = $_POST['notify_type'];
@@ -88,9 +87,7 @@ function notify_onSubmit(){
 		}
 		$d['active'] = $active;
 		
-		$out .= WebDB::saveDB('plugins', $plugin.'/plugin', $d) ? Utils::redirect('modal.pedit.title', 'config.success', CONFIG_LOAD.$plugin, 'success') : Utils::redirect('modal.failed.title', 'config.failed', CONFIG_LOAD.$plugin, 'danger');
-		}else{
-		$out.=Utils::redirect('modal.failed.title', 'config.failed', CONFIG_LOAD.$plugin, 'danger');
+		$out = WebDB::saveDB('plugins', $plugin.'/plugin', $d) ? Utils::redirect('modal.pedit.title', 'config.success', CONFIG_LOAD.$plugin, 'success') : Utils::redirect('modal.failed.title', 'config.failed', CONFIG_LOAD.$plugin, 'danger');
 		}
 	return $out;	
 }
