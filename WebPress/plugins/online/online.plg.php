@@ -6,7 +6,7 @@ function online_install(){
 
 $data = array(
 	'name'=>array('en'=>'Online'),
-	'active'=>'on',
+	'active'=>'',
 	'version'=>'0.1.0', 
 	'desc'=>array('en'=>'Shows who is online by configuration and displays and circle on top of the account image on the forum, and in the footer.'), 
 	'config'=>array(
@@ -14,7 +14,7 @@ $data = array(
 		'color'=>'',
 		'display'=>''
 	),
-	'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),  
+	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
 	'usedLang'=>array('en-US')));
 	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	WebDB::makeDB('plugins', $plugin.'/online_hit');
@@ -24,11 +24,11 @@ $data = array(
 	return $out; 
 }
 function online_config(){
-	global $lang, $BASEPATH, $myLang;
+	global $lang, $BASEPATH;
 	$out='';
 	$plugin = 'online';
-	$color = array('primary'=>$myLang['blue'], 'secondary'=>$myLang['gray'], 'success'=>$myLang['green'], 'warning'=>$myLang['yellow'], 'danger'=>$myLang['red'], 'dark'=>$myLang['black'], 'light'=>$myLang['white']);
-	$display =   $display = array('icon'=> $myLang['icon'], 'text'=> $myLang['text']);
+	$color = array('primary'=>$lang['blue'], 'secondary'=>$lang['gray'], 'success'=>$lang['green'], 'warning'=>$lang['yellow'], 'danger'=>$lang['red'], 'dark'=>$lang['black'], 'light'=>$lang['white']);
+	$display =   $display = array('icon'=> $lang['icon'], 'text'=> $lang['text']);
 	$d = WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 		if($d['active']){
 			$type = array('success'=>'success', 'warning'=>'warning', 'info'=>'info', 'danger'=>'danger', 'dark'=>'dark', 'light'=>'light');
@@ -72,11 +72,11 @@ function online_onSubmit(){
 }
 
 function online_footer(){
-	global $lang, $myLang;
+	global $lang, $lang;
 	$plugin = 'online';
 	$out = '';
 	$data = WebDB::getDB('plugins', $plugin.'/plugin');
-	if($data['config']['use']){
+	if($data['active']){
 		$crawler = Users::crawler_handler($_SERVER['HTTP_USER_AGENT']);
 		$online = WebDB::getDB('plugins',$plugin.'/'.$plugin.'_hit');
 		foreach((array)$online as $ip=>$time){
@@ -86,12 +86,12 @@ function online_footer(){
 		$online[Users::getRealIP()] = time();
 		WebDB::saveDB('plugins', $plugin.'/'.$plugin.'_hit', $online);
 		/*check if bot*/
-		$out .= '&nbsp;<span class="badge text-bg-' .$data['config']['color']. '">' .($data['config']['display']=='icon' ? '<i class="fa fa-user"></i> ': $myLang['online']).intval($online);
+		$out .= '&nbsp;<span class="badge text-bg-' .$data['config']['color']. '">' .($data['config']['display']=='icon' ? '<i class="fa fa-user"></i> ': $lang['online']).intval($online);
 		if ($crawler) return '<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="' .$crawler. '">Bots</button>';	
 		/*realy Users*/
 		$sessionRole = isset($_SESSION['role']) ? count(array($_SESSION['role'])) : '';
   	if(isset($_SESSION['role'])&&$_SESSION['role']!==''&&$_SESSION['role']==='admin'||isset($_SESSION['role'])&&$_SESSION['role']==='moderator')
-  		$out .= ' - <a data-toggle="tooltip" data-placement="top" title="' .$myLang['staff_online']. ': ' .intval($sessionRole). '"><i class="fa fa-user-plus"></i></a>';			  		
+  		$out .= ' - <a data-toggle="tooltip" data-placement="top" title="' .$lang['staff_online']. ': ' .intval($sessionRole). '"><i class="fa fa-user-plus"></i></a>';			  		
 	$out .= '</span>';
 	}
 	return $out;
@@ -104,7 +104,7 @@ function checkOnline($username){
 	$grabber = WebDB::getDB('users', 'users');
 		$users=array();
 		$data = WebDB::getDB('plugins', $plugin.'/plugin');
-		if($data['config']['use']){
+		if($data['active']){
 			$online = WebDB::getDB('plugins', $plugin.'/'.$plugin.'_hit');
 			foreach((array)$online as $ip => $time)
 			{
@@ -121,8 +121,9 @@ function checkOnline($username){
 					$usersStat = '<span class="avatar-status red"></span>';	
 			}
 			$currentUsers = IS_ONLINE ? $usersStat : '';
+			return $currentUsers;
 		}
 	
-	return $currentUsers;
+	
 }
 ?>
