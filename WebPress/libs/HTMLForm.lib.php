@@ -35,15 +35,15 @@ class HTMLForm{
 	
 	public static function password($name, $default='', $class='', $placeholder='', $desc='')
 	{
-		global $myLang;
+		global $lang;
 		
 		$value = isset($_POST[$name]) ? HTMLForm::clean($_POST[$name]) : $default;
 		$class = $class!='' ? ' class="'.$class.'"' : ' class="form-control"';
-		$placeholder = $placeholder!='' ? ' placeholder="' .$myLang[$placeholder]. '"' : '';
-		$desc = $desc!='' ? '<small class="form-text text-muted">' .$myLang[$desc]. '</small>' : '';
+		$placeholder = $placeholder!='' ? ' placeholder="' .$lang[$placeholder]. '"' : '';
+		$desc = $desc!='' ? '<small class="form-text text-muted">' .$lang[$desc]. '</small>' : '';
 		return '<div class="form-group pass_show">
-					<label for="' .$name. '">' .$myLang[$name]. '
-						' .HTMLForm::err($name. 'ErrNotMatch', $myLang['errNotMatch']). HTMLForm::err('bad_user_syntax', $myLang['bad_user_syntax']). '
+					<label for="' .$name. '">' .$lang[$name]. '
+						' .HTMLForm::err($name. 'ErrNotMatch', $lang['errNotMatch']). HTMLForm::err('bad_user_syntax', $lang['bad_user_syntax']). '
 					</label>
 					<input type="password" name="' .$name. '" value="' .$value. '"' .$class . $placeholder. ' required autofocus>
 					' .$desc. '
@@ -51,15 +51,15 @@ class HTMLForm{
 	}
 		public static function text($name, $default='', $type='text', $class='', $placeholder='', $desc='', $disabled=false)
 	{
-		global $myLang;
+		global $lang;
 		$value = $default;
 		$class = $class!='' ? ' class="form-control '.$class.'"' : ' class="form-control"';
-		$placeholder = $placeholder!='' ? ' placeholder="' .(isset($myLang[$placeholder]) ? $myLang[$placeholder] : ''). '"' : '';
+		$placeholder = $placeholder!='' ? ' placeholder="' .(isset($lang[$placeholder]) ? $lang[$placeholder] : ''). '"' : '';
 		$disabled = $disabled===true ? ' disabled' : '';
-		$desc = $desc!='' ? '<small class="form-text text-muted">' .(isset($myLang[$desc]) ? $myLang[$desc] : ''). '</small>' : '';
+		$desc = $desc!='' ? '<small class="form-text text-muted">' .(isset($lang[$desc]) ? $lang[$desc] : ''). '</small>' : '';
 		
 		return '  <div class="form-group">
-				    <label for="' .$name. '">' .(isset($myLang[$name]) ? $myLang[$name] : ''). ' 
+				    <label for="' .$name. '">' .(isset($lang[$name]) ? $lang[$name] : ''). ' 
 				    </label>
 				    <input type="' .$type. '" id="' .$name. '" name="' .$name. '" value="' .$value. '"' .$class .$placeholder .$disabled. '>
 				    ' .$desc. '
@@ -69,28 +69,28 @@ class HTMLForm{
 	
 	public static function textarea($name, $default='', $class='', $desc='', $rows='', $placeholder='', $disabled=false)
 	{
-		global $myLang;
+		global $lang;
 		$value = Utils::isPOST($name, true)? HTMLForm::transNL(HTMLForm::clean($_POST[$name])) : $default;
 		$class = $class!='' ? ' class="form-control '.$class.'"' : ' class="form-control"';
-		$desc = $desc!='' ? '<small class="form-text text-muted">' .$myLang[$desc]. '</small>' : '';
+		$desc = $desc!='' ? '<small class="form-text text-muted">' .$lang[$desc]. '</small>' : '';
 		$rows = $rows!='' ? $rows : 10;
-		$placeholder = $placeholder!='' ? ' placeholder="' .$myLang[$placeholder]. '"' : '';
+		$placeholder = $placeholder!='' ? ' placeholder="' .$lang[$placeholder]. '"' : '';
 		$disabled = $disabled===true ? ' disabled' : '';
 		return '<div class="form-group">
-				    <label for="' .$name. '">' .$myLang[$name]. '</label>
+				    <label for="' .$name. '">' .$lang[$name]. '</label>
 					<textarea id="' .$name. '" name="' .$name. '" rows="' .$rows. '"' .$class .$placeholder .$disabled. '>' .$value. '</textarea>
 					' .$desc. '
 				</div>';
 	}
 	public static function select($name, $options, $default = '', $class='', $desc='', $disabled=false)
 	{
-		global $myLang;
+		global $lang;
 		$class = $class!='' ? ' class="form-control '.$class.'"' : ' class="form-control"';
-		$desc = $desc!='' ? '<small class="form-text text-muted">' .$myLang[$desc]. '</small>' : '';
+		$desc = $desc!='' ? '<small class="form-text text-muted">' .$lang[$desc]. '</small>' : '';
 		$disabled = $disabled==true ? ' disabled' : '';
 		$selected = $default;
 		$out = '<div class="form-group">
-				  <label class="form-label" for="' .$name. '">' .(isset($myLang[$name]) ? $myLang[$name] : ''). '</label>
+				  <label class="form-label" for="' .$name. '">' .(isset($lang[$name]) ? $lang[$name] : ''). '</label>
                   <select id="' .$name. '" name="' .$name. '"' .$class . $disabled. '>';
 				  foreach($options as $value => $option)
 				  {
@@ -103,32 +103,32 @@ class HTMLForm{
 	}
 		public static function submit($name, $button='submit', $class='', $icon='')
 	{	
-		global $myLang;
+		global $lang;
 		$out = '';
 		$class = $class!='' ? ' class="'.$class.'"' : ' class="btn btn-primary btn-lg"';
 		$icon = $icon!='' ? '<i class="' .$icon. '"></i>&nbsp;' : '';
 	
-		return  $out.= '<button name="'.$name.'" ' .$class. ' type="submit">' . $icon .$myLang[$button]. '</button>';
+		return  $out.= '<button name="'.$name.'" ' .$class. ' type="submit">' . $icon .$lang[$button]. '</button>';
 	}	
 	
 	public static function simple_submit($name, $button='submit', $class='', $icon='', $cancel=false)
 	{
-		global $myLang;
+		global $lang;
 		$class = $class!='' ? ' class="'.$class.'"' : ' class="btn btn-primary"';
 		$icon = $icon!='' ? '<i class="' .$icon. '"></i>&nbsp;' : '';
-		$cancel = $cancel==true ? '&nbsp;<button type="reset" class="btn btn-secondary btn-lg" onclick="$(\'#form\').remove();"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;' .$myLang['cancel']. '</button>' : '';	
-		return  '<button name="'.$name.'" ' .$class. ' type="submit">' . $icon . $myLang[$button] . '</button>';
+		$cancel = $cancel==true ? '&nbsp;<button type="reset" class="btn btn-secondary btn-lg" onclick="$(\'#form\').remove();"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;' .$lang['cancel']. '</button>' : '';	
+		return  '<button name="'.$name.'" ' .$class. ' type="submit">' . $icon . $lang[$button] . '</button>';
 	}
 	public static function checkBox($name, $default='', $desc='')
 	{
-		global $myLang;
-		$desc = $desc!='' ? '<small class="form-text text-muted">' . $myLang[$desc] . '</small>' : '';
+		global $lang;
+		$desc = $desc!='' ? '<small class="form-text text-muted">' . $lang[$desc] . '</small>' : '';
 		
 		return '<div class="form-group">
 			<div class="form-check form-switch">
 			  <input class="form-check-input" id="' .$name. '" name="' .$name. '" type="checkbox"' .($default ? ' checked' : ''). '>
 			  <label class="form-check-label" for="' .$name. '">
-			  		' . $myLang[$name] . '
+			  		' . $lang[$name] . '
 			  </label>
 			</div>
 	        ' .$desc. '

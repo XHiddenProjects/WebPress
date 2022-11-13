@@ -66,8 +66,10 @@ width: calc(100% - 50px);
         </li>
       </ul>
       <form class="d-flex" role="search" method="get">
-        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+	  <div class="autocomplete">
+        <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+      </div>
+	  <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 	  <?php
 	  # Users information
@@ -130,8 +132,8 @@ width: calc(100% - 50px);
 			}
 			$author = isset($_POST['topicAuthor'])&&$_POST['topicAuthor']!=='' ? $_POST['topicAuthor'] : 0;
 			$tags = isset($_POST['topicTags'])&&$_POST['topicTags']!=='' ? str_replace(' ','',$_POST['topicTags']) : 0;
-			$pinned = isset($_POST['pinnedTopic']) ? $_POST['pinnedTopic'] : (isset($db['pinned']) ? $db['pinned'] : false);
-			$locked = isset($_POST['lockedTopic']) ? $_POST['lockedTopic'] : (isset($db['locked']) ? $db['locked'] : false);
+			$pinned = isset($_POST['pinnedTopic']) ? $_POST['pinnedTopic'] : (isset($db['pinned']) ? $db['pinned'] : 'no');
+			$locked = isset($_POST['lockedTopic']) ? $_POST['lockedTopic'] : (isset($db['locked']) ? $db['locked'] : 'no');
 			if($name!=0&&$forum!=0&&$msg!=0&&$tags!=0&&$author!=0){
 				echo Forum::makeTopic($name, $forum, $author, $msg, $tags, $getMsg, $pinned, $locked ,(isset($db['created']) ? $db['created'] : null)) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/forum', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/forum', 'danger');
 			}else{
@@ -189,7 +191,7 @@ width: calc(100% - 50px);
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
 	<li class="nav-item">
-	<button data-bs-toggle="modal" data-bs-target="#addTopic" class="btn btn-success w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> <?php echo $lang['forum.addTopic']?></button>
+	<?php echo Users::hasPermission('post') ? '<button data-bs-toggle="modal" data-bs-target="#addTopic" class="btn btn-success w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addTopic'].'</button>' : '';?>
 	<?php echo Users::isAdmin() ? '<button data-bs-toggle="modal" data-bs-target="#addForum" class="btn btn-warning w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addForum'].'</button>' : '';?>
 	</li>
       <?php
@@ -203,6 +205,7 @@ width: calc(100% - 50px);
     <div><?php echo $lang['dashboard.profile.forums'].count(Files::Scan(DATA_FORUMS));?></div>
 	<div><?php echo $lang['dashboard.profile.topics'].count(Files::Scan(DATA_TOPICS));?></div>
 	<div><?php echo $lang['dashboard.profile.replys'].count(Files::Scan(DATA_REPLYS));?></div>
+	<div class="showLoad"></div>
 	</div>
     </div>
 	<?php
@@ -215,6 +218,7 @@ width: calc(100% - 50px);
 	<form method="post">
       <div class="modal-header">
         <h1 class="modal-title fs-5">'.$lang['forum.editTopic'].'</h1>
+		<a href="'.$BASEPATH.'/forum"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -254,7 +258,7 @@ width: calc(100% - 50px);
 		<div class="row">
 			<div class="col">
 			<label class="form-label" for="pinnedTopic">'.$lang['forum.pinned'].'</label>
-				<select class="form-control" id="pinnedTopic" name="pinnedTopic">';
+				<select'.(Users::isAdmin()||Users::isMod() ? '' : ' disabled="disabled"').' class="form-control" id="pinnedTopic" name="pinnedTopic">';
 				foreach($lang['forum.toggleOpt'] as $opt=>$val){
 					$out.='<option'.(filter_var($opt, FILTER_VALIDATE_BOOLEAN)===$db['pinned'] ? ' selected="selected"' : '').' value="'.$opt.'">'.$val.'</option>';
 				}
@@ -421,12 +425,12 @@ if(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
 			WebDB::saveDB('topics', $topics, $db);
 			 if(!$db['locked']&&!Users::isGuest()){
 				 	echo '<br/>';
-	echo '<button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#PostReply" aria-expanded="false" aria-controls="collapseExample">
+	echo Users::hasPermission('reply') ? '<button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#PostReply" aria-expanded="false" aria-controls="collapseExample">
    '.$lang['forum.reply_drop'].'
-  </button>';
-	 echo '<div class="collapse" id="PostReply">
+  </button>' : '';
+	 echo Users::hasPermission('reply') ? '<div class="collapse" id="PostReply">
  <form method="post"><input type="submit" name="replySub" class="btn btn-success w-100 mt-3"/>'.$Editor->createEditor($conf['editor'], true, null, $source, true).'</form>
-</div>'; 
+</div>' : '<div class="alert alert-danger ms-2 me-2"><b><i class="fa-solid fa-triangle-exclamation"></i> '.$lang['forum.noreply'].'</b></div>'; 
   }else{
 	  if(Users::isGuest()&&!$db['locked']){
 		  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3"><a href="'.$BASEPATH.'/auth.php/login"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';

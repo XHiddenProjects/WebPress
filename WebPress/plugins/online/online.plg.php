@@ -30,11 +30,10 @@ function online_config(){
 	$color = array('primary'=>$lang['blue'], 'secondary'=>$lang['gray'], 'success'=>$lang['green'], 'warning'=>$lang['yellow'], 'danger'=>$lang['red'], 'dark'=>$lang['black'], 'light'=>$lang['white']);
 	$display =   $display = array('icon'=> $lang['icon'], 'text'=> $lang['text']);
 	$d = WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
-		if($d['active']){
 			$type = array('success'=>'success', 'warning'=>'warning', 'info'=>'info', 'danger'=>'danger', 'dark'=>'dark', 'light'=>'light');
 			$out.=HTMLForm::form(CONFIG_SAVE.$plugin.'', '<div class="row">
 		<div class="col w-100">
-			'.HTMLForm::checkBox('online_active', $d['active']).'
+			'.HTMLForm::checkBox('form.active', $d['active']).'
 		</div>
 	</div><div class="row">
 	<div class="col">
@@ -50,7 +49,7 @@ function online_config(){
 	</div>
 	</div>'
 	);
-	}
+	
 	return $out;
 }
 function online_onSubmit(){
@@ -63,7 +62,7 @@ function online_onSubmit(){
 			$display = $_POST['online_display'];
 			
 			$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
-			$d['config']['use'] = $active;
+			$d['active'] = $active;
 			$d['config']['color'] = $color;
 			$d['config']['display'] = $display;
 			$out .= WebDB::saveDB('plugins', $plugin.'/plugin', $d) ? Utils::redirect('modal.pedit.title', 'config.success', CONFIG_LOAD.$plugin, 'success') : Utils::redirect('modal.failed.title', 'config.failed', CONFIG_LOAD.$plugin, 'danger');

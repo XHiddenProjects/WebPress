@@ -88,8 +88,34 @@ class Forum{
 		$p = isset($_GET['p']) ? $_GET['p'] : 1;
 		$nb = $conf['forum']['maxTopicDisplay'];
 		for($i=0;$i<count(array_slice($items, $nb*($p-1), $nb));$i++){
+			if(isset($_GET['search'])){
+			$target = @explode(':', $_GET['search']);
+			
+			if($target[0]==='tags'){
+				if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
+					$d.=array_slice($items, $nb*($p-1), $nb)[$i];
+				}
+			}elseif($target[0]==='forum'){
+				if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
+					$d.=array_slice($items, $nb*($p-1), $nb)[$i];
+				}
+			}elseif($target[0]==='topic'){
+				if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
+					$d.=array_slice($items, $nb*($p-1), $nb)[$i];
+				}
+			}elseif($target[0]==='status'){
+				if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
+					$d.=array_slice($items, $nb*($p-1), $nb)[$i];
+				}
+			}elseif($target[0]===''||$target[0]==='all'){
+				$d.=array_slice($items, $nb*($p-1), $nb)[$i];
+			}
+		}else{
 			$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 		}
+			
+		}
+		
 		return $d;
 	}
 	public static function loadTopics(){
@@ -117,7 +143,8 @@ class Forum{
 					$dontIncludeLastTag++;
 				}
 				$dinfo = '<!-- Media object -->
-<li class="list-group-item border-0"><div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
+<li class="list-group-item border-0" forum="'.$info['forum'].'">
+<div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
   <!-- Image -->
   <a '.($info['author']!=='System' ? 'href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"' : '').'><img
     src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"
@@ -130,7 +157,7 @@ class Forum{
     <h5 class="fw-bold mt-2">
       '.$info['author'].' - <em>'.$info['name'].'</em>
       <small class="text-muted">'.(isset($langs['forum.edited']) ? $langs['forum.edited'] : 'Last Edited: ').' '.date($conf['page']['dateFormat'], strtotime($info['edited'])).'</small>
-		'.($info['pinned'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.pinned']) ? $langs['forum.pinned'] : 'Pinned').'" class="badge text-bg-success"><i class="fa-sharp fa-solid fa-thumbtack"></i></span>' : '').'
+		'.($info['pinned'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.pinned']) ? $langs['forum.pinned'] : 'Pinned').'" class="badge text-bg-success"><i class="fa-solid fa-thumbtack"></i></span>' : '').'
 		'.($info['locked'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.locked']) ? $langs['forum.locked'] : 'Locked').'" class="badge text-bg-danger"><i class="fa-solid fa-lock"></i></span>' : '').'
 	</h5>
     <p class="text-bg-dark me-2 p-2 rounded">
@@ -139,7 +166,7 @@ class Forum{
 	<div><i class="fa-solid fa-eye"></i> <span class="text-secondary">'.self::number_abbr($info['views']).'</span><i style="transform:rotateY(180deg);" class="fa-solid fa-comment ms-3"></i> <span class="text-secondary">'.self::getReplysByTopic($info['id']).'</span></div>
 	<tags>'.$listTags.'</tags>
 	<a class="text-decoration-none" href="./forum.php/view?id='.$info['id'].'"><button class="btn '.($info['locked'] ? 'btn-secondary' : 'btn-primary').' d-flex mt-2 mb-2">'.($info['locked'] ? (isset($langs['forum.view']) ? $langs['forum.view'] : 'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>') : (isset($langs['forum.replys']) ? $langs['forum.replys'] : 'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>')).'</button></a>
-	'.($session===$info['author'] ? '<a href="./forum?removeTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-danger">'.(isset($langs['forum.deleteTopic']) ? $langs['forum.deleteTopic'] : 'Delete Topic').' <i class="fa-solid fa-trash-can"></i></button></a> <a href="./forum?editTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-success">'.(isset($langs['forum.editBtn']) ? $langs['forum.editBtn'] : '<i class="fa-solid fa-pen-to-square"></i> Edit').'</button></a>':'').'
+	'.($session===$info['author'] ? '<a'.(Users::hasPermission('delete') ? '' : ' hidden="hidden"').' href="./forum?removeTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-danger">'.(isset($langs['forum.deleteTopic']) ? $langs['forum.deleteTopic'] : 'Delete Topic').' <i class="fa-solid fa-trash-can"></i></button></a> <a'.(Users::hasPermission('write') ? '' : ' hidden="hidden"').' href="./forum?editTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-success">'.(isset($langs['forum.editBtn']) ? $langs['forum.editBtn'] : '<i class="fa-solid fa-pen-to-square"></i> Edit').'</button></a>':'').'
  </div>
 
   <!-- Media body -->
@@ -147,25 +174,19 @@ class Forum{
 
 <!-- Media object -->';
 	
-				if(isset($_GET['search'])){
-					global $setOnce;
+				/*if(isset($_GET['search'])){
 					$target = (strpos($_GET['search'], ':') ? @explode(':', $_GET['search']) : $_GET['search']);
 					$splitTag = explode(',',$info['tags']);
-				if(is_array($target)&&!strncasecmp($target[0], 'author', 20)&&!strncasecmp($target[1], $info['author'], 20)||!is_array($target)&&!strncasecmp($target, $info['author'], 20)){
+					if(is_array($target)&&preg_match('/author/',$target[0])&&preg_match('/'.$info['author'].'/',$target[1])){
 						$dinfo=$dinfo;
-					}elseif(is_array($target)&&!strncasecmp($target[0], 'forum', 20)&&!strncasecmp($target[1], $info['forum'], 20)||!is_array($target)&&!strncasecmp($target, $info['forum'], 20)){
+					}elseif(is_array($target)&&preg_match('/forum/',$target[0])&&preg_match('/'.$info['forum'].'/',$target[1])){
 						$dinfo=$dinfo;
-					}elseif(is_array($target)&&!strncasecmp($target[0], 'tags', 20)&&in_array(strtolower($target[1]),$splitTag)||!is_array($target)&&in_array(strtolower($target[1]),$splitTag)){
+					}elseif(is_array($target)&&preg_match('/tags/',$target[0])&&in_array(strtolower($target[1]),$splitTag)){
 						$dinfo=$dinfo;
 					}else{
-						if($setOnce<1){
-							$setOnce++;
 							$dinfo='<div class="alert alert-danger">'.$langs['forum.search.failed'].'</div>';
-					}else{
-						$dinfo='';
-						}
 					}
-				}
+				}*/
 			if($info['pinned']&&$info['pinned']===true){
 				array_push($topicsArr['pinned'], $dinfo);
 			}else{

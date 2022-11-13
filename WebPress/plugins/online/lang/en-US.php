@@ -1,5 +1,4 @@
 <?php
-$lang['online_active']='On/Off';
 $lang['online_color']='Select Color';
 $lang['online_display']='Select Display';
 $lang['blue']='blue';

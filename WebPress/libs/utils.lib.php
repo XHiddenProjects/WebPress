@@ -195,5 +195,6 @@ class Utils{
 		$out.='</div>';
 			return $out;
 	}
+	
 }
 ?>

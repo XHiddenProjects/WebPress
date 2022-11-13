@@ -60,6 +60,7 @@ $lang = array(
 'dashboard.config.panel.color'=>'Panel Color',
 'dashboard.config.panel.email'=>'Custom Email Domain',
 'dashboard.config.panel.editor'=>'Editor',
+'dashboard.config.panel.theme'=>'Themes',
 'dashboard.config.panel.emaildisabled'=>'You cannot change this, please upgrade',
 'dashboard.config.panel.emailHelp'=>'Enter your custom domain to allow it',
 'dashboard.config.panel.icons'=>'Website Logo',
@@ -128,6 +129,7 @@ $lang = array(
 'dashboard.profile.topics'=>'<b class="text-secondary">Topics: </b>',
 'dashboard.profile.replys'=>'<b class="text-secondary">Replys: </b>',
 'dashboard.profile.forums'=>'<b class="text-secondary">Forums: </b>',
+'dashboard.pageLoaded'=>'<b class=\'text-secondary\'>Loaded: </b>',
 'dashboard.profile.editbtn'=>'Edit Profile',
 'dashboard.profile.addBan'=>'Ban User',
 'dashboard.config.title'=>'Configuration',
@@ -295,6 +297,7 @@ $lang = array(
 'errNb' => 'This is not a positive whole number',
 'ErrContentFilter' => 'You have inserted at least one censored word, please be polite.',
 'tableHeader'=>'Headers',
+'form.active'=>'On/Off',
 # assets
 'assets.title'=>'Assets',
 # ban list
@@ -438,7 +441,7 @@ $lang = array(
 'files.manager.error'=>'Error: could not save file, reloading page to update file..',
 #expectations
 'expect.lang'=>'You must have '.$conf['lang'].'.php',
-'expect.guest'=>'<i class="fa-sharp fa-solid fa-triangle-exclamation"></i> You are in guest mode, you cannot do anything but read/view/register/login, please <a href="./auth.php/login">login</a> or <a href="./auth.php/register">register</a> and account',
+'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> You are in guest mode, you cannot do anything but read/view/register/login, please <a href="./auth.php/login">login</a> or <a href="./auth.php/register">register</a> and account',
 'expect.requiements'=>'All required form items are required!',
 #forum
 'forum.title'=>'Forum',
@@ -476,6 +479,7 @@ $lang = array(
 'forum.anchorID'=>'Copy Reply ID',
 'forum.userStatus'=>'Status',
 'forum.sidebar.statistics'=>'Statistics',
-'forum.reply_drop'=>'Post Reply'
+'forum.reply_drop'=>'Post Reply',
+'forum.noreply'=>'You do not have permission to reply!'
 );
 ?>

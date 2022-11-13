@@ -14,8 +14,8 @@ this is a easy CMS that allows you use User Infrence(UI) and allow easier search
 
 ###### System requirements
 - PHP 7.4 or higher
-- Webserver (Apache)
-###### PHP extendtions
+- Webserver (Apache/IIS)
+###### PHP extentions
 - PHP [GD](http://php.net/manual/en/book.mbstring.php) module for image processing.
 - PHP [JSON](https://php.net/manual/en/book.json.php) module for JSON manipulation.
 - PHP [mbstring](http://php.net/manual/en/book.mbstring.php) module for full UTF-8 support.
@@ -75,7 +75,33 @@ In the form of roles  of moderation. Here is a table that is defaulted to you
 | member | registered users | X |
 | guest | unknown users | X |
 
-You(`admin`) can remake jobs by going to `dashboard.php/roles?editJob={jobName}`  to edit what this custom job might be or `dashboard.php/roles?createJob={jobName}`
+If you want to add your own, go to the _ROLES.json_
+
+Enter this code
+change `[obj]` to the name of type, also change true/false to allow or disallow that permission.
+```json
+		"[obj]":{
+			"name": "[objname]",
+			"description": "[objdesc]",
+				"options":{
+					"view":true,
+					"write": true,
+					"read": false,
+					"delete": false,
+					"ban": false,
+					"warn": false,
+					"post": false,
+					"reply": false,
+					"onComingMessages": false,
+					"activePlugins": false,
+					"activeThemes": false,
+					"config": false,
+					"changeRoles": false,
+					"filemanager": false,
+					"changeProfile": false
+				}
+			}
+```
 
 ### [Editors](./docs#editors) {#editors}
 
@@ -104,10 +130,11 @@ Here is a list of available hooks:
 | footer | `themes` | Executes code in the footer |
 | dblist | `core` | displays on dashboard's lists |
 | beforePage | `core` | executes code before page load |
+| afterPage | `core` | executes code after page load |
 
-### [Bans and Warnings](./docs#bans-and-warnings) {#bans-and-warnings}
+### [Bans](./docs#bans) {#bans}
 
-Bans and Warnings should be use very rearly, but you (the admin) will have all access to do so, you have 3 ways to ban users
+Bans should be use very rearly, but you (the admin) will have all access to do so, you have 3 ways to ban users
 
 ###### __Bans:__
 1. IP
@@ -115,11 +142,6 @@ Bans and Warnings should be use very rearly, but you (the admin) will have all a
 3. Hardware ID(Hard Ban)
 
 It can be temporary by using (`m-d-Y H:i:s`) format or type (`-1`) for _unlimited_ time
-
-###### __Warnings:__
-This can be used for counts how many times the user has been warned, this just counts up until banned/removed
-
-All this can be stored in there history
 
 ### [Toolkits](./docs#toolkits) {#toolkits}
 
@@ -147,3 +169,18 @@ $kit->__toInt($txt);
 $kit->__toFloat($txt);
 ?>
 ```
+
+### [File Uploding](./docs#file-uploading) {#file-uploading}
+File uploading has it's limitations as well, you can upload anything, but some items can't be edited(ex. images, videos, etc).
+The max upload size is whatever your server can handle. You can upload any file type some may be editable, some may not, try not to upload anything that may have injection software that allows access to accounts.
+Users that upload items in the 'forum' are limited (view it in the `config` folder)
+
+### [Forum searching](./docs#forum-searching) {#forum-searching}
+The forum searching a avanced tool to find things easier, but it has to include a keywork to allow it to work
+example, _(tags:fun)_, the syntax pattern is `{selector}:{value}`
+
+Allowed selectors:
+* tags
+* forum
+* topic
+* status

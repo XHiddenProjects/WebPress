@@ -115,7 +115,8 @@ for (let i = 0; i < logCapture.length; i++) {
 }
 
 setTimeout(function(){
-	if (document.querySelector(window.location.hash)) {
+	if(window.location.hash!==''&&window.location.hash){
+		if (document.querySelector(window.location.hash)) {
 				let target = document.querySelector(window.location.hash);
 				target.classList.add('border');
 				target.classList.add('border-5');
@@ -126,6 +127,7 @@ setTimeout(function(){
 					block: 'center'
 				});
 			}
+	}
 }, 100);
 
 function copyPublicKey(){

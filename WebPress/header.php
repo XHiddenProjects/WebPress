@@ -17,8 +17,10 @@ require_once('libs/HTMLForm.lib.php');
 require_once('libs/toolkit.lib.php');
 require_once('libs/forum.lib.php');
 require_once('libs/Pagination.lib.php');
+require_once('libs/page.lib.php');
 global $conf, $selLang, $plugins;
 require_once('lang/'.$selLang.'.php');
+Page::start();
 foreach($plugins as $plugin){
 			if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
 				 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';

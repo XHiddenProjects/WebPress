@@ -17,6 +17,14 @@
                     "tag": "offical",
                     "show": true
 			}]
+		},
+		"1.0.0":{
+			"textsets":[{
+					"text": "Version 1.0.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+			}]
 		}
     },
     "needsAttation": false
