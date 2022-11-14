@@ -11,3 +11,24 @@ Download ZIP folder take the `WebPress` Folder and insert it into your **ROOT** 
 
 ## Admins/Members/Moderators panels
 The panels are the same looks for everyone, but some functions will not be accessable, unlike `admins` the see every tab, where if a `member` would just get a `page not found` error.
+
+***
+
+## support
+
+This project is supported on multiple servers
+1. Apache(recommend)
+2. Windows IIS/10
+
+This includes `.htaccess` for Apache and `web.config` for IIS
+
+* PHP>=7.4
+* GD
+* JSON
+* mbstring
+
+***
+
+For more documentation:
+
+Go to your dashboard, and click __documentation__
