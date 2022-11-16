@@ -25,6 +25,21 @@
                     "tag": "offical",
                     "show": true
 			}]
+		},
+		"1.0.1":{
+			"textsets":[{
+					"text": "Version 1.0.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+			},
+			{
+					"text": "Dark theme has been added!",
+                    "icon": "fa-solid fa-paintbrush",
+                    "tag": "theme",
+                    "show": true,
+					"type":"info"
+			}]
 		}
     },
     "needsAttation": false

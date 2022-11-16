@@ -444,7 +444,7 @@ if(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
  
 	
 }else{
-	echo '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>';
+	echo (isset($_GET['search']) ? '' : '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
 	echo Forum::loadTopics();
 	echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage(Files::Scan(DATA_TOPICS), $conf['forum']['maxTopicDisplay']), './forum?');
 }

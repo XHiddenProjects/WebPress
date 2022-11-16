@@ -27,33 +27,33 @@ include_once('lang/'.$selLang.'.php');
 $BASEPATH=(!preg_match('/\/dashboard(?:\.php\/)/',$_SERVER['REQUEST_URI']) ? '.' : '..');
 if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/phpinfo/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(phpinfo\/|phpinfo)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.phpinfo'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/profile/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(profile\/profile)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.profile'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/configs/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(configs\/|configs)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.config'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/docs/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(docs\/|docs)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.docs'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/themes/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(themes\/|themes)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.themes'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/plugins/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(plugins\/plugins)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.plugins'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/console/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(console\/|console)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.console'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/editors/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(editors\/|editors)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.editors'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/assets/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(assets\/|assets)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.assets'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/mail/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(mail\/|mail)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.mail'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/ban/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(ban\/|ban)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.ban'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/roles/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(roles\/|roles)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.roles'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/files/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(files\/|files)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.files'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(view\/|view)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.view'], $BASEPATH);	
 }else{
 	echo head($lang['dashboard.title.notFound'], $BASEPATH);	
@@ -86,7 +86,7 @@ $d[$_SESSION['user']]['id'] = Users::hardwareID();
 WebDB::saveDB('users', 'users', $d);
 $out='';
 if(!isset($_SESSION['guest'])){
-	$out .= '<div style="background-color: '.$conf['page']['panel']['bgcolor'].'; color:'.$conf['page']['panel']['color'].'">';
+	$out .= '<div id="pageColor" style="background-color: '.$conf['page']['panel']['bgcolor'].'; color:'.$conf['page']['panel']['color'].';">';
 	$out.='<nav class="navbar navbar-dark bg-primary navbar-expand-lg" id="dbnavbar">
   <div class="container-fluid">
   <button style="background:transparent;outline:none;border:0;" type="button" data-bs-toggle="offcanvas" data-bs-target="#webpress-sidebar" aria-controls="webpress-sidebar">
@@ -377,13 +377,13 @@ Utils::isPost('removedAvatar', false, function(){
 	<div class="col">
 	<div class="input-group p-0">
 		<h4>'.$lang['dashboard.config.panel.bgcolor'].'</h4>
-    <input type="color" value="'.$conf['page']['panel']['bgcolor'].'" class="form-control b-0 p-0 m-0 form-control-lg w-100 form-control-color" name="panelbgcolor"/>
+    <input type="color" id="panelbgcolor" value="'.$conf['page']['panel']['bgcolor'].'" class="form-control b-0 p-0 m-0 form-control-lg w-100 form-control-color" name="panelbgcolor"/>
 </div>
 	</div>
 	<div class="col">
 		<div class="input-group p-0">
 		<h4>'.$lang['dashboard.config.panel.color'].'</h4>
-    <input type="color" value="'.$conf['page']['panel']['color'].'" class="form-control b-0 p-0 m-0 form-control-lg w-100 form-control-color" name="panelcolor"/>
+    <input type="color"  id="panelcolor" value="'.$conf['page']['panel']['color'].'" class="form-control b-0 p-0 m-0 form-control-lg w-100 form-control-color" name="panelcolor"/>
 </div>
 	</div>
 	</div>';
@@ -430,7 +430,11 @@ Utils::isPost('removedAvatar', false, function(){
 	<select class="form-control" name="themes">
 	';
 	foreach(Files::Scan(ROOT.'/themes') as $themes){
-		$out.='<option value="'.$themes.'">'.$themes.'</option>';
+		$theme = Files::removeExtension($themes);
+		$dbtheme = WebDB::getDB('themes', $theme.'/theme','.conf.json');
+		if($dbtheme['active']){
+		$out.='<option'.($themes===$conf['page']['themes'] ? ' selected="selected"' : '').' value="'.$themes.'">'.$themes.'</option>';
+		}
 	}
 	$out.='
 	</select>
@@ -742,7 +746,7 @@ foreach(Files::Scan(ROOT.'plugins') as $plugins){
 <div class="card-body text-bg-primary overflow-auto">
 '.(isset($pluginsConfig['desc'][Users::getLang()]) ? '<div style="overflow:auto;height:26%;">'.$pluginsConfig['desc'][Users::getLang()].'</div>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingDesc'].'</div>').'
 <img class="img-fluid plugin-icon" src="'.$BASEPATH.'/plugins/'.$plugins.DS.'icon.png"/>
-'.(isset($pluginsConfig['options']['usedLang']) ? '<div class="text-bg-dark">'.$lang['plugin.allow.lang'].'<span class="fw-bold fst-italic">'.$lgs.'</span></div>' : '<div class="text-bg-dark">'.$lang['plugin.allow.lang'].'<span class="fw-bold fst-italic">'.$lang['plugin.allow.lang.null'].'</span></div>').'
+'.(isset($pluginsConfig['options']['usedLang']) ? '<div class="text-bg-dark rounded ps-1 pt-1 pb-1">'.$lang['plugin.allow.lang'].'<span class="fw-bold fst-italic">'.$lgs.'</span></div>' : '<div class="text-bg-dark">'.$lang['plugin.allow.lang'].'<span class="fw-bold fst-italic">'.$lang['plugin.allow.lang.null'].'</span></div>').'
 </div>
 <div class="card-footer p-0">
 
@@ -1625,7 +1629,7 @@ if(isset($_POST['saveFile'])){
 	
 
 	
-}elseif(preg_match('/\/dashboard(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(view|view\/)/', $_SERVER['REQUEST_URI'])){
 	$out .= Plugin::useHook('view', $_GET['plugin']);
 }else{
 	$out.='<h1 class="text-center alert alert-danger">'.$lang['dashboard.pageError'].'</h1>';

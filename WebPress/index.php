@@ -57,11 +57,11 @@ if(isset($_SESSION['guest'])){
   </div>
 </nav>
 </header>
-
+<!--Write contents below here-->
+<h1 id="contentIndex" class="text-secondary"><?php echo $lang['index.writtable'];?></h1>
 
 <?php
 echo foot($BASEPATH);
 ?>
-
 </body>
 </html>

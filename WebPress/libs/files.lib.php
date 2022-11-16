@@ -269,7 +269,7 @@ return ' -'.$info.'-';
 public static function removeDir($dir){
 	foreach(glob($dir . '/*') as $file) {
         if(is_dir($file))
-            deleteAll($file);
+            self::removeDir($file);
         else
             unlink($file);
     }

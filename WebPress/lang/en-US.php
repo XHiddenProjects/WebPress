@@ -14,6 +14,7 @@ $lang = array(
 'index.label.copyright'=>'Copyright',
 'index.label.license'=>'and Licensed by',
 'quote_direct'=>'Click to Show original',
+'index.writtable'=>'Enter Content here',
 # Register
 'register.title'=>'Create Account',
 'register.name'=>'Your Name',
@@ -297,7 +298,7 @@ $lang = array(
 'errNb' => 'This is not a positive whole number',
 'ErrContentFilter' => 'You have inserted at least one censored word, please be polite.',
 'tableHeader'=>'Headers',
-'form.active'=>'On/Off',
+'form_active'=>'On/Off',
 # assets
 'assets.title'=>'Assets',
 # ban list

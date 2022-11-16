@@ -33,7 +33,7 @@ function online_config(){
 			$type = array('success'=>'success', 'warning'=>'warning', 'info'=>'info', 'danger'=>'danger', 'dark'=>'dark', 'light'=>'light');
 			$out.=HTMLForm::form(CONFIG_SAVE.$plugin.'', '<div class="row">
 		<div class="col w-100">
-			'.HTMLForm::checkBox('form.active', $d['active']).'
+			'.HTMLForm::checkBox('form_active', $d['active']).'
 		</div>
 	</div><div class="row">
 	<div class="col">
@@ -57,7 +57,7 @@ function online_onSubmit(){
 		$out='';
 		$plugin = 'online';
 		if(isset($_POST['online_submit'])){
-			$active = isset($_POST['online_active']) ? $_POST['online_active'] : '';
+			$active = isset($_POST['form_active']) ? $_POST['form_active'] : '';
 			$color = $_POST['online_color'];
 			$display = $_POST['online_display'];
 			

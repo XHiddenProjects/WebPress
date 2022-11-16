@@ -1,0 +1,15 @@
+{
+    "name": {
+        "en": "Dark Theme"
+    },
+    "active": "",
+    "desc": {
+        "en": "Changes everything to make it dark themed."
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US"
+        ]
+    }
+}

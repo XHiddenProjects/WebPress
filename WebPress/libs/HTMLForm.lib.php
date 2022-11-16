@@ -126,7 +126,7 @@ class HTMLForm{
 		
 		return '<div class="form-group">
 			<div class="form-check form-switch">
-			  <input class="form-check-input" id="' .$name. '" name="' .$name. '" type="checkbox"' .($default ? ' checked' : ''). '>
+			  <input style="width:47px;" class="form-check-input me-1" id="' .$name. '" name="' .$name. '" type="checkbox"' .($default ? ' checked' : ''). '>
 			  <label class="form-check-label" for="' .$name. '">
 			  		' . $lang[$name] . '
 			  </label>

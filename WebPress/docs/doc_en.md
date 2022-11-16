@@ -184,3 +184,11 @@ Allowed selectors:
 * forum
 * topic
 * status
+
+### [Themes](./docs#themes) {#themes}
+Themes is what makes the software look the way it looks, it is easy setup and configurable.
+
+Here is how you set it up.
+1. Copy the "Default" folder in the _theme folder_ (this is required, because most folders are required for this to work).
+2. Go the `theme.conf.json` and change anything that needs to be changed.
+3. Enjoy, start placing css/js codes into your folder and style your page.

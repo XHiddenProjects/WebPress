@@ -30,14 +30,14 @@ if(preg_match('/\/config(?:\.php)\/plugin/', $_SERVER['REQUEST_URI'])){
 
 	$out = '';
 	$out .= head('config', '../..');
-	$name = preg_replace('/\/WebPress\/config(?:\.php)\/plugin\//', '', $_SERVER['REQUEST_URI']);
+	$name = preg_replace('/\/[\w\W]+\/config(?:\.php)\/plugin\//', '', $_SERVER['REQUEST_URI']);
 	$out .= Plugin::forceExecute('config', $name);
 	echo $out;
 }
 if(preg_match('/\/config(?:\.php)\/save\/[\w]+/', $_SERVER['REQUEST_URI'])){
 	$out = '';
 	$out .= head('config', '../..');
-	$name = preg_replace('/\/WebPress\/config(?:\.php)\/save\//', '', $_SERVER['REQUEST_URI']);
+	$name = preg_replace('/\/[\w\W]+\/config(?:\.php)\/save\//', '', $_SERVER['REQUEST_URI']);
 	$out .= Plugin::forceExecute('onSubmit', $name);
 	echo $out;
 }
