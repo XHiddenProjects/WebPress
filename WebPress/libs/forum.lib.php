@@ -59,10 +59,15 @@ class Forum{
 	public static function listForums(){
 		global $langs, $BASEPATH;
 		$out='';
+		$lists=array();
 		foreach(Files::Scan(DATA_FORUMS) as $forums){
 			$forums = str_replace('.dat.json', '', $forums);
 			$forumDB = WebDB::getDB('forums', $forums);
-			$out.='<a href="./forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> <a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a></li></a>';
+			$lists[(string)$forumDB['val']] = '<a href="./forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> <a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a></li></a>';
+		}
+		ksort($lists);
+		foreach($lists as $item => $list){
+			$out.=$list;
 		}
 		return $out;
 	}
@@ -255,7 +260,8 @@ class Forum{
     <h5 class="fw-bold mt-2">
       '.$info['author'].(Users::createBadge($info['author']) ? Users::createBadge($info['author']) : '<span class="ms-2 me-2 badge text-bg-secondary">'.$langs['forum.anonumous'].'</span>').
      '<small class="text-muted">'.(isset($langs['forum.edited']) ? $langs['forum.edited'] : '').' '.date($conf['page']['dateFormat'], strtotime($info['edited'])).'</small>
-		'.($info['locked'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.locked']) ? $langs['forum.locked'] : 'Locked').'" class="badge text-bg-danger"><i class="fa-solid fa-lock"></i></span>' : '').'
+		'.($info['pinned'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.pinned']) ? $langs['forum.pinned'] : 'Pinned').'" class="badge text-bg-success"><i class="fa-solid fa-thumbtack"></i></span>' : '').'
+		 '.($info['locked'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.locked']) ? $langs['forum.locked'] : 'Locked').'" class="badge text-bg-danger"><i class="fa-solid fa-lock"></i></span>' : '').'
    </h5>
 
     <p class="text-bg-dark me-2 p-2 rounded">

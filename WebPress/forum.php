@@ -62,14 +62,19 @@ width: calc(100% - 50px);
     <div class="collapse navbar-collapse" id="forumNavBar">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="<?php echo $BASEPATH;?>/">Home</a>
+          <a class="nav-link active text-light" aria-current="page" href="<?php echo $BASEPATH;?>/"><?php echo $lang['forum.home'];?></a>
+        </li>
+		   <li class="nav-item">
+          <a class="nav-link active text-light" aria-current="page" href="<?php echo $BASEPATH;?>/forum.php/forums"><?php echo $lang['forum.category'];?></a>
         </li>
       </ul>
       <form class="d-flex" role="search" method="get">
+	  <div class="input-group">
 	  <div class="autocomplete">
-        <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
-      </div>
-	  <button class="btn btn-outline-success" type="submit">Search</button>
+        <input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+	  </div>
+	  		 <button class="btn btn-outline-success input-group-text" type="submit">Search</button>
+	  </div>
       </form>
 	  <?php
 	  # Users information
@@ -106,7 +111,8 @@ width: calc(100% - 50px);
 					'name'=>$name,
 					'created'=>date('m/d/Y h:i:sa'),
 					'tagColor'=>$color,
-					'tagIcon'=>$icon
+					'tagIcon'=>$icon,
+					'val'=>(string)(count(Files::Scan(DATA_FORUMS))+1)
 				);
 				if(!WebDB::dbExists('forums', $name)){
 					WebDB::makeDB('forums', $name) ? true : false;
@@ -141,6 +147,16 @@ width: calc(100% - 50px);
 			}
 		}
 		if(isset($_GET['removeForum'])){
+			foreach(Files::Scan(DATA_FORUMS) as $forums){
+				$forums = Files::removeExtension($forums);
+				if($forums!==$_GET['removeForum']){
+				$set = WebDB::getDB('forums', $_GET['removeForum']);
+				$d = WebDB::getDB('forums', $forums);
+				$d['val'] = ($d['val']>$set['val'] ? $d['val'] - 1 : $d['val']);
+				WebDB::saveDB('forums', $forums, $d);
+				}
+			
+			}
 			foreach(Files::Scan(DATA_TOPICS) as $topics){
 				$name = Files::removeExtension($topics);
 				$topic= WebDB::getDB('topics', $name);
@@ -412,7 +428,36 @@ if(isset($_GET['quoteReply'])){
 		
 }
 echo '<ul class="list-group w-100">';
-if(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
+if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
+	$out='';
+	$out.='<h4 class="text-center text-info">'.$lang['forum.sort'].'</h4>';
+	$out.='<div><form method="post">';
+	$sortProper = array();
+	foreach(FILES::Scan(DATA_FORUMS) as $forums){
+		$forums = Files::removeExtension($forums);	
+		$d = WebDB::getDB('forums', $forums);
+		$sortProper[(string)$d['val']] = '<div style="background-color:'.$d['tagColor'].';" class="alert alert-secondary m-2 fs-3"><i class="'.$d['tagIcon'].'"></i> '.$d['name'].' <input type="text" name="itemName[]" style="width:0;height:0;border:0;padding:0;" value="'.$d['name'].'"/><span class="badge text-bg-secondary float-end"><input name="sortForum[]" type="number" min="1" max="'.count(Files::Scan(DATA_FORUMS)).'" class="form-control" value="'.$d['val'].'"/></span></div>';
+	}
+	ksort($sortProper);
+	foreach($sortProper as $item => $list){
+		$out.=$list;
+	}
+	$out.='<center><button name="sortBtn" class="btn btn-success w-75" type="submit">'.$lang['forum.shortSubmit'].'</button></center>';
+	$out.='</form></div>';
+	echo $out;
+	if(isset($_POST['sortBtn'])){
+		$sort = $_POST['sortForum'];
+		$names = $_POST['itemName'];
+		$id=0;
+		foreach($names as $forums){
+		$d = WebDB::getDB('forums', $forums);
+		$d['val'] = strval($sort[$id]);
+		WebDB::saveDB('forums', $forums, $d);
+		$id++;
+		}
+		echo Utils::redirect('modal.pedit.title', 'modal.pedit.desc', $BASEPATH.'/forum.php/forums', 'success');
+	}
+}elseif(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
 	echo Forum::loadReplys();
 	echo Paginate::pageLink(Paginate::pid($conf['forum']['maxReplyDisplay']), Paginate::countPage(Files::Scan(DATA_REPLYS), $conf['forum']['maxReplyDisplay']), './view?id='.$_GET['id'].'&');
   if(isset($_GET['id'])){
@@ -448,6 +493,7 @@ if(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
 	echo Forum::loadTopics();
 	echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage(Files::Scan(DATA_TOPICS), $conf['forum']['maxTopicDisplay']), './forum?');
 }
+
 echo '</ul>';
 ?>
 

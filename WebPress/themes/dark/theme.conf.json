@@ -2,7 +2,7 @@
     "name": {
         "en": "Dark Theme"
     },
-    "active": "",
+    "active": "on",
     "desc": {
         "en": "Changes everything to make it dark themed."
     },

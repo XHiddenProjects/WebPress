@@ -37,7 +37,7 @@ if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.docs'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(themes\/|themes)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.themes'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/(plugins\/plugins)/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(plugins\/|plugins)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.plugins'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(console\/|console)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.console'], $BASEPATH);	
@@ -169,39 +169,43 @@ $out .= '<div>
   </thead>
   <tbody>
     <tr>
-      <th>PHP Version</th>
+      <th>'.$lang['dashboard.info.phpversion'].'</th>
 	  <th>(7.4)<='.phpversion().'</th>
     </tr>
 	 <tr>
-      <th>Project Name</th>
+      <th>'.$lang['dashboard.info.projectName'].'</th>
 	  <th>'.PROJECT_NAME.'</th>
     </tr>
 	 <tr>
-      <th>Project Version</th>
+      <th>'.$lang['dashboard.info.projectVersion'].'</th>
 	  <th>'.Utils::checkVersion()[1].'</th>
     </tr>
 	 <tr>
-      <th>Project Build</th>
+      <th>'.$lang['dashboard.info.projectBuild'].'</th>
 	  <th>'.PROJECT_BUILD.'</th>
     </tr>
 	<tr>
-      <th>Server Software</th>
+      <th>'.$lang['dashboard.info.serverSoftware'].'</th>
 	  <th>'.(!empty($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : '').'</th>
     </tr>
 	<tr>
-      <th>PHP Modules</th>
+      <th>'.$lang['dashboard.info.phpModules'].'</th>
 	  <th>'.implode(', ', get_loaded_extensions()).'</th>
     </tr>
 	<tr>
-      <th>Memory</th>
+      <th>'.$lang['dashboard.info.memory'].'</th>
 	  <th>'.Files::sizeFormat(memory_get_usage()).' ('.Files::sizeFormat(memory_get_usage()).') out of '.Files::sizeFormat(memory_get_peak_usage(true)).'</th>
     </tr>
 	<tr>
-      <th><em>DATA</em> storage</th>
+      <th>'.$lang['dashboard.info.diskSpace'].'</th>
+	  <th>'.Files::sizeFormat(disk_free_space(dirname(dirname(dirname(ROOT))))).' out of '.Files::sizeFormat(disk_total_space(dirname(dirname(dirname(ROOT))))).'</th>
+    </tr>
+	<tr>
+      <th>'.$lang['dashboard.info.dataStorage'].'</th>
 	  <th>'.Files::sizeFormat(Files::folderSize(DATA)).'</th>
     </tr>
 	<tr>
-      <th>Upload Max Size</th>
+      <th>'.$lang['dashboard.info.uploadSize'].'</th>
 	  <th>'.ini_get('upload_max_filesize').'</th>
     </tr>
 	
@@ -1267,6 +1271,226 @@ roleEditor.addEventListener(\'show.bs.modal\', event => {
   user.value = getUser
 })
 </script>';
+$out.= (Users::isAdmin() ? '<center><button data-bs-toggle="modal" data-bs-target="#createRole" class="btn btn-warning fs-5 m-3 w-75">'.$lang['roles.createRole'].'</button></center>' : '');
+$out.= (Users::isAdmin() ? '<center><button data-bs-toggle="modal" data-bs-target="#deleteRole" class="btn btn-danger fs-5 m-3 w-75">'.$lang['roles.deleteRole'].'</button></center>' : '');
+$out.='<div class="modal fade" id="createRole" tabindex="-1" aria-labelledby="createRole" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	<form method="post">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createRole">'.$lang['roles.createRole'].'</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+			<div class="col">
+			<label class="form-label" for="roleName">'.$lang['roles.input.name'].'</label>
+				<input type="text" required="" id="roleName" class="form-control" name="roleName"/>
+			</div>
+			<div class="col">
+			<label class="form-label" for="roleDesc">'.$lang['roles.input.desc'].'</label>
+				<textarea id="roleDesc" required="" class="form-control" name="roleDesc"></textarea>
+			</div>
+		</div>
+		<hr/>
+		<div class="row">
+		<label class="form-label" for="roleView">'.$lang['roles.input.canView'].'</label>
+		<select class="form-control" disabled="" id="roleView" name="roleView">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option'.($val==='yes' ? ' selected="selected"' : '').' value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+		<div class="row">
+		<label class="form-label" for="roleWrite">'.$lang['roles.input.canWrite'].'</label>
+		<select class="form-control" id="roleWrite" name="roleWrite">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleRead">'.$lang['roles.input.canRead'].'</label>
+		<select class="form-control" id="roleRead" name="roleRead">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleDelete">'.$lang['roles.input.canDelete'].'</label>
+		<select class="form-control" id="roleDelete" name="roleDelete">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleBan">'.$lang['roles.input.canBan'].'</label>
+		<select class="form-control" id="roleBan" name="roleBan">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="rolePost">'.$lang['roles.input.canPost'].'</label>
+		<select class="form-control" id="rolePost" name="rolePost">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleReply">'.$lang['roles.input.canReply'].'</label>
+		<select class="form-control" id="roleReply" name="roleReply">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleMsg">'.$lang['roles.input.canMsg'].'</label>
+		<select class="form-control" id="roleMsg" name="roleMsg">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="rolePlugins">'.$lang['roles.input.plugins'].'</label>
+		<select class="form-control" id="rolePlugins" name="rolePlugins">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleThemes">'.$lang['roles.input.themes'].'</label>
+		<select class="form-control" id="roleThemes" name="roleThemes">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleConfig">'.$lang['roles.input.config'].'</label>
+		<select class="form-control" id="roleConfig" name="roleConfig">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleRoles">'.$lang['roles.input.canRole'].'</label>
+		<select class="form-control" id="roleRoles" name="roleRoles">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleFile">'.$lang['roles.input.file'].'</label>
+		<select class="form-control" id="roleFile" name="roleFile">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+			<div class="row">
+		<label class="form-label" for="roleProfile">'.$lang['roles.input.profile'].'</label>
+		<select class="form-control" id="roleProfile" name="roleProfile">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
+		
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="roleCreateSubmit" class="btn btn-primary">'.$lang['roles.createRole'].'</button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>';
+if(isset($_POST['roleCreateSubmit'])){
+	$name = $_POST['roleName'];
+	$desc = $_POST['roleDesc'];
+	$view = (bool)true;
+	$write = filter_var($_POST['roleWrite'], FILTER_VALIDATE_BOOLEAN);
+	$read = filter_var($_POST['roleRead'], FILTER_VALIDATE_BOOLEAN);
+	$delete = filter_var($_POST['roleDelete'],FILTER_VALIDATE_BOOLEAN);
+	$ban = filter_var($_POST['roleBan'], FILTER_VALIDATE_BOOLEAN);
+	$post = filter_var($_POST['rolePost'], FILTER_VALIDATE_BOOLEAN);
+	$reply = filter_var($_POST['roleReply'],FILTER_VALIDATE_BOOLEAN);
+	$msg = filter_var($_POST['roleMsg'], FILTER_VALIDATE_BOOLEAN);
+	$plugins = filter_var($_POST['rolePlugins'], FILTER_VALIDATE_BOOLEAN);
+	$themes = filter_var($_POST['roleThemes'], FILTER_VALIDATE_BOOLEAN);
+	$config = filter_var($_POST['roleConfig'], FILTER_VALIDATE_BOOLEAN);
+	$roles = filter_var($_POST['roleRoles'], FILTER_VALIDATE_BOOLEAN);
+	$file = filter_var($_POST['roleFile'], FILTER_VALIDATE_BOOLEAN);
+	$profile = filter_var($_POST['roleProfile'],FILTER_VALIDATE_BOOLEAN);
+	$role = array(
+			'name'=>$name,
+			'description'=>$desc,
+			'options'=>array(
+				'view'=>$view,
+				'write'=>$write,
+				'read'=>$read,
+				'delete'=>$delete,
+				'ban'=>$ban,
+				'post'=>$post,
+				'reply'=>$reply,
+				'onComingMessages'=>$msg,
+				'activePlugins'=>$plugins,
+				'activeThemes'=>$themes,
+				'config'=>$config,
+				'changeRoles'=>$roles,
+				'filemanager'=>$file,
+				'changeProfile'=>$profile
+			)
+	);
+	$getRoles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
+	$getRoles['roles'][$name] = $role;
+	$encodeRoles = json_encode($getRoles, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+	echo @file_put_contents(ROOT.'ROLES.json', $encodeRoles) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/roles', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/roles', 'danger');
+}
+$out.='<div class="modal fade" id="deleteRole" tabindex="-1" aria-labelledby="deleteRole" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	<form method="post">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteRole">'.$lang['roles.deleteRole'].'</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label" for="roleItems">'.$lang['roles.removeItems'].'</label>
+		<select class="form-control" name="roleItems" id="roleItems">';
+		$getRoles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
+		foreach($getRoles['roles'] as $name => $items){
+			if($name!=='admin'&&$name!=='moderator'&&$name!=='member'&&$name!=='guest')
+				$out.='<option value="'.$name.'">'.$name.'</option>';
+		}
+		$out.='</select>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="roleDeleteSubmit" class="btn btn-danger">'.$lang['roles.deleteRole'].'</button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>';
+	if(isset($_POST['roleDeleteSubmit'])){
+		if(isset($_POST['roleItems'])&&$_POST['roleItems']!==''){
+			$getRoles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
+			unset($getRoles['roles'][$_POST['roleItems']]);
+			$encodeRoles = json_encode($getRoles, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+			echo @file_put_contents(ROOT.'ROLES.json', $encodeRoles) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/roles', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/roles', 'danger');
+		}else{
+			echo Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/roles', 'danger');
+		}
+	}
 }elseif(preg_match('/\/dashboard(?:\.php)\/files/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('filemanager')){
 	$path = isset($_GET['path']) ? $_GET['path'] : '';
 	$out.='<form method="post">';
@@ -1673,7 +1897,6 @@ foreach($views as $v=>$vwmon){
 		}
 	}
 }
-
 # dashboard graph
 $out='<script>
 var xVal = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov", "Dec"];
@@ -1700,7 +1923,7 @@ new Chart("webpress-users", {
 		 },
 		 subtitle:{
 			 display: true,
-			 text:"'.$lang['dashboard.graph.user.subtitle'].date('Y', strtotime('+1 years')).'"
+			 text:"'.$lang['dashboard.graph.subtitle'].date('Y', strtotime('+1 years')).'"
 		 },
            legend: {
 				title:{
@@ -1759,7 +1982,7 @@ new Chart("webpress-views", {
 		 },
 		 subtitle:{
 			 display: true,
-			 text:"'.$lang['dashboard.graph.views.subtitle'].date('Y', strtotime('+1 years')).'"
+			 text:"'.$lang['dashboard.graph.subtitle'].date('Y', strtotime('+1 years')).'"
 		 },
            legend: {
 				title:{
