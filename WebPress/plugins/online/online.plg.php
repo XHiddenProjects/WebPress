@@ -7,8 +7,11 @@ function online_install(){
 $data = array(
 	'name'=>array('en'=>'Online'),
 	'active'=>'',
-	'version'=>'0.1.0', 
-	'desc'=>array('en'=>'Shows who is online by configuration and displays and circle on top of the account image on the forum, and in the footer.'), 
+	'version'=>'0.1.1', 
+	'desc'=>array(
+	'en'=>'Shows who is online by configuration and displays and circle on top of the account image on the forum, and in the footer.',
+	'de'=>'Zeigt per Konfiguration an, wer online ist, und zeigt einen Kreis über dem Kontobild im Forum und in der Fußzeile an.'
+	), 
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'color'=>'',

@@ -48,6 +48,22 @@
                     "tag": "offical",
                     "show": true
 			}]
+		},
+		"1.2.0":{
+			"textsets":[{
+					"text": "Version 1.2.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+			},
+			{
+					"text": "German Language has been added!",
+                    "icon": "fa-solid fa-language",
+                    "tag": "language",
+					"type":"info",
+                    "show": true
+			}]
+		}
     },
     "needsAttation": false
 }

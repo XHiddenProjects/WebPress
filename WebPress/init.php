@@ -120,7 +120,7 @@ $token = str_replace('=','',base64_encode(md5($session)));
 
 function langpack(){
 	global $lang;
-	return array('en-US'=>$lang['lang']['en-US']);
+	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE']);
 }
 
 ?>

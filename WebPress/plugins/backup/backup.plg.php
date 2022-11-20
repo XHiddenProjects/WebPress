@@ -8,8 +8,11 @@ function backup_install(){
 $data = array(
 	'name'=>array('en'=>'Backup'),
 	'active'=>'',
-	'version'=>'1.0.2', 
-	'desc'=>array('en'=>'Backup your data by using this plugin, it will create a new folder in the ROOT folder'), 
+	'version'=>'1.0.3', 
+	'desc'=>array(
+	'en'=>'Backup your data by using this plugin, it will create a new folder in the ROOT folder',
+	'de'=>'Sichern Sie Ihre Daten mit diesem Plugin, es erstellt einen neuen Ordner im ROOT-Ordner'
+	), 
 	'config'=>array(
 		'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	),

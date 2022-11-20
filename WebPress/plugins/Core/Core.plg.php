@@ -7,8 +7,11 @@ function Core_install(){
 $data = array(
 'name'=>array('en'=>'Core'),
 'active'=>'on',
-'version'=>'0.0.2', 
-'desc'=>array('en'=>'Easy way to run WebPress, activates and creates editors and etc...'), 
+'version'=>'1.2.0', 
+'desc'=>array(
+'en'=>'Easy way to run WebPress, activates and creates editors and etc...',
+'de'=>'Einfache Möglichkeit, WebPress auszuführen, Editoren zu aktivieren und zu erstellen usw.'
+), 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)

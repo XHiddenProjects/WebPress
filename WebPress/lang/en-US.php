@@ -1,7 +1,8 @@
 <?php
 $lang = array(
 'lang'=>array(
-'en-US'=>'English'
+'en-US'=>'English',
+'de-DE'=>'German'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Authorization',
@@ -216,10 +217,6 @@ $lang = array(
 'dashboard.config.forum.title'=>'Forum <i class="fa-solid fa-comments"></i>',
 'dashboard.config.forum.topic'=>'Display Topic Amount',
 'dashboard.config.forum.reply'=>'Display Reply Amount',
-'forum.home'=>'Home',
-'forum.category'=>'Forums',
-'forum.shortSubmit'=>'Sort Items',
-'forum.sort'=>'Sort your forums <b><em>(do not have multiple topics have the same int)</em></b>',
 # modal
 'modal.profile'=>'Edit Profile',
 'modal.profile.username'=>'Enter Username',
@@ -240,6 +237,7 @@ $lang = array(
 'modal.profile.removeAvatar'=>'Remove Avatar',
 
 #config
+'config'=>'Config ',
 'config.label'=>'Config ',
 'config.save'=>'Save <i class="fas fa-save"></i>',
 'config.failed'=>'Failed to save data',
@@ -265,7 +263,7 @@ $lang = array(
 'theme.allow.lang'=>'Allowed Languages: ',
 'theme.allow.lang.null'=>'Undefined',
 'theme.missing'=>'Missing theme config file!',
-# Themes
+# Plugins
 'plugin.active'=>'Activated <i class="fas fa-check"></i>',
 'plugin.deactive'=>'Deactivated <i class="fas fa-times"></i>',
 'plugin.error.missingName'=>'Missing Name',
@@ -274,8 +272,6 @@ $lang = array(
 'plugin.allow.lang.null'=>'Undefined',
 #Debug
 'debug.off'=>'<a href="./configs">Debug</a> is off, you can no longer log any feature errors.',
-# config
-'config'=>'Config ',
 # contact
 'contact.title'=>'Contact',
 'contact.email'=>'<i class="fas fa-asterisk text-danger"></i> Email',
@@ -411,9 +407,9 @@ $lang = array(
 'ban.UI.banBy'=>'Ban Type',
 'ban.UI.submit'=>'Ban User',
 # uploads
-'upload.failed.data'=>'Cannot recive data',
+'upload.failed.data'=>'Cannot receive data',
 'upload.failed.large'=>'Sorry, your file is to large',
-'upload.failed.extentions'=>'Sorry, your file is not a valid extentions',
+'upload.failed.extentions'=>'Sorry, your file is not a valid extension',
 'upload.failed.overrule'=>'Sorry, your file already exists',
 'upload.failed'=>'Sorry, your file was not uploaded.',
 'upload.failed.rename'=>'Failed to rename',
@@ -445,7 +441,6 @@ $lang = array(
 # files
 'file.locked.folder'=>'This folder is locked',
 'file.locked.file'=>'This file is locked',
-'file.locked.file'=>'This file is locked',
 'file.manager.title'=>'File Manager',
 'file.managerchmod.title'=>'Change Permissions',
 'file.managerchmod.u'=>'Owner Rights',
@@ -471,10 +466,10 @@ $lang = array(
 'file.manager.folderUpload'=>'Upload Folders here: ',
 'files.uploadFiles.msg'=>'Upload Files',
 'files.manager.saved'=>'File Successfully saved, reloading page to update file...',
-'files.manager.error'=>'Error: could not save file, reloading page to update file..',
+'files.manager.error'=>'Error: could not save file, reloading page to update file...',
 #expectations
 'expect.lang'=>'You must have '.$conf['lang'].'.php',
-'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> You are in guest mode, you cannot do anything but read/view/register/login, please <a href="./auth.php/login">login</a> or <a href="./auth.php/register">register</a> and account',
+'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> You are in guest mode, you cannot do anything but read/view/register/login, please <a href="./auth.php/login">login</a> or <a href="./auth.php/register">register</a> an account',
 'expect.requiements'=>'All required form items are required!',
 #forum
 'forum.title'=>'Forum',
@@ -485,10 +480,10 @@ $lang = array(
 'forum.editTopic'=>'Edit Topic',
 'forum.created'=>'Created: ',
 'forum.edited'=>'Last Edited: ',
-'forum.search.failed'=>'No search resaults found',
+'forum.search.failed'=>'No search results found',
 'forum.replys'=>'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>',
 'forum.view'=>'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>',
-'forum.replysNoIcon'=>'Replys',
+'forum.replysNoIcon'=>'Replies',
 'forum.editBtn'=>'<i class="fa-solid fa-pen-to-square"></i> Edit',
 'forum.removeBtn'=>'<i class="fa-solid fa-trash-can"></i> Delete',
 'forum.anonumous'=>'System',
@@ -513,6 +508,10 @@ $lang = array(
 'forum.userStatus'=>'Status',
 'forum.sidebar.statistics'=>'Statistics',
 'forum.reply_drop'=>'Post Reply',
-'forum.noreply'=>'You do not have permission to reply!'
+'forum.noreply'=>'You do not have permission to reply!',
+'forum.home'=>'Home',
+'forum.category'=>'Forums',
+'forum.shortSubmit'=>'Sort Items',
+'forum.sort'=>'Sort your forums <b><em>(do not have multiple topics have the same int)</em></b>'
 );
 ?>
