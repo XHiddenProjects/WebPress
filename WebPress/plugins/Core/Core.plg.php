@@ -5,18 +5,23 @@ function Core_install(){
 	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
-'name'=>array('en'=>'Core'),
+'name'=>array(
+'en'=>'Core',
+'de'=>'Kern',
+'it'=>'Nucleo'
+),
 'active'=>'on',
-'version'=>'1.2.0', 
+'version'=>'1.2.1', 
 'desc'=>array(
 'en'=>'Easy way to run WebPress, activates and creates editors and etc...',
-'de'=>'Einfache Möglichkeit, WebPress auszuführen, Editoren zu aktivieren und zu erstellen usw.'
+'de'=>'Einfache Möglichkeit, WebPress auszuführen, Editoren zu aktivieren und zu erstellen usw...',
+'it'=>'Modo semplice per eseguire WebPress, attivare e creare editor e così via...'
 ), 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)
 ), 
-'usedLang'=>array('en-US')));
+'usedLang'=>array('en-US','de-DE','it-IT')));
 $out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }

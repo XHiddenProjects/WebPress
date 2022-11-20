@@ -727,11 +727,10 @@ $out.='</ul>';
 }elseif(preg_match('/\/dashboard(?:\.php)\/plugins/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('activePlugins')){
 $out.='<ul class="list-group list-group-flush list-group-horizontal">';
 foreach(Files::Scan(ROOT.'plugins') as $plugins){
+@!file_exists(DATA_PLUGINS.$plugins.DS) ? @mkdir(DATA_PLUGINS.$plugins) : '';
 	if(!file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
 		echo Plugin::forceExecute('install', $plugins);
-	}
-		
-	if(file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
+	}elseif(file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
 		$lgs = '';
 		$pluginsConfig = WebDB::getDB('PLUGINS', $plugins.DS.'plugin', '.dat.json');
 		if(isset($pluginsConfig['options']['usedLang'])){

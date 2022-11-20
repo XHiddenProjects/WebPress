@@ -1,15 +1,21 @@
 {
     "name": {
-        "en": "Dark Theme"
+        "en": "Dark Theme",
+		"de":"Dunkles Thema",
+		"it":"Tema scuro"
     },
     "active": "on",
     "desc": {
-        "en": "Changes everything to make it dark themed."
+        "en": "Changes everything to make it dark themed.",
+		"de":"Ändert alles, um es dunkel zu machen.",
+		"it":"Cambia tutto per renderlo a tema scuro."
     },
     "options": {
         "canDisabled": true,
         "usedLang": [
-            "en-US"
+            "en-US",
+			"de-DE",
+			"it-IT"
         ]
     }
 }

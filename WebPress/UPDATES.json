@@ -63,6 +63,21 @@
 					"type":"info",
                     "show": true
 			}]
+		},
+		"1.2.1":{
+			"textsets":[{
+					"text": "Version 1.2.1 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+			},
+			{
+					"text": "Italian Language has been added!",
+                    "icon": "fa-solid fa-language",
+                    "tag": "language",
+					"type":"info",
+                    "show": true
+			}]
 		}
     },
     "needsAttation": false

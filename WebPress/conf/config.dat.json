@@ -20,7 +20,9 @@
             "500": "Internation Server Error"
         },
         "description": {
-            "en": "WebPress is a very well-built CMS software!"
+            "en": "WebPress is a very well-built CMS software!",
+            "de": "WebPress ist eine sehr gut aufgebaute CMS-Software!",
+            "it": "WebPress è un software CMS molto ben costruito!"
         },
         "author": "SurveyBuilderTeams",
         "refresh": 0,

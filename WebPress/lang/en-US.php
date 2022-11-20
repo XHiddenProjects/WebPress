@@ -2,7 +2,8 @@
 $lang = array(
 'lang'=>array(
 'en-US'=>'English',
-'de-DE'=>'German'
+'de-DE'=>'German',
+'it-IT'=>'Italian'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Authorization',
@@ -67,7 +68,7 @@ $lang = array(
 'dashboard.info.dataStorage'=>'<em>DATA</em> storage',
 'dashboard.info.uploadSize'=>'Upload Max Size',
 'dashboard.config.panel.logger'=>'Display Console('.($conf['page']['panel']['console']!==(int)'-1' ? 'Top <a target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" title="View all errors/warnings in raw text" href="../debug.log">'.$conf['page']['panel']['console'].'</a>' : '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-custom-class="custom-tooltip" title="Warning: This may cause page delay!"><span style="cursor:help;text-decoration:underline;color:blue;">All</span></span>').')',
-'dashboard.config.panel.catche'=>'Clear Catche',
+'dashboard.config.panel.catche'=>'Clear Cache',
 'dashboard.config.panel.bgcolor'=>'Panel Background',
 'dashboard.config.panel.color'=>'Panel Color',
 'dashboard.config.panel.email'=>'Custom Email Domain',
@@ -138,7 +139,7 @@ $lang = array(
 'dashboard.profile.email'=>'<b>Email: </b>',
 'dashboard.profile.name'=>'<b>Name: </b>',
 'dashboard.profile.topics'=>'<b class="text-secondary">Topics: </b>',
-'dashboard.profile.replys'=>'<b class="text-secondary">Replys: </b>',
+'dashboard.profile.replys'=>'<b class="text-secondary">Replies: </b>',
 'dashboard.profile.forums'=>'<b class="text-secondary">Forums: </b>',
 'dashboard.pageLoaded'=>'<b class=\'text-secondary\'>Loaded: </b>',
 'dashboard.profile.editbtn'=>'Edit Profile',
@@ -277,7 +278,7 @@ $lang = array(
 'contact.email'=>'<i class="fas fa-asterisk text-danger"></i> Email',
 'contact.email.placeholder'=>'Enter Your Email Address',
 'contact.emailto'=>'<i class="fas fa-asterisk text-danger"></i> To:',
-'contact.emailto.placeholder'=>'Enter Persons Email Address: (use \',\' to seperate)',
+'contact.emailto.placeholder'=>'Enter Persons Email Address: (use \',\' to separate)',
 'contact.to.example'=>'Example: user1:<{user1email}>, user2:<{user2email}>...',
 'contact.senderAs'=>'Sending as',
 'contact.name'=>'<i class="fas fa-asterisk text-danger"></i> Name',

@@ -6,20 +6,25 @@ function backup_install(){
 	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
-	'name'=>array('en'=>'Backup'),
+	'name'=>array(
+	'en'=>'Backup',
+	'de'=>'Sicherung',
+	'it'=>'Backup'
+	),
 	'active'=>'',
-	'version'=>'1.0.3', 
+	'version'=>'1.0.4', 
 	'desc'=>array(
 	'en'=>'Backup your data by using this plugin, it will create a new folder in the ROOT folder',
-	'de'=>'Sichern Sie Ihre Daten mit diesem Plugin, es erstellt einen neuen Ordner im ROOT-Ordner'
+	'de'=>'Sichern Sie Ihre Daten mit diesem Plugin, es erstellt einen neuen Ordner im ROOT-Ordner',
+	'it'=>'Esegui il backup dei dati utilizzando questo plug-in, creerà una nuova cartella nella cartella ROOT'
 	), 
 	'config'=>array(
 		'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US')));
+	'usedLang'=>array('en-US','de-DE','it-IT')));
 	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
-	$out.=@mkdir(dirname(ROOT).'/backup')?'':'<div class="alert alert-danger">'.$lang[$plugin.'_mkdir'].'</div>';
+	@mkdir(dirname(ROOT).'/backup');
 	return $out; 
 }
 function backup_dblist(){

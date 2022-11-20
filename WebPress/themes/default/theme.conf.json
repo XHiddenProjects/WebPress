@@ -1,13 +1,17 @@
 {
 	"name": {
-		"en": "Default"
+		"en": "Default",
+		"de":"Default",
+		"it":"Predefinito"
 	},
 	"active": "on",
 	"desc": {
-		"en":"This is a always active default theme that runs WebPress software with a bit of animations and style"
+		"en":"This is a always active default theme that runs WebPress software with a bit of animations and style",
+		"de":"Dies ist ein immer aktives Standardthema, das die WebPress-Software mit ein bisschen Animation und Stil ausführt",
+		"it":"Questo è un tema predefinito sempre attivo che esegue il software WebPress con un po' di animazioni e stile"
 	},
 	"options":{
 		"canDisabled": false,
-		"usedLang": ["en-US"]
+		"usedLang": ["en-US","de-DE","it-IT"]
 	}
 }

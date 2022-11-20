@@ -172,12 +172,13 @@ $header.= ($pageTheme!=="default" ? '<link rel="stylesheet" href="'.$basePath.'/
 $themeSelect = array_diff(scandir('themes/'.$pageTheme.'/css/'), ['.','..']);
 foreach($themeSelect as $themes){
 	$getDB = WebDB::getDB('themes', $pageTheme.'/theme', '.conf.json');
-	if($getDB['active']){
+	if(isset($getDB['active'])&&$getDB['active']){
 	$header.= '<link rel="stylesheet" href="'.$basePath.'/themes/'.$pageTheme.'/css/'.$themes.'?v='.uniqid().'"></link>';	
 	}
 }
 $header.= Plugin::hook('head');
 $header.='</head>';
+
 return $header;	
 }
 }
