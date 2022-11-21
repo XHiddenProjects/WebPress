@@ -26,7 +26,11 @@ This includes `.htaccess` for Apache and `web.config` for IIS
 * GD
 * JSON
 * mbstring
-
+* openssl
+* curl
+* zip
+* ftp
+* fileinfo
 ***
 
 For more documentation:
