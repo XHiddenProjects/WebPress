@@ -513,6 +513,7 @@ $lang = array(
 'forum.home'=>'Home',
 'forum.category'=>'Forums',
 'forum.shortSubmit'=>'Sort Items',
-'forum.sort'=>'Sort your forums <b><em>(do not have multiple topics have the same int)</em></b>'
+'forum.sort'=>'Sort your forums <b><em>(do not have multiple topics have the same int)</em></b>',
+'forum.sortUser'=>'Please login as administrator to use this option'
 );
 ?>

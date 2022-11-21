@@ -430,6 +430,7 @@ if(isset($_GET['quoteReply'])){
 echo '<ul class="list-group w-100">';
 if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
 	$out='';
+	if(Users::isAdmin()&&isset($_SESSION['user'])){
 	$out.='<h4 class="text-center text-info">'.$lang['forum.sort'].'</h4>';
 	$out.='<div><form method="post">';
 	$sortProper = array();
@@ -444,6 +445,9 @@ if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
 	}
 	$out.='<center><button name="sortBtn" class="btn btn-success w-75" type="submit">'.$lang['forum.shortSubmit'].'</button></center>';
 	$out.='</form></div>';
+	}else{
+		$out.='<div class="alert alert-danger m-2">'.$lang['forum.sortUser'].'</div>';
+	}
 	echo $out;
 	if(isset($_POST['sortBtn'])){
 		$sort = $_POST['sortForum'];

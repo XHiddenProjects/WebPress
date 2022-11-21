@@ -513,6 +513,7 @@ $lang = array(
 'forum.home'=>'Casa',
 'forum.category'=>'Forums',
 'forum.shortSubmit'=>'Ordina articoli',
-'forum.sort'=>'Ordina i tuoi forum <b><em>(non avere più argomenti hanno lo stesso int)</em></b>'
+'forum.sort'=>'Ordina i tuoi forum <b><em>(non avere più argomenti hanno lo stesso int)</em></b>',
+'forum.sortUser'=>'Accedi come amministratore usa questa opzione'
 );
 ?>

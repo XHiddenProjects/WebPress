@@ -14653,3 +14653,56 @@ Stack trace:
   thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
 [20-Nov-2022 16:11:12 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\inetpub\wwwroot\WebPress\header.php on line 175
 [20-Nov-2022 16:12:39 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\inetpub\wwwroot\WebPress\header.php on line 175
+[20-Nov-2022 19:59:30 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\inetpub\wwwroot\WebPress\auth.php on line 181
+[20-Nov-2022 20:00:56 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function backup_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'backup', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'backup')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:00:56 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function Core_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'Core', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'Core')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:00:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=11-20-202257_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'plugins/Core/js...', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:01:04 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=11-20-202204_onSubmit() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(41): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:01:07 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=11-20-202207_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'plugins/Core/js...', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:01:12 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function Core_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'Core', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'Core')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:01:12 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function backup_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'backup', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'backup')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[20-Nov-2022 20:01:12 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=11-20-202212_config() in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php(44): Plugin::myHook('config', 'plugins/Core/js...', NULL)
+#1 C:\inetpub\wwwroot\WebPress\config.php(34): Plugin::forceExecute('config', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\inetpub\wwwroot\WebPress\libs\plugin.lib.php on line 19
+[21-Nov-2022 06:11:05 America/New_York] PHP Warning:  Undefined array key "user" in C:\inetpub\wwwroot\WebPress\libs\users.lib.php on line 54
+[21-Nov-2022 06:11:05 America/New_York] PHP Warning:  Undefined array key "" in C:\inetpub\wwwroot\WebPress\libs\users.lib.php on line 54
+[21-Nov-2022 06:11:05 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\inetpub\wwwroot\WebPress\libs\users.lib.php on line 54
+[21-Nov-2022 06:18:46 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\inetpub\wwwroot\WebPress\auth.php on line 181

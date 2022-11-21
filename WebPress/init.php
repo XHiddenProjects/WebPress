@@ -12,6 +12,26 @@ if(!extension_loaded('mbstring')){
 	echo 'You must have "mbstring" enabled';
 	return false;
 }
+if(!extension_loaded('openssl')){
+	echo 'You must have "openssl" enabled';
+	return false;
+}
+if(!extension_loaded('zip')){
+	echo 'You must have "zip" enabled';
+	return false;
+}
+if(!extension_loaded('curl')){
+	echo 'You must have "curl" enabled';
+	return false;
+}
+if(!extension_loaded('ftp')){
+	echo 'You must have "ftp" enabled';
+	return false;
+}
+if(!extension_loaded('fileinfo')){
+	echo 'You must have "fileinfo" enabled';
+	return false;
+}
 
 date_default_timezone_set("America/New_York");
 # defination
@@ -70,7 +90,7 @@ $BASEPATH = '.';
 !defined('DB_EXTENSIONS') ? define('DB_EXTENSIONS', '.dat.json') : '';
 #Project Info
 !defined('PROJECT_NAME') ? define('PROJECT_NAME', 'WebPress') : '';
-!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '220626 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('22-06-26')).'</span>') : '';
+!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '221121 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('22-11-21')).'</span>') : '';
 !defined('PROJECT_VERSION') ? define('PROJECT_VERSION', file_get_contents(ROOT.'VERSION')) : '';
 !defined('WEBPRESS') ? define('WEBPRESS', true) : ''; # Use for plugins
 require_once('init.php');

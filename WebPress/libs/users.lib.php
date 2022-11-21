@@ -51,7 +51,7 @@ public static function isRole($role){
 }
 public static function hasPermission($access){
 	$roles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
-	$getRole = WebDB::getDB('users', 'users')[$_SESSION['user']]['type'];
+	$getRole = isset($_SESSION['user']) ? WebDB::getDB('users', 'users')[$_SESSION['user']]['type'] : '';
 	return isset($roles['roles'][$getRole]['options'][$access])&&$roles['roles'][$getRole]['options'][$access] ? true : false;
 }
 public static function getRole($name=null){

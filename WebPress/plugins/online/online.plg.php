@@ -19,8 +19,8 @@ $data = array(
 	), 
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
-		'color'=>'',
-		'display'=>''
+		'color'=>'green',
+		'display'=>'icon'
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
 	'usedLang'=>array('en-US','de-DE','it-IT')
@@ -85,7 +85,7 @@ function online_footer(){
 	$plugin = 'online';
 	$out = '';
 	$data = WebDB::getDB('plugins', $plugin.'/plugin');
-	if($data['active']){
+	if(isset($data['active'])&&$data['active']){
 		$crawler = Users::crawler_handler($_SERVER['HTTP_USER_AGENT']);
 		$online = WebDB::getDB('plugins',$plugin.'/'.$plugin.'_hit');
 		foreach((array)$online as $ip=>$time){
