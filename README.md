@@ -17,11 +17,10 @@ The panels are the same looks for everyone, but some functions will not be acces
 ## support
 
 This project is supported on multiple servers
-1. Apache(recommend)
-2. Windows IIS/10
 
-This includes `.htaccess` for Apache and `web.config` for IIS
 
+This includes `.htaccess` for Apache
+* Apache(recommend)
 * PHP>=7.4
 * GD
 * JSON
