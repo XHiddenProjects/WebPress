@@ -14,7 +14,7 @@ this is a easy CMS that allows you use User Infrence(UI) and allow easier search
 
 ###### System requirements
 - PHP 7.4 or higher
-- Webserver (Apache/IIS)
+- Webserver (Apache)
 ###### PHP extentions
 - PHP [GD](http://php.net/manual/en/book.mbstring.php) module for image processing.
 - PHP [JSON](https://php.net/manual/en/book.json.php) module for JSON manipulation.
@@ -192,3 +192,60 @@ Here is how you set it up.
 1. Copy the "Default" folder in the _theme folder_ (this is required, because most folders are required for this to work).
 2. Go the `theme.conf.json` and change anything that needs to be changed.
 3. Enjoy, start placing css/js codes into your folder and style your page.
+
+### [Policies](./docs#policy) {#policy}
+
+
+##### WebPress - Policy
+
+Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. As a developer (myself) enjoys making software for anyone to use and have a fair use of the data, since this is classified as a _social media_ platform, I can tell you that social media has gone out of hand with abusive ideals and not currectly moderation. So even tho this allows you to say what every you like, I am going to hop in to be a **_second-hand moderation_** Read more...
+
+  
+
+#### Allowed
+
+*   Share your opions
+*   Share your ideas/requests
+*   Political/termology ideals
+*   Sell Products or promote of your choice (make sure it\\'s appropriate)
+*   Upload/Post whatever you like (make sure it\\'s appropriate)
+*   Reply whatever you like
+
+  
+
+#### Disallowed
+
+*   Selling illigal items: (18 U.S. Code § 1170)
+*   Child abuse/pornography: Cild Abuse: (34 U.S. Code § 20341) | Cild Pornography: (18 U.S. Code § 2256)
+*   Threats/Harmful comments: (6 U.S. Code § 1508)
+*   Sharing others personal info, without consent: (18 U.S. Code § 798)
+*   Identity theft: (Ohio Admin. Code 3354:1-20-09)
+
+  
+
+**IF ALL ANY OF THESE ARE VIOLATED** admin\\'s can ban/remove account or _can be used agaist court with any information provide correctly. Example: images/videos/posts/replies and anything that can be shown_ that can be shown to federal authorities.
+
+  
+
+#### Administration
+
+All these rules also refrence to you as well, not just your _Customers_. Your _Customers_ can report your account, and will be decided by [surveybuilderteams](#). Your punishement can be a _removal of account_. SurveyBuilderTeams has 0 tolerance with anything **child protection** or false banning **WITHOUT** and reasonable explaination.
+
+  
+
+#### Reporting Admins
+
+On the side of your screen there is going to be a going to be a chat bar displayed on the side. Fill out the info, this will require of the followings:
+
+1.  Username
+2.  First and Last Name
+3.  Date of ban(will be shown on the ban screen)
+4.  Reson of ban(will be shown on the ban screen)
+5.  Link to source of ban(provided by admin, make sure you request it.)
+
+If you request the link to the source of ban, admins **ARE REQUIRED** to provide it, otherwise jugement would be cancelled and the ban is released, since adminstrator failed to prove evidence.  
+**Note:** Do not tamper _with ANY_ evidence when in review, this is checkable and punishement can occur.
+
+  
+
+If you have any questions, ask them on the [discussions](https://github.com/surveybuilderteams/WebPress/discussions/2) on github.

@@ -470,7 +470,7 @@ $lang = array(
 'files.manager.error'=>'Errore: impossibile salvare il file, ricaricare la pagina per aggiornare il file...',
 #aspettative
 'expect.lang'=>'Tu devi avere '.$conf['lang'].'.php',
-'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> Sei in modalità ospite, non puoi fare altro che leggere/visualizzare/registrarti/accedere, per favore <a href="./auth.php/login">Accedere</a> o <a href="./auth.php/register">Registrati</a> un account',
+'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> Sei in modalità ospite, non puoi fare altro che leggere/visualizzare/registrarti/accedere, per favore <a href="./auth.php/login">Accedere</a> o <a href="'.$BASEPATH.'/auth.php/register">Registrati</a> un account',
 'expect.requiements'=>'Tutti gli elementi del modulo richiesti sono obbligatori!',
 #forum
 'forum.title'=>'Forum',
@@ -513,7 +513,7 @@ $lang = array(
 'forum.home'=>'Casa',
 'forum.category'=>'Forums',
 'forum.shortSubmit'=>'Ordina articoli',
-'forum.sort'=>'Ordina i tuoi forum <b><em>(non avere più argomenti hanno lo stesso int)</em></b>',
+'forum.sort'=>'Ordina i tuoi forum <b><em>(non avere più argomenti hanno lo stesso numero)</em></b>',
 'forum.sortUser'=>'Accedi come amministratore usa questa opzione'
 );
 ?>

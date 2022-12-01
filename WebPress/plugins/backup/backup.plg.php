@@ -6,18 +6,8 @@ function backup_install(){
 	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
-	'name'=>array(
-	'en'=>'Backup',
-	'de'=>'Sicherung',
-	'it'=>'Backup'
-	),
 	'active'=>'',
-	'version'=>'1.0.4', 
-	'desc'=>array(
-	'en'=>'Backup your data by using this plugin, it will create a new folder in the ROOT folder',
-	'de'=>'Sichern Sie Ihre Daten mit diesem Plugin, es erstellt einen neuen Ordner im ROOT-Ordner',
-	'it'=>'Esegui il backup dei dati utilizzando questo plug-in, creerà una nuova cartella nella cartella ROOT'
-	), 
+	'version'=>'1.0.4',  
 	'config'=>array(
 		'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	),
@@ -89,8 +79,9 @@ function backup_view(){
 	$plugin='backup';
 	$d = WebDB::getDB('plugins',$plugin.'/plugin');
 	if($d['active']){
-		if(!file_exists(dirname(ROOT).'/backup'))
-			$out.='<div class="alert alert-danger m-2">'.$lang[$plugin.'_nodir'].'</div>';
+		if(!file_exists(dirname(ROOT).'/backup')){
+		$out.='<div class="alert alert-danger m-2">'.$lang[$plugin.'_nodir'].'</div>';	
+		}else{
 		$out.='<div class="m-2"><table class="table"> 
 		<thead>
 		<tr>
@@ -116,6 +107,7 @@ function backup_view(){
 			echo removeBackup($_GET['deleteBackup']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'danger');
 		if(isset($_GET['restoreBackup']))
 			echo restoreBackup($_GET['restoreBackup']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'danger');
+		}
 	}
 	return $out;
 }

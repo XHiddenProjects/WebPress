@@ -181,20 +181,6 @@ class Utils{
 	</div>';
 	return $out;
 	}
-	public static function loadIcons(){
-		global $lang;
-		$out='';
-		$icons = json_decode(file_get_contents(ROOT.'icons.json'), true);
-		$out.='<div class="row mt-1">';
-		$out.='<div class="input-group"><button class="btn btn-secondary" onclick="openIconList(this);" type="button">'.$lang['forum.selectIcon'].'('.(number_format(count($icons)+1)).')</button><input name="iconpicker" class="form-control" type="text"/></div>';
-		$out.='<div class="grid text-wrap bg-secondary position-absolute iconList" style="border-radius:15px; transition:all 0.25s linear;height:0;overflow:auto;top:92%;">';
-			foreach($icons as $icon=>$args){
-				$out.= '<span class="text-bg-secondary p-2 m-2 fs-6"><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="fa-solid fa-'.$icon.'" onclick="selectIcon(this, \'fa-solid fa-'.$icon.'\')" style="height:45px;cursor:pointer;" class="fa-solid fa-'.$icon.'"></i></span>';
-			}
-			$out.='</div>';
-		$out.='</div>';
-			return $out;
-	}
 	
 }
 ?>

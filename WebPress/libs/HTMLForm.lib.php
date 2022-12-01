@@ -12,6 +12,9 @@ class HTMLForm{
 	{
 		return preg_replace('/\n{3,}/', "\n\n", str_replace(array("\r\n", "\r"), "\n", $text));
 	}
+	public static function compile($text){
+		return preg_replace('/\n|\r\n|\s/', '', $text);
+	}
 	public static function err($eid, $msg)
 	{
 		if (isset($_SESSION[$eid]))
@@ -134,7 +137,24 @@ class HTMLForm{
 	        ' .$desc. '
 	    </div>';
 	}
-	
+	public static function loadIcons($name='iconpicker', $default='', $desc=''){
+		global $lang;
+		$out='';
+		$icons = json_decode(file_get_contents(ROOT.'icons.json'), true);
+		$out.='<div class="col mt-1">';
+		$out.='<div class="form-group">';
+		$out.='<label class="form-label">'.(isset($lang[$desc]) ? $lang[$desc] : '').'</label>';
+		$out.='<div class="input-group">
+			<button class="btn btn-secondary" onclick="openIconList(this);" type="button">'.$lang['forum.selectIcon'].'('.(number_format(count($icons)+1)).')</button><input '.($default!=='' ? 'value="'.$default.'"' : '').' id="'.$name.'" name="'.$name.'" class="form-control" type="text"/></div>';
+		$out.='<div class="grid mt-1 d-block text-wrap bg-secondary position-absolute iconList" style="border-radius:15px; transition:all 0.25s linear;height:0;overflow:auto;">';
+			foreach($icons as $icon=>$args){
+				$out.= '<span'.($default==='fa-solid fa-'.$icon ? ' style="background-color:lightgray!important;" ' : '').' class="text-bg-secondary p-2 m-2 fs-6"><i'.($default==='fa-solid fa-'.$icon ? ' style="font-size:25px;" ' : '').' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="fa-solid fa-'.$icon.'" onclick="selectIcon(this, \'fa-solid fa-'.$icon.'\')" style="height:45px;cursor:pointer;" class="fa-solid fa-'.$icon.'"></i></span>';
+			}
+			$out.='</div>';
+			$out.='</div>';
+		$out.='</div>';
+			return $out;
+	}
 }
 
 ?>

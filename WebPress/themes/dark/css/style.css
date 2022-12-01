@@ -466,3 +466,18 @@ ul.list-group li{
 .card, .card p, .card span, .card b{
 	color:rgba(255,255,255,1)!important;
 }
+.card-header, .card-footer, .card-body{
+	background-color:rgb(122 121 121);
+}
+.modal{
+	color:black;
+}
+#panel-notify ul li{
+	background-color:rgb(122,121,121)!important;
+}
+label{
+	color:white;
+}
+h1{
+	color:white;
+}

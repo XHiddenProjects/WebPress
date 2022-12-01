@@ -20,15 +20,17 @@ require_once('libs/Pagination.lib.php');
 require_once('libs/page.lib.php');
 global $conf, $selLang, $plugins;
 require_once('lang/'.$selLang.'.php');
+
 Page::start();
 foreach($plugins as $plugin){
-			if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
-				 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
-			}else{
-				include_once(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php');
-				include_once(ROOT.'plugins'.DS.$plugin.DS.$plugin.'.plg.php');
+	if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
+		 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
+	}else{
+		include_once(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php');
+		include_once(ROOT.'plugins'.DS.$plugin.DS.$plugin.'.plg.php');
 			
 			}	
+			
 }
 global $myLang;
 
@@ -170,9 +172,18 @@ $header.='<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
 isset($conf['page']['public'])&&!$conf['page']['public'] ? $header.='<script>window.open('.$BASEPATH.'/, "_blank")</script>' : '';
 $header.= ($pageTheme!=="default" ? '<link rel="stylesheet" href="'.$basePath.'/themes/default/css/style.css?v='.uniqid().'"></link>' : '');
 $themeSelect = array_diff(scandir('themes/'.$pageTheme.'/css/'), ['.','..']);
+foreach(Files::Scan(DATA_THEMES) as $themes){
+	if(!isset($_SESSION['themecache'])){
+		@mkdir(DATA_THEMES.$themes);
+		WebDB::makeDB('themes', $themes.'/theme', '.conf.json');
+		Files::copyFile(ROOT.'themes'.DS.$themes.DS.'theme.conf.json', DATA_THEMES.$themes.DS.'theme.conf.json');
+	}
+}
+$_SESSION['themecache'] = 'themes';
+
 foreach($themeSelect as $themes){
 	$getDB = WebDB::getDB('themes', $pageTheme.'/theme', '.conf.json');
-	if(isset($getDB['active'])&&$getDB['active']){
+	if($getDB['active']){
 	$header.= '<link rel="stylesheet" href="'.$basePath.'/themes/'.$pageTheme.'/css/'.$themes.'?v='.uniqid().'"></link>';	
 	}
 }

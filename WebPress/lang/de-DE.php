@@ -470,7 +470,7 @@ $lang = array(
 'files.manager.error'=>'Fehler: Datei konnte nicht gespeichert werden, Seite wird neu geladen, um Datei zu aktualisieren...',
 #expectations
 'expect.lang'=>'Du musst haben '.$conf['lang'].'.php',
-'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> Sie befinden sich im Gastmodus, Sie können nichts anderes tun als lesen/ansehen/registrieren/anmelden, bitte <a href="./auth.php/login">anmeldung</a> or <a href="./auth.php/register">registrieren</a> ein Konto',
+'expect.guest'=>'<i class="fa-solid fa-triangle-exclamation"></i> Sie befinden sich im Gastmodus, Sie können nichts anderes tun als lesen/ansehen/registrieren/anmelden, bitte <a href="'.$BASEPATH.'/auth.php/login">anmeldung</a> or <a href="./auth.php/register">registrieren</a> ein Konto',
 'expect.requiements'=>'Alle erforderlichen Formularelemente sind erforderlich!',
 #forum
 'forum.title'=>'Forum',
@@ -513,7 +513,7 @@ $lang = array(
 'forum.home'=>'Heim',
 'forum.category'=>'Foren',
 'forum.shortSubmit'=>'Artikel sortieren',
-'forum.sort'=>'Sortieren Sie Ihre Foren <b><em>(do not have multiple topics have the same int)</em></b>',
+'forum.sort'=>'Sortieren Sie Ihre Foren <b><em>(do not have multiple topics have the same nummer)</em></b>',
 'forum.sortUser'=>'Bitte melden Sie sich als Administrator an, verwenden Sie diese Option'
 );
 ?>

@@ -34,7 +34,7 @@ if(isset($_SESSION['guest'])){
 	  echo plugin::hook('nav');
 	  ?>
  </ul>
- <span class="dropdown mx-5">
+ <div class="dropdown mx-5">
    <span class="nav-link dropdown-toggle" href="#" id="authmenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            <?php 
 		   echo $lang['index.authdown']; ?>
@@ -52,7 +52,7 @@ if(isset($_SESSION['guest'])){
 			?>
 			<li><a class="dropdown-item" href="<?php echo './forum?p=1';?>"><?php echo "{$lang['index.forumbtn']}";?></a></li>
          </ul>
-		 </span>
+		 </div>
 	</div>
   </div>
 </nav>

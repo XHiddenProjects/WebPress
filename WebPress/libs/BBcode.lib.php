@@ -20,9 +20,9 @@ class BBCode extends BBlight
 	    };	
 	
 	    // Replace [code]...[/code] with <pre><code>...</code></pre>
-	    $this->bbcode_table["/\[code\](.*?)\[\/code\]/is"] = function ($match) {
+	    $this->bbcode_table["/\[code=(.*?)\](.*?)\[\/code\]/is"] = function ($match) {
 		  global $cur;
-		  return ($cur=='home') ? '🗒&hellip;' : '<pre class="code viewCode" data-lang="CODE"><code>' .str_replace('<br />', '', $match[1]). '</code></pre>'; 
+		  return ($cur=='home') ? '🗒&hellip;' : '<pre class="code viewCode language-'.($match[1]!=='' ? $match[1] : 'txt').'"><code>' .str_replace('<br />', '', htmlspecialchars($match[2])). '</code></pre>'; 
 	    };
 
 	    // Replace [blockquote]...[/blockquote] with <blockquote><p>...</p></blockquote>

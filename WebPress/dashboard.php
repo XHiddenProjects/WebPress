@@ -29,7 +29,7 @@ if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(phpinfo\/|phpinfo)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.phpinfo'], $BASEPATH);	
-}elseif(preg_match('/\/dashboard(?:\.php)\/(profile\/profile)/', $_SERVER['REQUEST_URI'])){
+}elseif(preg_match('/\/dashboard(?:\.php)\/(profile\/|profile)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.profile'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(configs\/|configs)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.config'], $BASEPATH);	
@@ -154,12 +154,12 @@ if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	$d = WebDB::DBexists('users', 'users') ? WebDB::getDB('users', 'users') : '';
 $out.='<h1 class="text-center">'.$lang['dashboard'].'</h1>';
 $out.='<center><div class="text-light bg-secondary p-2 w-75 rounded">'.$lang['dashboard.desc'].'</div></center>';
-$out.='<div style="height:80%;overflow:auto;">';
+$out.='<center><div style="height:80%;overflow:auto;">';
 $out.='<canvas id="webpress-users" class="dashboard-status"></canvas>';
 $out.='<br/>';
 $out.='<canvas id="webpress-views" class="dashboard-status"></canvas>';
 $out.='<br/>';
-$out .= '<div>
+$out .= '<div></center>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -273,7 +273,7 @@ $out.='</div>';
 	<div class="col">
 		<label class="form-label" for="user-private-api"><b>'.$lang['dashboard.userPKey'].'</b></label>
 	<div class="input-group">
-	  <input type="text" id="user-private-api" class="form-control" readonly="" value="'.(!file_exists(ROOT.'api'.DS.'KEYS') ? CSRF::generate() : hash('gost', hash('sha512',CSRF::hide()))).'"/>
+	  <input type="text" id="user-private-api" class="form-control" readonly="" value="'.(!file_exists(ROOT.'api'.DS.'KEYS.json') ? CSRF::generate() : hash('gost', hash('sha512',CSRF::hide()))).'"/>
 	<button onclick="copyPrivateKey()" class="btn btn-secondary input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['dashboard.userPKey.copy'].'"><i class="fas fa-copy"></i></button>
 	</div>
 	</div>';
@@ -726,10 +726,16 @@ foreach(Files::Scan(DATA_THEMES) as $themes){
 $out.='</ul>';
 }elseif(preg_match('/\/dashboard(?:\.php)\/plugins/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('activePlugins')){
 $out.='<ul class="list-group list-group-flush list-group-horizontal">';
+$listPlugins = array();
+$plout='';
+$p = isset($_GET['p']) ? $_GET['p'] : 1;
+$nb = $conf['pluginDisplayAmount'];
+$coun=0;
 foreach(Files::Scan(ROOT.'plugins') as $plugins){
 @!file_exists(DATA_PLUGINS.$plugins.DS) ? @mkdir(DATA_PLUGINS.$plugins) : '';
 	if(!file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
 		echo Plugin::forceExecute('install', $plugins);
+		echo '<script>window.location.reload();</script>';
 	}elseif(file_exists(DATA_PLUGINS.$plugins.DS.'plugin.dat.json')){
 		$lgs = '';
 		$pluginsConfig = WebDB::getDB('PLUGINS', $plugins.DS.'plugin', '.dat.json');
@@ -742,42 +748,34 @@ foreach(Files::Scan(ROOT.'plugins') as $plugins){
 			}
 		}
 		}
-		$out.='<li class="list-group-item"><div class="card h-100 text-bg-secondary plugin '.($pluginsConfig['active']!=='' ? 'plugin-active' : '').'" style="width:18rem;">
+		$plout='<li class="list-group-item"><div class="card h-100 text-bg-secondary plugin '.($pluginsConfig['active']!=='' ? 'plugin-active' : '').'" style="width:18rem;">
 <div class="card-header text-center h3">
-'.(isset($pluginsConfig['name'][Users::getLang()]) ? $pluginsConfig['name'][Users::getLang()] . ' <h6><small class="badge bg-primary">v'.$pluginsConfig['version'].'</small></h6>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingName'].'</div>').'
+'.(isset($lang[$plugins.'_name']) ? $lang[$plugins.'_name'] . ' <h6><small class="badge bg-primary">v'.$pluginsConfig['version'].'</small></h6>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingName'].'</div>').'
 </div>
 <div class="card-body text-bg-primary overflow-auto">
-'.(isset($pluginsConfig['desc'][Users::getLang()]) ? '<div style="overflow:auto;height:26%;">'.$pluginsConfig['desc'][Users::getLang()].'</div>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingDesc'].'</div>').'
+'.(isset($lang[$plugins.'_desc']) ? '<div style="overflow:auto;height:26%;">'.$lang[$plugins.'_desc'].'</div>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingDesc'].'</div>').'
 <img class="img-fluid plugin-icon" src="'.$BASEPATH.'/plugins/'.$plugins.DS.'icon.png"/>
 '.(isset($pluginsConfig['options']['usedLang']) ? '<div class="text-bg-dark rounded ps-1 pt-1 pb-1">'.$lang['plugin.allow.lang'].'<span class="fw-bold fst-italic">'.$lgs.'</span></div>' : '<div class="text-bg-dark">'.$lang['plugin.allow.lang'].'<span class="fw-bold fst-italic">'.$lang['plugin.allow.lang.null'].'</span></div>').'
 </div>
 <div class="card-footer p-0">
 
 '.(!$pluginsConfig['options']['canDisabled'] ? '<div data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['btn.disabled'].'">' : '').'
-<a'.($pluginsConfig['options']['canDisabled'] ? ' href="../config.php?name='.$plugins.'&action='.($pluginsConfig['active']!=='' ? 'deactive' : 'active').'"' : '').'><button '.(!$pluginsConfig['options']['canDisabled'] ? 'disabled="disabled"   ' : '').' class="plugin-btn '.($pluginsConfig['active']!=='' ? 'btn-success' : 'btn-danger').' w-100 m-0 btn theme-btn-active">'.($pluginsConfig['active']!=='' ? $lang['plugin.active'] : $lang['plugin.deactive']).'</button></a>
+<a'.($pluginsConfig['options']['canDisabled'] ? ' href="../config.php?name='.$plugins.'&action='.($pluginsConfig['active']!=='' ? 'deactive' : 'active').(isset($_GET['p']) ? '&r='.$_GET['p'] : '').'"' : '').'><button '.(!$pluginsConfig['options']['canDisabled'] ? 'disabled="disabled"   ' : '').' class="plugin-btn '.($pluginsConfig['active']!=='' ? 'btn-success' : 'btn-danger').' w-100 m-0 btn theme-btn-active">'.($pluginsConfig['active']!=='' ? $lang['plugin.active'] : $lang['plugin.deactive']).'</button></a>
 '.(!$pluginsConfig['options']['canDisabled'] ? '</div>' : '').'
-'.(isset($pluginsConfig['config']['use'])&&$pluginsConfig['config']['use']&&$pluginsConfig['active'] ? '<div data-bs-toggle="modal" data-bs-target="#'.$plugins.'Modal" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['config.label'].$plugins.'"><button class="btn btn-secondary w-100 m-0">'.$lang['config.label'].'<i class="fas fa-user-cog"></i></button></div>' : '').'
+'.(isset($pluginsConfig['config']['use'])&&$pluginsConfig['config']['use']&&$pluginsConfig['active'] ? '<a href="'.$BASEPATH.'/config.php/plugin/'.$plugins.'"><div data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang['config.label'].$plugins.'"><button class="btn btn-secondary w-100 m-0">'.$lang['config.label'].'<i class="fas fa-user-cog"></i></button></div></a>' : '').'
 </div>
-</div>';
-$out .= '<div class="modal fade" id="'.$plugins.'Modal" tabindex="-1" aria-labelledby="'.$plugins.'Label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-xl">
-    <div class="modal-content h-100">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">'.$lang['config'].'<em>'.$plugins.'</em></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <iframe class="w-100 h-100" frameborder="0" title="'.$plugins.'" src="../config.php/plugin/'.$plugins.'"></iframe>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">'.$lang['btn.close'].'</button>
-      </div>
-    </div>
-  </div>
 </div></li>';
+	$listPlugins[] = $plout;
 	}
 }
+
+for($i=0;$i<count(array_slice($listPlugins, $nb*($p-1), $nb));$i++){
+	$out.=array_slice($listPlugins, $nb*($p-1), $nb)[$i];
+
+}
+
 $out.='</ul>';
+$out.= Paginate::pageLink(Paginate::pid($conf['pluginDisplayAmount']), Paginate::countPage(Files::Scan(DATA_PLUGINS), $conf['pluginDisplayAmount']), './plugins?');
 }elseif(preg_match('/\/dashboard(?:\.php)\/console/', $_SERVER['REQUEST_URI'])){
 	$data = '';
 	$getLog = preg_split('/\R/', Files::getFileData(ROOT.'debug.log'));
@@ -1620,6 +1618,7 @@ if(isset($_POST['createFolder'])){
 	$audio = array('mp3', 'wav', 'ogg');
 	$video = array('mp4', 'mov', 'avi');
 	$compress = array('zip', '7z', 'rar', 'gz');
+	$hidden = array('controller', 'controller.lib.php');
 	#sender 
 	foreach(Files::Scan(ROOT.$path) as $send){
 		$type = @end(explode('.',strtolower($send)));
@@ -1634,6 +1633,8 @@ if(isset($_POST['createFolder'])){
 		$out.= '<a><li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.file'].'" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-lock"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $apache)){
 			$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-circle-info"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+		}elseif(is_file(ROOT.$path.$send)&&in_array($name, $hidden)){
+			$out.='';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $code)){
 			$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 		}elseif(is_file(ROOT.$path.$send)&&in_array($type, $compress)){

@@ -1,4 +1,7 @@
 <?php
+$plugin='online';
+$lang[$plugin.'_name'] = 'in linea';
+$lang[$plugin.'_desc'] = 'Mostra chi è online in base alla configurazione e mostra un cerchio sopra l`immagine dell`account sul forum e nel piè di pagina.';
 $lang['online_color']='Seleziona Colore';
 $lang['online_display']='Seleziona Visualizza';
 $lang['blue']='blu';

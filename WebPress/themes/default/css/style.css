@@ -139,6 +139,18 @@ width:100%;
 height:95%;
 overflow:auto;	
 }
+[forum] .code-toolbar{
+width:57%!important;
+height:50%!important;
+display:inline-block;
+overflow:auto;		
+}
+[forum] pre.viewCode{
+	word-break: break-all;
+}
+.replyItem p{
+	width: calc(100% - 10%);
+}
 
 .editorpanel[expended="true"]{
 	position:absolute;

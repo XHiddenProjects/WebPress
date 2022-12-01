@@ -26,12 +26,6 @@ $_SESSION['user_lang'] = $conf['lang'];
 ?>
 </head>
 <body>
-<?php
-if(isset($_SESSION['guest'])){
-	echo '<div class="alert alert-warning m-0">'.$lang['expect.guest'].'</div>';
-}
-?>
-
 <style>
 .showPreMsg{
 display: inline-block;
@@ -75,7 +69,11 @@ width: calc(100% - 50px);
 	  </div>
 	  		 <button class="btn btn-outline-success input-group-text" type="submit">Search</button>
 	  </div>
+	   <?php
+	  echo isset($_SESSION['guest']) ? '<a class="d-flex text-decoration-none" href="'.$BASEPATH.'/auth.php/login"><button type="button" class="btn btn-warning ms-1">'.$lang['register.login'].'</button></a>' : '';
+	  ?>
       </form>
+	 
 	  <?php
 	  # Users information
 	  if(!Users::isGuest()){
@@ -207,7 +205,7 @@ width: calc(100% - 50px);
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
 	<li class="nav-item">
-	<?php echo Users::hasPermission('post') ? '<button data-bs-toggle="modal" data-bs-target="#addTopic" class="btn btn-success w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addTopic'].'</button>' : '';?>
+	<?php echo Users::hasPermission('post') ? '<button id="addtopicbtn" data-bs-toggle="modal" data-bs-target="#addTopic" class="btn btn-success w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addTopic'].'</button>' : '';?>
 	<?php echo Users::isAdmin() ? '<button data-bs-toggle="modal" data-bs-target="#addForum" class="btn btn-warning w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addForum'].'</button>' : '';?>
 	</li>
       <?php
@@ -374,7 +372,7 @@ echo $out;
 			</div>
 		</div>
 		<?php
-			echo Utils::loadIcons();
+			echo HTMLForm::loadIcons();
 			?>
       </div>
       <div class="modal-footer">

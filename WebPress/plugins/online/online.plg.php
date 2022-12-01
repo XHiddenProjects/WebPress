@@ -5,21 +5,11 @@ function online_install(){
 	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
-	'name'=>array(
-	'en'=>'Online',
-	'de'=>'Online',
-	'it'=>'in linea'
-	),
 	'active'=>'',
-	'version'=>'0.1.2', 
-	'desc'=>array(
-	'en'=>'Shows who is online by configuration and displays and circle on top of the account image on the forum, and in the footer.',
-	'de'=>'Zeigt per Konfiguration an, wer online ist, und zeigt einen Kreis über dem Kontobild im Forum und in der Fußzeile an.',
-	'it'=>'Mostra chi è online in base alla configurazione e mostra un cerchio sopra l`immagine dell`account sul forum e nel piè di pagina.'
-	), 
+	'version'=>'0.1.2',  
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
-		'color'=>'green',
+		'color'=>'success',
 		'display'=>'icon'
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  

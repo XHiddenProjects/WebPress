@@ -10,83 +10,114 @@
                 }
             ]
         },
-		"0.0.2":{
-			"textsets":[{
-					"text": "Version 0.0.2 has been released!",
+        "0.0.2": {
+            "textsets": [
+                {
+                    "text": "Version 0.0.2 has been released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			}]
-		},
-		"1.0.0":{
-			"textsets":[{
-					"text": "Version 1.0.0 has been fully released!",
+                }
+            ]
+        },
+        "1.0.0": {
+            "textsets": [
+                {
+                    "text": "Version 1.0.0 has been fully released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			}]
-		},
-		"1.0.1":{
-			"textsets":[{
-					"text": "Version 1.0.0 has been fully released!",
+                }
+            ]
+        },
+        "1.0.1": {
+            "textsets": [
+                {
+                    "text": "Version 1.0.0 has been fully released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			},
-			{
-					"text": "Dark theme has been added!",
+                },
+                {
+                    "text": "Dark theme has been added!",
                     "icon": "fa-solid fa-paintbrush",
                     "tag": "theme",
                     "show": true,
-					"type":"info"
-			}]
-		},
-		"1.1.0":{
-			"textsets":[{
-					"text": "Version 1.1.0 has been fully released!",
+                    "type": "info"
+                }
+            ]
+        },
+        "1.1.0": {
+            "textsets": [
+                {
+                    "text": "Version 1.1.0 has been fully released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			}]
-		},
-		"1.2.0":{
-			"textsets":[{
-					"text": "Version 1.2.0 has been fully released!",
+                }
+            ]
+        },
+        "1.2.0": {
+            "textsets": [
+                {
+                    "text": "Version 1.2.0 has been fully released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			},
-			{
-					"text": "German Language has been added!",
+                },
+                {
+                    "text": "German Language has been added!",
                     "icon": "fa-solid fa-language",
                     "tag": "language",
-					"type":"info",
+                    "type": "info",
                     "show": true
-			}]
-		},
-		"1.2.1":{
-			"textsets":[{
-					"text": "Version 1.2.1 has been fully released!",
+                }
+            ]
+        },
+        "1.2.1": {
+            "textsets": [
+                {
+                    "text": "Version 1.2.1 has been fully released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			},
-			{
-					"text": "Italian Language has been added!",
+                },
+                {
+                    "text": "Italian Language has been added!",
                     "icon": "fa-solid fa-language",
                     "tag": "language",
-					"type":"info",
+                    "type": "info",
                     "show": true
-			}]
-		},
-		"1.2.2":{
-			"textsets":[{
-					"text": "Version 1.2.2 has been fully released!",
+                }
+            ]
+        },
+        "1.2.2": {
+            "textsets": [
+                {
+                    "text": "Version 1.2.2 has been fully released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
-			}]
-		}
+                }
+            ]
+        },
+        "1.3.0": {
+            "textsets": [
+                {
+                    "text": "Version 1.3.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed plugin language file!",
+                    "icon": "fas fa-bug",
+                    "tag": "bug",
+                    "show": true,
+					"type": "warning"
+				}
+            ]
+        }
     },
     "needsAttation": false
 }

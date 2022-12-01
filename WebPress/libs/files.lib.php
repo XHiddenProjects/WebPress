@@ -51,6 +51,7 @@ $msg = '';
 		}
 	}
 }
+
 public static function uploadToFileManager($name, $path){
  
  			// Count total files

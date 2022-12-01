@@ -160,7 +160,7 @@ class Forum{
   <!-- Media body -->
   <div>
     <h5 class="fw-bold mt-2">
-      '.$info['author'].' - <em>'.$info['name'].'</em>
+      '.(Users::createBadge($info['author']) ? Users::createBadge($info['author']) : '<span class="ms-2 me-2 badge text-bg-secondary">'.(isset($langs['forum.anonumous']) ? $langs['forum.anonumous'] : 'System').'</span>').$info['author'].' - <em>'.$info['name'].'</em>
       <small class="text-muted">'.(isset($langs['forum.edited']) ? $langs['forum.edited'] : 'Last Edited: ').' '.date($conf['page']['dateFormat'], strtotime($info['edited'])).'</small>
 		'.($info['pinned'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.pinned']) ? $langs['forum.pinned'] : 'Pinned').'" class="badge text-bg-success"><i class="fa-solid fa-thumbtack"></i></span>' : '').'
 		'.($info['locked'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.locked']) ? $langs['forum.locked'] : 'Locked').'" class="badge text-bg-danger"><i class="fa-solid fa-lock"></i></span>' : '').'
@@ -179,19 +179,7 @@ class Forum{
 
 <!-- Media object -->';
 	
-				/*if(isset($_GET['search'])){
-					$target = (strpos($_GET['search'], ':') ? @explode(':', $_GET['search']) : $_GET['search']);
-					$splitTag = explode(',',$info['tags']);
-					if(is_array($target)&&preg_match('/author/',$target[0])&&preg_match('/'.$info['author'].'/',$target[1])){
-						$dinfo=$dinfo;
-					}elseif(is_array($target)&&preg_match('/forum/',$target[0])&&preg_match('/'.$info['forum'].'/',$target[1])){
-						$dinfo=$dinfo;
-					}elseif(is_array($target)&&preg_match('/tags/',$target[0])&&in_array(strtolower($target[1]),$splitTag)){
-						$dinfo=$dinfo;
-					}else{
-							$dinfo='<div class="alert alert-danger">'.$langs['forum.search.failed'].'</div>';
-					}
-				}*/
+				
 			if($info['pinned']&&$info['pinned']===true){
 				array_push($topicsArr['pinned'], $dinfo);
 			}else{
@@ -247,7 +235,7 @@ class Forum{
 			
 		# modal
 							$dinfo = '<!-- Media object -->
-<li class="list-group-item border-0"><div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
+<li class="list-group-item replyItem border-0" forum="'.$info['forum'].'"><div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
   <!-- Image -->
   <a '.($info['author']!=='System' ? 'href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"' : '').'><img
     src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"

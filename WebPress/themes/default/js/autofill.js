@@ -1,4 +1,4 @@
-function autocomplete(inp, arr) {
+function autocomplete(inp, arr, sep=null) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
