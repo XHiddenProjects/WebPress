@@ -37,4 +37,4 @@ For more documentation:
 Go to your dashboard, and click __documentation__
 
 # Other media
-(Like on alternativeto.net)[https://alternativeto.net/software/webpress]
+[Like on alternativeto.net](https://alternativeto.net/software/webpress)
