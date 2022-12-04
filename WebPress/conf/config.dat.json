@@ -62,6 +62,7 @@
         "maxTopicDisplay": 5,
         "maxReplyDisplay": 5
     },
+    "pluginDisplayAmount": 4,
     "uploads": {
         "maxSize": 500000,
         "extentions": [
@@ -70,7 +71,8 @@
             "gif",
             "mp4",
             "mov",
-            "avi"
+            "avi",
+            "zip"
         ],
         "overrule": true
     },
@@ -86,7 +88,7 @@
     "bootstrap": {
         "cssurl": "assets/bootstrap/{version}/css/bootstrap.min.css",
         "jsurl": "assets/bootstrap/{version}/js/bootstrap.bundle.min.js",
-        "version": "5.2.0"
+        "version": "5.2.3"
     },
     "fontawesome": {
         "cssurl": "assets/fontawesome/{version}/css/all.min.css",

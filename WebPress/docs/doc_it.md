@@ -131,6 +131,7 @@ Ecco un elenco di ganci disponibili:
 | dblist | `nucleo` | viene visualizzato negli elenchi del dashboard |
 | primaPagina | `nucleo` | esegue il codice prima del caricamento della pagina |
 | dopoPagina | `nucleo` | eseccodice utes dopo il caricamento della pagina |
+| rispostaBottom | `nucleo` | viene visualizzato nella parte inferiore del messaggio di risposta |
 
 ### [Ban](./docs#bans) {#bans}
 
@@ -249,3 +250,6 @@ Se richiedi il link alla fonte del ban, gli amministratori **SONO OBBLIGATI** a 
   
 
 Se hai domande, ponile nelle [discussioni](https://github.com/surveybuilderteams/WebPress/discussions/2) su github.
+
+### Medias
+Metti mi piace su [alternativeto.net](https://alternativeto.net/software/webpress)

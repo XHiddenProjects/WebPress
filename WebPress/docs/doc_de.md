@@ -121,16 +121,17 @@ Hier ist eine Liste der verfügbaren Haken:
 
 | Haken | ausführen in | Hinweis |
 | ---- | ---------- | ---- |
-| Profil | "Themen" | wird auf der Profilseite angezeigt |
-| edit_profil | "Themen" | im Profileditor bearbeiten |
-| Kopf | "Themen" | wird im __head__-Tag | ausgeführt
-| Navi | "Themen" | wird in der Navigationsleiste angezeigt |
-| Herausgeber | "Themen" | wird in der Editorleiste angezeigt |
-| FußzeileJS | "Themen" | Führt Code in der Fußzeile aus (als __Javascript__) |
-| Fußzeile | "Themen" | Führt Code in der Fußzeile aus |
-| Datenbankliste | "Kern" | wird in den Listen des Dashboards angezeigt |
-| vorSeite | "Kern" | führt Code vor dem Laden der Seite aus |
-| nachSeite | "Kern" | Exekutivenutzt den Code nach dem Laden der Seite |
+| Profil | `Themen` | wird auf der Profilseite angezeigt |
+| edit_profil | `Themen` | im Profileditor bearbeiten |
+| Kopf | `Themen` | wird im __head__-Tag | ausgeführt
+| Navi | `Themen` | wird in der Navigationsleiste angezeigt |
+| Herausgeber | `Themen` | wird in der Editorleiste angezeigt |
+| FußzeileJS | `Themen` | Führt Code in der Fußzeile aus (als __Javascript__) |
+| Fußzeile | `Themen` | Führt Code in der Fußzeile aus |
+| Datenbankliste | `Kern` | wird in den Listen des Dashboards angezeigt |
+| vorSeite | `Kern` | führt Code vor dem Laden der Seite aus |
+| nachSeite | `Kern` | Exekutivenutzt den Code nach dem Laden der Seite |
+| antwortenUnten | `Kern` | wird unten in der Antwortnachricht angezeigt |
 
 ### [Verbote](./docs#Verbote) {#Verbote}
 
@@ -249,3 +250,6 @@ Wenn Sie den Link zur Quelle des Banns anfordern, müssen die Administratoren **
   
 
 Wenn Sie Fragen haben, stellen Sie sie in den [Diskussionen](https://github.com/surveybuilderteams/WebPress/discussions/2) auf github.
+
+### Medien
+Like auf [alternativeto.net](https://alternativeto.net/software/webpress)

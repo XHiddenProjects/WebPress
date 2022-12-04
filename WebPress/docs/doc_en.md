@@ -131,6 +131,7 @@ Here is a list of available hooks:
 | dblist | `core` | displays on dashboard's lists |
 | beforePage | `core` | executes code before page load |
 | afterPage | `core` | executes code after page load |
+| replyBottom | `core` | displays in the bottom of the reply message |
 
 ### [Bans](./docs#bans) {#bans}
 
@@ -249,3 +250,6 @@ If you request the link to the source of ban, admins **ARE REQUIRED** to provide
   
 
 If you have any questions, ask them on the [discussions](https://github.com/surveybuilderteams/WebPress/discussions/2) on github.
+
+### Medias
+Like on [alternativeto.net](https://alternativeto.net/software/webpress)

@@ -61,6 +61,7 @@ width: calc(100% - 50px);
 		   <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="<?php echo $BASEPATH;?>/forum.php/forums"><?php echo $lang['forum.category'];?></a>
         </li>
+		<?php echo plugin::hook('forumnav');?>
       </ul>
       <form class="d-flex" role="search" method="get">
 	  <div class="input-group">

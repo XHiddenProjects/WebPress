@@ -277,7 +277,8 @@ class Forum{
         <p>
          '.$rInfo['msg'].'
         </p>
-		'.($session===$rInfo['author']&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a>' : '').'
+		<div class="d-block">'.Plugin::hook('replyMsg').'</div>
+		'.($session===$rInfo['author']&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a>'.Plugin::hook('replyBottom') : '').'
       </div>
     </div>';	
 	!in_array($replyItem, $replaysArr['replys']) ? array_push($replaysArr['replys'], $replyItem) : '';

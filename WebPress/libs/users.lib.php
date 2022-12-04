@@ -225,7 +225,7 @@ public static function editProfile($base=''){
             $result = trim(end($result));       
         } else $result = $output;       
     } else {
-        $result = shell_exec("blkid -o value -s UUID");  
+        $result = is_callable('shell_exec') && false === stripos(ini_get('disable_functions'), 'shell_exec') ? shell_exec("blkid -o value -s UUID") : '';  
         if(stripos($result,"blkid")!==false) {
             $result = $_SERVER['HTTP_HOST'];
         }

@@ -18738,3 +18738,439 @@ Stack trace:
   thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
 [01-Dec-2022 06:15:31 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
 [01-Dec-2022 06:15:40 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[01-Dec-2022 18:49:06 America/New_York] PHP Parse error:  syntax error, unexpected token ";" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 228
+[01-Dec-2022 18:52:27 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[02-Dec-2022 06:27:11 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 07:40:32 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 07:42:34 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 07:42:40 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 12:38:35 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 22:33:19 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 22:40:16 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[03-Dec-2022 23:00:47 America/New_York] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 41
+[03-Dec-2022 23:01:00 America/New_York] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 41
+[03-Dec-2022 23:01:46 America/New_York] PHP Parse error:  syntax error, unexpected token "foreach" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 42
+[03-Dec-2022 23:02:38 America/New_York] PHP Warning:  Undefined variable $d in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 30
+[03-Dec-2022 23:02:38 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 30
+[03-Dec-2022 23:02:38 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 30
+[03-Dec-2022 23:02:38 America/New_York] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 30
+[03-Dec-2022 23:03:21 America/New_York] PHP Warning:  Undefined variable $BASEPATH in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 31
+[03-Dec-2022 23:03:57 America/New_York] PHP Parse error:  syntax error, unexpected token "foreach" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[03-Dec-2022 23:29:06 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function reactions_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'reactions', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'reactions')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/bootstrap/5.2.3/js/bootstrap.bundle.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/bootstra...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/bootstra...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/notify/0.4.2/js/notify.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/notify/0...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/notify/0...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/fontawesome/6.2.0/js/all.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/fontawes...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/fontawes...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=12-03-2022158c221_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/prism/1.28.0/js/prism.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/prism/1....', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/prism/1....')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/autofill.js?v=638c221b445f8_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/editor.js?v=638c221b445fa_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/linenumer.js?v=638c221b445fc_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:29:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/script.js?v=638c221b445fd_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[03-Dec-2022 23:33:45 America/New_York] PHP Parse error:  syntax error, unexpected variable "$BASEPATH" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 97
+[04-Dec-2022 07:15:53 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Dec-2022 07:16:09 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Dec-2022 07:16:16 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Dec-2022 07:33:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=12-04-2022288c939_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/bootstrap/5.2.3/js/bootstrap.bundle.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/bootstra...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/bootstra...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/notify/0.4.2/js/notify.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/notify/0...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/notify/0...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/prism/1.28.0/js/prism.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/prism/1....', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/prism/1....')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/fontawesome/6.2.0/js/all.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/fontawes...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/fontawes...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:29 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/autofill.js?v=638c9398e3ae9_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/editor.js?v=638c9398e3aeb_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/linenumer.js?v=638c9398e3aec_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/script.js?v=638c9398e3aed_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:33:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/reactions/js/reactions.js?v=2.0.0_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/reactio...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/reactio...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[04-Dec-2022 07:51:50 America/New_York] PHP Parse error:  syntax error, unexpected token "}" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 40
+[04-Dec-2022 07:52:00 America/New_York] PHP Fatal error:  Cannot use [] for reading in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 121
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  Undefined variable $replies in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  Undefined variable $d in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 34
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 34
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 34
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 34
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 110
+[04-Dec-2022 07:52:19 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 135
+[04-Dec-2022 07:52:53 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:52:53 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 113
+[04-Dec-2022 07:52:53 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 07:53:11 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\dashboard.php on line 751
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "version" in C:\xampp\htdocs\WebPress\dashboard.php on line 753
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "options" in C:\xampp\htdocs\WebPress\dashboard.php on line 762
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 762
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "options" in C:\xampp\htdocs\WebPress\dashboard.php on line 763
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 763
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "options" in C:\xampp\htdocs\WebPress\dashboard.php on line 763
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 763
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\dashboard.php on line 763
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "active" in C:\xampp\htdocs\WebPress\dashboard.php on line 763
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Undefined array key "options" in C:\xampp\htdocs\WebPress\dashboard.php on line 764
+[04-Dec-2022 07:53:12 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\dashboard.php on line 764
+[04-Dec-2022 07:53:23 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:32
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php(44): checkEmojiSetup()
+#1 C:\xampp\htdocs\WebPress\header.php(30): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\WebPress\config.php(3): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\WebPress\dashboard.php(3): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:53:26 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:32
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php(44): checkEmojiSetup()
+#1 C:\xampp\htdocs\WebPress\header.php(30): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\WebPress\config.php(3): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\WebPress\dashboard.php(3): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:53:26 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:32
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php(44): checkEmojiSetup()
+#1 C:\xampp\htdocs\WebPress\header.php(30): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\WebPress\config.php(3): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\WebPress\dashboard.php(3): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:53:27 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:32
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php(44): checkEmojiSetup()
+#1 C:\xampp\htdocs\WebPress\header.php(30): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\WebPress\config.php(3): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\WebPress\dashboard.php(3): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:53:42 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:32
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php(44): checkEmojiSetup()
+#1 C:\xampp\htdocs\WebPress\header.php(30): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\WebPress\config.php(3): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\WebPress\dashboard.php(3): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 32
+[04-Dec-2022 07:56:13 America/New_York] PHP Warning:  Undefined variable $replies in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 6
+[04-Dec-2022 08:00:16 America/New_York] PHP Warning:  Undefined array key "/plugins/reactions/icons/like.png" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:16 America/New_York] PHP Warning:  Undefined array key "/plugins/reactions/icons/dislike.png" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:16 America/New_York] PHP Warning:  Undefined array key "/plugins/reactions/icons/love.png" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:16 America/New_York] PHP Warning:  Undefined array key "/plugins/reactions/icons/hate.png" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:16 America/New_York] PHP Warning:  Undefined array key "/plugins/reactions/icons/applause.png" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:16 America/New_York] PHP Warning:  Undefined array key "/plugins/reactions/icons/wave.png" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:45 America/New_York] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:127
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replybottom(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyBottom', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyBottom')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:00:56 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 127
+[04-Dec-2022 08:13:45 America/New_York] PHP Warning:  Undefined array key "like" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 9
+[04-Dec-2022 08:13:45 America/New_York] PHP Warning:  Undefined array key "dislike" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 9
+[04-Dec-2022 08:13:45 America/New_York] PHP Warning:  Undefined array key "love" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 9
+[04-Dec-2022 08:13:45 America/New_York] PHP Warning:  Undefined array key "hate" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 9
+[04-Dec-2022 08:13:45 America/New_York] PHP Warning:  Undefined array key "applause" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 9
+[04-Dec-2022 08:13:45 America/New_York] PHP Warning:  Undefined array key "wave" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 9
+[04-Dec-2022 08:34:29 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 129
+[04-Dec-2022 08:34:29 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 129
+[04-Dec-2022 08:34:29 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 129
+[04-Dec-2022 08:34:29 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 129
+[04-Dec-2022 08:34:29 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 129
+[04-Dec-2022 08:34:29 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 129
+[04-Dec-2022 08:34:47 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 130
+[04-Dec-2022 08:34:47 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 130
+[04-Dec-2022 08:34:47 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 130
+[04-Dec-2022 08:34:47 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 130
+[04-Dec-2022 08:34:47 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 130
+[04-Dec-2022 08:34:47 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 130
+[04-Dec-2022 08:44:17 America/New_York] PHP Warning:  Undefined variable $dinfo in C:\xampp\htdocs\WebPress\libs\forum.lib.php on line 302
+[04-Dec-2022 08:44:17 America/New_York] PHP Warning:  Undefined array key "HTTP_USER_AGENT" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 79
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:44:17 America/New_York] PHP Deprecated:  stristr(): Passing null to parameter #1 ($haystack) of type string is deprecated in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 294
+[04-Dec-2022 08:59:18 America/New_York] PHP Warning:  Undefined variable $out in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 166
+[04-Dec-2022 14:11:50 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Undefined array key "like" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Undefined array key "dislike" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Undefined array key "love" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Undefined array key "hate" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Undefined array key "applause" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:22 America/New_York] PHP Warning:  Undefined array key "wave" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Undefined array key "like" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Undefined array key "dislike" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Undefined array key "love" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Undefined array key "hate" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Undefined array key "applause" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:19:26 America/New_York] PHP Warning:  Undefined array key "wave" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 131
+[04-Dec-2022 14:31:31 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 14
+[04-Dec-2022 14:37:19 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:166
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_view(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(40): Plugin::myHook('view', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\dashboard.php(1857): Plugin::useHook('view', 'reactions')
+#3 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 166
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Undefined array key "like" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Undefined array key "dislike" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Undefined array key "love" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Undefined array key "hate" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Undefined array key "applause" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:42:01 America/New_York] PHP Warning:  Undefined array key "wave" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 133
+[04-Dec-2022 14:43:32 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:8
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php(114): checkEmojiSetup()
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_beforePage(NULL)
+#2 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('beforePage', 'reactions', NULL)
+#3 C:\xampp\htdocs\WebPress\forum.php(49): Plugin::hook('beforePage')
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 8
+[04-Dec-2022 14:46:55 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 16
+[04-Dec-2022 14:47:42 America/New_York] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 13
+[04-Dec-2022 14:48:09 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 13
+[04-Dec-2022 14:49:40 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 14
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined variable $replys in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 5
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined variable $replys in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 5
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 5
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 5
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined variable $replys in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 8
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "like" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "dislike" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "love" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "hate" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "applause" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:10 America/New_York] PHP Warning:  Undefined array key "wave" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 136
+[04-Dec-2022 14:50:39 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 7
+[04-Dec-2022 14:51:20 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 7
+[04-Dec-2022 14:51:20 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 8
+[04-Dec-2022 14:51:31 America/New_York] PHP Warning:  Undefined array key "users" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 8
+[04-Dec-2022 14:54:33 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 17
+[04-Dec-2022 14:55:12 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 17
+[04-Dec-2022 14:55:25 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 17
+[04-Dec-2022 14:56:17 America/New_York] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 18
+[04-Dec-2022 14:59:42 America/New_York] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:138
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replybottom(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyBottom', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyBottom')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:08 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:08 America/New_York] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:139
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replybottom(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyBottom', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyBottom')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:17 America/New_York] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:139
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replybottom(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyBottom', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyBottom')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:34 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 138
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined variable $id in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:46 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:00:58 America/New_York] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:139
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replybottom(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyBottom', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyBottom')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:01:08 America/New_York] PHP Fatal error:  Uncaught TypeError: Illegal offset type in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:139
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replybottom(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyBottom', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyBottom')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 139
+[04-Dec-2022 15:11:22 America/New_York] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php:188
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(19): reactions_replyMsg(NULL)
+#1 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(29): Plugin::myHook('replyMsg', 'reactions', NULL)
+#2 C:\xampp\htdocs\WebPress\libs\forum.lib.php(280): Plugin::hook('replyMsg')
+#3 C:\xampp\htdocs\WebPress\forum.php(464): Forum::loadReplys()
+#4 {main}
+  thrown in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 188
