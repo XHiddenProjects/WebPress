@@ -135,7 +135,7 @@
 				}
             ]
         },
-        "1.4.0": {
+		"1.4.0": {
             "textsets": [
                 {
                     "text": "Version 1.4.0 has been fully released!",
@@ -145,6 +145,23 @@
                 },
 				{
 					"text": "Fixed auto-installer",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "bug",
+                    "show": true,
+					"type": "warning"
+				}
+            ]
+        },
+		"1.4.1": {
+            "textsets": [
+                {
+                    "text": "Version 1.4.1 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed auto-installer(2)",
                     "icon": "fa-solid fa-bug",
                     "tag": "bug",
                     "show": true,

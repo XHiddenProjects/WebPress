@@ -18,7 +18,7 @@ require_once('libs/toolkit.lib.php');
 require_once('libs/forum.lib.php');
 require_once('libs/Pagination.lib.php');
 require_once('libs/page.lib.php');
-global $conf, $selLang, $plugins;
+global $conf, $selLang, $plugins, $lang;
 require_once('lang/'.$selLang.'.php');
 
 Page::start();
@@ -32,7 +32,6 @@ foreach($plugins as $plugin){
 			}	
 			
 }
-global $myLang;
 
 
 CSRF::renewKey();

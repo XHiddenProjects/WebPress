@@ -142,7 +142,10 @@ function langpack(){
 	global $lang;
 	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE'], 'it-IT'=>$lang['lang']['it-IT']);
 }
-foreach($plugins as $plugin){
+
+function install(){
+	global $BASEPATH, $plugins, $conf;
+	foreach($plugins as $plugin){
 	@mkdir(DATA_PLUGINS.$plugin);
 	if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
 		 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
@@ -153,8 +156,6 @@ foreach($plugins as $plugin){
 			}	
 			
 }
-function install(){
-	global $BASEPATH;
 require_once('libs/users.lib.php');
 require_once('libs/plugin.lib.php');
 require_once('libs/files.lib.php');
@@ -175,5 +176,5 @@ if(!file_exists(ROOT.'INSTALL')){
 	</script>';
 	}	
 }
-install();
+!file_exists(ROOT.'INSTALL') ? install() : '';
 ?>

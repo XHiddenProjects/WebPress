@@ -5,3 +5,64 @@ Stack trace:
 #2 {main}
   thrown in C:\xampp\htdocs\WebPress\header.php on line 26
 [05-Dec-2022 17:57:09 America/New_York] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\WebPress\dashboard.php on line 20
+[05-Dec-2022 18:50:48 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:50:50 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:52:03 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:52:07 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:52:07 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:52:15 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:53:41 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:53:58 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:54:09 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:54:33 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:54:53 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:55:06 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:53 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
