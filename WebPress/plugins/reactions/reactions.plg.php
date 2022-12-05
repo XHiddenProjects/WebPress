@@ -3,7 +3,7 @@ function checkEmojiSetup(){
 	$plugin = 'reactions';
 	$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 	foreach($d['config']['replies'] as $replys=>$info){
-		if(!file_exists(DATA_REPLYS.$replys)){
+		if(!file_exists(DATA_REPLYS.$replys.'.dat.json')){
 			unset($d['config']['replies'][$replys]);
 			WebDB::saveDB('plugins', $plugin.'/plugin', $d);
 		}
