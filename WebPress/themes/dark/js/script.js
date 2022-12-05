@@ -263,3 +263,9 @@ function copyReplyID(id){
 	if(navigator.clipboard.writeText(id))
 			console.log('Copied');
 }
+function returnSearch(event){
+	let unicode = event.keyCode||event.which;
+	if(unicode===13||unicode==='13'){
+		document.querySelector('.submitsearch').click();
+	}
+}

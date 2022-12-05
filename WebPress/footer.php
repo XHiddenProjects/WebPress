@@ -56,7 +56,7 @@ foreach($themeSelect as $themes){
 }
 	$footer.="<script>
 		var emailSelector = [";
-		$db = WebDB::getDB('users', 'users');
+		$db = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : array();;
 		$i=1;
 		foreach($db as $users=>$info){
 			if($i<count($db)){

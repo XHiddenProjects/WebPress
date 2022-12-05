@@ -134,6 +134,23 @@
 					"type": "info"
 				}
             ]
+        },
+        "1.4.0": {
+            "textsets": [
+                {
+                    "text": "Version 1.4.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed auto-installer",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "bug",
+                    "show": true,
+					"type": "warning"
+				}
+            ]
         }
     },
     "needsAttation": false

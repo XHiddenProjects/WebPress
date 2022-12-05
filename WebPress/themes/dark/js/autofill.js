@@ -23,7 +23,7 @@ function autocomplete(inp, arr) {
           b = document.createElement("DIV");
           /*make the matching letters bold:*/
           b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += arr[i].substr(val.length) + '<span class="badge text-bg-secondary float-end">Tab</span>';
           /*insert a input field that will hold the current array item's value:*/
           b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
@@ -54,7 +54,7 @@ function autocomplete(inp, arr) {
         currentFocus--;
         /*and and make the current item more visible:*/
         addActive(x);
-      } else if (e.keyCode == 13) {
+      } else if (e.keyCode == 9) {
         /*If the ENTER key is pressed, prevent the form from being submitted,*/
         e.preventDefault();
         if (currentFocus > -1) {

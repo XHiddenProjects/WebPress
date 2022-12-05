@@ -142,5 +142,38 @@ function langpack(){
 	global $lang;
 	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE'], 'it-IT'=>$lang['lang']['it-IT']);
 }
-
+foreach($plugins as $plugin){
+	@mkdir(DATA_PLUGINS.$plugin);
+	if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
+		 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
+	}else{
+		include_once(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php');
+		include_once(ROOT.'plugins'.DS.$plugin.DS.$plugin.'.plg.php');
+			
+			}	
+			
+}
+function install(){
+	global $BASEPATH;
+require_once('libs/users.lib.php');
+require_once('libs/plugin.lib.php');
+require_once('libs/files.lib.php');
+require_once('libs/webdb.lib.php');
+if(!file_exists(ROOT.'INSTALL')){
+	Plugin::hook('install');
+	foreach(Files::Scan(ROOT.'themes') as $themes){
+	if(!file_exists(DATA_THEMES.$themes.DS.'theme.conf.json')){
+		@mkdir(DATA_THEMES.$themes);
+		Files::copyFile(ROOT.'themes'.DS.$themes.DS.'theme.conf.json',DATA_THEMES.$themes.DS.'theme.conf.json');
+		}
+	}
+	$make = fopen(ROOT.'INSTALL', 'w+');
+	fwrite($make, date('Y-m-d h:i:sa'));
+	fclose($make);
+	echo '<script>
+	window.open("'.$BASEPATH.'/auth.php/register", "_self");
+	</script>';
+	}	
+}
+install();
 ?>

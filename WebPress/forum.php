@@ -66,9 +66,9 @@ width: calc(100% - 50px);
       <form class="d-flex" role="search" method="get">
 	  <div class="input-group">
 	  <div class="autocomplete">
-        <input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+        <input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" onkeydown="returnSearch(event);" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
 	  </div>
-	  		 <button class="btn btn-outline-success input-group-text" type="submit">Search</button>
+	  		 <button class="btn btn-outline-success input-group-text submitsearch" type="submit">Search</button>
 	  </div>
 	   <?php
 	  echo isset($_SESSION['guest']) ? '<a class="d-flex text-decoration-none" href="'.$BASEPATH.'/auth.php/login"><button type="button" class="btn btn-warning ms-1">'.$lang['register.login'].'</button></a>' : '';

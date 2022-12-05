@@ -128,6 +128,11 @@ public static function uploadToFileManager($name, $path){
 
 }
 	public static function copyFile($start, $end){
+		if(!file_exists($end)){
+			$d = fopen($end, 'w+');
+			fwrite($d,'');
+			fclose($d);
+		}
 		return copy($start, $end) ? true : false;
 	}
 	public static function Scan($path, $removeDots=true){

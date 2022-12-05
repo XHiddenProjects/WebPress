@@ -10,6 +10,7 @@ include_once('lang/'.$selLang.'.php');
 <html>
 <head>
 <?php
+global $plugins, $themes;
 	foreach($plugins as $plugin){
 		 if(!Files::checkFolder(DATA_PLUGINS.$plugin.DS)){
 			mkdir(DATA_PLUGINS.$plugin.DS, 0777, true);
