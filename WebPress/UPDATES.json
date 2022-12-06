@@ -168,6 +168,23 @@
 					"type": "warning"
 				}
             ]
+        },
+		"1.4.2": {
+            "textsets": [
+                {
+                    "text": "Version 1.4.2 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Removed INSTALL FILE",
+                    "icon": "fa-solid fa-file",
+                    "tag": "remove",
+                    "show": true,
+					"type": "danger"
+				}
+            ]
         }
     },
     "needsAttation": false
