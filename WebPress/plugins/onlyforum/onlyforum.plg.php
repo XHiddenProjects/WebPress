@@ -6,7 +6,7 @@ function onlyforum_install(){
 
 $data = array(
 	'active'=>'',
-	'version'=>'1.0.0', 
+	'version'=>'1.0.1', 
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'forum'=>array(),
@@ -63,12 +63,23 @@ function onlyforum_footerJS(){
 	$plugin = 'onlyforum';
 	$d = WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 	$forumList=array();
+	$args='';
 	if($d['active']){
 		if(!Users::isAdmin()){
+			for($i=0;$i<count($d['config']['forum']);$i++){
+				if($i<count($d['config']['forum'])-1){
+					$comma=',';
+				}else{
+					$comma='';
+				}
+				$args.='"'.$d['config']['forum'][$i].'"'.$comma;
+			}
+			$out.='<script>var onlyforum=['.$args.'];</script>';
 		foreach($d['config']['forum'] as $forums){
 			if(isset($_GET['search'])&&$forums===str_replace('forum:','',$_GET['search'])){
 				$out.='<script src="'.$BASEPATH.DS.'plugins'.DS.$plugin.DS.'js'.DS.$plugin.'.js?forum='.$forums.'&v=0"></script>';
 			}
+			$out.='<script src="'.$BASEPATH.DS.'plugins'.DS.$plugin.DS.'js'.DS.'checkBlock.js?forum='.$forums.'&v=0"></script>';
 			
 			}
 		}

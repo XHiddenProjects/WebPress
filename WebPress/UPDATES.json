@@ -185,6 +185,23 @@
 					"type": "danger"
 				}
             ]
+        },
+		"1.4.3": {
+            "textsets": [
+                {
+                    "text": "Version 1.4.3 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed OnlyForum plugin",
+                    "icon": "fa-solid fa-puzzle-piece",
+                    "tag": "plugin",
+                    "show": true,
+					"type": "info"
+				}
+            ]
         }
     },
     "needsAttation": false
