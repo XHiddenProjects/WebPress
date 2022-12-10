@@ -3,7 +3,7 @@ require_once('config.php');
 require_once('header.php');
 global $pageError, $conf;
 preg_match('/[\d]+/', $_SERVER['REQUEST_URI'], $type);
-$type = $type[0]
+$type = $type[0];
 $code=$type;
 ?>
 <html>
