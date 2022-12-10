@@ -1,7 +1,11 @@
 <?php
-$plugin='onlyforum';
-$lang[$plugin.'_name'] = 'Nur Forum';
-$lang[$plugin.'_desc'] = 'Sperrt alle "Themen hinzufügen" für ein bestimmtes Forum. Nur Administratoren können Themen hinzufügen.';
-$lang[$plugin.'_submit']='Submit';
-$lang[$plugin.'_list']='Enter Forums';
+$plugin='reactions';
+$lang[$plugin.'_name'] = 'Reaktionen';
+$lang[$plugin.'_desc'] = 'Reagiert auf alle angezeigten Antworten';
+$lang[$plugin.'_submit'] = 'Einreichen';
+$lang[$plugin.'_reactionList']='Reaktionen';
+$lang[$plugin.'_reactionIcon']='Symbol hinzufügen';
+$lang[$plugin.'_reactionName']='Emoji Name';
+$lang[$plugin.'_nouser']='Sie müssen sich anmelden, um abzustimmen';
+$lang[$plugin.'_additonal']='zusätzlich';
 ?>

@@ -192,10 +192,22 @@ function reactions_replyMsg(){
 			
 			foreach($d['config']['replies'] as $replys=>$count){
 				$reply = WebDB::getDB('replys', $replys);
+				$display=0;
 				foreach($d['config']['replies'][$reply['id']]['users'] as $name=>$info){
-					$out.='<div class="position-relative"><img width="42" height="42" class="rounded-circle img-fluid" src="'.$BASEPATH.DATA_AVATARS.$name.'.png"/> <span class="position-absolute top-0 translate-middle badge rounded-circle">
+					if($display<5){
+					$out.='<div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="'.$name.' has <b>'.$info.'</b>" class="position-relative ms-2"><img width="42" height="42" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.'uploads'.DS.'avatars'.DS.$name.'.png') ? $BASEPATH.DATA_AVATARS.$name.'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/> <span class="position-absolute top-0 translate-middle badge rounded-circle">
     <img width="18" height="18" alt="'.$info.'" src="'.$BASEPATH.'/plugins/reactions/icons/'.$info.'.png"/>
   </span></div>';
+					$display++;
+					}else{
+						$out.='';
+						$display++;
+					}
+					
+				}
+				if($display>5){
+					$count = $display - 5;
+					$out.='<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$count.' '.$lang[$plugin.'_additonal'].'" class="btn btn-secondary rounded-circle ms-2">'.$count.'+</span>';
 				}
 			}
 		}

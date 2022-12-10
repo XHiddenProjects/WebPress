@@ -9,15 +9,14 @@ require_once('lang/'.$selLang.'.php');
 <html>
 <head>
 <?php
-$BASEPATH = '..';
 if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
-echo head('Register', $BASEPATH);	
+echo head('Register', '..');	
 }elseif(preg_match('/\/login/', $_SERVER['REQUEST_URI'])){
-echo head('Login', $BASEPATH);		
+echo head('Login', '..');		
 }elseif(preg_match('/\/logout/', $_SERVER['REQUEST_URI'])){
-echo head('Logout', $BASEPATH);		
+echo head('Logout', '..');		
 }elseif(preg_match('/\/delete/', $_SERVER['REQUEST_URI'])){
-echo head('Delete', $BASEPATH);		
+echo head('Delete', '..');		
 }
 
 ?>
@@ -76,7 +75,7 @@ if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
                   <label class="form-label" for="webpress-rpsw">'.$lang['register.psw.repeat'].'</label>
                 </div>';
 				
-				 $output.=($conf['page']['captcha'] ? '<div class="form-outline mb-4">
+				 $output.=($conf['page']['captcha']['active'] ? '<div class="form-outline mb-4">
 					<!--w=200, $h=38, $bgr=128, $bgg=128, $bgb=128, $cr=0, $cg=0, $cb=0-->
 					'.Captcha::createCaptcha($captchaSettings[0], $captchaSettings[1], $captchaSettings[2], $captchaSettings[3], $captchaSettings[4], $captchaSettings[5], $captchaSettings[6], $captchaSettings[7]).'
                 </div>' : '');
@@ -113,6 +112,11 @@ echo $output;
 				window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
 				</script>';
 	}
+	echo '<script>
+	if(window.location.hash!=="reload"){
+		window.location.hash = "reload";
+	}
+	</script>';
 	$output = '<div class="webpress-form" style="height:98%;overflow:auto;"><section>
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
@@ -178,14 +182,15 @@ echo $output;
 ?>
 <?php
 if(isset($_POST['webpresslogin'])){
-	$user = filter_var($_POST['webpressuser'], FILTER_SANITIZE_STRING);
+	$user = $_POST['webpressuser'];
 	$psw = $_POST['webpresspsw'];
 	$token = isset($_POST['webpresstoken']) ? $_POST['webpresstoken'] : '';
-	
+	$stat='';
 	!CSRF::checkKeyExists() ? CSRF::generate() : '';
 	if(isset($_POST['webpresstoken'])){
 		if($token===hash('gost',hash('sha512',CSRF::hide()))&&$token!==''){
 		CSRF::generate();
+		Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'success','logon');
 		echo '<script>
 				window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
 				</script>';
@@ -200,29 +205,34 @@ if(isset($_POST['webpresslogin'])){
 		if(password_verify($psw, $users[$user]['psw'])){
 			if(CSRF::check()!=='tokenExpired'&&CSRF::check()!=='invalidKey'||$users[$user]['type']!=="admin"){
 				$_SESSION['user']=$user;
-			
+			Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'success','logon');
 				echo '<script>
 				window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
 				</script>';
 				return false;
 			}else{
+			Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'failed','logon');
 				echo '<script>
 				window.open("./login?error=invalid_token", "_self");
 				</script>';
 				return false;
 			}	
 		}else{
+		Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'failed','logon');
 			echo '<script>
 				window.open("./login?error=invalid_psw", "_self");
 				</script>';
 				return false;
 		}
 		}else{
+			Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'failed','logon');
 				echo '<script>
 				window.open("./login?error=invalid_user", "_self");
 				</script>';
-				return false;
+				
 		}
+			
+			
 	}
 if(isset($_POST['webpresscreate'])){
 	$name = $_POST['webpressname'];
@@ -243,7 +253,7 @@ if(isset($_POST['webpresscreate'])){
 				window.open("./register?error=invalid_psw", "_self");
 				</script>';
 				return false;
-		}if($captcha===''&&!$conf['page']['captcha']||Captcha::checkCaptcha($captcha)&&$conf['page']['captcha']){
+		}if(!$conf['page']['captcha']['active']||Captcha::checkCaptcha($captcha)&&$conf['page']['captcha']){
 			
 		}else{
 				echo '<script>

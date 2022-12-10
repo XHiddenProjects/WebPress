@@ -117,7 +117,9 @@ width: calc(100% - 50px);
 					WebDB::makeDB('forums', $name) ? true : false;
 					echo WebDB::saveDB('forums', $name, $data) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/forum', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/forum', 'danger');
 				}
+				Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'create forum');
 			}else{
+				Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'failed', 'create forum');
 				echo '<div class="alert alert-danger">'.$lang['expect.requiements'].'</div>';
 			}
 		}
@@ -191,9 +193,11 @@ width: calc(100% - 50px);
 				}
 			
 			}
+			Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'remove topic');
 		}
 		if(isset($_GET['removeReply'])){
 			if(WebDB::dbExists('replys', $_GET['removeReply'])){
+				Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'remove reply');
 				WebDB::removeDB('replys', $_GET['removeReply']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/forum.php/view?id='.$_GET['id'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/forum.php/view?id='.$_GET['id'], 'danger');
 			}
 		}
@@ -298,6 +302,7 @@ width: calc(100% - 50px);
   </div>
 </div>';
 echo $out;
+Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'edit topic');
 	}
 
 ?>
@@ -390,6 +395,7 @@ $source = null;
 if(isset($_GET['editReply'])){
 	$db = WebDB::getDB('replys', $_GET['editReply']);
 	$source = isset($db['raw']) ? $db['raw'] : null;
+	Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'edit reply');
 }
 if(isset($_GET['quoteReply'])){
 	global $BASEPATH;
@@ -424,7 +430,7 @@ if(isset($_GET['quoteReply'])){
             </figcaption>
           </figure></a>';
 	}
-		
+	Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'quoted reply');	
 }
 echo '<ul class="list-group w-100">';
 if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
@@ -458,6 +464,7 @@ if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
 		WebDB::saveDB('forums', $forums, $d);
 		$id++;
 		}
+		Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'sorted forum');
 		echo Utils::redirect('modal.pedit.title', 'modal.pedit.desc', $BASEPATH.'/forum.php/forums', 'success');
 	}
 }elseif(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){

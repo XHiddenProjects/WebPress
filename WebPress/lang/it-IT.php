@@ -3,7 +3,8 @@ $lang = array(
 'lang'=>array(
 'en-US'=>'inglese',
 'de-DE'=>'Tedesco',
-'it-IT'=>'Italiano'
+'it-IT'=>'Italiano',
+'fr-FR'=>'francese'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Autorizzazione',
@@ -96,6 +97,7 @@ $lang = array(
 'dashboard.title.roles'=>'Pannello di controllo(Ruoli)',
 'dashboard.title.files'=>'Pannello di controllo(Files)',
 'dashboard.title.view'=>'Pannello di controllo(Visualizza il plugin)',
+'dashboard.title.events'=>'Pannello di controllo(Eventi)',
 'dashboard.title.notFound'=>'Pannello di controllo(Pagina non trovata)',
 'dashboard.desc'=>'Benvenuto nel pannello WebPress! Qui è dove puoi configurare e modificare file/cartelle per la tua pagina web, plugin e temi attivi e disattivati. Divertiti!',
 'dashboard.logout'=>'Disconnettersi',
@@ -123,6 +125,7 @@ $lang = array(
 'dashboard.side.ban'=>'Elenco dei divieti <i class="fa-solid fa-ban"></i>',
 'dashboard.side.roles'=>'Ruoli <i class="fa-solid fa-user-plus"></i>',
 'dashboard.side.files'=>'Files <i class="fa-solid fa-files"></i>',
+'dashboard.side.events'=>'Eventi <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.graph.user.label'=>'utenti',
 'dashboard.graph.user.y'=>'utente registrato',
 'dashboard.graph.subtitle'=>'Questo sarà chiaro su ',
@@ -437,6 +440,7 @@ $lang = array(
 'roles.input.canRole'=>'Può cambiare ruolo',
 'roles.input.file'=>'Può usare il file manager',
 'roles.input.profile'=>'Può cambiare profilo',
+'roles.input.events'=>'Può visualizzare gli eventi',
 'roles.deleteRole'=>'Elimina ruolo',
 'roles.removeItems'=>'Seleziona per rimuovere il ruolo',
 # files
@@ -514,6 +518,12 @@ $lang = array(
 'forum.category'=>'Forums',
 'forum.shortSubmit'=>'Ordina articoli',
 'forum.sort'=>'Ordina i tuoi forum <b><em>(non avere più argomenti hanno lo stesso numero)</em></b>',
-'forum.sortUser'=>'Accedi come amministratore usa questa opzione'
+'forum.sortUser'=>'Accedi come amministratore usa questa opzione',
+# eventi
+'events.ip'=>'IP',
+'events.date'=>'Data',
+'events.target'=>'Obbiettivo',
+'events.stat'=>'Stato',
+'events.action'=>'Azione'
 );
 ?>

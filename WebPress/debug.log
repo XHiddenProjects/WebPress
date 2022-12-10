@@ -1,0 +1,416 @@
+[05-Dec-2022 17:56:59 America/New_York] PHP Fatal error:  Uncaught Error: Class "Plugins" not found in C:\xampp\htdocs\WebPress\header.php:26
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\config.php(3): require_once()
+#1 C:\xampp\htdocs\WebPress\dashboard.php(3): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\header.php on line 26
+[05-Dec-2022 17:57:09 America/New_York] PHP Warning:  foreach() argument must be of type array|object, string given in C:\xampp\htdocs\WebPress\dashboard.php on line 20
+[05-Dec-2022 18:50:48 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:50:50 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:52:03 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:52:07 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:52:07 America/New_York] PHP Warning:  Undefined array key "staff_online" in C:\xampp\htdocs\WebPress\plugins\online\online.plg.php on line 93
+[05-Dec-2022 18:52:15 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:53:41 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:53:58 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:54:09 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:54:33 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:54:53 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:55:06 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:02 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 150
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Undefined variable $conf in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:36 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\init.php on line 151
+[05-Dec-2022 18:56:53 America/New_York] PHP Warning:  Undefined array key "backup_listItem" in C:\xampp\htdocs\WebPress\plugins\backup\backup.plg.php on line 26
+[06-Dec-2022 06:25:20 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[06-Dec-2022 06:28:43 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[06-Dec-2022 20:58:11 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[06-Dec-2022 21:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=12-06-2022138ff6f_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/bootstrap/5.2.3/js/bootstrap.bundle.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/bootstra...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/bootstra...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/fontawesome/6.2.0/js/all.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/fontawes...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/fontawes...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/prism/1.28.0/js/prism.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/prism/1....', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/prism/1....')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/autofill.js?v=638ff6f5d7e6a_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/notify/0.4.2/js/notify.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/notify/0...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/notify/0...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/editor.js?v=638ff6f5d7e6b_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/linenumer.js?v=638ff6f5d7e6d_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/script.js?v=638ff6f5d7e6e_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[06-Dec-2022 21:14:15 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/reactions/js/reactions.js?v=2.0.0_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/reactio...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/reactio...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:24:09 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[07-Dec-2022 06:33:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=12-07-202257907a2_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/fontawesome/6.2.0/js/all.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/fontawes...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/fontawes...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/notify/0.4.2/js/notify.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/notify/0...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/notify/0...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:57 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/bootstrap/5.2.3/js/bootstrap.bundle.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/bootstra...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/bootstra...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/prism/1.28.0/js/prism.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/prism/1....', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/prism/1....')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/autofill.js?v=63907a2528eab_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/editor.js?v=63907a2528ead_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/linenumer.js?v=63907a2528eae_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/script.js?v=63907a2528eaf_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 06:33:58 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/reactions/js/reactions.js?v=2.0.0_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/reactio...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/reactio...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:48:44 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[07-Dec-2022 20:56:08 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: preg_match() expects at least 2 arguments, 1 given in C:\xampp\htdocs\WebPress\auth.php:12
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\auth.php(12): preg_match('/(\\.php\\/)[\\w\\W...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\auth.php on line 12
+[07-Dec-2022 20:58:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=12-07-2022169144b_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:16 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/prism/1.28.0/js/prism.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/prism/1....', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/prism/1....')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/notify/0.4.2/js/notify.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/notify/0...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/notify/0...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/bootstrap/5.2.3/js/bootstrap.bundle.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/bootstra...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/bootstra...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/fontawesome/6.2.0/js/all.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/fontawes...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/fontawes...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/autofill.js?v=639144b88cde4_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/editor.js?v=639144b88cde5_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/linenumer.js?v=639144b88cde7_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:18 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/script.js?v=639144b88cde8_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:18 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/reactions/js/reactions.js?v=2.0.0_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/reactio...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/reactio...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/bootstrap/5.2.3/js/bootstrap.bundle.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/bootstra...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/bootstra...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/fontawesome/6.2.0/js/all.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/fontawes...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/fontawes...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/notify/0.4.2/js/notify.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/notify/0...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/notify/0...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function assets/prism/1.28.0/js/prism.min.js?v=1_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'assets/prism/1....', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'assets/prism/1....')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/Core/js/core.js?catche=12-07-2022299144c_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/Core/js...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/Core/js...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/autofill.js?v=639144c5c5219_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:30 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/editor.js?v=639144c5c521b_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/linenumer.js?v=639144c5c521c_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function themes/default/js/script.js?v=639144c5c521d_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'themes/default/...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'themes/default/...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 20:58:31 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function plugins/reactions/js/reactions.js?v=2.0.0_onSubmit() in C:\xampp\htdocs\WebPress\libs\plugin.lib.php:19
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\libs\plugin.lib.php(44): Plugin::myHook('onSubmit', 'plugins/reactio...', NULL)
+#1 C:\xampp\htdocs\WebPress\config.php(47): Plugin::forceExecute('onSubmit', 'plugins/reactio...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\plugin.lib.php on line 19
+[07-Dec-2022 21:17:48 America/New_York] PHP Parse error:  syntax error, unexpected token "}" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 203
+[07-Dec-2022 21:18:07 America/New_York] PHP Warning:  Undefined array key "reactions_additonal" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 210
+[08-Dec-2022 06:11:10 America/New_York] PHP Warning:  Undefined array key "captcha" in C:\xampp\htdocs\WebPress\auth.php on line 235
+[08-Dec-2022 06:12:49 America/New_York] PHP Warning:  Undefined array key "captcha" in C:\xampp\htdocs\WebPress\auth.php on line 235
+[08-Dec-2022 06:13:58 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[08-Dec-2022 06:15:17 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[08-Dec-2022 06:15:36 America/New_York] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\WebPress\auth.php on line 181
+[08-Dec-2022 06:37:05 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: fopen() expects at least 2 arguments, 1 given in C:\xampp\htdocs\WebPress\init.php:184
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\init.php(184): fopen('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\WebPress\dashboard.php(2): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\WebPress\init.php on line 184
+[08-Dec-2022 20:57:24 America/New_York] PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\xampp\htdocs\WebPress\dashboard.php on line 1875
+[08-Dec-2022 21:09:05 America/New_York] PHP Parse error:  syntax error, unexpected identifier "createEvent", expecting "function" or "const" in C:\xampp\htdocs\WebPress\libs\events.lib.php on line 6
+[08-Dec-2022 21:09:47 America/New_York] PHP Parse error:  syntax error, unexpected identifier "createEvent", expecting "function" or "const" in C:\xampp\htdocs\WebPress\libs\events.lib.php on line 6
+[09-Dec-2022 06:24:31 America/New_York] PHP Parse error:  syntax error, unexpected variable "$ip" in C:\xampp\htdocs\WebPress\libs\users.lib.php on line 21
+[09-Dec-2022 06:25:00 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined method Events::creatEvent() in C:\xampp\htdocs\WebPress\libs\forum.lib.php:320
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\forum.php(514): Forum::makeReply('test', 'Admin', 'test')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\forum.lib.php on line 320
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\forum.lib.php on line 364
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:25:43 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\libs\forum.lib.php on line 263
+[09-Dec-2022 06:26:42 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined method Events::creatEvent() in C:\xampp\htdocs\WebPress\libs\forum.lib.php:320
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\forum.php(514): Forum::makeReply('test', 'Admin', 'test')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\forum.lib.php on line 320
+[09-Dec-2022 06:28:06 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined method Events::creatEvent() in C:\xampp\htdocs\WebPress\libs\forum.lib.php:321
+Stack trace:
+#0 C:\xampp\htdocs\WebPress\forum.php(514): Forum::makeReply('test', 'Admin', 'test')
+#1 {main}
+  thrown in C:\xampp\htdocs\WebPress\libs\forum.lib.php on line 321
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Undefined variable $author in C:\xampp\htdocs\WebPress\forum.php on line 200
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Undefined variable $author in C:\xampp\htdocs\WebPress\forum.php on line 200
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:35:19 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 196
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[09-Dec-2022 06:37:28 America/New_York] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\WebPress\plugins\reactions\reactions.plg.php on line 143
+[10-Dec-2022 11:43:54 America/New_York] PHP Warning:  Undefined variable $out in C:\xampp\htdocs\WebPress\auth.php on line 115
+[10-Dec-2022 11:53:50 America/New_York] PHP Parse error:  syntax error, unexpected identifier "autre", expecting ")" in C:\xampp\htdocs\WebPress\lang\fr-FR.php on line 477
+[10-Dec-2022 11:54:20 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\header.php on line 149
+[10-Dec-2022 11:54:21 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\dashboard.php on line 507
+[10-Dec-2022 12:02:09 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\header.php on line 149
+[10-Dec-2022 12:02:10 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\dashboard.php on line 507
+[10-Dec-2022 12:03:12 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\header.php on line 149
+[10-Dec-2022 12:03:13 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\dashboard.php on line 507

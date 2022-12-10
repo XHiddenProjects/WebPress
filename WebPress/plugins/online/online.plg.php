@@ -79,7 +79,7 @@ function online_footer(){
 		$crawler = Users::crawler_handler($_SERVER['HTTP_USER_AGENT']);
 		$online = WebDB::getDB('plugins',$plugin.'/'.$plugin.'_hit');
 		foreach((array)$online as $ip=>$time){
-			if(time() - $time > 300)
+			if(time() - $time < 300)
 				unset($online[$ip]);
 		}
 		$online[Users::getRealIP()] = time();

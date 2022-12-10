@@ -54,6 +54,8 @@ if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.roles'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(files\/|files)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.files'], $BASEPATH);	
+}elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])){
+	echo head($lang['dashboard.title.events'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(view\/|view)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.view'], $BASEPATH);	
 }else{
@@ -144,6 +146,7 @@ if(!isset($_SESSION['guest'])){
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/ban">'.$lang['dashboard.side.ban'].'</a>
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/roles">'.$lang['dashboard.side.roles'].'</a>
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/files">'.$lang['dashboard.side.files'].'</a>
+		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/events">'.$lang['dashboard.side.events'].'</a>
 		';
 		$out.= Plugin::hook('dblist');
 		$out.='
@@ -395,7 +398,7 @@ Utils::isPost('removedAvatar', false, function(){
 	$out.='<div class="row">
 	<div class="col">
 	<h4>'.$lang['dashboard.config.captch'].'</h4>
-		<select name="captchaActive" class="form-control" disabled="disabled">
+		<select name="captchaActive" class="form-control">
 	<option value="true" '.($conf['page']['captcha']['active'] ? 'selected="selected"' : '').'>'.$lang['config.true'].'</option>
 	<option value="false" '.(!$conf['page']['captcha']['active'] ? 'selected="selected"' : '').'>'.$lang['config.false'].'</option>
 	</select>
@@ -1403,7 +1406,14 @@ $out.='<div class="modal fade" id="createRole" tabindex="-1" aria-labelledby="cr
 		}
 		$out.='</select>
 		</div>
-		
+		<div class="row">
+		<label class="form-label" for="roleEvent">'.$lang['roles.input.events'].'</label>
+		<select class="form-control" id="roleEvent" name="roleEvent">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
       </div>
       <div class="modal-footer">
         <button type="submit" name="roleCreateSubmit" class="btn btn-primary">'.$lang['roles.createRole'].'</button>
@@ -1429,6 +1439,7 @@ if(isset($_POST['roleCreateSubmit'])){
 	$roles = filter_var($_POST['roleRoles'], FILTER_VALIDATE_BOOLEAN);
 	$file = filter_var($_POST['roleFile'], FILTER_VALIDATE_BOOLEAN);
 	$profile = filter_var($_POST['roleProfile'],FILTER_VALIDATE_BOOLEAN);
+	$events = filter_var($_POST['roleEvent'],FILTER_VALIDATE_BOOLEAN);
 	$role = array(
 			'name'=>$name,
 			'description'=>$desc,
@@ -1446,7 +1457,8 @@ if(isset($_POST['roleCreateSubmit'])){
 				'config'=>$config,
 				'changeRoles'=>$roles,
 				'filemanager'=>$file,
-				'changeProfile'=>$profile
+				'changeProfile'=>$profile,
+				'events'=>$events
 			)
 	);
 	$getRoles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
@@ -1856,6 +1868,33 @@ if(isset($_POST['saveFile'])){
 	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(view|view\/)/', $_SERVER['REQUEST_URI'])){
 	$out .= Plugin::useHook('view', $_GET['plugin']);
+}elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('events')){
+	$out.='<div class="h-50" style="overflow:auto;"><table class="table">
+	<thead>
+	 <tr>
+      <th scope="col">'.$lang['events.ip'].'</th>
+      <th scope="col">'.$lang['events.date'].'</th>
+      <th scope="col">'.$lang['events.target'].'</th>
+      <th scope="col">'.$lang['events.stat'].'</th>
+	  <th scope="col">'.$lang['events.action'].'</th>
+    </tr>
+	</thead>
+  <tbody>
+   ';
+   $listen = preg_replace('/(\n|\r|\r\n)/','-',preg_replace('/\n$/','',file_get_contents(ROOT.'/events/listener.event')));
+   $expoit = @explode('-',$listen);
+   foreach($expoit as $item){
+	   $setItem = @explode('|', $item);
+	   $out.='<tr>';
+	   for($i=0;$i<count($setItem);$i++){
+		   $out.='<td>'.$setItem[$i].'</td>';
+	   }
+	   $out.='</tr>';
+	   
+   }
+   $out.='
+	</tbody>
+	</table></div>';
 }else{
 	$out.='<h1 class="text-center alert alert-danger">'.$lang['dashboard.pageError'].'</h1>';
 }

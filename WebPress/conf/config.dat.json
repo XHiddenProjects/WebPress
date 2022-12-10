@@ -22,7 +22,8 @@
         "description": {
             "en": "WebPress is a very well-built CMS software!",
             "de": "WebPress ist eine sehr gut aufgebaute CMS-Software!",
-            "it": "WebPress è un software CMS molto ben costruito!"
+            "it": "WebPress è un software CMS molto ben costruito!",
+            "fr": "WebPress est un logiciel CMS très bien construit !"
         },
         "author": "SurveyBuilderTeams",
         "refresh": 0,
@@ -44,7 +45,7 @@
             "console": 5
         },
         "captcha": {
-            "active": true,
+            "active": false,
             "settings": [
                 200,
                 38,

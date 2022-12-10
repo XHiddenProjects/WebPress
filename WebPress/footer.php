@@ -10,14 +10,40 @@ $footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0
 	<section class="mb-0">
       <!-- Github -->
       <a
+		data-bs-toggle="tooltip" 
+		data-bs-placement="top" 
+		data-bs-title="GitHub"
         class="btn btn-primary btn-floating m-1"
         style="background-color: #333333;"
         href="https://github.com/surveybuilderteams/" target="_blank"
         role="button"
         ><i class="fab fa-github"></i
       ></a>
+	  <!-- alternativeto -->
+      <a
+		data-bs-toggle="tooltip" 
+		data-bs-placement="top" 
+		data-bs-title="alertnativeto"
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #333333;"
+        href="https://alternativeto.net/software/webpress/about/" target="_blank"
+        role="button"
+        ><img src="https://alternativeto.net/static/icons/favicon.ico" width="18" height="18"/></a>
+		  <!-- producthunt -->
+      <a
+		data-bs-toggle="tooltip" 
+		data-bs-placement="top" 
+		data-bs-title="producthunt"
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #333333;"
+        href="https://www.producthunt.com/posts/webpress" target="_blank"
+        role="button"
+        ><img src="https://ph-static.imgix.net/ph-favicon-coral.ico" width="18" height="18"/></a>
 	  <!--Website-->
 	  <a
+		data-bs-toggle="tooltip" 
+		data-bs-placement="top" 
+		data-bs-title="website"
         class="btn btn-primary btn-floating m-1"
         style="background-color: #1765da;"
         href="#" target="_blank"

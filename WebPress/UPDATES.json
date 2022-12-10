@@ -202,6 +202,30 @@
 					"type": "info"
 				}
             ]
+        },
+		"1.5.0": {
+            "textsets": [
+                {
+                    "text": "Version 1.5.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed captcha invisablity",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "bug",
+                    "show": true,
+					"type": "warning"
+				},
+				{
+					"text": "French Language",
+                    "icon": "fa-solid fa-language",
+                    "tag": "language",
+                    "show": true,
+					"type": "info"
+				}
+            ]
         }
     },
     "needsAttation": false

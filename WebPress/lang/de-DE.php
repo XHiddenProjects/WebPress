@@ -3,7 +3,8 @@ $lang = array(
 'lang'=>array(
 'en-US'=>'Englisch',
 'de-DE'=>'Deutsch',
-'it-IT'=>'Italienisch'
+'it-IT'=>'Italienisch',
+'fr-FR'=>'Französisch'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Genehmigung',
@@ -96,6 +97,7 @@ $lang = array(
 'dashboard.title.roles'=>'Armaturenbrett(Rollen)',
 'dashboard.title.files'=>'Armaturenbrett(Dateien)',
 'dashboard.title.view'=>'Armaturenbrett(Plugin anzeigen)',
+'dashboard.title.events'=>'Armaturenbrett(Veranstaltungen)',
 'dashboard.title.notFound'=>'Armaturenbrett(Seite nicht gefunden)',
 'dashboard.desc'=>'Willkommen beim WebPress Panel! Hier können Sie Dateien/Ordner für Ihre Webseite, aktive und deaktivierte Plugins und Designs konfigurieren und bearbeiten. Genießen!',
 'dashboard.logout'=>'Ausloggen',
@@ -123,6 +125,7 @@ $lang = array(
 'dashboard.side.ban'=>'Verbotsliste <i class="fa-solid fa-ban"></i>',
 'dashboard.side.roles'=>'Rollen <i class="fa-solid fa-user-plus"></i>',
 'dashboard.side.files'=>'Dateien <i class="fa-solid fa-files"></i>',
+'dashboard.side.events'=>'Veranstaltungen <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.graph.user.label'=>'benutzer',
 'dashboard.graph.user.y'=>'Registrierte Benutzer',
 'dashboard.graph.subtitle'=>'Dies wird am klar sein ',
@@ -437,6 +440,7 @@ $lang = array(
 'roles.input.canRole'=>'Kann Rollen wechseln',
 'roles.input.file'=>'Kann den Dateimanager verwenden',
 'roles.input.profile'=>'Profil ändern kann',
+'roles.input.events'=>'Kann Ereignisse anzeigen',
 'roles.deleteRole'=>'Rolle löschen',
 'roles.removeItems'=>'Wählen Sie diese Option aus, um die Rolle zu entfernen',
 # dateien
@@ -514,6 +518,12 @@ $lang = array(
 'forum.category'=>'Foren',
 'forum.shortSubmit'=>'Artikel sortieren',
 'forum.sort'=>'Sortieren Sie Ihre Foren <b><em>(do not have multiple topics have the same nummer)</em></b>',
-'forum.sortUser'=>'Bitte melden Sie sich als Administrator an, verwenden Sie diese Option'
+'forum.sortUser'=>'Bitte melden Sie sich als Administrator an, verwenden Sie diese Option',
+# Veranstaltungen
+'events.ip'=>'IP',
+'events.date'=>'Datum',
+'events.target'=>'Ziel',
+'events.stat'=>'Status',
+'events.action'=>'Aktion'
 );
 ?>

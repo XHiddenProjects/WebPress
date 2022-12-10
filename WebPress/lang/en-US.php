@@ -3,7 +3,8 @@ $lang = array(
 'lang'=>array(
 'en-US'=>'English',
 'de-DE'=>'German',
-'it-IT'=>'Italian'
+'it-IT'=>'Italian',
+'fr-FR'=>'French'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Authorization',
@@ -95,6 +96,7 @@ $lang = array(
 'dashboard.title.ban'=>'Dashboard(Ban List)',
 'dashboard.title.roles'=>'Dashboard(Roles)',
 'dashboard.title.files'=>'Dashboard(Files)',
+'dashboard.title.events'=>'Dashboard(Events)',
 'dashboard.title.view'=>'Dashboard(View Plugin)',
 'dashboard.title.notFound'=>'Dashboard(Page Not Found)',
 'dashboard.desc'=>'Welcome to WebPress panel! This is where you can config and edit file/folders for your web page, active and deactive plugins and themes. Enjoy!',
@@ -123,6 +125,7 @@ $lang = array(
 'dashboard.side.ban'=>'Ban List <i class="fa-solid fa-ban"></i>',
 'dashboard.side.roles'=>'Roles <i class="fa-solid fa-user-plus"></i>',
 'dashboard.side.files'=>'Files <i class="fa-solid fa-files"></i>',
+'dashboard.side.events'=>'Events <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.graph.user.label'=>'users',
 'dashboard.graph.user.y'=>'Registered Users',
 'dashboard.graph.subtitle'=>'This will be clear out on ',
@@ -437,6 +440,7 @@ $lang = array(
 'roles.input.canRole'=>'Can Change Roles',
 'roles.input.file'=>'Can use filemanager',
 'roles.input.profile'=>'Can change profile',
+'roles.input.events'=>'Can view Events',
 'roles.deleteRole'=>'Delete Role',
 'roles.removeItems'=>'Select to remove role',
 # files
@@ -514,6 +518,12 @@ $lang = array(
 'forum.category'=>'Forums',
 'forum.shortSubmit'=>'Sort Items',
 'forum.sort'=>'Sort your forums <b><em>(do not have multiple topics have the same number)</em></b>',
-'forum.sortUser'=>'Please login as administrator to use this option'
+'forum.sortUser'=>'Please login as administrator to use this option',
+# events
+'events.ip'=>'IP',
+'events.date'=>'Date',
+'events.target'=>'Target',
+'events.stat'=>'Status',
+'events.action'=>'Action'
 );
 ?>

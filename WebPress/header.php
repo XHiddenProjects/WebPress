@@ -4,6 +4,7 @@ require_once('libs/plugin.lib.php');
 require_once('libs/users.lib.php');
 require_once('libs/utils.lib.php');
 require_once('libs/webdb.lib.php');
+require_once('libs/events.lib.php');
 require_once('libs/files.lib.php');
 require_once('libs/Parsedown.lib.php');
 require_once('libs/ParsedownExtra.lib.php');
@@ -18,6 +19,7 @@ require_once('libs/toolkit.lib.php');
 require_once('libs/forum.lib.php');
 require_once('libs/Pagination.lib.php');
 require_once('libs/page.lib.php');
+
 global $conf, $selLang, $plugins, $lang;
 require_once('lang/'.$selLang.'.php');
 

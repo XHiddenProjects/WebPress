@@ -17,7 +17,8 @@
                 "config": true,
                 "changeRoles": true,
                 "filemanager": true,
-                "changeProfile": true
+                "changeProfile": true,
+				"events":true
             }
         },
         "moderator": {
@@ -37,7 +38,8 @@
                 "config": false,
                 "changeRoles": false,
                 "filemanager": false,
-                "changeProfile": true
+                "changeProfile": true,
+				"events":false
             }
         },
         "member": {
@@ -57,7 +59,8 @@
                 "config": false,
                 "changeRoles": false,
                 "filemanager": false,
-                "changeProfile": true
+                "changeProfile": true,
+				"events":false
             }
         },
         "guest": {
@@ -77,7 +80,8 @@
                 "config": false,
                 "changeRoles": false,
                 "filemanager": false,
-                "changeProfile": false
+                "changeProfile": false,
+				"events":false
             }
         }
     }

@@ -1,9 +1,5 @@
 <?php
 # check valid PHP library
-if(!extension_loaded('gd')){
-	echo 'You must have "gd" enabled';
-	return false;
-}
 if(!extension_loaded('json')){
 	echo 'You must have "json" enabled';
 	return false;
@@ -67,6 +63,9 @@ if(!is_dir('data/topics')||!file_exists('data/topics')){
 }
 if(!is_dir('data/forums')||!file_exists('data/forums')){
 	 mkdir('data/forums');
+}
+if(!is_dir('events')||!file_exists('events')){
+	 mkdir('events');
 }
 
 #defined
@@ -140,7 +139,7 @@ $token = str_replace('=','',base64_encode(md5($session)));
 
 function langpack(){
 	global $lang;
-	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE'], 'it-IT'=>$lang['lang']['it-IT']);
+	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE'], 'it-IT'=>$lang['lang']['it-IT'], 'fr-FR'=>$lang['lang']['fr-FR']);
 }
 
 function install(){
@@ -177,4 +176,9 @@ if(!file_exists(ROOT.'INSTALL')){
 	}	
 }
 !file_exists(ROOT.'INSTALL') ? install() : '';
+if(!file_exists(ROOT.'events'.DS.'listener.event')){
+	$q = fopen(ROOT.'events'.DS.'listener.event', 'w+');
+	fwrite($q,'');
+	fclose($q);
+}
 ?>

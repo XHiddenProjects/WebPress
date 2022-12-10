@@ -3,8 +3,9 @@ class Users{
 	private function __construct(){
 		
 	}
-	public static function getRealIP(){
-	if($_SERVER['SERVER_NAME'] === "localhost"){
+	public static function getRealIP($user=null){
+		if($user===null){
+			if($_SERVER['SERVER_NAME'] === "localhost"){
 			$ip = getHostByName(getHostName());
 		}elseif(!empty($_SERVER['HTTP_CLIENT_IP'])){
         //ip from share internet
@@ -15,6 +16,11 @@ class Users{
     }else{
         $ip = $_SERVER['REMOTE_ADDR'];
     }
+		}else{
+			$d = WebDB::getDB('users','users');
+			$ip = filter_var($d[$user]['ip'], FILTER_VALIDATE_IP);
+		}
+	
     return $ip;
 }
 public static function ipInfo($ip, $sel, $msg=''){ 

@@ -2,6 +2,7 @@
 
 include_once('webdb.lib.php');
 include_once('files.lib.php');
+include_once('events.lib.php');
 if(isset($_SESSION['user_lang'])){
 include_once(ROOT.'lang'.DS.$_SESSION['user_lang'].'.php');
 }
@@ -277,9 +278,10 @@ class Forum{
         <p>
          '.$rInfo['msg'].'
         </p>
-		<div class="d-block">'.Plugin::hook('replyMsg').'</div>
-		'.($session===$rInfo['author']&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a>'.Plugin::hook('replyBottom') : '').'
-      </div>
+		<div style="display:flex;">'.Plugin::hook('replyMsg').'</div>
+		'.($session===$rInfo['author']&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a>' : '').'
+		'.Plugin::hook('replyBottom').'
+	 </div>
     </div>';	
 	!in_array($replyItem, $replaysArr['replys']) ? array_push($replaysArr['replys'], $replyItem) : '';
 
@@ -316,6 +318,7 @@ class Forum{
 				'msg'=>$msg,
 				'raw'=>$raw
 		);
+		Events::createEvent(Users::getRealIP($author), date('m/d/Y h:i:sa'), $author, 'success', 'create reply');
 		return WebDB::saveDB('replys', $id, $data) ? true : false; 
 	}
 	public static function makeTopic($name, $forum, $author, $msg, $tags, $raw, $pinned=false, $locked=false, $created=null, $edited=null, $id=null){
@@ -339,6 +342,7 @@ class Forum{
 			'pinned'=>filter_var($pinned, FILTER_VALIDATE_BOOLEAN),
 			'locked'=>filter_var($locked, FILTER_VALIDATE_BOOLEAN)
 		);
+		Events::createEvent(Users::getRealIP($author), date('m/d/Y h:i:sa'), $author, 'success', 'create topic');
 		return WebDB::saveDB('topics', $idFile, $data) ? true : false; 
 	}
 	public static function usersData($name, $type){

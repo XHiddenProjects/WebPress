@@ -1,7 +1,11 @@
 <?php
-$plugin='onlyforum';
-$lang[$plugin.'_name'] = 'nicht seguire';
-$lang[$plugin.'_desc'] = 'Blocca qualsiasi "aggiungi argomenti" per un forum specifico, solo gli amministratori possono aggiungere argomenti.';
-$lang[$plugin.'_submit']='Submit';
-$lang[$plugin.'_list']='Enter Forums';
+$plugin='reactions';
+$lang[$plugin.'_name'] = 'Reazioni';
+$lang[$plugin.'_desc'] = 'Reagisce a tutte le risposte visualizzate';
+$lang[$plugin.'_submit'] = 'Invia';
+$lang[$plugin.'_reactionList']='Reazioni';
+$lang[$plugin.'_reactionIcon']='Aggiungi icona';
+$lang[$plugin.'_reactionName']='Nome emoticon';
+$lang[$plugin.'_nouser']='Devi loggarti per votare';
+$lang[$plugin.'_additonal']='aggiuntivo';
 ?>
