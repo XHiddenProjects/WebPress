@@ -59,7 +59,7 @@ if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
 				
                 <div class="form-outline mb-4">
 				<div class="input-group">
-                  <input required="" type="text" title="'.$lang['register.email.syntax'].'" name="webpressemail" id="webpress-email" class="form-control form-control-lg" placeholder="'.$lang['register.email.place'].'"/>
+                  <input required="" type="text" name="webpressemail" id="webpress-email" class="form-control form-control-lg" placeholder="'.$lang['register.user'].'"/>
                   <span class="input-group-text">'.$conf['allowedEmail'].'</span>
 				  <!--<label class="form-label" for="webpress-email">'.$lang['register.email'].'</label>-->
 				</div>
@@ -68,6 +68,7 @@ if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
                 <div class="form-outline mb-4">
                   <input required="" type="password" title="'.$lang['register.psw.syntax'].'" name="webpresspsw" id="webpress-psw" class="form-control form-control-lg" placeholder="'.$lang['register.psw.place'].'"/>
                   <label class="form-label" for="webpress-psw">'.$lang['register.psw'].'</label>
+				  <span class="text-secondary">'.$lang['register.psw.syntax'].'</span>
                 </div>
 
                 <div class="form-outline mb-4">
@@ -106,7 +107,7 @@ if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
   </div>
 </section></div>';
 echo $output;
-}elseif(preg_match('/\/login/', $_SERVER['REQUEST_URI'])){
+	}elseif(preg_match('/\/login/', $_SERVER['REQUEST_URI'])){
 	if(Users::getSession()){
 			echo '<script>
 				window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
@@ -170,7 +171,7 @@ echo $output;
   </div>
 </section></div>';
 echo $output;
-}elseif(preg_match('/\/logout/', $_SERVER['REQUEST_URI'])){
+	}elseif(preg_match('/\/logout/', $_SERVER['REQUEST_URI'])){
 	echo Utils::redirect('auth.logout', 'auth.logout.desc', '../', 'danger');
 	session_unset();
 }elseif(preg_match('/\/delete/', $_SERVER['REQUEST_URI'])){
@@ -178,7 +179,7 @@ echo $output;
 	unset($user[$_GET['user']]);
 	echo @WebDB::saveDB('users', 'users', $user) ? Utils::redirect('auth.logout', 'auth.logout.desc', '../', 'danger') : 'error';
 	session_unset();
-}
+	}
 ?>
 <?php
 if(isset($_POST['webpresslogin'])){
@@ -313,7 +314,7 @@ if(isset($_POST['webpresscreate'])){
 }
 ?>
 <?php
-echo foot($BASEPATH);
+echo foot('..');
 ?>
 </body>
 </html>

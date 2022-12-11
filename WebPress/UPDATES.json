@@ -243,6 +243,23 @@
 					"type": "info"
 				}
             ]
+        },
+		"1.5.2": {
+            "textsets": [
+                {
+                    "text": "Version 1.5.2 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed register problem",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "bug",
+                    "show": true,
+					"type": "warning"
+				}
+            ]
         }
     },
     "needsAttation": false

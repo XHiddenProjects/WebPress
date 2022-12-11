@@ -14,6 +14,7 @@ setInterval(function(){
 			$('#webpress-submit').attr('disabled', "true");
 		}
 	}else{
+		console.log(psw+','+rpsw+','+name+','+user+','+email+','+terms);
 		$('#webpress-submit').attr('disabled', "true");
 	}
 	}, 100);
