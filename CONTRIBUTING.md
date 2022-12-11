@@ -7,4 +7,4 @@ to the keys. Punishment would be of the following.
 * warning + Removal
 * perment ban
 
-You can also contribute by requesting bugs by using `bugs`
+You can also contribute by requesting bugs by using __bugs__ label in the issue page or __feature requests__ label to request a feature ideas. 
