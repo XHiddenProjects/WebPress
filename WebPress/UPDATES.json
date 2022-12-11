@@ -260,6 +260,23 @@
 					"type": "warning"
 				}
             ]
+        },
+		"1.5.3": {
+            "textsets": [
+                {
+                    "text": "Version 1.5.3 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixed hardware ID issue",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "bug",
+                    "show": true,
+					"type": "warning"
+				}
+            ]
         }
     },
     "needsAttation": false
