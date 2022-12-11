@@ -166,7 +166,7 @@ class Forum{
 		'.($info['pinned'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.pinned']) ? $langs['forum.pinned'] : 'Pinned').'" class="badge text-bg-success"><i class="fa-solid fa-thumbtack"></i></span>' : '').'
 		'.($info['locked'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.locked']) ? $langs['forum.locked'] : 'Locked').'" class="badge text-bg-danger"><i class="fa-solid fa-lock"></i></span>' : '').'
 	</h5>
-    <p class="text-bg-dark me-2 p-2 rounded">
+    <p class="text-bg-dark me-2 p-2 rounded showPreMsg">
      '.$info['msg'].'
     </p>
 	<div><i class="fa-solid fa-eye"></i> <span class="text-secondary">'.self::number_abbr($info['views']).'</span><i style="transform:rotateY(180deg);" class="fa-solid fa-comment ms-3"></i> <span class="text-secondary">'.self::getReplysByTopic($info['id']).'</span></div>

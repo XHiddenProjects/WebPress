@@ -163,6 +163,8 @@ $out.='<canvas id="webpress-users" class="dashboard-status"></canvas>';
 $out.='<br/>';
 $out.='<canvas id="webpress-views" class="dashboard-status"></canvas>';
 $out.='<br/>';
+$out.='<canvas id="webpress-forums" class="dashboard-status"></canvas>';
+$out.='<br/>';
 $out .= '<div></center>
 <table class="table table-striped table-hover">
   <thead>
@@ -1937,6 +1939,35 @@ foreach($views as $v=>$vwmon){
 		}
 	}
 }
+$rdt = Utils::dateTimeData();
+$tdt = Utils::dateTimeData();
+$topicCount=0;
+$replyCount=0;
+foreach(Files::Scan(DATA_TOPICS) as $topics){
+	$topics = Files::removeExtension($topics);
+	$topic = WebDB::getDB('topics', $topics);
+	 preg_match('/\d{4}/',$topic['created'], $year);
+	 preg_match('/^\d{2}/', $topic['created'], $month);
+	$y=$year[0];
+	$m=$month[0];
+	if($y===date('Y')){
+		$topicCount++;
+		$tdt[Utils::dateTime('months')[$m]] = $topicCount . ',';
+	}
+}
+foreach(Files::Scan(DATA_REPLYS) as $replies){
+	$replies = Files::removeExtension($replies);
+	$reply = @WebDB::getDB('replys', $replies) ? WebDB::getDB('replys', $replies) : false;
+	 preg_match('/\d{4}/',$reply['created'], $year);
+	 preg_match('/^\d{2}/', $reply['created'], $month);
+	$y=$year[0];
+	$m=$month[0];
+	if($y[0]===date('Y')){
+		$replyCount++;
+		echo $replyCount;
+		$rdt[Utils::dateTime('months')[$m]] = $replyCount . ',';
+	}
+}
 # dashboard graph
 $out='<script>
 var xVal = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov", "Dec"];
@@ -1998,14 +2029,14 @@ new Chart("webpress-views", {
   data: {
     labels: xVWal,
     datasets: [{
-			label: "'.$lang['dashboard.graph.views.unique'].'",
+	  label: "'.$lang['dashboard.graph.views.unique'].'",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(0,255,0,1.0)",
       borderColor: "rgba(0,255,0,0.1)",
 		data:uniqUser
 	},{
-		label: "'.$lang['dashboard.graph.views.label'].'",
+	  label: "'.$lang['dashboard.graph.views.label'].'",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(255,0,0,1.0)",
@@ -2047,7 +2078,65 @@ new Chart("webpress-views", {
     }
   }
 });</script>';
+$out.='<script>
+new Chart("webpress-forums", {
+  type: "line",
+  data: {
+    labels: xVWal,
+    datasets: [{
+	  label: "'.$lang['dashboard.graph.forums.topics'].'",
+	  data:['.preg_replace('/\,$/','',$tdt['jan'].$tdt['feb'].$tdt['mar'].$tdt['apr'].$tdt['may'].$tdt['june'].$tdt['july'].$tdt['aug'].$tdt['sept'].$tdt['oct'].$tdt['nov'].$tdt['dec']).'],
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "rgba(16,141,237,1.0)",
+      borderColor: "rgba(16,141,237,0.1)",
 
+    },
+	{
+	  label: "'.$lang['dashboard.graph.forums.replies'].'",
+	  data:['.preg_replace('/\,$/','',$rdt['jan'].$rdt['feb'].$rdt['mar'].$rdt['apr'].$rdt['may'].$rdt['june'].$rdt['july'].$rdt['aug'].$rdt['sept'].$rdt['oct'].$rdt['nov'].$rdt['dec']).'],
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "rgba(11,226,226,1.0)",
+      borderColor: "rgba(11,226,226,0.1)",
+  
+    }]
+  },
+  options: {
+     plugins: {
+		 title:{
+			 display:true,
+			 fullSize: true,
+			 text: "'.$lang['dashboard.graph.forums.label'].'"
+		 },
+		 subtitle:{
+			 display: true,
+			 text:"'.$lang['dashboard.graph.subtitle'].date('Y', strtotime('+1 years')).'"
+		 },
+           legend: {
+				title:{
+				  display: false,
+				}
+			}
+	 },
+    scales: {
+      y:{
+		  stacked: true,
+		   title:{
+			   display:true,
+			  text: "'.$lang['dashboard.graph.forums.y'].'"
+		  } 
+	  },
+	  x:{
+		  title:{
+			   display:true,
+			  text: "'.date('Y').'-'.date('Y', strtotime('+1 years')).'"
+		  } 
+	  }
+    }
+  }
+});
+</script>';
 echo $out;
 }
 

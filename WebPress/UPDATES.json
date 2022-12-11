@@ -226,6 +226,23 @@
 					"type": "info"
 				}
             ]
+        },
+		"1.5.1": {
+            "textsets": [
+                {
+                    "text": "Version 1.5.1 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Added Forum chart",
+                    "icon": "fa-solid fa-chart-simple",
+                    "tag": "chart",
+                    "show": true,
+					"type": "info"
+				}
+            ]
         }
     },
     "needsAttation": false

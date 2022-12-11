@@ -414,3 +414,26 @@ Stack trace:
 [10-Dec-2022 12:02:10 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\dashboard.php on line 507
 [10-Dec-2022 12:03:12 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\header.php on line 149
 [10-Dec-2022 12:03:13 America/New_York] PHP Warning:  Undefined array key "fr" in C:\xampp\htdocs\WebPress\dashboard.php on line 507
+[11-Dec-2022 08:21:55 America/New_York] PHP Warning:  Array to string conversion in C:\xampp\htdocs\WebPress\dashboard.php on line 1951
+[11-Dec-2022 08:22:37 America/New_York] PHP Warning:  Trying to access array offset on value of type int in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:22:37 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:23:52 America/New_York] PHP Warning:  Trying to access array offset on value of type int in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:23:52 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:25:30 America/New_York] PHP Warning:  Trying to access array offset on value of type int in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:25:30 America/New_York] PHP Warning:  Undefined array key "" in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:25:53 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:26:20 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:26:34 America/New_York] PHP Warning:  Trying to access array offset on value of type int in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:26:34 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:26:41 America/New_York] PHP Warning:  Trying to access array offset on value of type int in C:\xampp\htdocs\WebPress\dashboard.php on line 1953
+[11-Dec-2022 08:26:41 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:27:01 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1955
+[11-Dec-2022 08:27:27 America/New_York] PHP Warning:  Undefined array key 0 in C:\xampp\htdocs\WebPress\dashboard.php on line 1955
+[11-Dec-2022 08:27:36 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1955
+[11-Dec-2022 08:27:49 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1955
+[11-Dec-2022 08:28:24 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:28:48 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:29:03 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1954
+[11-Dec-2022 08:29:14 America/New_York] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\WebPress\dashboard.php on line 1955
+[11-Dec-2022 08:30:55 America/New_York] PHP Warning:  Undefined variable $getYear in C:\xampp\htdocs\WebPress\dashboard.php on line 1951
+[11-Dec-2022 08:36:04 America/New_York] PHP Warning:  Undefined array key "dashboard.graph.forum.label" in C:\xampp\htdocs\WebPress\dashboard.php on line 2110
