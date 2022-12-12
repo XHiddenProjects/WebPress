@@ -38,4 +38,5 @@ Go to your dashboard, and click __documentation__
 
 # Other media
 [Like on alternativeto.net](https://alternativeto.net/software/webpress/about)
-[upvote on producthunt](https://www.producthunt.com/posts/webpress)
+
+[Upvote on producthunt](https://www.producthunt.com/posts/webpress)
