@@ -32,6 +32,14 @@ This includes `.htaccess` for Apache
 * fileinfo
 ***
 
+### updating versions
+1. Backup your data so nothing gets destroyed.
+2. Delete the "old version" folder entirely.
+3. Once done, register a new account for any changes.
+4. Reload your data back onto the `data` and `config` folder
+(Backups can be done, using the backup plugin)
+***
+
 For more documentation:
 
 Go to your dashboard, and click __documentation__
