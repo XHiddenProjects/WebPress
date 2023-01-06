@@ -13,7 +13,7 @@ $data = array(
 		'display'=>'icon'
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT')
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
 	)
 	);
 	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
@@ -79,13 +79,13 @@ function online_footer(){
 		$crawler = Users::crawler_handler($_SERVER['HTTP_USER_AGENT']);
 		$online = WebDB::getDB('plugins',$plugin.'/'.$plugin.'_hit');
 		foreach((array)$online as $ip=>$time){
-			if(time() - $time < 300)
+			if(time() - $time > 300)
 				unset($online[$ip]);
 		}
 		$online[Users::getRealIP()] = time();
 		WebDB::saveDB('plugins', $plugin.'/'.$plugin.'_hit', $online);
 		/*check if bot*/
-		$out .= '&nbsp;<span class="badge text-bg-' .$data['config']['color']. '">' .($data['config']['display']=='icon' ? '<i class="fa fa-user"></i> ': $lang['online']).intval($online);
+		$out .= '&nbsp;<span class="badge text-bg-' .$data['config']['color']. '">' .($data['config']['display']=='icon' ? '<i class="fa fa-user"></i> ': $lang['online']).count($online);
 		if ($crawler) return '<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="' .$crawler. '">Bots</button>';	
 		/*realy Users*/
 		$sessionRole = isset($_SESSION['role']) ? count(array($_SESSION['role'])) : '';
@@ -95,7 +95,7 @@ function online_footer(){
 	}
 	return $out;
 }
-function checkOnline($username){
+function checkOnline($username, $useBool=false){
 	global $session;
 	!defined('IS_ONLINE') ? define('IS_ONLINE', true) : '';
 	$plugin = 'online';
@@ -115,10 +115,12 @@ function checkOnline($username){
 					$users[$ip] = $ip;						
 				# Online mode	
 				if($session!==''&&isset($users[$validIP])&&$username === $users[$validIP]&&$username===$grabber[$session]['ip'])
-				    $usersStat = '<span class="avatar-status green"></span>';
+				    $usersStat = ($useBool ? true : '<span class="avatar-status green"></span>');
 				else
-					$usersStat = '<span class="avatar-status red"></span>';	
+					$usersStat =  ($useBool ? false : '<span class="avatar-status red"></span>');	
 			}
+			
+				
 			$currentUsers = IS_ONLINE ? $usersStat : '';
 			return $currentUsers;
 		}

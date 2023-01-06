@@ -277,6 +277,23 @@
 					"type": "warning"
 				}
             ]
+        },
+		"2.0.0": {
+            "textsets": [
+                {
+                    "text": "Version 2.0.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "MAJOR UPDATE!!!",
+                    "icon": "fa-solid fa-party-horn",
+                    "tag": "bug",
+                    "show": true,
+					"type": "success"
+				}
+            ]
         }
     },
     "needsAttation": false

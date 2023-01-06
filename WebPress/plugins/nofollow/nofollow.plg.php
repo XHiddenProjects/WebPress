@@ -11,7 +11,7 @@ $data = array(
 		'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT')
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
 	)
 	);
 	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';

@@ -58,7 +58,7 @@ if(isset($_POST['accessQuery'])){
 		return false;
 	}
 	$getKey = json_decode(file_get_contents('../api/KEYS.json'), true);
-	if(base64_encode($getPsw)===base64_encode($getKey['key'])){
+	if(base64_encode($getPsw)===base64_encode(md5($getKey['key']))){
 	$get = json_decode(file_get_contents('../data/users/users.dat.json'), true);
 	$info = (!isset($_SESSION['user'])||$_SESSION['user']!==@reset($get)['username'] ? true : false);
 	$_SESSION['user'] = (!isset($_SESSION['user'])||$_SESSION['user']!==@reset($get)['username'] ? @reset($get)['username'] : $_SESSION['user']);

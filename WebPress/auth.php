@@ -68,7 +68,7 @@ if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
                 <div class="form-outline mb-4">
                   <input required="" type="password" title="'.$lang['register.psw.syntax'].'" name="webpresspsw" id="webpress-psw" class="form-control form-control-lg" placeholder="'.$lang['register.psw.place'].'"/>
                   <label class="form-label" for="webpress-psw">'.$lang['register.psw'].'</label>
-				  <span class="text-secondary">'.$lang['register.psw.syntax'].'</span>
+				  <small class="text-secondary">'.$lang['register.psw.syntax'].'</small>
                 </div>
 
                 <div class="form-outline mb-4">
@@ -133,6 +133,8 @@ echo $output;
 						$output.='<div class="alert alert-danger" role="alert">'.$lang['login.err.token'].'</div>';
 					}elseif(preg_match('/\?error=invalid_psw/', $_SERVER['REQUEST_URI'])){
 						$output.='<div class="alert alert-danger" role="alert">'.$lang['login.err.psw'].'</div>';
+					}elseif(preg_match('/\?error=invalid_auth/', $_SERVER['REQUEST_URI'])){
+						$output.='<div class="alert alert-danger" role="alert">'.$lang['login.err.loggedin'].'</div>';
 					}
 					$output.='
               <form method="post">
@@ -203,6 +205,7 @@ if(isset($_POST['webpresslogin'])){
 	$data = file_get_contents(DATA_USERS.'users.dat.json');
 	$users = json_decode($data, true);
 	if(isset($users[$user])||$users[$user]['username']===$user){
+		if(!checkOnline($user, true)){
 		if(password_verify($psw, $users[$user]['psw'])){
 			if(CSRF::check()!=='tokenExpired'&&CSRF::check()!=='invalidKey'||$users[$user]['type']!=="admin"){
 				$_SESSION['user']=$user;
@@ -225,6 +228,13 @@ if(isset($_POST['webpresslogin'])){
 				</script>';
 				return false;
 		}
+	}else{
+		Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'failed','logon');
+		echo '<script>
+				window.open("./login?error=invalid_auth", "_self");
+				</script>';
+				return false;
+	}
 		}else{
 			Events::createEvent(Users::getRealIP(),date('m/d/Y h:i:sa'),$user,'failed','logon');
 				echo '<script>

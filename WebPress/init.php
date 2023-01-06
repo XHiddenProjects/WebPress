@@ -71,6 +71,7 @@ if(!is_dir('events')||!file_exists('events')){
 #defined
 !defined('DS') ? define('DS', '/') : '';
 !defined('ROOT') ? define('ROOT', __DIR__.DS) : '';
+!defined('MAINDIR') ? define('MAINDIR', basename(__DIR__)) : '';
 !defined('CONFIG_SAVE') ? define('CONFIG_SAVE','../save/') : '';
 !defined('CONFIG_LOAD') ? define('CONFIG_LOAD','../plugin/') : '';
 $BASEPATH = '.';

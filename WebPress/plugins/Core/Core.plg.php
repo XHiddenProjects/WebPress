@@ -8,10 +8,10 @@ $data = array(
 'active'=>'on',
 'version'=>'1.2.1', 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
+'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)
-), 
-'usedLang'=>array('en-US','de-DE','it-IT')));
+),);
 $out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }

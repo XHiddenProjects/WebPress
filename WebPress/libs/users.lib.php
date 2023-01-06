@@ -235,7 +235,7 @@ public static function editProfile($base=''){
         if(isset($result)&&stripos($result,"blkid")!==false) {
             $result = $_SERVER['HTTP_HOST'];
         }else{
-			$result = 0;
+			$result = '0';
 		}
     }   
     return md5($salt.md5($result));

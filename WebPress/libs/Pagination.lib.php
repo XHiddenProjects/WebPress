@@ -33,6 +33,7 @@ class Paginate{
 		if($itemNum === 0)
 			return 1;
 		else
+		
 			return (int) ceil($itemNum / $nb);
 	}
 	
@@ -46,6 +47,7 @@ class Paginate{
 		if(!isset($_GET['p']))
 			return 1;
 		$p = (int) $_GET['p'];
+	
 		if($p >= 1 && $p <= $total)
 			return $p;
 		else

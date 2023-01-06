@@ -20,10 +20,12 @@ require_once('libs/forum.lib.php');
 require_once('libs/Pagination.lib.php');
 require_once('libs/page.lib.php');
 
+
 global $conf, $selLang, $plugins, $lang;
 require_once('lang/'.$selLang.'.php');
 
 Page::start();
+date_default_timezone_set($conf['page']['defaultTimeZone']);
 foreach($plugins as $plugin){
 	if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
 		 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
@@ -43,6 +45,7 @@ $parseBBL= new BBlight();
 $Editor = new Editor();
 
 Users::isProVersion() ? '@webpress.com' : $conf['allowedEmail'];
+
 
  if(!file_exists('data/mail/welcome.dat.json')&&isset($_SESSION['user'])){
 		 $open = fopen('data/mail/welcome.dat.json', 'w+');

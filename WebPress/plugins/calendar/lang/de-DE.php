@@ -1,0 +1,20 @@
+<?php
+$plugin='calendar';
+$lang[$plugin.'_name'] = 'Kalender';
+$lang[$plugin.'_desc'] = 'Der Kalender ist ein einfacher Build, mit dem Sie Ihren Zeitplan organisieren und Ereignisse erstellen können, und der Sie auch benachrichtigen kann, wenn Sie dies zulassen';
+$lang[$plugin.'_admin']='administrator';
+$lang[$plugin.'_any']='jeder';
+$lang[$plugin.'_submit']='Speichern';
+$lang[$plugin.'_listItem']='Kalender <i class="fa-solid fa-calendar-days"></i>';
+$lang[$plugin.'_addEvent']='Ereignis hinzufügen';
+$lang[$plugin.'_addEventTitle'] = 'Ein Event erstellen!';
+$lang[$plugin.'_startDate'] = 'Startdatum:';
+$lang[$plugin.'_startTime'] = 'Startzeit:';
+$lang[$plugin.'_endDate'] = 'Enddatum:';
+$lang[$plugin.'_endTime'] = 'Endzeit:';
+$lang[$plugin.'eventName'] = 'Ereignisname:';
+$lang[$plugin.'_labelColor'] = 'Etikettenfarbe:';
+$lang[$plugin.'_removeEvent']='Ereignis entfernen';
+$lang[$plugin.'_removeEventTitle']='Event entfernen!';
+$lang[$plugin.'_removeEventtxt']='Bestätigen Sie Ihren Eventnamen, dies kann nicht rückgängig gemacht werden.';
+$lang[$plugin.'_labelIcon']='Ereignissymbol';

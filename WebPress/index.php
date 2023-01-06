@@ -1,5 +1,5 @@
 <?php 
-require_once('config.php');
+require_once('init.php');
 require_once('header.php');
 require_once('footer.php');
 require_once('libs/plugin.lib.php');
@@ -44,8 +44,6 @@ if(isset($_SESSION['guest'])){
 			<?php
 			if(!Users::getSession()){
 			echo '<li><a class="dropdown-item" href="./auth.php/login"> '.$lang['index.loginbtn'].'</a></li>';
-			}elseif(!Users::isAdmin() && !Users::isMod() && !Users::isMember()){
-			echo '<li><a class="dropdown-item" href="./auth.php/logout"> '.$lang['index.loginoutbtn'].'</a></li>';	
 			}else{
 				echo '<li><a class="dropdown-item" href="./dashboard">'.$lang['index.dashboardbtn'].'</a></li>';
 			}
@@ -58,8 +56,27 @@ if(isset($_SESSION['guest'])){
 </nav>
 </header>
 <!--Write contents below here-->
-<h1 id="contentIndex" class="text-secondary"><?php echo $lang['index.writtable'];?></h1>
+<h1 class="text-center">Welcome to WebPress an CMS and a forum script</h1>
+<iframe src="./forum" id="forumFrame" style="width:100%;height:100%;"></iframe>
+<script>
+window.addEventListener('load', function(){
+  var x = document.getElementById("forumFrame");
+  var y = (x.contentWindow || x.contentDocument);
+  if (y.document)y = y.document;
+  y.body.querySelector('footer').style.display='none';
+  y.body.querySelector('.frameOpt').innerHTML = '<div class="text-bg-secondary p-5"><div class="text-center"><?php echo $lang['posting_frame']?></div><a onclick="javascript:window.open(\'./forum\', \'_top\');"><button class="btn btn-primary w-100 btn-lg"><i class="fa-solid fa-arrow-up-right-from-square"></i></button></a></div>';
+  if(y.body.querySelector('.loginbtn')){
+	  y.body.querySelector('.loginbtn').style.display='none';
+  }
+  let links = y.body.querySelectorAll('[href]');
+  for(let i=0;i<links.length;i++){
+	  links[i].removeAttribute('href');
+  }
+  y.body.querySelector('[role="search"]').setAttribute('style','display:none!important;');
+});
 
+
+</script>
 <?php
 echo foot($BASEPATH);
 ?>

@@ -8,14 +8,16 @@
     "desc": {
         "en": "Changes everything to make it dark themed.",
         "de": "Ändert alles, um es dunkel zu machen.",
-        "it": "Cambia tutto per renderlo a tema scuro."
+        "it": "Cambia tutto per renderlo a tema scuro.",
+		"fr": "Change tout pour le rendre sombre."
     },
     "options": {
         "canDisabled": true,
         "usedLang": [
             "en-US",
             "de-DE",
-            "it-IT"
+            "it-IT",
+			"fr-FR"
         ]
     }
 }

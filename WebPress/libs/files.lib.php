@@ -1,4 +1,4 @@
-<?php defined('WEBPRESS') or die('Webpress community');
+<?php
 class Files{
 	protected function __construct(){
 		
@@ -35,19 +35,24 @@ $msg = '';
 	}
 	if ($uploadOk == 0) {
 	echo "<div class='alert alert-danger' role='alert'>".$lang['upload.failed']."</div>";
+	return false;
 	} else {
 		if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
 			if($rename!==null){
 				if(Files::renameFile($target_file, $target_dir.$rename)){
 			echo "<div class='alert alert-success' role='alert'>The file ". htmlspecialchars( basename( $_FILES[$name]["name"])). " has been uploaded.</div>";
+			return true;
 			}else{
 				echo "<div class='alert alert-danger' role='alert'>".$lang['upload.failed.rename']."</div>";
+				return false;
 			}
 			}else{
 			echo "<div class='alert alert-success' role='alert'>".$lang['upload.success'][0].(preg_match('/avatars/',$target_dir) ? $lang['upload.success'][2] : '').htmlspecialchars(basename($_FILES[$name]["name"])). " ".$lang['upload.success'][1]."</div>";	
+			return true;
 			}
 		} else {
 		echo "<div class='alert alert-danger' role='alert'>".$lang['upload.failed']."(".$msg.")</div>";
+		return false;
 		}
 	}
 }
@@ -56,16 +61,13 @@ public static function uploadToFileManager($name, $path){
  
  			// Count total files
  			$fileCount = count($_FILES[$name]['name']);
-
  			// Iterate through the files
- 			for($i = 0; $i < $fileCount; $i++){
-
-  				$file = $_FILES[$name]['name'][$i];
- 
+ 			for($k=0; $k<(int)$fileCount; $k++){
+  				$file = str_replace(' ','_',$_FILES[$name]['name'][$k]);
   				// Upload file to $path
-  				return @move_uploaded_file($_FILES[$name]['tmp_name'][$i], $path.$file);
- 
+  				@move_uploaded_file(str_replace(' ','_',$_FILES[$name]['tmp_name'][$k]), $path.$file);
  			}
+			return true;
 		}
 
 	public static function remove($name, $loc){
@@ -284,15 +286,21 @@ public static function removeDir($dir){
 public static function minify($text, $type){
 		switch($type){
 			case 'css':
-			return preg_replace('/(\n)|(\n\r)|(\t)|(\/\*[\w\W]+\*\/)/', '', $text);
+			return preg_replace('/(\n)|(\n\r)|(\t)|(\/\*[\w\W]+\*\/)|(\<br\/\>)|(<br \/\>)/', '', $text);
 			break;
 			case 'js':
-			return preg_replace('/(\n)|(\n\r)|(\t)|(\/\*[\w\W]+\*\/)|(\/\/[^\n\r]+)/', '', $text);
+			return preg_replace('/(\n)|(\n\r)|(\t)|(\/\*[\w\W]+\*\/)|(\/\/[^\n\r]+)|(\<br\/\>)|(<br \/\>)/', '', $text);
 			break;
 		}
 	}
 public static function removeExtension($file, $type=DB_EXTENSIONS){
 	return @str_replace($type,'',$file);
+}
+public static function createFile($name, $loc, $data='', $flag='w+'){
+	$open = fopen($loc.$name,$flag);
+	fwrite($open, $data);
+	 fclose($open);
+	 return true;
 }
 }
 ?>

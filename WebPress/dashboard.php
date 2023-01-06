@@ -1,6 +1,5 @@
 <?php 
 require_once('init.php');
-require_once('config.php');
 require_once('header.php');
 require_once('footer.php');
 
@@ -56,6 +55,8 @@ if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.files'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.events'], $BASEPATH);	
+}elseif(preg_match('/\/dashboard(?:\.php)\/(pages\/|pages)/', $_SERVER['REQUEST_URI'])){
+	echo head($lang['dashboard.title.pages'], $BASEPATH);	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(view\/|view)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.view'], $BASEPATH);	
 }else{
@@ -129,6 +130,7 @@ if(!isset($_SESSION['guest'])){
 	$out .= '<br/>'.$lang['dashboard.side.weather'].' <img src="'.$weather['results'][0]['image'].'" alt="'.$weather['results'][0]['phrase'].'" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$weather['results'][0]['phrase'].'"/>';
 	$out .= '<br/>'.(Utils::checkVersion()[0] ? '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i> Current '.Utils::checkVersion()[1].'</div>' : '<div class="alert alert-danger" role="alert"><i class="fas fa-upload"></i> Outdated '.Utils::checkVersion()[1].'</div>');
 	$out.='</div>';
+	$out.='<textarea class="form-control mb-2 wpnotes" oninput="saveNotes();" style="height: 130px;"></textarea>';
       $out.= '  <ul class="list-group list-group-flush">
         <a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/">'.$lang['dashboard.side.home'].'</a>
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard">'.$lang['dashboard.side.back'].'</a>
@@ -147,6 +149,7 @@ if(!isset($_SESSION['guest'])){
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/roles">'.$lang['dashboard.side.roles'].'</a>
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/files">'.$lang['dashboard.side.files'].'</a>
 		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/events">'.$lang['dashboard.side.events'].'</a>
+		<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/pages">'.$lang['dashboard.side.pages'].'</a>
 		';
 		$out.= Plugin::hook('dblist');
 		$out.='
@@ -449,6 +452,10 @@ Utils::isPost('removedAvatar', false, function(){
 	$out.='
 	</select>
 	</div>
+	<div class="col">
+	<h4>'.$lang['dashboard.config.panel.dateformat'].'</h4>
+	<input class="form-control" name="dateFormat" value="'.$conf['page']['dateFormat'].'"/>
+	</div>
 	</div>';
 	$out.='<div class="row">
 	<h4>'.$lang['dashboard.config.panel.icons'].'</h4>
@@ -580,6 +587,10 @@ Utils::isPost('removedAvatar', false, function(){
 	}
 	$out.='</select>
 	</div>
+	<div class="col">
+	<h4>'.$lang['dashboard.config.timeZone.title'].'</h4>
+	<input type="text" autocorrect="off" name="defaultTimeZone" class="form-control" value="'.$conf['page']['defaultTimeZone'].'"/>
+	</div>
 	</div>';
 	$out.='<hr class="border border-5 border-primary"/>';
 	$out.='<h1 class="text-center" id="configForum">'.$lang['dashboard.config.forum.title'].' </h1>';
@@ -638,11 +649,11 @@ Utils::isPost('removedAvatar', false, function(){
 		$icon128 = isset($_POST['icon128'])&&$_POST['icon128']!=='' ? 'themes/'.$_POST['icon128'] : $conf['page']['page-icon']['128'];
 		$icon256 = isset($_POST['icon256'])&&$_POST['icon256']!=='' ? 'themes/'.$_POST['icon256'] : $conf['page']['page-icon']['256'];
 		$icon512 = isset($_POST['icon512'])&&$_POST['icon512']!=='' ? 'themes/'.$_POST['icon512'] : $conf['page']['page-icon']['512'];
-		
+		$dateFormat = isset($_POST['dateFormat'])&&$_POST['dateFormat']!=='' ? $_POST['dateFormat'] : $conf['page']['dateFormat'];
 		$topicAmount = isset($_POST['displayTopicAmount'])&&$_POST['displayTopicAmount']>1 ? (int) $_POST['displayTopicAmount'] : $conf['forum']['maxTopicDisplay'];
 		$replyAmount = isset($_POST['displayReplyAmount'])&&$_POST['displayReplyAmount']>1 ? (int) $_POST['displayReplyAmount'] : $conf['forum']['maxReplyDisplay'];
-		
 		$themes = isset($_POST['themes']) ? $_POST['themes'] : $conf['page']['themes'];
+		$timeZone = isset($_POST['defaultTimeZone'])&&$_POST['defaultTimeZone']!=='' ? $_POST['defaultTimeZone'] : $conf['page']['defaultTimeZone'];
 		
 		$d['page']['errors']['400'] = $e400;
 		$d['page']['errors']['401'] = $e401;
@@ -679,8 +690,10 @@ Utils::isPost('removedAvatar', false, function(){
 		$d['page']['page-icon']['256'] = $icon256;
 		$d['page']['page-icon']['512'] = $icon512;
 		$d['page']['themes'] = $themes;
+		$d['page']['dateFormat'] = $dateFormat;
 		$d['forum']['maxTopicDisplay'] = $topicAmount;
 		$d['forum']['maxReplyDisplay'] = $replyAmount;
+		$d['page']['defaultTimeZone'] = $timeZone;
 		
 		WebDB::saveDB('CONFIG', 'config', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/configs', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/config', 'danger');
 	});
@@ -1416,6 +1429,14 @@ $out.='<div class="modal fade" id="createRole" tabindex="-1" aria-labelledby="cr
 		}
 		$out.='</select>
 		</div>
+		<div class="row">
+		<label class="form-label" for="rolePages">'.$lang['roles.input.pages'].'</label>
+		<select class="form-control" id="rolePages" name="rolePages">';
+		foreach($lang['forum.toggleOpt'] as $opt=>$val){
+			$out.='<option value="'.$opt.'">'.$val.'</option>';
+		}
+		$out.='</select>
+		</div>
       </div>
       <div class="modal-footer">
         <button type="submit" name="roleCreateSubmit" class="btn btn-primary">'.$lang['roles.createRole'].'</button>
@@ -1442,6 +1463,7 @@ if(isset($_POST['roleCreateSubmit'])){
 	$file = filter_var($_POST['roleFile'], FILTER_VALIDATE_BOOLEAN);
 	$profile = filter_var($_POST['roleProfile'],FILTER_VALIDATE_BOOLEAN);
 	$events = filter_var($_POST['roleEvent'],FILTER_VALIDATE_BOOLEAN);
+	$pages = filter_var($_POST['rolePages'],FILTER_VALIDATE_BOOLEAN);
 	$role = array(
 			'name'=>$name,
 			'description'=>$desc,
@@ -1460,7 +1482,8 @@ if(isset($_POST['roleCreateSubmit'])){
 				'changeRoles'=>$roles,
 				'filemanager'=>$file,
 				'changeProfile'=>$profile,
-				'events'=>$events
+				'events'=>$events,
+				'pages'=>$pages
 			)
 	);
 	$getRoles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);
@@ -1872,7 +1895,7 @@ if(isset($_POST['saveFile'])){
 	$out .= Plugin::useHook('view', $_GET['plugin']);
 }elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('events')){
 	$out.='<div class="h-50" style="overflow:auto;"><table class="table">
-	<thead>
+	<thead class="position-sticky top-0">
 	 <tr>
       <th scope="col">'.$lang['events.ip'].'</th>
       <th scope="col">'.$lang['events.date'].'</th>
@@ -1897,6 +1920,73 @@ if(isset($_POST['saveFile'])){
    $out.='
 	</tbody>
 	</table></div>';
+}elseif(preg_match('/\/dashboard(?:\.php)\/(pages\/|pages)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('pages')){
+	$out.='<div class="alert alert-danger">'.$lang['pages.form.notice'].'</div>';
+	$out.='<ul class="list-group list-group-flush">';
+	foreach(Files::Scan(ROOT.'pages') as $pages){
+		if(is_file(ROOT.'pages'.DS.$pages)&&preg_match('/\.html$/', $pages)){
+			$out.='<li class="list-group-item mt-1 list-group-item-action list-group-item-dark">
+			<b>'.$pages.'</b>
+			<span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.'pages'.DS.$pages)).'</span>
+			<span class="float-end">
+			<a target="_blank" href="'.$BASEPATH.DS.'page.php'.DS.Files::removeExtension($pages, '.html').'?editpage"><button class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button></a>
+			<a target="_blank" href="'.$BASEPATH.DS.'page.php'.DS.Files::removeExtension($pages, '.html').'"><button class="btn btn-info"><i class="fa-solid fa-eye"></i></button></a>
+			<a href="'.$BASEPATH.DS.'dashboard.php'.DS.'pages?delete='.Files::removeExtension($pages, '.html').'"><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button></a>
+			<button type="button" class="btn btn-secondary" onclick="copyPageURL(\''.((isset($_SERVER['HTTPS'])&&$_SERVER['HTTPS']==='on' ? 'https://': 'http://' ).$_SERVER['HTTP_HOST'].DS.MAINDIR.'/page.php/'.$pages).'\')"><i class="fa-solid fa-copy"></i></button>
+			</span>
+			</li>';
+		}
+	}
+		$out.='</ul>';
+		$out.='<div class="modal fade" id="addPage" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	<form method="post">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">'.$lang['blocks.page.title'].'</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <label class="form-label">'.$lang['blocks.page.name'].'</label>
+		<div class="input-group">
+        <input type="form-control" name="pageName"/>
+		<span class="input-group-text">.html</span>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">'.$lang['btn.close'].'</button>
+        <button type="submit" name="makePage" class="btn btn-primary">'.$lang['btn.save'].'</button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>';
+		$out.='<button data-bs-toggle="modal" data-bs-target="#addPage" class="btn btn-warning btn-lg w-100 mt-2 mb-2"><i class="fa-solid fa-plus"></i></button>';
+	if(isset($_GET['delete'])){
+		if(Files::remove($_GET['delete'].'.html', ROOT.'pages'.DS)){
+			Files::removeDir(ROOT.'pages'.DS.$_GET['delete']);
+			$out.='<script>
+			window.history.go(-1);
+			</script>';
+		}
+	}
+	if(isset($_POST['makePage'])){
+		$page = isset($_POST['pageName'])&&$_POST['pageName']!=='' ? $_POST['pageName'].'.html' : '';
+		if($page!==''){
+			if(!file_exists(ROOT.'pages'.DS.$page)){
+				if(Files::createFile($page, ROOT.'pages'.DS)){
+					Files::createFolder(ROOT.'pages'.DS.str_replace('.html','',$page));
+					Files::createFile(str_replace('.html','.css',$page), ROOT.'pages'.DS.str_replace('.html','',$page).DS);
+					$css = fopen(ROOT.'pages'.DS.str_replace('.html','',$page).DS.str_replace('.html','.css',$page), 'w+');
+					fwrite($css,'body{color:rgb(0, 0, 0);background-color:#ffffff;}');
+					$out.='<script>
+			window.location.reload();
+			</script>';
+				}
+					
+			}
+		}
+	}
 }else{
 	$out.='<h1 class="text-center alert alert-danger">'.$lang['dashboard.pageError'].'</h1>';
 }

@@ -17,6 +17,7 @@ require_once('libs/CSRF.lib.php');
 require_once('libs/Captcha.lib.php');
 require_once('libs/HTMLForm.lib.php');
 
+!Users::isAdmin() ? die($lang['forum.sortUser']) : '';
 
 if(preg_match('/\/config(?:\.php)\/plugin/', $_SERVER['REQUEST_URI'])){
 	# load Plugin language

@@ -8,10 +8,11 @@
 	"desc": {
 		"en":"This is a always active default theme that runs WebPress software with a bit of animations and style",
 		"de":"Dies ist ein immer aktives Standardthema, das die WebPress-Software mit ein bisschen Animation und Stil ausführt",
-		"it":"Questo è un tema predefinito sempre attivo che esegue il software WebPress con un po' di animazioni e stile"
+		"it":"Questo è un tema predefinito sempre attivo che esegue il software WebPress con un po' di animazioni e stile",
+		"fr":"Il s'agit d'un thème par défaut toujours actif qui exécute le logiciel WebPress avec un peu d'animations et de style"
 	},
 	"options":{
 		"canDisabled": false,
-		"usedLang": ["en-US","de-DE","it-IT"]
+		"usedLang": ["en-US","de-DE","it-IT", "fr-FR"]
 	}
 }

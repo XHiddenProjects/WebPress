@@ -32,7 +32,11 @@ const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstra
 setTimeout(function(){
 	let tables = document.querySelectorAll('table');
 	for(let i=0;i<tables.length;i++){
-		if(tables[i].getAttribute('table-style')&&tables[i].getAttribute('table-style')!==''){
+		if(tables[i].hasAttribute('nostyle')){
+			return false;
+		}else if(tables[i].getAttribute('style')){
+			tables[i].style = tables[i].getAttribute('style');
+		}else if(tables[i].getAttribute('table-style')&&tables[i].getAttribute('table-style')!==''){
 			tables[i].className = "table table-bordered border-light table-responsive table-striped table-"+tables[i].getAttribute('table-style')+" table-hover";
 		}else{
 			tables[i].className = "table table-bordered border-light table-responsive table-striped table-primary table-hover";
@@ -267,5 +271,28 @@ function returnSearch(event){
 	let unicode = event.keyCode||event.which;
 	if(unicode===13||unicode==='13'){
 		document.querySelector('.submitsearch').click();
+	}
+}
+
+function charCount(txt, out){
+	txt.addEventListener('input', function(){
+		out.innerHTML = this.value.length;
+	});
+}
+
+function saveNotes(){
+	let wpnotes = document.querySelector('.wpnotes');
+	localStorage.setItem('notes', wpnotes.value);
+}
+$(document).ready(function(){
+	document.querySelector('.wpnotes').value = localStorage.getItem('notes');
+});
+
+function copyPageURL(l){
+	let url = new URL(l);
+	if(url){
+		if(navigator.clipboard.writeText(l)) alert('successfully copied to clipboard');
+	}else{
+		console.error('invalid URL');
 	}
 }

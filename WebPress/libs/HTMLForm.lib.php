@@ -45,7 +45,7 @@ class HTMLForm{
 		$placeholder = $placeholder!='' ? ' placeholder="' .$lang[$placeholder]. '"' : '';
 		$desc = $desc!='' ? '<small class="form-text text-muted">' .$lang[$desc]. '</small>' : '';
 		return '<div class="form-group pass_show">
-					<label for="' .$name. '">' .$lang[$name]. '
+					<label class="form-label" for="' .$name. '">' .$lang[$name]. '
 						' .HTMLForm::err($name. 'ErrNotMatch', $lang['errNotMatch']). HTMLForm::err('bad_user_syntax', $lang['bad_user_syntax']). '
 					</label>
 					<input type="password" name="' .$name. '" value="' .$value. '"' .$class . $placeholder. ' required autofocus>
@@ -62,7 +62,7 @@ class HTMLForm{
 		$desc = $desc!='' ? '<small class="form-text text-muted">' .(isset($lang[$desc]) ? $lang[$desc] : ''). '</small>' : '';
 		
 		return '  <div class="form-group">
-				    <label for="' .$name. '">' .(isset($lang[$name]) ? $lang[$name] : ''). ' 
+				    <label class="form-label" for="' .$name. '">' .(isset($lang[$name]) ? $lang[$name] : ''). ' 
 				    </label>
 				    <input type="' .$type. '" id="' .$name. '" name="' .$name. '" value="' .$value. '"' .$class .$placeholder .$disabled. '>
 				    ' .$desc. '
@@ -80,7 +80,7 @@ class HTMLForm{
 		$placeholder = $placeholder!='' ? ' placeholder="' .$lang[$placeholder]. '"' : '';
 		$disabled = $disabled===true ? ' disabled' : '';
 		return '<div class="form-group">
-				    <label for="' .$name. '">' .$lang[$name]. '</label>
+				    <label class="form-label" for="' .$name. '">' .$lang[$name]. '</label>
 					<textarea id="' .$name. '" name="' .$name. '" rows="' .$rows. '"' .$class .$placeholder .$disabled. '>' .$value. '</textarea>
 					' .$desc. '
 				</div>';

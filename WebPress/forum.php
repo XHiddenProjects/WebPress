@@ -1,5 +1,5 @@
 <?php 
-require_once('config.php');
+require_once('init.php');
 require_once('header.php');
 require_once('footer.php');
 require_once('libs/plugin.lib.php');
@@ -209,7 +209,7 @@ width: calc(100% - 50px);
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-	<li class="nav-item">
+	<li class="nav-item frameOpt">
 	<?php echo Users::hasPermission('post') ? '<button id="addtopicbtn" data-bs-toggle="modal" data-bs-target="#addTopic" class="btn btn-success w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addTopic'].'</button>' : '';?>
 	<?php echo Users::isAdmin() ? '<button data-bs-toggle="modal" data-bs-target="#addForum" class="btn btn-warning w-100 mb-2 text-center"><i class="fa-solid fa-circle-plus"></i> '.$lang['forum.addForum'].'</button>' : '';?>
 	</li>
@@ -488,7 +488,7 @@ if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
 </div>' : '<div class="alert alert-danger ms-2 me-2"><b><i class="fa-solid fa-triangle-exclamation"></i> '.$lang['forum.noreply'].'</b></div>'; 
   }else{
 	  if(Users::isGuest()&&!$db['locked']){
-		  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3"><a href="'.$BASEPATH.'/auth.php/login"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';
+		  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3 loginbtn"><a href="'.$BASEPATH.'/auth.php/login"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';
 	  }else{
 		  echo '';
 	  }

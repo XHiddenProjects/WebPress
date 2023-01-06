@@ -181,6 +181,39 @@ class Utils{
 	</div>';
 	return $out;
 	}
+	public static function RGB2Hex($r,$g,$b){
+		return sprintf("#%02x%02x%02x", (int)$r, (int)$g, (int)$b);
+	}
+	public static function toDate($id, $pattern = 'Y/m/d H:i', $cooldate = true)
+	{
+		global $lang, $conf;
+		$timestamp = strtotime(substr($id, 0, 16));
+		$diff = time() - $timestamp;
+		if($pattern === $conf['page']['dateFormat'] && $cooldate && $diff < 604800) //1 week
+		{
+			$periods = array(86400 => $lang['day'], 3600 => $lang['hour'], 60 => $lang['minute'], 1 => $lang['second']);
+			foreach($periods as $key => $value)
+			{
+				if($diff >= $key)
+				{
+					$num = (int) ($diff / $key);
+					if(TIMESTAMP)
+						$date = $num. ' ' .$value.($num > 1? $lang['plural'] : ''). ' ' .$lang['ago'];
+					else
+						$date = $lang['ago']. ' ' .$num. ' ' .$value.($num > 1? $lang['plural'] : '');
+				}
+			}
+		} 
+		if($conf['lang']==='fr-FR') 
+		{
+			$date = strftime($pattern, $timestamp);
+		} 
+		else 
+		{
+			$date = date($pattern, $timestamp);
+		}
+		return $date;
+	}
 	
 }
 ?>

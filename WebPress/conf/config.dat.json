@@ -57,7 +57,8 @@
                 0
             ]
         },
-        "dateFormat": "F d, Y | h:i:sa"
+        "dateFormat": "F d, Y h:ia",
+        "defaultTimeZone": "America/New_York"
     },
     "forum": {
         "maxTopicDisplay": 5,

@@ -2,7 +2,7 @@
 $plugin='backup';
 $lang[$plugin.'_name'] = 'Backup';
 $lang[$plugin.'_desc'] = 'Backup your data by using this plugin, it will create a new folder in the ROOT folder';
-$lang['backup_listItem']='<i class="fa-solid fa-server"></i> Backup';
+$lang['backup_listItem']='Backup <i class="fa-solid fa-server"></i>';
 $lang['backup_mkdir']='failed to create backup';
 $lang['backup_nodir']='This directory does not exists';
 $lang['backup_version']='Version';
