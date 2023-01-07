@@ -331,6 +331,7 @@ $lang = array(
 'assets.title'=>'Vermögenswerte',
 # Verbotsliste
 'ban.empty'=>'Es werden keine Benutzer gesperrt',
+'ban.request'=>'Berufung beantragen',
 'ban.remove'=>'Entfernen',
 'ban.add'=>'Nutzer hinzufügen',
 'ban.table'=>array(

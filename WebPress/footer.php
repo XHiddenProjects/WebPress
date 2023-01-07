@@ -6,7 +6,7 @@ $footer.=Plugin::hook('afterLoad');
 $footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0" style="z-index:999;">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 '.(date('Y')==='2022' ? '' : ' - '.date('Y')).' '.$lang['index.label.copyright'].':
-    <a class="link-primary" href="#">SurveyBuilderTeams</a> '.$lang['index.label.license'].' <a class="link-primary" href="https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE" target="_blank">MIT</a>
+    <a class="link-primary" href="mailto:surveybuildersbot@gmail.com">SurveyBuilderTeams</a> '.$lang['index.label.license'].' <a class="link-primary" href="https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE" target="_blank">MIT</a>
 	<section class="mb-0">
       <!-- Github -->
       <a

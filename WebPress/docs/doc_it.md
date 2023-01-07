@@ -34,6 +34,14 @@ Per installare, basta inserire *Un-ZIPED* la cartella nel tuo *HTDocs (cartella 
 
 ***
 
+### [aggiornamento delle versioni](./docs#updating) {#updating}
+1. Esegui il backup dei tuoi dati in modo che nulla venga distrutto.
+2. Elimina completamente la cartella "vecchia versione".
+3. Al termine, registra un nuovo account per eventuali modifiche.
+4. Ricaricare i dati nella cartella dati e configurazione (è possibile eseguire i backup utilizzando il plug-in di backup)
+
+***
+
 ### [Ruoli](./docs#roles) {#ruoli}
 
 I ruoli sono importanti, sono molto personalizzabili e ne hanno 3 principali, *admin, mod e member* Questo consentirà agli utenti di accedere in modo diverso.
@@ -253,3 +261,5 @@ Se hai domande, ponile nelle [discussioni](https://github.com/surveybuilderteams
 
 ### Medias
 Metti mi piace su [alternativeto.net](https://alternativeto.net/software/webpress)
+
+Voto positivo su [producthunt](https://www.producthunt.com/posts/webpress)

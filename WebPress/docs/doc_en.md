@@ -34,6 +34,14 @@ To install, just insert the *Un-ZIPED* the folder to your *HTDocs(Root folder)* 
 
 ***
 
+### [updating versions](./docs#updating) {#updating}
+1. Backup your data so nothing gets destroyed.
+2. Delete the "old version" folder entirely.
+3. Once done, register a new account for any changes.
+4. Reload your data back onto the data and config folder (Backups can be done, using the backup plugin)
+
+***
+
 ### [Roles](./docs#roles) {#roles}
 
 Roles are important, they are very customizable and has 3 main one, *admin, mod, and member* This will make users have different access. 
@@ -253,3 +261,5 @@ If you have any questions, ask them on the [discussions](https://github.com/surv
 
 ### Medias
 Like on [alternativeto.net](https://alternativeto.net/software/webpress)
+
+Upvote on [producthunt](https://www.producthunt.com/posts/webpress)

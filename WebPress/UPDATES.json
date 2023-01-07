@@ -294,6 +294,23 @@
 					"type": "success"
 				}
             ]
+        },
+		"2.0.1": {
+            "textsets": [
+                {
+                    "text": "Version 2.0.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Ban fixed",
+                    "icon": "fa-solid fa-ban",
+                    "tag": "fixed",
+                    "show": true,
+					"type": "info"
+				}
+            ]
         }
     },
     "needsAttation": false

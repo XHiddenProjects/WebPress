@@ -331,6 +331,7 @@ $lang = array(
 'assets.title'=>'Des atouts',
 # liste d`interdiction
 'ban.empty'=>'Aucun utilisateur n`est banni',
+'ban.request'=>'Faire appel',
 'ban.remove'=>'Retirer',
 'ban.add'=>'Ajouter un utilisateur',
 'ban.table'=>array(

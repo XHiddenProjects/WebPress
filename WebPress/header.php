@@ -74,6 +74,7 @@ if(!isset($_SESSION['user'])){
 /*move on*/
 if(Users::isBanned()){
 	global $lang;
+
 	$banned = WebDB::DBexists('users', 'users') ? WebDB::getDB('users', 'users') : '';
 	if(strtotime(date('m/d/Y H:i:s')) >= strtotime($banned[Users::getSession()]['ban']['time'])&&$banned[Users::getSession()]['ban']['time']!==(int)'-1'){
 		$banned[Users::getSession()]['ban']['isBanned'] = filter_var(false, FILTER_VALIDATE_BOOLEAN);
@@ -83,20 +84,31 @@ if(Users::isBanned()){
 		$banned[Users::getSession()]['ban']['bannedBy'] = '';
 		echo WebDB::saveDB('users', 'users', $banned) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard', 'success') : '';
 	}else{
-		switch($banned[Users::getSession()]['ban']['bannedBy']){
-		case 'username':
-		if(Users::getRealIP()===$banned[Users::getSession()]['username'])
-				echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
-		break;
-		case 'ip':
-			if(Users::getRealIP()===$banned[Users::getSession()]['ip'])
-				echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
-		break;
-		case 'hardwareid':
-			if(Users::hardwareID()===$banned[Users::getSession()]['id'])
-				echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
-		break;
-	}
+		if(!preg_match('/\/dashboard(?:\.php)\/(mail\/|mail)/', $_SERVER['REQUEST_URI'])){
+			echo '<script>
+			window.addEventListener("load", function(){
+				let links = document.querySelectorAll("a[href]:not(.urlban):not(footer a)");
+			for(let i=0;i<links.length;i++){
+				links[i].removeAttribute("href");
+				}
+			});
+			</script>';
+			switch($banned[Users::getSession()]['ban']['bannedBy']){
+				case 'username':
+					if(Users::getSession()===$banned[Users::getSession()]['username'])
+						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span><a class="link-primary d-block urlban" href="/'.MAINDIR.'/dashboard.php/mail">'.$lang['ban.request'].'</a></span></div>';                
+				break;
+				case 'ip':
+					if(Users::getRealIP()===$banned[Users::getSession()]['ip'])
+						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
+				break;
+				case 'hardwareid':
+					if(Users::hardwareID()===$banned[Users::getSession()]['id'])
+						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
+				break;
+			}
+		}
+		
 	}
 	
 }

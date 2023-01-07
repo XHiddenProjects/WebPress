@@ -34,6 +34,14 @@ Pour l'installer, insérez simplement *Un-ZIPED* le dossier dans votre *HTDocs (
 
 ***
 
+### [mise à jour des versions](./docs#updating) {#updating}
+1. Sauvegardez vos données pour que rien ne soit détruit.
+2. Supprimez entièrement le dossier "ancienne version".
+3. Une fois cela fait, enregistrez un nouveau compte pour tout changement.
+4. Rechargez vos données dans le dossier data and config (des sauvegardes peuvent être effectuées à l'aide du plugin de sauvegarde)
+
+***
+
 ### [Rôles](./docs#roles) {#roles}
 
 Les rôles sont importants, ils sont très personnalisables et en ont 3 principaux, *admin, mod et member* Cela donnera aux utilisateurs un accès différent.
@@ -253,3 +261,5 @@ Si vous avez des questions, posez-les sur les [discussions](https://github.com/s
 
 ### Des médias
 Comme sur [alternativeto.net](https://alternativeto.net/software/webpress)
+
+Votez pour [producthunt](https://www.producthunt.com/posts/webpress)

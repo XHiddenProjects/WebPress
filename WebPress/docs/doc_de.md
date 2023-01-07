@@ -34,6 +34,14 @@ Zur Installation fügen Sie einfach den *Un-ZIPED*-Ordner in Ihre *HTDocs (Root-
 
 ***
 
+### [Versionen aktualisieren](./docs#updating) {#aktualisierung}
+1. Sichern Sie Ihre Daten, damit nichts zerstört wird.
+2. Löschen Sie den Ordner „alte Version“ vollständig.
+3. Wenn Sie fertig sind, registrieren Sie ein neues Konto für alle Änderungen.
+4. Laden Sie Ihre Daten zurück in den Daten- und Konfigurationsordner (Backups können mit dem Backup-Plugin erstellt werden)
+
+***
+
 ### [Rollen](./docs#roles) {#roles}
 
 Rollen sind wichtig, sie sind sehr anpassbar und haben 3 Hauptrollen, *admin, mod und member*. Dadurch haben Benutzer unterschiedliche Zugriffsrechte.
@@ -253,3 +261,5 @@ Wenn Sie Fragen haben, stellen Sie sie in den [Diskussionen](https://github.com/
 
 ### Medien
 Like auf [alternativeto.net](https://alternativeto.net/software/webpress)
+
+Upvote auf [producthunt](https://www.producthunt.com/posts/webpress)

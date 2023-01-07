@@ -331,6 +331,7 @@ $lang = array(
 'assets.title'=>'Assets',
 # ban list
 'ban.empty'=>'No users are banned',
+'ban.request'=>'Request appeal',
 'ban.remove'=>'Remove',
 'ban.add'=>'Add User',
 'ban.table'=>array(
@@ -339,7 +340,7 @@ $lang = array(
 'duration'=>'Duration',
 'reason'=>'Reason',
 'bannedBy'=>'Banned By',
-'actions'=>'Actions'
+'actions'=>'Actions',
 ),
 'ban.list'=>array(
 '1min'=>'+1 minute',
