@@ -3,6 +3,13 @@
 
 A free open-source CMS(content management system) and forum script that allows you to showcase your website by using a custom made themes and plugins. This also includes easy configuration and easy way to make your own plugins. This uses JSON database (no SQL required) to make it easier to read the database. You can also have collaborations with…
 
+![GitHub](https://img.shields.io/github/license/surveybuilderteams/webpress?color=blue&style=plastic)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/surveybuilderteams/webpress?color=orange&label=version&style=plastic)
+![GitHub repo size](https://img.shields.io/github/repo-size/surveybuilderteams/webpress?color=red&label=Download%20Size&style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/surveybuilderteams/webpress?style=plastic)
+![GitHub watchers](https://img.shields.io/github/watchers/surveybuilderteams/webpress?color=green&style=plastic)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/surveybuilderteams/webpress/codeql.yml?style=plastic)
+
 ## How to install
 Download ZIP folder take the `WebPress` Folder and insert it into your **ROOT** folder and go to `{yourdomain}/WebPress`, then click `register` to create account.
 
