@@ -73,10 +73,10 @@ div.editView{
 }
 .context-menu ul{
 	list-style:none;
-	padding: 5px 0 5px 0;
+	padding: 5px 0;
 }
 .context-menu ul li:not(.split){
-	padding: 10px 5px 10px 5px;
+	padding: 10px 5px;
 	border-left: 4px solid transparent;
 	cursor:pointer;
 	transition:all 0.5s;
@@ -89,7 +89,7 @@ div.editView{
 .context-menu .split{
 	height:1px;
 	background-color: #dedede;
-	margin:2px 0 2px 0;
+	margin:2px 0;
 }
 .context-menu .contextTarget{
 	background-color:#48d1cc ;
