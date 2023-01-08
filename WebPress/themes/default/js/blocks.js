@@ -515,7 +515,7 @@ function reloadBlockPage(){
 	}else{
 		return false;
 	}
-};
+}
 
 /*save blocks*/
 function saveBlocks(root, page){
@@ -825,7 +825,7 @@ $(document).ready(function(){
 });
 function removeBGImg(){
 	document.body.style.backgroundImage = '';
-	};
+	}
 
 function makePadding(side, len, size="px"){
 	let d = document.querySelectorAll('[name=bgBlock]');
