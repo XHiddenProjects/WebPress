@@ -546,7 +546,7 @@ function createLink(display, id, name, href, lang, dir, download, title, charset
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
 				let code = document.querySelector('#highlighting-content');
-		href = (href!=='' ? ' '+ href.replace(/href\=|\"|target\=/g,'') : '');
+		href = (href!=='' ? ' '+ href.replace(/href=|"|target=/g,'') : '');
 		let tag = (href.match('mailto:') ? 'email' : 'url');
 		let str = '['+tag+'='+href.replace(' ','')+']'+(display!=='' ? display : selectedItem)+'[/'+tag+']';
 	code.innerText = targetItem.value.replace(selectedItem, str.replace(' ', ''));
@@ -642,7 +642,7 @@ function createTable(rows=3, cols=2, width=500, height, header, border=1, spacin
 			let table = '';
 			width = width!=='' ? 'width:'+width+'px;' : '';
 			height = height!=='' ? ' height:'+height+'px;' : '';
-		rows=rows;
+		const r=rows;
 		table += '<table'+(id!=='' ? ' id="'+id+'"' : '')+(dir!=='' ? 'dir="'+dir+'"' : '')+(padding!=='' ? ' cellpadding="'+padding+'"' : '')+(spacing!=='' ? ' cellspacing="'+spacing+'"' : '')+(border!=='' ? ' border="'+border+'"' : '')+(align!=='' ? ' align="'+align+'"' : '')+' style="'+width+height+(style!=='' ? style : '')+'" class="table table-primary'+(classes!=='' ? ' '+classes : '')+(border!=='' ? ' table-bordered' : '')+'"'+(summary!=='' ? ' summary="'+summary+'"' : '')+'>';
 		table += caption!=='' ? '<caption class="caption-top">'+caption+'</caption>' : '';
 		table += '<tbody>';

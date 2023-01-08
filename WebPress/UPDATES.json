@@ -328,6 +328,23 @@
 					"type": "info"
 				}
             ]
+        },
+		"2.0.3": {
+            "textsets": [
+                {
+                    "text": "Version 2.0.3 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+				{
+					"text": "Fixing Cleaner codes",
+                    "icon": "fa-solid fa-brush",
+                    "tag": "fixed",
+                    "show": true,
+					"type": "info"
+				}
+            ]
         }
     },
     "needsAttation": false

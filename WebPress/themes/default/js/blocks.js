@@ -19,7 +19,7 @@ function stylizeHighlightedString() {
     // For diagnostics
     var start = text.anchorOffset;
     var end = text.focusOffset - text.anchorOffset;
-
+	console.log(start+'-'+end);
     range = window.getSelection().getRangeAt(0);
 	
 	selectedTxt = range;
@@ -809,7 +809,7 @@ $(document).ready(function(){
 	if(!bodyColor.style.backgroundColor||bodyColor.style.backgroundColor===''){
 		bodyColor = 'rgb(255,255,255)';
 	}else{
-		let colorHex = bodyColor.getAttribute('style').match(/\#[\w\d]{3,6}/g);
+		let colorHex = bodyColor.getAttribute('style').match(/#[\w\d]{3,6}/g);
 			let bg = "rgb("+hex2rgb(colorHex[0]).r+","+hex2rgb(colorHex[0]).g+","+hex2rgb(colorHex[0]).b+")";
 			if(colorHex[1]){
 				let color = "rgb("+hex2rgb(colorHex[1]).r+","+hex2rgb(colorHex[1]).g+","+hex2rgb(colorHex[1]).b+")";
@@ -893,7 +893,7 @@ function makeDisplay(selected){
 					 val = d[j].value;
 					switch(val){
 						case 'target':
-							targetArea.style.display = selected;
+							targetArea.style.display = s;
 						break;
 					}
 	}
@@ -1097,7 +1097,7 @@ function makeShadowText(elem){
 					 val = d[j].value;
 					switch(val){
 					case 'target':
-					const no = elem.parentElement.querySelector('.none');
+					 no = elem.parentElement.querySelector('.none');
 					if(!no.checked){
 					 h = elem.parentElement.querySelector('.hshadow').value+elem.parentElement.querySelector('.hshadow').parentElement.querySelector('select').value;
 					 v = elem.parentElement.querySelector('.vshadow').value+elem.parentElement.querySelector('.vshadow').parentElement.querySelector('select').value;
