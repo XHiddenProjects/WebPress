@@ -157,10 +157,7 @@ class Utils{
 		foreach(Files::Scan($e) as $catche){
 			if(file_exists($e.$catche.DS)){
 				Files::catche($e.$catche.DS);
-			}else{
-				#nothing
 			}
-			
 		}
 	}
 	public static function notification($version='', $file='UPDATES'){

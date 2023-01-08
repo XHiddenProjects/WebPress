@@ -1,4 +1,4 @@
-function autocomplete(inp, arr) {
+function autocomplete(inp, arr, sep=null) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
@@ -55,7 +55,7 @@ function autocomplete(inp, arr) {
         /*and and make the current item more visible:*/
         addActive(x);
       } else if (e.keyCode == 9) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        /*If the TAB key is pressed, prevent the form from being submitted,*/
         e.preventDefault();
         if (currentFocus > -1) {
           /*and simulate a click on the "active" item:*/

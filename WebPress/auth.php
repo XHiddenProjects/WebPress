@@ -264,9 +264,7 @@ if(isset($_POST['webpresscreate'])){
 				window.open("./register?error=invalid_psw", "_self");
 				</script>';
 				return false;
-		}if(!$conf['page']['captcha']['active']||Captcha::checkCaptcha($captcha)&&$conf['page']['captcha']){
-			
-		}else{
+		}if($conf['page']['captcha']['active']||!Captcha::checkCaptcha($captcha)&&$conf['page']['captcha']){
 				echo '<script>
 				window.open("./register?error=failed_captcha", "_self");
 				</script>';

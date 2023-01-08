@@ -11,18 +11,12 @@ include_once('lang/'.$selLang.'.php');
 <?php
 global $plugins, $themes;
 	foreach($plugins as $plugin){
-		 if(!Files::checkFolder(DATA_PLUGINS.$plugin.DS)){
-			mkdir(DATA_PLUGINS.$plugin.DS, 0777, true);
-		 }else{
-			 #nothing
-		 }
+		 if(!Files::checkFolder(DATA_PLUGINS.$plugin.DS))
+			mkdir(DATA_PLUGINS.$plugin.DS, 0777, true); 
 	}
 	foreach($themes as $theme){
-		 if(!Files::checkFolder(DATA_THEMES.$theme.DS)){
-			mkdir(DATA_THEMES.$theme.DS, 0777, true);
-		 }else{
-			 #nothing
-		 }
+		 if(!Files::checkFolder(DATA_THEMES.$theme.DS))
+			mkdir(DATA_THEMES.$theme.DS, 0777, true);	
 	}
 $BASEPATH=(!preg_match('/\/dashboard(?:\.php\/)/',$_SERVER['REQUEST_URI']) ? '.' : '..');
 if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
@@ -63,17 +57,13 @@ if(!preg_match('/\/dashboard(?:\.php\/)/', $_SERVER['REQUEST_URI'])){
 	echo head($lang['dashboard.title.notFound'], $BASEPATH);	
 }
 
-if(file_exists(DATA_USERS.'users.dat.json')){
-	
-}else{
+if(!file_exists(DATA_USERS.'users.dat.json')){
 		echo '<script>
 				window.open("'.$BASEPATH.'/auth.php/register", "_self");
 				</script>';
 			return false;
 }
-if(isset($_SESSION['user'])){
-
-}else{
+if(!isset($_SESSION['user'])){
 	echo '<script>
 	//redirect on unlogged in user
 				window.open("'.$BASEPATH.'/auth.php/login'.(preg_match('/\/dashboard(?:\.php)\/[\w]+/', $_SERVER['REQUEST_URI']) ? '?redirect='.preg_replace('/\/[\w]+\/dashboard\.php\//','', $_SERVER['REQUEST_URI']) : '').'", "_self");

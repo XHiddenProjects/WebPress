@@ -166,8 +166,6 @@ function blogger_view(){
 					if(isset($url[0][$j])&&!empty($url[0][$j])){
 					$urlSet[] = $url[0][$j];
 					 $strictURL[] = '<a target="_blank" class="link-'.$d['config']['color'].'" href="'.$url[0][$j].'">'.$url[0][$j].'</a>';
-					}else{
-						
 					}
 				}
 			 
@@ -203,8 +201,6 @@ function blogger_view(){
 		$d['config']['blogs'][$_GET['id']][$_GET['remove']] = ((int)$d['config']['blogs'][$_GET['id']][$_GET['remove']] - 1 <= 0 ? 0 : (int)$d['config']['blogs'][$_GET['id']][$_GET['remove']] - 1);
 		if($_GET['remove']===$d['config']['blogs'][$_GET['id']]['users'][$session]){
 			 unset($d['config']['blogs'][$_GET['id']]['users'][$session]);
-		}else{
-			
 		}
 		WebDB::saveDB('plugins',$plugin.'/plugin', $d);
 		$out.='<script>
@@ -236,7 +232,7 @@ function blogger_footerJS(){
 	if($d['active']){
 		for($i=0;$i<count($d['config']['blogs']);$i++){
 			if($i==0){
-				
+				$c='';
 			}else{
 				if($i<count($d['config']['blogs'])){
 				$c = ',';

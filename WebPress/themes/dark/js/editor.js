@@ -5,9 +5,7 @@ function warn(){
 	console.warn('You must select a string to add element');
 	alert('You must select a string to add element');
 }
-function wait(timeout, func){
-	setTimeout(func, timeout);
-}
+
 
 function selectedString(elem, editor='wysiwyg'){
  if(typeof elem != "undefined"){
@@ -281,12 +279,11 @@ function createSub(){
 	targetItem.value = targetItem.value.replace(selectedItem, '<sub>'+selectedItem+'</sub>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			
-		}let code = document.querySelector('#highlighting-content');
+		let code = document.querySelector('#highlighting-content');
 	code.innerText = targetItem.value.replace(selectedItem, '[sub]'+selectedItem+'[/sub]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[sub]'+selectedItem+'[/sub]');
 	 Prism.highlightElement(code);
-		
+		}
 	}
 }
 
@@ -408,7 +405,7 @@ function pasteText(){
 	let code = document.querySelector('#highlighting-content');
     if(navigator.clipboard.readText()){
 		navigator.clipboard.readText().then((clipText)=>(ta.value = clipText));
-		navigator.clipboard.readText().then((clipText)=>(code.innerHTML = clipText.replace(/\</g, '&lt;').replace(/\>/g, '&gt;')));
+		navigator.clipboard.readText().then((clipText)=>(code.innerHTML = clipText.replace(/</g, '&lt;').replace(/>/g, '&gt;')));
 		Prism.highlightElement(code);
 			$.notify("Pasted",{
 				'className':'success',
@@ -557,8 +554,7 @@ function createLink(display, id, name, href, lang, dir, download, title, charset
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
 				let code = document.querySelector('#highlighting-content');
-		href = (href!=='' ? ' '+ href.replace(/href\=|\"|target\=/g,'') : '');
-		let tag = (href.match('mailto:') ? 'email' : 'url');
+		href = (href!=='' ? ' '+ href.replace(/href=|"|target=/g,'') : '');
 		let str = '['+(display!=='' ? display : selectedItem)+']('+href.replace(' ','')+')';
 	code.innerText = targetItem.value.replace(selectedItem, str.replace(' ', ''));
 	targetItem.value = targetItem.value.replace(selectedItem, str.replace(' ', ''));
@@ -646,7 +642,7 @@ function createTable(rows=3, cols=2, width=500, height, header, border=1, spacin
 			let table = '';
 			width = width!=='' ? 'width:'+width+'px;' : '';
 			height = height!=='' ? ' height:'+height+'px;' : '';
-			
+		rows=rows;
 		table += '<table'+(id!=='' ? ' id="'+id+'"' : '')+(dir!=='' ? 'dir="'+dir+'"' : '')+(padding!=='' ? ' cellpadding="'+padding+'"' : '')+(spacing!=='' ? ' cellspacing="'+spacing+'"' : '')+(border!=='' ? ' border="'+border+'"' : '')+(align!=='' ? ' align="'+align+'"' : '')+' style="'+width+height+(style!=='' ? style : '')+'" class="table table-primary'+(classes!=='' ? ' '+classes : '')+(border!=='' ? ' table-bordered' : '')+'"'+(summary!=='' ? ' summary="'+summary+'"' : '')+'>';
 		table += caption!=='' ? '<caption class="caption-top">'+caption+'</caption>' : '';
 		table += '<tbody>';
@@ -819,7 +815,7 @@ function togglePreview(element, mode){
 		textbox.disabled = false;
 		document.querySelector('.lineCount').hidden=false;
 	}else{
-		result_element.innerHTML = textbox.value.replace(new RegExp("&", "g"), "&").replace(new RegExp("<", "g"), "<").replace(new RegExp('<\\?','g'), '&lt;?').replace(new RegExp('\\?>','g'), '?&gt;'); /* Global RegExp */
+		result_element.innerHTML = textbox.value.replace(new RegExp("&", "g"), "&").replace(new RegExp("<", "g"), "<").replace(new RegExp('<\\?','g'), '&lt;?').replace(new RegExp('\\?>','g'), '?&gt;'); /* Global RegExp */;
 		element.setAttribute('toggle-mode', 'preview');
 		textbox.style.zIndex = 0;
 		if(document.querySelector('.editor pre.viewCode')){

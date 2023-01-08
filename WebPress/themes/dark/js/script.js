@@ -14,7 +14,6 @@ setInterval(function(){
 			$('#webpress-submit').attr('disabled', "true");
 		}
 	}else{
-		console.log(psw+','+rpsw+','+name+','+user+','+email+','+terms);
 		$('#webpress-submit').attr('disabled', "true");
 	}
 	}, 100);
@@ -274,11 +273,13 @@ function returnSearch(event){
 		document.querySelector('.submitsearch').click();
 	}
 }
+
 function charCount(txt, out){
 	txt.addEventListener('input', function(){
 		out.innerHTML = this.value.length;
 	});
 }
+
 function saveNotes(){
 	let wpnotes = document.querySelector('.wpnotes');
 	localStorage.setItem('notes', wpnotes.value);
@@ -286,6 +287,7 @@ function saveNotes(){
 $(document).ready(function(){
 	document.querySelector('.wpnotes').value = localStorage.getItem('notes');
 });
+
 function copyPageURL(l){
 	let url = new URL(l);
 	if(url){

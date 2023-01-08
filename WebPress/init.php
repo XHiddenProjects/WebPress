@@ -182,4 +182,6 @@ if(!file_exists(ROOT.'events'.DS.'listener.event')){
 	fwrite($q,'');
 	fclose($q);
 }
+preg_match('/[\w\d]+$/', $_SERVER['REQUEST_URI'], $c);
+$cur = isset($c[0]) ? $c[0] : '';
 ?>

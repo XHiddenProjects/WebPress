@@ -433,7 +433,7 @@ $lang = array(
 'upload.failed.overrule'=>'Entschuldigung, Ihre Datei existiert bereits',
 'upload.failed'=>'Entschuldigung, Ihre Datei wurde nicht hochgeladen.',
 'upload.failed.rename'=>'Fehler beim Umbenennen',
-'upload.success'=>array('Die Datei '.(isset($_SERVER['HTTPS'])&&$_SERVER['HTTPS']=='on' ? 'https://':'http://').$_SERVER['HTTP_HOST'].'/'.explode('/',$_SERVER['REQUEST_URI'])[1].'/'.'uploads/', 'wurde hochgeladen.', 'avatars/'),
+'upload.success'=>array('Die Datei '.(isset($_SERVER['HTTPS'])&&$_SERVER['HTTPS']=='on' ? 'https://':'http://').$_SERVER['HTTP_HOST'].'/'.explode('/',$_SERVER['REQUEST_URI'])[1].'/uploads/', 'wurde hochgeladen.', 'avatars/'),
 # Rollen
 'roles.user'=>'Nutzername',
 'roles.roleID'=>'Rollentyp',

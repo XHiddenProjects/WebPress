@@ -90,7 +90,7 @@ foreach($themeSelect as $themes){
 			}else{
 				$comma='';
 			}
-			$footer.='"'.$info['username'].':&lt;'.$info['email'].'&gt;'.'"'.$comma;
+			$footer.='"'.$info['username'].':&lt;'.$info['email'].'&gt;"'.$comma;
 		}
 		$footer.="];
 		</script>";

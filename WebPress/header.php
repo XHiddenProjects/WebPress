@@ -122,9 +122,7 @@ function head($subtitle=null,$basePath='.'){
 		$array = isset($views[date('Y')][date('m')]['unique']) ? $views[date('Y')][date('m')]['unique'] : $views[date('Y')][date('m')]['unique']=array((isset($_SESSION['user']) ? $_SESSION['user'] : '')=>"");
 		
 			$session = isset($_SESSION['user']) ? $_SESSION['user'] : '';
-			if($session===""||in_array($session, $array)){
-				# nothing
-			}else{
+			if(!$session===""||!in_array($session, $array)){
 				array_push($views[date('Y')][date('m')]['unique'], $session) ? '' : 'failed to add';
 			}
 		
@@ -136,8 +134,6 @@ function head($subtitle=null,$basePath='.'){
 		!WebDB::DBexists('users', 'views') ? WebDB::makeDB('users', 'views') : '';
 		file_put_contents(DATA_USERS.'views.dat.json', $saveViews);
 		}
-	}else{
-		# nothing
 	}
 
 	
