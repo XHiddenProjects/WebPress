@@ -10,6 +10,7 @@ A free open-source CMS(content management system) and forum script that allows y
 [![GitHub watchers](https://img.shields.io/github/watchers/surveybuilderteams/webpress?color=green&style=plastic)](https://github.com/surveybuilderteams/WebPress/watchers)
 ![GitHub top language](https://img.shields.io/github/languages/top/surveybuilderteams/webpress)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/surveybuilderteams/webpress/codeql.yml?style=plastic)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/surveybuilderteams/WebPress?style=plastic)
 
 ## How to install
 Download ZIP folder take the `WebPress` Folder and insert it into your **ROOT** folder and go to `{yourdomain}/WebPress`, then click `register` to create account.
