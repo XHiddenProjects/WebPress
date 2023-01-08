@@ -22,7 +22,7 @@ The panels are the same looks for everyone, but some functions will not be acces
 
 ***
 
-## support
+## support 
 
 This project is supported on multiple servers
 
