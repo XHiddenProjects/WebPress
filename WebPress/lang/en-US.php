@@ -2,9 +2,9 @@
 $lang = array(
 'lang'=>array(
 'en-US'=>'English',
-'de-DE'=>'German',
-'it-IT'=>'Italian',
-'fr-FR'=>'French'
+'de-DE'=>'Deutsch',
+'it-IT'=>'Italiano',
+'fr-FR'=>'Français'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Authorization',
@@ -23,6 +23,7 @@ $lang = array(
 'hide_show_more'=>'Show More...',
 'plural'=>'s',
 'posting_frame'=>'You must post this on the forum',
+'pro'=>'Pro',
 # Register
 'register.title'=>'Create Account',
 'register.name'=>'Your Name',
@@ -81,6 +82,7 @@ $lang = array(
 'dashboard.config.panel.email'=>'Custom Email Domain',
 'dashboard.config.panel.editor'=>'Editor',
 'dashboard.config.panel.theme'=>'Themes',
+'dashboard.config.panel.index'=>'Default index',
 'dashboard.config.panel.dateformat'=>'Date Format(<a href="https://www.php.net/manual/en/datetime.format.php" target="_blank">php datetime format</a>)',
 'dashboard.config.panel.emaildisabled'=>'You cannot change this, please upgrade',
 'dashboard.config.panel.emailHelp'=>'Enter your custom domain to allow it',
@@ -313,6 +315,7 @@ $lang = array(
 'contact.hidden'=>'This is a hidden message to only a specific user!',
 'contact.option.all'=>'All',
 'contact.msg.exists'=>'Message already exists',
+'report'=>'<i class="fa-solid fa-bell"></i> Report',
 'contact.report.prioiry'=>'<i class="fas fa-asterisk text-danger"></i> Prioiry',
 'contact.report'=>'Report User',
 'contact.report.label'=>'[Enter Reasoning here]',
@@ -681,6 +684,8 @@ $lang = array(
 'animate.swirl.bottom'=>'Swirl(Bottom)',
 'animate.swirl.left'=>'Swirl(Left)',
 'animate.swirl.right'=>'Swirl(Right)',
-'animate.swirl.top'=>'Swirl(Top)'
+'animate.swirl.top'=>'Swirl(Top)',
+#plugins
+'plugins.pluginUpdated'=>'Last Updated: '
 );
 ?>

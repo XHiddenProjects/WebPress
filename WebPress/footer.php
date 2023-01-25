@@ -2,7 +2,7 @@
 function foot($basepath){
 	global $pageTitle, $defaultIcon, $conf ,$pageTheme, $lang;
 $footer='';
-$footer.=Plugin::hook('afterLoad');
+$footer.=Plugin::hook('afterPage');
 $footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0" style="z-index:999;">
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2022 '.(date('Y')==='2022' ? '' : ' - '.date('Y')).' '.$lang['index.label.copyright'].':

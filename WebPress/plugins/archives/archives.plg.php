@@ -2,7 +2,7 @@
 function archives_install(){
 	$out = '';
 	$plugin = 'archives';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 'active'=>'',
@@ -12,7 +12,7 @@ $data = array(
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)
 ));
-$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }
 function archives_nav(){
@@ -21,7 +21,7 @@ function archives_nav(){
 	$plugin='archives';
 	$d = WebDB::dbExists('plugins',$plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 	if($d['active']){
-		$out.='<li class="dropdown-item me-2"><a class="link-primary" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'"><i class="fa-solid fa-box-archive"></i> '.$lang[$plugin.'_Listname'].'</a></li>';	
+		$out.='<li class="dropdown-item me-2"><a class="link-primary" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'"><i class="fa-solid fa-box-archive"></i> '.$lang[$plugin.'_Listname'].'</a></li>';	
 	}
 	return $out;
 }
@@ -46,7 +46,7 @@ global $BASEPATH, $lang;
 		if(!$archivedPosts)
 			$out .= '<div class="alert alert-danger">'.$lang[$plugin.'_no_archive'].'</div>';
 		else        
-			$out .= '<h4><a href="./view?plugin='.$plugin.'" data-toggle="tooltip" data-placement="top" title="' .$lang[$plugin.'_back']. '"><i class="fa-solid fa-circle-left"></i></a> ' .$year. '</h4>
+			$out .= '<h4><a href="./view?plugins='.$plugin.'" data-toggle="tooltip" data-placement="top" title="' .$lang[$plugin.'_back']. '"><i class="fa-solid fa-circle-left"></i></a> ' .$year. '</h4>
 		
 		<div class="row lh-100 d-flex p-3 my-3 bg-white rounded box-shadow">';	
 		ksort($archivedPosts);	  
@@ -85,7 +85,7 @@ global $BASEPATH, $lang;
 			#natcasesort($archives);					
 			foreach($archives as $years => $count)
 				$out .= '<div class="col m-2">
-							<a href="./view?plugin='.$plugin.'&year='.$years.'" class="btn btn-primary">
+							<a href="./view?plugins='.$plugin.'&year='.$years.'" class="btn btn-primary">
 								' .$years. ' <small class="badge badge-light">' .intval($count). '</small>
 							</a>
 						</div>';

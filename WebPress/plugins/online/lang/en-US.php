@@ -2,6 +2,9 @@
 $plugin='online';
 $lang[$plugin.'_name'] = 'online';
 $lang[$plugin.'_desc'] = 'Shows who is online by configuration and displays and circle on top of the account image on the forum, and in the footer.';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '12-04-2022';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_color']='Select Color';
 $lang[$plugin.'_display']='Select Display';
 $lang['blue']='blue';

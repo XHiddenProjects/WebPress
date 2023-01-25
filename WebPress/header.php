@@ -19,12 +19,14 @@ require_once('libs/toolkit.lib.php');
 require_once('libs/forum.lib.php');
 require_once('libs/Pagination.lib.php');
 require_once('libs/page.lib.php');
-
+if(file_exists(ROOT.'webpress.pro.php'))
+	require_once(ROOT.'webpress.pro.php');
 
 global $conf, $selLang, $plugins, $lang;
 require_once('lang/'.$selLang.'.php');
 
 Page::start();
+
 date_default_timezone_set($conf['page']['defaultTimeZone']);
 foreach($plugins as $plugin){
 	if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
@@ -115,6 +117,7 @@ if(Users::isBanned()){
 
 function head($subtitle=null,$basePath='.'){
 	global $session;
+	echo Plugin::hook('init');
 	if($session!==null||!isset($_SESSION['user'])){
 			if(WebDB::DBexists('users', 'views')||WebDB::getDB('users', 'views')!==null){
 		$views = WebDB::getDB('users', 'views');
@@ -201,7 +204,8 @@ foreach($themeSelect as $themes){
 }
 $header.= Plugin::hook('head');
 $header.='</head>';
-
+$header.='<body>';
+$header .= Plugin::hook('beforePage');
 return $header;	
 }
 }

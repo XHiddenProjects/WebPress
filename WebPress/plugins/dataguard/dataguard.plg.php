@@ -2,7 +2,7 @@
 function dataguard_install(){
 	$out = '';
 	$plugin = 'dataguard';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 'active'=>'',
@@ -17,7 +17,7 @@ $data = array(
 	'menu'=>'on',
 	'paste'=>'on'
 ),);
-$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }
 
@@ -103,7 +103,7 @@ function dataguard_footerJS(){
 				menu: "'.$d['config']['menu'].'",
 				paste: "'.$d['config']['paste'].'"
 			}</script>';
-			$out.='<script src="'.$BASEPATH.'/plugins/'.$plugin.'/js/'.$plugin.'.min.js?v='.$d['version'].'"></script>';
+			$out.='<script src="'.$BASEPATH.'/plugin/'.$plugin.'/js/'.$plugin.'.min.js?v='.$d['version'].'"></script>';
 		}
 		return $out;
 }

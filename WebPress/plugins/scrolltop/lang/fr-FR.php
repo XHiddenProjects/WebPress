@@ -2,6 +2,9 @@
 $plugin='scrolltop';
 $lang[$plugin.'_name'] = 'Faites défiler vers le haut';
 $lang[$plugin.'_desc'] = 'Faites défiler vers le haut avec des boutons personnalisés';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '01-07-2023';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_submit'] = 'Nous faire parvenir';
 $lang['up-arrow.png']='flèche vers le haut';
 $lang['up-arrow10.png']='flèche vers le haut10';

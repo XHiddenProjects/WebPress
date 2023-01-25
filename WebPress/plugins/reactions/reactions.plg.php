@@ -30,7 +30,7 @@ function checkEmojiSetup(){
 function reactions_install(){
 		$out = '';
 	$plugin = 'reactions';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 	'active'=>'',
@@ -38,12 +38,12 @@ $data = array(
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'reactions'=>array(
-		'like'=>'/plugins/reactions/icons/like.png',
-		'dislike'=>'/plugins/reactions/icons/dislike.png',
-		'love'=>'/plugins/reactions/icons/love.png',
-		'hate'=>'/plugins/reactions/icons/hate.png',
-		'applause'=>'/plugins/reactions/icons/applause.png',
-		'wave'=>'/plugins/reactions/icons/wave.png'
+		'like'=>'/plugin/reactions/icons/like.png',
+		'dislike'=>'/plugin/reactions/icons/dislike.png',
+		'love'=>'/plugin/reactions/icons/love.png',
+		'hate'=>'/plugin/reactions/icons/hate.png',
+		'applause'=>'/plugin/reactions/icons/applause.png',
+		'wave'=>'/plugin/reactions/icons/wave.png'
 		),
 		'replies'=>array()
 	),
@@ -51,7 +51,7 @@ $data = array(
 	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
 	)
 	);
-	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	checkEmojiSetup();
 	return $out;
 }
@@ -86,7 +86,7 @@ function reactions_config(){
 	<input type="text" id="reactionName" name="reactionName" class="form-control"/>
 	<label class="form-label">'.$lang[$plugin.'_reactionIcon'].'</label>
 	<div class="input-group">
-	<span class="input-group-text">/plugins/reactions/icons/</span>
+	<span class="input-group-text">/plugin/reactions/icons/</span>
 	<input type="text" id="reactionIcon" readonly="" name="reactionIcon" class="form-control"/>
 	</div>
 	</div>
@@ -105,7 +105,7 @@ function reactions_onSubmit(){
 		$plugin = 'reactions';
 		if(isset($_POST['reactions_submit'])){
 			$active = isset($_POST['form_active']) ? $_POST['form_active'] : '';
-			$icon = isset($_POST['reactionIcon'])&&$_POST['reactionIcon']!==''?'/plugins/reactions/icons/'.$_POST['reactionIcon']:'';
+			$icon = isset($_POST['reactionIcon'])&&$_POST['reactionIcon']!==''?'/plugin/reactions/icons/'.$_POST['reactionIcon']:'';
 			$name = $_POST['reactionName'];
 			$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 			$d['active'] = $active;
@@ -140,7 +140,7 @@ function reactions_replybottom(){
 		foreach($d['config']['replies'] as $reply=>$count){
 			$reply = WebDB::getDB('replys', $reply);
 			foreach($d['config']['reactions'] as $reaction=>$emoji){
-				$out.='<div class="col"><a '.(!isset($d['config']['replies'][$reply['id']]['users'][$session]) ? 'href="'.$BASEPATH.DS.'dashboard.php/view?plugin='.$plugin.'&reply='.$reply['id'].'&react='.$reaction.'"' : '').'><li><img width="32" height="32" alt="'.$reaction.'" src="'.$BASEPATH.$emoji.'"/>'.$count[$reaction].'</li></a></div>';
+				$out.='<div class="col"><a '.(!isset($d['config']['replies'][$reply['id']]['users'][$session]) ? 'href="'.$BASEPATH.DS.'dashboard.php/view?plugins='.$plugin.'&reply='.$reply['id'].'&react='.$reaction.'"' : '').'><li><img width="32" height="32" alt="'.$reaction.'" src="'.$BASEPATH.$emoji.'"/>'.$count[$reaction].'</li></a></div>';
 			}
 		}
 	}else{
@@ -157,7 +157,7 @@ function reactions_footerJS(){
 		$plugin = 'reactions';
 		$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 		if($d['active']){
-		$out.='<script src="'.$BASEPATH.'/plugins/reactions/js/reactions.js?v='.$d['version'].'"></script>';	
+		$out.='<script src="'.$BASEPATH.'/plugin/reactions/js/reactions.js?v='.$d['version'].'"></script>';	
 		}
 		return $out;
 }
@@ -196,7 +196,7 @@ function reactions_replyMsg(){
 				foreach($d['config']['replies'][$reply['id']]['users'] as $name=>$info){
 					if($display<5){
 					$out.='<div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="'.$name.' has <b>'.$info.'</b>" class="position-relative ms-2"><img width="42" height="42" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.'uploads'.DS.'avatars'.DS.$name.'.png') ? $BASEPATH.DATA_AVATARS.$name.'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/> <span class="position-absolute top-0 translate-middle badge rounded-circle">
-    <img width="18" height="18" alt="'.$info.'" src="'.$BASEPATH.'/plugins/reactions/icons/'.$info.'.png"/>
+    <img width="18" height="18" alt="'.$info.'" src="'.$BASEPATH.'/plugin/reactions/icons/'.$info.'.png"/>
   </span></div>';
 					$display++;
 					}else{

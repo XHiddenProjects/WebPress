@@ -16,6 +16,9 @@ class Forum{
 	protected static function generate_id($salt=4){
 		return substr(strtr(bin2hex(random_bytes($salt)), '+', '.'), 0, 44);
 	}
+	protected static function generate_ProfileID(){		
+		return substr(sha1(mt_rand()),17,6);
+	}
 	protected static function replyID(){
 		return date('Y-m').'-'.substr(self::generate_id(), 0, 10);
 	}
@@ -57,6 +60,32 @@ class Forum{
 
     return $number;
 } 
+public static function usersData($name, $type){
+		$counter=0;
+		if($type==='topics'){
+			foreach(Files::Scan(DATA_TOPICS) as $topics){
+				$topic = Files::removeExtension($topics);
+				$db = WebDB::getDB('topics',$topic);
+				if($db['author']===$name){
+					$counter++;
+				}else{
+					$counter=$counter;
+				}
+			}
+			return $counter;
+		}elseif($type==='replys'){
+			foreach(Files::Scan(DATA_REPLYS) as $replys){
+				$replys = Files::removeExtension($replys);
+				$db = WebDB::getDB('replys',$replys);
+				if($db['author']===$name){
+					$counter++;
+				}else{
+					$counter=$counter;
+				}
+			}
+			return $counter;
+		}
+	}
 	public static function listForums(){
 		global $langs, $BASEPATH;
 		$out='';
@@ -129,12 +158,14 @@ class Forum{
 		$out='';
 		$setOnce=0;
 		foreach(Files::Scan(DATA_TOPICS) as $topics){
+		$genID = self::generate_ProfileID();
 		$user = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : '';
-		
+		  
 				$topics = str_replace('.dat.json','',$topics);
 				
 				$info = WebDB::getDB('topics', $topics);
 				$forumDB = WebDB::getDB('forums', $info['forum']);
+				$userInfo = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : [];
 				# tags
 				$getTags = (@explode(',', $info['tags']) ? @explode(',', $info['tags']) : array($info['tags']));
 				$listTags = '';
@@ -157,7 +188,40 @@ class Forum{
     alt="'.$info['author'].'"
     class="ms-3 mt-2 me-3 rounded-circle userIcon"
     style="width: 60px; height: 60px; background-color:'.$forumDB['tagColor'].';"
-  />'.checkOnline(isset($user[$info['author']]['ip']) ? $user[$info['author']]['ip'] : null).'</a>
+	onmouseout="ProfileCard(\''.$genID.'\', \'closed\')" 
+	onmouseover="ProfileCard(\''.$genID.'\',\'open\')"
+	/>'.checkOnline(isset($user[$info['author']]['ip']) ? $user[$info['author']]['ip'] : null).'</a>
+   <div class="card infocard" profile-id="'.$genID.'" onmouseout="ProfileCard(\''.$genID.'\', \'closed\')" onmouseover="ProfileCard(\''.$genID.'\',\'open\')">
+  <div class="card-body">
+  <div class="card-title text-center">'.$info['author'].'</div>
+    <div class="row">
+		<div class="col">
+			<img width="64" height="64" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/>
+			<span class="d-block mt-2 mb-2">'.Users::createBadge($info['author']).'</span>
+			<p class="text-secondary">'.$userInfo[$info['author']]['about'].'</p>
+			<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$info['author'].':<'.$userInfo[$info['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
+			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active'] ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$info['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
+			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
+		</div>
+		<div class="col stats">
+			<div class="box">
+				<span class="value">'.self::usersData($info['author'], 'topics').'</span>
+				<span class="text-secondary parameter">'.(isset($langs['dashboard.profile.topics']) ? str_replace(':','',$langs['dashboard.profile.topics']) : 'Topics').'</span>
+			</div>
+			<div class="box">
+				<span class="value">'.self::usersData($info['author'], 'replys').'</span>
+				<span class="text-secondary parameter">'.(isset($langs['dashboard.profile.replys']) ? str_replace(':','',$langs['dashboard.profile.replys']) : 'Replys').'</span>
+			</div>';
+				if(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']){
+					$dinfo.='<div class="box">'.friends_countFriends($info['author']).'</div>';
+				}
+				if(WebDB::dbExists('plugins', 'achievements/plugin')&&WebDB::getDB('plugins', 'achievements/plugin')['active']){
+					$dinfo.='<div class="box">'.achievements_countAchievements($info['author']).'</div>';
+				}
+		$dinfo.='</div>
+	</div>
+  </div>
+</div>
   <!-- Media body -->
   <div>
     <h5 class="fw-bold mt-2">
@@ -170,9 +234,11 @@ class Forum{
      '.$info['msg'].'
     </p>
 	<div><i class="fa-solid fa-eye"></i> <span class="text-secondary">'.self::number_abbr($info['views']).'</span><i style="transform:rotateY(180deg);" class="fa-solid fa-comment ms-3"></i> <span class="text-secondary">'.self::getReplysByTopic($info['id']).'</span></div>
+
 	<tags>'.$listTags.'</tags>
-	<a class="text-decoration-none" href="./forum.php/view?id='.$info['id'].'"><button class="btn '.($info['locked'] ? 'btn-secondary' : 'btn-primary').' d-flex mt-2 mb-2">'.($info['locked'] ? (isset($langs['forum.view']) ? $langs['forum.view'] : 'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>') : (isset($langs['forum.replys']) ? $langs['forum.replys'] : 'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>')).'</button></a>
+	<a class="text-decoration-none" href="./forum.php/view?id='.$info['id'].'"><button class="btn '.($info['locked'] ? 'btn-secondary' : 'btn-primary').' d-flex mt-2 mb-2">'.($info['locked'] ? (isset($langs['forum.view']) ? $langs['forum.view'] : 'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>') : (isset($langs['forum.replys']) ? $langs['forum.replys'] : 'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>')).'</button></a><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'" class="text-decoration-none"><button class="btn btn-info">'.(isset($langs['report']) ? $langs['report'] : '<i class="fa-solid fa-bell"></i> Report').'</button></a>
 	'.($session===$info['author'] ? '<a'.(Users::hasPermission('delete') ? '' : ' hidden="hidden"').' href="./forum?removeTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-danger">'.(isset($langs['forum.deleteTopic']) ? $langs['forum.deleteTopic'] : 'Delete Topic').' <i class="fa-solid fa-trash-can"></i></button></a> <a'.(Users::hasPermission('write') ? '' : ' hidden="hidden"').' href="./forum?editTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-success">'.(isset($langs['forum.editBtn']) ? $langs['forum.editBtn'] : '<i class="fa-solid fa-pen-to-square"></i> Edit').'</button></a>':'').'
+
  </div>
 
   <!-- Media body -->
@@ -235,6 +301,7 @@ class Forum{
 		if($info['id']===$id){
 			
 		# modal
+		  $genID = self::generate_ProfileID();
 							$dinfo = '<!-- Media object -->
 <li class="list-group-item replyItem border-0" forum="'.$info['forum'].'"><div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
   <!-- Image -->
@@ -243,7 +310,41 @@ class Forum{
     alt="'.$info['author'].'"
     class="ms-3 mt-2 me-3 rounded-circle userIcon"
     style="width: 60px; height: 60px; background-color:'.$forumDB['tagColor'].';"
-  />'.checkOnline(isset($userInfo[$info['author']]['ip']) ? $userInfo[$info['author']]['ip'] : null).'</a>
+	onmouseout="ProfileCard(\''.$genID.'\', \'closed\')" 
+	onmouseover="ProfileCard(\''.$genID.'\',\'open\')"
+	/>'.checkOnline(isset($userInfo[$info['author']]['ip']) ? $userInfo[$info['author']]['ip'] : null).'</a>
+  <div class="card infocard" profile-id="'.$genID.'" onmouseout="ProfileCard(\''.$genID.'\', \'closed\')" onmouseover="ProfileCard(\''.$genID.'\',\'open\')">
+  <div class="card-body">
+  <div class="card-title text-center">'.$info['author'].'</div>
+    <div class="row">
+		<div class="col">
+			<img width="64" height="64" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/>
+			<span class="d-block mt-2 mb-2">'.Users::createBadge($info['author']).'</span>
+			<p class="text-secondary">'.$userInfo[$info['author']]['about'].'</p>
+			<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$info['author'].':<'.$userInfo[$info['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
+			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active'] ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$info['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
+			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
+		</div>
+		<div class="col stats">
+			<div class="box">
+				<span class="value">'.self::usersData($info['author'], 'topics').'</span>
+				<span class="text-secondary parameter">'.(isset($langs['dashboard.profile.topics']) ? str_replace(':','',$langs['dashboard.profile.topics']) : 'Topics').'</span>
+			</div>
+			<div class="box">
+				<span class="value">'.self::usersData($info['author'], 'replys').'</span>
+				<span class="text-secondary parameter">'.(isset($langs['dashboard.profile.replys']) ? str_replace(':','',$langs['dashboard.profile.replys']) : 'Replys').'</span>
+			</div>';
+				if(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']){
+					$dinfo.='<div class="box">'.friends_countFriends($info['author']).'</div>';
+				}
+				if(WebDB::dbExists('plugins', 'achievements/plugin')&&WebDB::getDB('plugins', 'achievements/plugin')['active']){
+					$dinfo.='<div class="box">'.achievements_countAchievements($info['author']).'</div>';
+				}
+		$dinfo.='</div>
+	</div>
+  </div>
+</div>
+
   <!-- Media body -->
   <div>
     <h5 class="fw-bold mt-2">
@@ -257,8 +358,10 @@ class Forum{
      '.$info['msg'].'
     </p>
 	<tags>'.$listTags.'</tags>
+	<div><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'" class="text-decoration-none"><button class="btn btn-info">'.$langs['report'].'</button></a></div>
 	    <!-- Nested Media object -->';
 		foreach(Files::Scan(DATA_REPLYS) as $replys){
+			$genID = self::generate_ProfileID();
 				$replys = str_replace('.dat.json','',$replys);
 				$rInfo = WebDB::getDB('replys', $replys);
 				if($rInfo['topic']===$_GET['id']){
@@ -269,8 +372,38 @@ class Forum{
         alt="'.$rInfo['author'].'"
         class="me-3 rounded-circle userIcon"
         style="width: 60px; height: 60px;"
-      />'.checkOnline(isset($userInfo[$rInfo['author']]['ip']) ? $userInfo[$rInfo['author']]['ip'] : null).'</a>
-      <div>
+		onmouseout="ProfileCard(\''.$genID.'\', \'closed\')" 
+		onmouseover="ProfileCard(\''.$genID.'\',\'open\')"
+		/>'.checkOnline(isset($userInfo[$rInfo['author']]['ip']) ? $userInfo[$rInfo['author']]['ip'] : null).'</a>
+      
+	   <div class="card infocard" profile-id="'.$genID.'" onmouseout="ProfileCard(\''.$genID.'\', \'closed\')" onmouseover="ProfileCard(\''.$genID.'\',\'open\')">
+  <div class="card-body">
+  <div class="card-title text-center">'.$info['author'].'</div>
+    <div class="row">
+		<div class="col">
+			<img width="64" height="64" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/>
+			<span class="d-block mt-2 mb-2">'.Users::createBadge($rInfo['author']).'</span>
+			<p class="text-secondary">'.$userInfo[$rInfo['author']]['about'].'</p>
+			<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$rInfo['author'].':<'.$userInfo[$rInfo['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
+			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active'] ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$rInfo['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
+		</div>
+		<div class="col stats">
+			<div class="box">
+				<span class="value">'.self::usersData($rInfo['author'], 'topics').'</span>
+				<span class="text-secondary parameter">'.(isset($langs['dashboard.profile.topics']) ? str_replace(':','',$langs['dashboard.profile.topics']) : 'Topics').'</span>
+			</div>
+			<div class="box">
+				<span class="value">'.self::usersData($rInfo['author'], 'replys').'</span>
+				<span class="text-secondary parameter">'.(isset($langs['dashboard.profile.replys']) ? str_replace(':','',$langs['dashboard.profile.replys']) : 'Replys').'</span>
+			</div>';
+				if(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']){
+					$dinfo.='<div class="box">'.friends_countFriends($rInfo['author']).'</div>';
+				}
+		$dinfo.='</div>
+	</div>
+  </div>
+</div>
+	  <div>
         <h5 class="fw-bold">
           '.$rInfo['author'].(Users::createBadge($rInfo['author']) ? Users::createBadge($rInfo['author']) : '<span class="ms-2 me-2 badge text-bg-secondary">'.$langs['forum.anonumous'].'</span>').'
           <small class="text-muted">'.(isset($langs['forum.edited']) ? $langs['forum.edited'] : '').' '.date($conf['page']['dateFormat'], strtotime($rInfo['edited'])).'</small>
@@ -279,7 +412,7 @@ class Forum{
          '.$rInfo['msg'].'
         </p>
 		<div style="display:flex;">'.Plugin::hook('replyMsg').'</div>
-		'.($session===$rInfo['author']&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a>' : '').'
+		'.($session===$rInfo['author']&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'&replyID='.$rInfo['id'].'&pnum='.(isset($_GET['p']) ? $_GET['p'] : '1').'" class="text-decoration-none ms-1"><button class="btn btn-info">'.$langs['report'].'</button></a>' : '').'
 		'.Plugin::hook('replyBottom').'
 	 </div>
     </div>';	
@@ -345,32 +478,7 @@ class Forum{
 		Events::createEvent(Users::getRealIP($author), date('m/d/Y h:i:sa'), $author, 'success', 'create topic');
 		return WebDB::saveDB('topics', $idFile, $data) ? true : false; 
 	}
-	public static function usersData($name, $type){
-		$counter=0;
-		if($type==='topics'){
-			foreach(Files::Scan(DATA_TOPICS) as $topics){
-				$topic = Files::removeExtension($topics);
-				$db = WebDB::getDB('topics',$topic);
-				if($db['author']===$name){
-					$counter++;
-				}else{
-					$counter=$counter;
-				}
-			}
-			return $counter;
-		}elseif($type==='replys'){
-			foreach(Files::Scan(DATA_REPLYS) as $replys){
-				$replys = Files::removeExtension($replys);
-				$db = WebDB::getDB('replys',$replys);
-				if($db['author']===$name){
-					$counter++;
-				}else{
-					$counter=$counter;
-				}
-			}
-			return $counter;
-		}
-	}
+	
 }
 
 ?>

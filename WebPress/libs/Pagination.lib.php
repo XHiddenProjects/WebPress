@@ -7,7 +7,7 @@ class Paginate{
 	public static function pageLink($p, $total, $loc)
 	{
 		$start = ($p-4) >= 1? $p-4 : 1;
-		$end = ($p+4) <= $total? $p+4 : $total;
+		$end = ($p+4) <= $total ? $p+4 : $total;
 		$out = ' 		
 			<nav aria-label="pagination">
 			  <ul class="pagination justify-content-center mt-3">'.
@@ -33,7 +33,6 @@ class Paginate{
 		if($itemNum === 0)
 			return 1;
 		else
-		
 			return (int) ceil($itemNum / $nb);
 	}
 	
@@ -47,11 +46,11 @@ class Paginate{
 		if(!isset($_GET['p']))
 			return 1;
 		$p = (int) $_GET['p'];
-	
+		
 		if($p >= 1 && $p <= $total)
 			return $p;
 		else
-			return 1;
+			return $p;
 	}
 }
 ?>

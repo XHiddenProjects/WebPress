@@ -2,7 +2,8 @@
 	"name": {
 		"en": "Default",
 		"de":"Default",
-		"it":"Predefinito"
+		"it":"Predefinito",
+		"fr": "Défaut"
 	},
 	"active": "on",
 	"desc": {

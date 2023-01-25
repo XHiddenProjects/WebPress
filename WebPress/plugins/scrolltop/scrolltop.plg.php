@@ -2,7 +2,7 @@
 function scrolltop_install(){
 	$out = '';
 	$plugin = 'scrolltop';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 'active'=>'on',
@@ -13,7 +13,7 @@ $data = array(
 	'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 	'design'=>'up-arrow'
 ));
-$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }
 function scrolltop_config(){

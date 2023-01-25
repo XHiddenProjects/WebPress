@@ -1,10 +1,10 @@
 <?php
 $lang = array(
 'lang'=>array(
-'en-US'=>'Englisch',
+'en-US'=>'English',
 'de-DE'=>'Deutsch',
-'it-IT'=>'Italienisch',
-'fr-FR'=>'Französisch'
+'it-IT'=>'Italiano',
+'fr-FR'=>'Français'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Genehmigung',
@@ -23,6 +23,7 @@ $lang = array(
 'hide_show_more'=>'Mehr anzeigen...',
 'plural'=>'s',
 'posting_frame'=>'Das musst du im Forum posten',
+'pro'=>'Pro',
 # Registrieren
 'register.title'=>'Konto anlegen',
 'register.name'=>'Ihren Namen',
@@ -81,6 +82,7 @@ $lang = array(
 'dashboard.config.panel.email'=>'Benutzerdefinierte E-Mail-Domäne',
 'dashboard.config.panel.editor'=>'Editor',
 'dashboard.config.panel.theme'=>'Themen',
+'dashboard.config.panel.index'=>'Standard index',
 'dashboard.config.panel.dateformat'=>'Datumsformat (<a href="https://www.php.net/manual/de/datetime.format.php" target="_blank">php datetime format</a>)',
 'dashboard.config.panel.emaildisabled'=>'Sie können dies nicht ändern, bitte aktualisieren Sie',
 'dashboard.config.panel.emailHelp'=>'Geben Sie Ihre benutzerdefinierte Domäne ein, um sie zuzulassen',
@@ -313,6 +315,7 @@ $lang = array(
 'contact.hidden'=>'Dies ist eine versteckte Nachricht nur an einen bestimmten Benutzer!',
 'contact.option.all'=>'Alle',
 'contact.msg.exists'=>'Nachricht existiert bereits',
+'report'=>'<i class="fa-solid fa-bell"></i> Prüfbericht',
 'contact.report.prioiry'=>'<i class="fas fa-asterisk text-danger"></i> Priorat',
 'contact.report'=>'Benutzer melden',
 'contact.report.label'=>'[Hier Begründung eingeben]',
@@ -681,6 +684,8 @@ $lang = array(
 'animate.swirl.bottom'=>'Wirbel (unten)',
 'animate.swirl.left'=>'Wirbel (links)',
 'animate.swirl.right'=>'Wirbel (rechts)',
-'animate.swirl.top'=>'Wirbel (oben)'
+'animate.swirl.top'=>'Wirbel (oben)',
+#Plugins
+'plugins.pluginUpdated'=>'Zuletzt aktualisiert: '
 );
 ?>

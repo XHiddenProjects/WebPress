@@ -2,7 +2,7 @@
 function Core_install(){
 	$out = '';
 	$plugin = 'Core';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 'active'=>'on',
@@ -11,8 +11,8 @@ $data = array(
 'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)
-),);
-$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+));
+$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }
 function Core_head(){

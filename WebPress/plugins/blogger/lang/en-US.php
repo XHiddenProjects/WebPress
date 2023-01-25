@@ -2,6 +2,9 @@
 $plugin='blogger';
 $lang[$plugin.'_name'] = 'Blogger';
 $lang[$plugin.'_desc'] = 'Create Blogs with easy simple editors, When viewing it will automatically update URL texts to valid URLS';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '12-12-2022';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_viewBlog'] = 'Blogs';
 $lang[$plugin.'_submit'] = 'Submit';
 $lang['button']='button';

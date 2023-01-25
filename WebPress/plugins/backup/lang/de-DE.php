@@ -2,6 +2,9 @@
 $plugin='backup';
 $lang[$plugin.'_name'] = 'Sicherung';
 $lang[$plugin.'_desc'] = 'Backup your data by using this plugin, it will create a new folder in the ROOT folder';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '12-04-2022';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang['backup_listItem']='Sicherung <i class="fa-solid fa-server"></i>';
 $lang['backup_mkdir']='Sicherung konnte nicht erstellt werden';
 $lang['backup_nodir']='Dieses Verzeichnis existiert nicht';

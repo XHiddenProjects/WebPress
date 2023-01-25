@@ -2,6 +2,9 @@
 $plugin='scrolltop';
 $lang[$plugin.'_name'] = 'Scroll to Top';
 $lang[$plugin.'_desc'] = 'Scroll to the top with custom buttons';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '01-07-2023';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_submit'] = 'Submit';
 $lang['up-arrow.png']='up-arrow';
 $lang['up-arrow10.png']='up-arrow10';

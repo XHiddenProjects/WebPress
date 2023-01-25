@@ -1,0 +1,24 @@
+{
+    "name": {
+        "en": "Lux",
+        "de": "Lux",
+        "it": "Lux",
+        "fr": "Lux"
+    },
+    "active": "on",
+    "desc": {
+        "en": "A touch of class",
+        "de": "Ein Hauch von Klasse",
+        "it": "Une touche de classe",
+        "fr": "Un tocco di classe"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR"
+        ]
+    }
+}

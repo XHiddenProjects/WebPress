@@ -140,6 +140,7 @@ Hier ist eine Liste der verfügbaren Haken:
 | vorSeite | `Kern` | führt Code vor dem Laden der Seite aus |
 | nachSeite | `Kern` | Exekutivenutzt den Code nach dem Laden der Seite |
 | antwortenUnten | `Kern` | wird unten in der Antwortnachricht angezeigt |
+| initiieren | `Kern` | wird ausgeführt, bevor alles geladen wird |
 
 ### [Verbote](./docs#Verbote) {#Verbote}
 

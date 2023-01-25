@@ -109,13 +109,13 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed plugin language file!",
+                {
+                    "text": "Fixed plugin language file!",
                     "icon": "fas fa-bug",
                     "tag": "bug",
                     "show": true,
-					"type": "warning"
-				}
+                    "type": "warning"
+                }
             ]
         },
         "1.3.1": {
@@ -126,16 +126,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Added reaction plugin",
+                {
+                    "text": "Added reaction plugin",
                     "icon": "fa-solid fa-puzzle-piece",
                     "tag": "plugin",
                     "show": true,
-					"type": "info"
-				}
+                    "type": "info"
+                }
             ]
         },
-		"1.4.0": {
+        "1.4.0": {
             "textsets": [
                 {
                     "text": "Version 1.4.0 has been fully released!",
@@ -143,16 +143,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed auto-installer",
+                {
+                    "text": "Fixed auto-installer",
                     "icon": "fa-solid fa-bug",
                     "tag": "bug",
                     "show": true,
-					"type": "warning"
-				}
+                    "type": "warning"
+                }
             ]
         },
-		"1.4.1": {
+        "1.4.1": {
             "textsets": [
                 {
                     "text": "Version 1.4.1 has been fully released!",
@@ -160,16 +160,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed auto-installer(2)",
+                {
+                    "text": "Fixed auto-installer(2)",
                     "icon": "fa-solid fa-bug",
                     "tag": "bug",
                     "show": true,
-					"type": "warning"
-				}
+                    "type": "warning"
+                }
             ]
         },
-		"1.4.2": {
+        "1.4.2": {
             "textsets": [
                 {
                     "text": "Version 1.4.2 has been fully released!",
@@ -177,16 +177,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Removed INSTALL FILE",
+                {
+                    "text": "Removed INSTALL FILE",
                     "icon": "fa-solid fa-file",
                     "tag": "remove",
                     "show": true,
-					"type": "danger"
-				}
+                    "type": "danger"
+                }
             ]
         },
-		"1.4.3": {
+        "1.4.3": {
             "textsets": [
                 {
                     "text": "Version 1.4.3 has been fully released!",
@@ -194,16 +194,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed OnlyForum plugin",
+                {
+                    "text": "Fixed OnlyForum plugin",
                     "icon": "fa-solid fa-puzzle-piece",
                     "tag": "plugin",
                     "show": true,
-					"type": "info"
-				}
+                    "type": "info"
+                }
             ]
         },
-		"1.5.0": {
+        "1.5.0": {
             "textsets": [
                 {
                     "text": "Version 1.5.0 has been fully released!",
@@ -211,23 +211,23 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed captcha invisablity",
+                {
+                    "text": "Fixed captcha invisablity",
                     "icon": "fa-solid fa-bug",
                     "tag": "bug",
                     "show": true,
-					"type": "warning"
-				},
-				{
-					"text": "French Language",
+                    "type": "warning"
+                },
+                {
+                    "text": "French Language",
                     "icon": "fa-solid fa-language",
                     "tag": "language",
                     "show": true,
-					"type": "info"
-				}
+                    "type": "info"
+                }
             ]
         },
-		"1.5.1": {
+        "1.5.1": {
             "textsets": [
                 {
                     "text": "Version 1.5.1 has been fully released!",
@@ -235,16 +235,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Added Forum chart",
+                {
+                    "text": "Added Forum chart",
                     "icon": "fa-solid fa-chart-simple",
                     "tag": "chart",
                     "show": true,
-					"type": "info"
-				}
+                    "type": "info"
+                }
             ]
         },
-		"1.5.2": {
+        "1.5.2": {
             "textsets": [
                 {
                     "text": "Version 1.5.2 has been fully released!",
@@ -252,16 +252,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed register problem",
+                {
+                    "text": "Fixed register problem",
                     "icon": "fa-solid fa-bug",
                     "tag": "bug",
                     "show": true,
-					"type": "warning"
-				}
+                    "type": "warning"
+                }
             ]
         },
-		"1.5.3": {
+        "1.5.3": {
             "textsets": [
                 {
                     "text": "Version 1.5.3 has been fully released!",
@@ -269,16 +269,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixed hardware ID issue",
+                {
+                    "text": "Fixed hardware ID issue",
                     "icon": "fa-solid fa-bug",
                     "tag": "bug",
                     "show": true,
-					"type": "warning"
-				}
+                    "type": "warning"
+                }
             ]
         },
-		"2.0.0": {
+        "2.0.0": {
             "textsets": [
                 {
                     "text": "Version 2.0.0 has been fully released!",
@@ -286,16 +286,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "MAJOR UPDATE!!!",
+                {
+                    "text": "MAJOR UPDATE!!!",
                     "icon": "fa-solid fa-party-horn",
                     "tag": "bug",
                     "show": true,
-					"type": "success"
-				}
+                    "type": "success"
+                }
             ]
         },
-		"2.0.1": {
+        "2.0.1": {
             "textsets": [
                 {
                     "text": "Version 2.0.1 has been fully released!",
@@ -303,16 +303,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Ban fixed",
+                {
+                    "text": "Ban fixed",
                     "icon": "fa-solid fa-ban",
                     "tag": "fixed",
                     "show": true,
-					"type": "info"
-				}
+                    "type": "info"
+                }
             ]
         },
-		"2.0.2": {
+        "2.0.2": {
             "textsets": [
                 {
                     "text": "Version 2.0.2 has been fully released!",
@@ -320,16 +320,16 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixing Cleaner codes",
+                {
+                    "text": "Fixing Cleaner codes",
                     "icon": "fa-solid fa-brush",
                     "tag": "fixed",
                     "show": true,
-					"type": "info"
-				}
+                    "type": "info"
+                }
             ]
         },
-		"2.0.3": {
+        "2.0.3": {
             "textsets": [
                 {
                     "text": "Version 2.0.3 has been fully released!",
@@ -337,12 +337,43 @@
                     "tag": "offical",
                     "show": true
                 },
-				{
-					"text": "Fixing Cleaner codes",
+                {
+                    "text": "Fixing Cleaner codes",
                     "icon": "fa-solid fa-brush",
                     "tag": "fixed",
                     "show": true,
-					"type": "info"
+                    "type": "info"
+                }
+            ]
+        },
+        "2.1.0": {
+            "textsets": [
+                {
+                    "text": "Version 2.1.0 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+                {
+                    "text": "Added 2 new plugins",
+                    "icon": "fa-solid fa-puzzle-piece",
+                    "tag": "plugins",
+                    "show": true,
+                    "type": "info"
+                },
+				{
+					 "text": "Added Profile cards",
+                    "icon": "fa-solid fa-users",
+                    "tag": "addition",
+                    "show": true,
+                    "type": "success"
+				},
+				{
+					 "text": "Added Themes",
+                    "icon": "fa-solid fa-images",
+                    "tag": "themes",
+                    "show": true,
+                    "type": "info"
 				}
             ]
         }

@@ -2,6 +2,9 @@
 $plugin='online';
 $lang[$plugin.'_name'] = 'en ligne';
 $lang[$plugin.'_desc'] = 'Montre qui est en ligne par configuration et affiche et cercle en haut de l`image du compte sur le forum, et dans le pied de page.';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '12-04-2022';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_color']='Choisissez la couleur';
 $lang[$plugin.'_display']='Sélectionnez Affichage';
 $lang['blue']='bleu';

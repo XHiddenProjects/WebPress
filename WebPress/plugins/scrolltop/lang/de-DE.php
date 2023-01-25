@@ -2,6 +2,9 @@
 $plugin='scrolltop';
 $lang[$plugin.'_name'] = 'Nach oben scrollen';
 $lang[$plugin.'_desc'] = 'Scrollen Sie mit benutzerdefinierten Schaltflächen nach oben';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '01-07-2023';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_submit'] = 'einreichen';
 $lang['up-arrow.png']='Aufwärtspfeil';
 $lang['up-arrow10.png']='Aufwärtspfeil10';

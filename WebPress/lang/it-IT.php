@@ -1,10 +1,10 @@
 <?php
 $lang = array(
 'lang'=>array(
-'en-US'=>'inglese',
-'de-DE'=>'Tedesco',
+'en-US'=>'English',
+'de-DE'=>'Deutsch',
 'it-IT'=>'Italiano',
-'fr-FR'=>'francese'
+'fr-FR'=>'Français'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Autorizzazione',
@@ -23,6 +23,7 @@ $lang = array(
 'hide_show_more'=>'Mostra altro...',
 'plural'=>'s',
 'posting_frame'=>'Devi postarlo sul forum',
+'pro'=>'Pro',
 # Registrati
 'register.title'=>'Creare un profilo',
 'register.name'=>'Il tuo nome',
@@ -81,6 +82,7 @@ $lang = array(
 'dashboard.config.panel.email'=>'Dominio e-mail personalizzato',
 'dashboard.config.panel.editor'=>'Editore',
 'dashboard.config.panel.theme'=>'Temi',
+'dashboard.config.panel.index'=>'Index par défaut',
 'dashboard.config.panel.dateformat'=>'Formato data(<a href="https://www.php.net/manual/en/datetime.format.php" target="_blank">formato php datetime</a>)',
 'dashboard.config.panel.emaildisabled'=>'Non puoi cambiarlo, aggiorna',
 'dashboard.config.panel.emailHelp'=>'Inserisci il tuo dominio personalizzato per consentirlo',
@@ -313,6 +315,7 @@ $lang = array(
 'contact.hidden'=>'Questo è un messaggio nascosto solo per un utente specifico!',
 'contact.option.all'=>'Tutto',
 'contact.msg.exists'=>'Il messaggio esiste già',
+'report'=>'<i class="fa-solid fa-bell"></i> Rapporto',
 'contact.report.prioiry'=>'<i class="fas fa-asterisk text-danger"></i> Priorato',
 'contact.report'=>'Segnala utente',
 'contact.report.label'=>'[Inserisci il ragionamento qui]',
@@ -681,6 +684,8 @@ Le <li class="list-group-item"><em>Parole</em> possono influenzare le parole/il 
 'animate.swirl.bottom'=>'Swirl(Bottom)',
 'animate.swirl.left'=>'Swirl(Sinistra)',
 'animate.swirl.right'=>'Swirl(Destra)',
-'animate.swirl.top'=>'Swirl(Top)'
+'animate.swirl.top'=>'Swirl(Top)',
+#plugin
+'plugins.pluginUpdated'=>'Ultimo aggiornamento: '
 );
 ?>

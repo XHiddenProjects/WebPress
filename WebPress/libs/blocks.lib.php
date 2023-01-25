@@ -43,7 +43,7 @@ class Blocks{
 		global $lang, $BASEPATH;
 		$panel='';
 	
-		if(Users::isAdmin()&&isset($_GET['editpage'])){
+		if(Users::isAdmin()&&isset($_GET['editpage'])||Users::hasPermission('pages')&&isset($_GET['editpage'])){
 			$panel.=self::contextMenu();
 			$panel.= '<div id="elemdata">
 			<div class="toggleElemdata" data-state="expand" onclick="expander(this)">-</div>
@@ -868,7 +868,7 @@ class Blocks{
 	</form>
   </div>
 </div>';
-	$panel.='<div class="offcanvas offcanvas-top" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="editorBar" aria-labelledby="offcanvasScrollingLabel">
+	$panel.='<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="editorBar" aria-labelledby="offcanvasScrollingLabel">
 			<div class="offcanvas-header">
 			<h5 class="offcanvas-title" id="offcanvasScrollingLabel">'.$lang['blocks.title'].'</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -935,7 +935,7 @@ class Blocks{
 	}
 	public static function dropBox($file=null){
 		global $page;
-		$edit = isset($_GET['editpage'])&&Users::isAdmin() ? true : false;
+		$edit = isset($_GET['editpage'])&&Users::isAdmin()||Users::hasPermission('pages')&&isset($_GET['editpage']) ? true : false;
 		$box='';
 		$box.='<div oncontextmenu="return showContextMenu();" id="dropbox"'.($edit ? ' contenteditable="true" class="editView m-2" ' : 'class="m-2').' ondrop="dropItem(event)" ondragover="allowDropItem(event)">';
 		$file = ($file!==null ? file_get_contents($file): '');
@@ -956,7 +956,7 @@ class Blocks{
 	public static function help(){
 		global $lang;
 		$help='';
-		$edit = isset($_GET['editpage'])&&Users::isAdmin() ? true : false;
+		$edit = isset($_GET['editpage'])&&Users::isAdmin()||Users::hasPermission('pages')&&isset($_GET['editpage']) ? true : false;
 		if($edit)
 			$help = '<div class="modal fade" id="blockshelper" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

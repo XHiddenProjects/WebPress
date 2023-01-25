@@ -90,7 +90,7 @@ $BASEPATH = '.';
 !defined('DB_EXTENSIONS') ? define('DB_EXTENSIONS', '.dat.json') : '';
 #Project Info
 !defined('PROJECT_NAME') ? define('PROJECT_NAME', 'WebPress') : '';
-!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '221211 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('22-12-11')).'</span>') : '';
+!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '230108 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('23-01-08')).'</span>') : '';
 !defined('PROJECT_VERSION') ? define('PROJECT_VERSION', file_get_contents(ROOT.'VERSION')) : '';
 !defined('WEBPRESS') ? define('WEBPRESS', true) : ''; # Use for plugins
 require_once('init.php');

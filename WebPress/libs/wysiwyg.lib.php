@@ -309,7 +309,899 @@ class WYSIWYG
 					'label'=>'<i class="fa-solid fa-video"></i>'
 				)
 				
-		)
+			),
+			'de'=>array(
+			'modal'=>array(
+				'divContainer'=>array(
+					'title'=>'Div-Container-Eigenschaften'
+					),
+				'anchor'=>array(
+					'title'=>'Ankereigenschaften'
+				),
+				'link'=>array(
+					'title'=>'Link-Eigenschaften'
+				),
+				'table'=>array(
+					'title'=>'Tabelleneigenschaften'
+				),
+				'uploads'=>array(
+					'title'=>'Eigenschaften hochladen',
+					'label'=>'Datei hochladen'
+				),
+				'style'=>'Stil',
+				'classes'=>'Stylesheet-Klassen',
+				'id'=>'ID',
+				'lang'=>'Sprachcode',
+				'advisorytitle'=>'Beratungstitel',
+				'close'=>'Nah dran',
+				'save'=>'Speichern',
+				'advanced'=>'Fortschrittlich',
+				'general'=>'Allgemein',
+				'dir'=>'Sprachrichtung',
+				'name'=>'Name',
+				'type'=>'Art',
+				'protocol'=>'Protokoll',
+				'url'=>'URL',
+				'target'=>'Ziel',
+				'email'=>array(
+					'title'=>'E-Mail-Addresse',
+					'subject'=>'Betreff der Nachricht',
+					'body'=>'Nachrichtentext'
+				),
+				'phone'=>'Telefon',
+				'displayname'=>'Anzeigename',
+				'advisorycontenttype'=>'Beratender Inhaltstyp',
+				'linkedresourcecharset'=>'Verknüpfter Ressourcen-Zeichensatz',
+				'rel'=>'Verhältnis',
+				'download'=>'Download erzwingen',
+				'width'=>'Breite',
+				'height'=>'Höhe',
+				'borderSpacing'=>'Grenzabstand'
+			),
+			'pf'=>array(
+				'label'=>'Absatzformat',
+				'lists'=>array(
+					''=>'Normal',
+					'h1'=>'Überschrift 1',
+					'h2'=>'Überschrift 2',
+					'h3'=>'Überschrift 3',
+					'h4'=>'Überschrift 4',
+					'h5'=>'Überschrift 5',
+					'h6'=>'Überschrift 6',
+					'pre'=>'Formatiert',
+					'address'=>'Die Anschrift',
+					'div'=>'Normal (DIV)'
+				)
+				),
+				'fs'=>array(
+					'label'=>'Schriftgröße',
+					'lists'=>array(
+					''=>'Standard',
+					'8'=>'8',
+					'9'=>'9',
+					'10'=>'10',
+					'11'=>'11',
+					'12'=>'12',
+					'14'=>'14',
+					'16'=>'16',
+					'18'=>'18',
+					'20'=>'20',
+					'22'=>'22',
+					'24'=>'24',
+					'26'=>'26',
+					'28'=>'28',
+					'36'=>'36',
+					'48'=>'48',
+					'72'=>'72'
+					)
+				),
+				'fn'=>array(
+					'label'=>'Schriftartenname',
+					'lists'=>array(
+						''=>'Default',
+						'Arial,Helvetica,sans-serif'=>'Luft',
+						'Comic Sans MS,cursive'=>'Comic Sans MS',
+						'Courier New,Courier,monospace'=>'Kurier Neu',
+						'Georgia,serif'=>'Georgia',
+						'Lucida Sans Unicode,Lucida Grande,sans-serif'=>'Lucida ohne Unicode',
+						'Tahoma,Geneva,sans-serif'=>'Tahoma',
+						'Times New Roman,Times,serif'=>'Times New Roman',
+						'Trebuchet MS,Helvetica,sans-serif'=>'Trebuchet MS',
+						'Verdana,Geneva,sans-serif'=>'Verdana'
+					)
+				
+				),
+				'bs'=>array(
+					'label'=>'Block-Stil',
+					'lists'=>array(
+						# ',' are used for multiple actions
+						''=>'Standard',
+						'h2,italic'=>'Kursiver Titel',
+						'h3,italic'=>'Untertitel',
+						'attr,special-container'=>'<span class="special-container">Sonderbehälter</span>',
+						'attr,marker'=>'<span class="marker">Marker</span>',
+						'big'=>'Groß',
+						'small'=>'klein',
+						'tt'=>'Schreibmaschine',
+						'code'=>'Computercode',
+						'kbd'=>'Keyboard-Phrase',
+						'samp'=>'Beispieltext',
+						'var'=>'Variable',
+						'del'=>'Gelöschter Text',
+						'ins'=>'Texte einfügen',
+						'cite'=>'Zitierte Arbeit',
+						'q'=>'Inline-Zitat',
+						'attr,rtl'=>'<span dir="rtl">Sprache: RTL</span>',
+						'attr,ltr'=>'<span dir="ltr">Sprache: LTR</span>'
+					)
+				),
+				'prebtn'=>array(
+					'label'=>'Vorschau umschalten'
+				),
+				'tc'=>array(
+					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'lists'=>array(
+						'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
+						'#000000'=>'Schwarz',
+						'#ffffff'=>'Weiß',
+						'#ff0000'=>'Rot',
+						'#ffa500'=>'Orange',
+						'#ffff00'=>'Gelb',
+						'#00ff00'=>'Kalk',
+						'#008000'=>'Grün',
+						'#00ffff'=>'Cyan',
+						'#0000ff'=>'Blau',
+						'#800080'=>'Violett',
+						'#ff00ff'=>'Magenta',
+						'#ffc0cb'=>'Rosa',
+						'#808080'=>'Grau',
+						'#d3d3d3'=>'Hellgrau',
+						'#c0c0c0'=>'Silber',
+						'#f5f5f5'=>'Weißer Rauch',
+						'#2f4f4f'=>'Dunkelschiefergrau'
+					)
+					),
+					'bg'=>array(
+						'label'=>'<i class="fas fa-fill-drip"></i>',
+						'lists'=>array(
+						'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
+						'#000000'=>'Schwarz',
+						'#ffffff'=>'Weiß',
+						'#ff0000'=>'Rot',
+						'#ffa500'=>'Orange',
+						'#ffff00'=>'Gelb',
+						'#00ff00'=>'Kalk',
+						'#008000'=>'Grün',
+						'#00ffff'=>'Cyan',
+						'#0000ff'=>'Blau',
+						'#800080'=>'Violett',
+						'#ff00ff'=>'Magenta',
+						'#ffc0cb'=>'Rosa',
+						'#808080'=>'Grau',
+						'#d3d3d3'=>'Hellgrau',
+						'#c0c0c0'=>'Silber',
+						'#f5f5f5'=>'Weißer Rauch',
+						'#2f4f4f'=>'Dunkelschiefergrau'
+					)
+				),
+				'bold'=>array(
+					'label'=>'<i class="fas fa-bold"></i>'
+				),
+				'italic'=>array(
+					'label'=>'<i class="fas fa-italic"></i>'
+				),
+				'underline'=>array(
+					'label'=>'<i class="fas fa-underline"></i>'
+				),
+				'strikethrough'=>array(
+					'label'=>'<i class="fas fa-strikethrough"></i>'
+				),
+				'superscript'=>array(
+					'label'=>'<i class="fas fa-superscript"></i>'
+				),
+				'subscript'=>array(
+					'label'=>'<i class="fas fa-subscript"></i>'
+				),
+				'align'=>array(
+					'label'=>'<i class="fas fa-align-left"></i>',
+					'lists'=>array(
+						'left'=>'<i class="fas fa-align-left"></i>',
+						'center'=>'<i class="fas fa-align-center"></i>',
+						'right'=>'<i class="fas fa-align-right"></i>',
+						'justify'=>'<i class="fas fa-align-justify"></i>'
+					)
+				),
+				'bq'=>array(
+					'label'=>'<i class="fas fa-quote-left"></i>'
+				),
+				'div'=>array(
+					'label'=>'<i class="fas fa-code"></i>'
+				),
+				'uploads'=>array(
+					'label'=>'<i class="fa-solid fa-upload"></i>'
+				),
+				'copy'=>array(
+					'label'=>'<i class="fas fa-copy"></i>'
+				),
+				'paste'=>array(
+					'label'=>'<i class="fas fa-paste"></i>'
+				),
+				'fullscreen'=>array(
+					'label'=>'<i class="far fa-expand-arrows"></i>'
+				),
+				'pdir'=>array(
+					'label'=>'<i class="fas fa-paragraph"></i>',
+					'lists'=>array(
+						'ltr'=>'<i class="fas fa-paragraph-rtl" style="transform: scaleX(-1);"></i>',
+						'rtl'=>'<i class="fas fa-paragraph-rtl"></i>'
+					)
+				),
+				'indent'=>array(
+					'label'=>'<i class="fas fa-indent"></i>',
+					'lists'=>array(
+						'increase'=>'<i class="fas fa-indent"></i>',
+						'decrease'=>'<i class="fas fa-indent" style="transform: scaleX(-1);"></i>'
+					)
+				),
+				'listing'=>array(
+					'label'=>'<i class="fas fa-list-alt"></i>',
+					'lists'=>array(
+						'ol'=>'<i class="fas fa-list-ol"></i>',
+						'ul'=>'<i class="fas fa-list-ul"></i>'
+					)
+				),
+				'anchor'=>array(
+					'label'=>'<i class="fas fa-anchor"></i>'
+				),
+				'link'=>array(
+					'label'=>'<i class="fas fa-link"></i>',
+					'lists'=>array(
+						'url'=>'URL',
+						'anchor'=>'Anker',
+						'email'=>'Email',
+						'phone'=>'Telefon'
+					),
+					'targets'=>array(
+						''=>'&lt;Nicht festgelegt&gt;',
+						'_blank'=>'Neues Fenster',
+						'_top'=>'Oberstes Fenster',
+						'_self'=>'Gleiches Fenster',
+						'_parent'=>'Übergeordnetes Fenster'
+					)
+				),
+				'table'=>array(
+					'label'=>'<i class="fal fa-table"></i>',
+					'rows'=>'Reihen',
+					'cols'=>'Säulen',
+					'cellSpacing'=>'Zellabstand',
+					'cellPadding'=>'Zellenpolsterung',
+					'headers'=>array(
+						'label'=>'Überschriften',
+						'lists'=>array(
+							''=>'Keiner',
+							'firstrow'=>'Erste Reihe',
+							'firstcol'=>'Erste Spalte',
+							'both'=>'Beide'
+						)
+					),
+					'align'=>array(
+						'label'=>'Ausrichtung',
+						'lists'=>array(
+							''=>'&lt;Nicht festgelegt&gt;',
+							'left'=>'Links',
+							'center'=>'Center',
+							'right'=>'Rechts'
+						)
+					),
+					'caption'=>'Bildbeschriftung',
+					'summary'=>'Zusammenfassung'
+				),
+				'selectAll'=>array(
+					'label'=>'<i class="fas fa-highlighter"></i>'
+				),
+				'imgs'=>array(
+					'label'=>'<i class="fa-solid fa-image"></i>'
+				),
+				'vids'=>array(
+					'label'=>'<i class="fa-solid fa-video"></i>'
+				)
+				
+			),
+			'fr'=>array(
+			'modal'=>array(
+				'divContainer'=>array(
+					'title'=>'Propriétés du conteneur Div'
+					),
+				'anchor'=>array(
+					'title'=>'Propriétés d`ancrage'
+				),
+				'link'=>array(
+					'title'=>'Propriétés du lien'
+				),
+				'table'=>array(
+					'title'=>'Propriétés du tableau'
+				),
+				'uploads'=>array(
+					'title'=>'Télécharger les propriétés',
+					'label'=>'Téléverser un fichier'
+				),
+				'style'=>'Style',
+				'classes'=>'Classes de feuille de style',
+				'id'=>'ID',
+				'lang'=>'Code de langue',
+				'advisorytitle'=>'Titre consultatif',
+				'close'=>'Fermer',
+				'save'=>'Sauver',
+				'advanced'=>'Avancé',
+				'general'=>'Général',
+				'dir'=>'Direction de la langue',
+				'name'=>'Nom',
+				'type'=>'Taper',
+				'protocol'=>'Protocole',
+				'url'=>'URL',
+				'target'=>'Cible',
+				'email'=>array(
+					'title'=>'Adresse e-mail',
+					'subject'=>'Objet du message',
+					'body'=>'Corps du message'
+				),
+				'phone'=>'Téléphone fixe',
+				'displayname'=>'Afficher un nom',
+				'advisorycontenttype'=>'Type de contenu consultatif',
+				'linkedresourcecharset'=>'Jeu de caractères de ressource liée',
+				'rel'=>'Relation amoureuse',
+				'download'=>'Forcer le téléchargement',
+				'width'=>'Largeur',
+				'height'=>'la taille',
+				'borderSpacing'=>'Espacement des bordures'
+			),
+			'pf'=>array(
+				'label'=>'Format de paragraphe',
+				'lists'=>array(
+					''=>'Normal',
+					'h1'=>'Titre 1',
+					'h2'=>'Titre 2',
+					'h3'=>'Titre 3',
+					'h4'=>'Titre 4',
+					'h5'=>'Titre 5',
+					'h6'=>'Titre 6',
+					'pre'=>'Formaté',
+					'address'=>'Adresse',
+					'div'=>'Normal (DIV)'
+				)
+				),
+				'fs'=>array(
+					'label'=>'Taille de police',
+					'lists'=>array(
+					''=>'Défaut',
+					'8'=>'8',
+					'9'=>'9',
+					'10'=>'10',
+					'11'=>'11',
+					'12'=>'12',
+					'14'=>'14',
+					'16'=>'16',
+					'18'=>'18',
+					'20'=>'20',
+					'22'=>'22',
+					'24'=>'24',
+					'26'=>'26',
+					'28'=>'28',
+					'36'=>'36',
+					'48'=>'48',
+					'72'=>'72'
+					)
+				),
+				'fn'=>array(
+					'label'=>'Nom de la police',
+					'lists'=>array(
+						''=>'Défaut',
+						'Arial,Helvetica,sans-serif'=>'Aérien',
+						'Comic Sans MS,cursive'=>'Comic Sans MS',
+						'Courier New,Courier,monospace'=>'Courrier Nouveau',
+						'Georgia,serif'=>'Géorgie',
+						'Lucida Sans Unicode,Lucida Grande,sans-serif'=>'Lucida Sans Unicode',
+						'Tahoma,Geneva,sans-serif'=>'Tahoma',
+						'Times New Roman,Times,serif'=>'Times New Roman',
+						'Trebuchet MS,Helvetica,sans-serif'=>'Trébuchet MS',
+						'Verdana,Geneva,sans-serif'=>'Verdane'
+					)
+				
+				),
+				'bs'=>array(
+					'label'=>'Style de bloc',
+					'lists'=>array(
+						# ',' are used for multiple actions
+						''=>'Défaut',
+						'h2,italic'=>'Titre en italique',
+						'h3,italic'=>'Sous-titre',
+						'attr,special-container'=>'<span class="special-container">Conteneur spécial</span>',
+						'attr,marker'=>'<span class="marker">Marqueur</span>',
+						'big'=>'Gros',
+						'small'=>'petit',
+						'tt'=>'Machine à écrire',
+						'code'=>'Code informatique',
+						'kbd'=>'Phrase du clavier',
+						'samp'=>'Exemple de texte',
+						'var'=>'Variable',
+						'del'=>'Texte supprimé',
+						'ins'=>'Insérer du texte',
+						'cite'=>'Ouvrage cité',
+						'q'=>'Devis en ligne',
+						'attr,rtl'=>'<span dir="rtl">Langue: RTL</span>',
+						'attr,ltr'=>'<span dir="ltr">Langue: LTR</span>'
+					)
+				),
+				'prebtn'=>array(
+					'label'=>'Basculer l`aperçu'
+				),
+				'tc'=>array(
+					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'lists'=>array(
+						'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
+						'#000000'=>'Noir',
+						'#ffffff'=>'Blanc',
+						'#ff0000'=>'Rouge',
+						'#ffa500'=>'Orange',
+						'#ffff00'=>'Jaune',
+						'#00ff00'=>'Chaux',
+						'#008000'=>'Vert',
+						'#00ffff'=>'Cyan',
+						'#0000ff'=>'Bleu',
+						'#800080'=>'Violet',
+						'#ff00ff'=>'Magenta',
+						'#ffc0cb'=>'Rose',
+						'#808080'=>'Gris',
+						'#d3d3d3'=>'Gris clair',
+						'#c0c0c0'=>'Argent',
+						'#f5f5f5'=>'Fumée blanche',
+						'#2f4f4f'=>'Gris ardoise foncé'
+					)
+					),
+					'bg'=>array(
+						'label'=>'<i class="fas fa-fill-drip"></i>',
+						'lists'=>array(
+							'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
+							'#000000'=>'Noir',
+							'#ffffff'=>'Blanc',
+							'#ff0000'=>'Rouge',
+							'#ffa500'=>'Orange',
+							'#ffff00'=>'Jaune',
+							'#00ff00'=>'Chaux',
+							'#008000'=>'Vert',
+							'#00ffff'=>'Cyan',
+							'#0000ff'=>'Bleu',
+							'#800080'=>'Violet',
+							'#ff00ff'=>'Magenta',
+							'#ffc0cb'=>'Rose',
+							'#808080'=>'Gris',
+							'#d3d3d3'=>'Gris clair',
+							'#c0c0c0'=>'Argent',
+							'#f5f5f5'=>'Fumée blanche',
+							'#2f4f4f'=>'Gris ardoise foncé'
+					)
+				),
+				'bold'=>array(
+					'label'=>'<i class="fas fa-bold"></i>'
+				),
+				'italic'=>array(
+					'label'=>'<i class="fas fa-italic"></i>'
+				),
+				'underline'=>array(
+					'label'=>'<i class="fas fa-underline"></i>'
+				),
+				'strikethrough'=>array(
+					'label'=>'<i class="fas fa-strikethrough"></i>'
+				),
+				'superscript'=>array(
+					'label'=>'<i class="fas fa-superscript"></i>'
+				),
+				'subscript'=>array(
+					'label'=>'<i class="fas fa-subscript"></i>'
+				),
+				'align'=>array(
+					'label'=>'<i class="fas fa-align-left"></i>',
+					'lists'=>array(
+						'left'=>'<i class="fas fa-align-left"></i>',
+						'center'=>'<i class="fas fa-align-center"></i>',
+						'right'=>'<i class="fas fa-align-right"></i>',
+						'justify'=>'<i class="fas fa-align-justify"></i>'
+					)
+				),
+				'bq'=>array(
+					'label'=>'<i class="fas fa-quote-left"></i>'
+				),
+				'div'=>array(
+					'label'=>'<i class="fas fa-code"></i>'
+				),
+				'uploads'=>array(
+					'label'=>'<i class="fa-solid fa-upload"></i>'
+				),
+				'copy'=>array(
+					'label'=>'<i class="fas fa-copy"></i>'
+				),
+				'paste'=>array(
+					'label'=>'<i class="fas fa-paste"></i>'
+				),
+				'fullscreen'=>array(
+					'label'=>'<i class="far fa-expand-arrows"></i>'
+				),
+				'pdir'=>array(
+					'label'=>'<i class="fas fa-paragraph"></i>',
+					'lists'=>array(
+						'ltr'=>'<i class="fas fa-paragraph-rtl" style="transform: scaleX(-1);"></i>',
+						'rtl'=>'<i class="fas fa-paragraph-rtl"></i>'
+					)
+				),
+				'indent'=>array(
+					'label'=>'<i class="fas fa-indent"></i>',
+					'lists'=>array(
+						'increase'=>'<i class="fas fa-indent"></i>',
+						'decrease'=>'<i class="fas fa-indent" style="transform: scaleX(-1);"></i>'
+					)
+				),
+				'listing'=>array(
+					'label'=>'<i class="fas fa-list-alt"></i>',
+					'lists'=>array(
+						'ol'=>'<i class="fas fa-list-ol"></i>',
+						'ul'=>'<i class="fas fa-list-ul"></i>'
+					)
+				),
+				'anchor'=>array(
+					'label'=>'<i class="fas fa-anchor"></i>'
+				),
+				'link'=>array(
+					'label'=>'<i class="fas fa-link"></i>',
+					'lists'=>array(
+						'url'=>'URL',
+						'anchor'=>'Ancre',
+						'email'=>'E-mail',
+						'phone'=>'Téléphone fixe'
+					),
+					'targets'=>array(
+						''=>'&lt;Pas encore défini&gt;',
+						'_blank'=>'Nouvelle fenetre',
+						'_top'=>'Fenêtre la plus haute',
+						'_self'=>'Même fenêtre',
+						'_parent'=>'Fenêtre parente'
+					)
+				),
+				'table'=>array(
+					'label'=>'<i class="fal fa-table"></i>',
+					'rows'=>'Lignes',
+					'cols'=>'Colonnes',
+					'cellSpacing'=>'Espacement des cellules',
+					'cellPadding'=>'Rembourrage de cellule',
+					'headers'=>array(
+						'label'=>'En-têtes',
+						'lists'=>array(
+							''=>'Aucun',
+							'firstrow'=>'Première rangée',
+							'firstcol'=>'Première colonne',
+							'both'=>'Tous les deux'
+						)
+					),
+					'align'=>array(
+						'label'=>'Alignement',
+						'lists'=>array(
+							''=>'&lt;Pas encore défini&gt;',
+							'left'=>'La gauche',
+							'center'=>'Centre',
+							'right'=>'Droit'
+						)
+					),
+					'caption'=>'Légende',
+					'summary'=>'Résumé'
+				),
+				'selectAll'=>array(
+					'label'=>'<i class="fas fa-highlighter"></i>'
+				),
+				'imgs'=>array(
+					'label'=>'<i class="fa-solid fa-image"></i>'
+				),
+				'vids'=>array(
+					'label'=>'<i class="fa-solid fa-video"></i>'
+				)
+				
+			),
+			'it'=>array(
+			'modal'=>array(
+				'divContainer'=>array(
+					'title'=>'Proprietà contenitore div'
+					),
+				'anchor'=>array(
+					'title'=>'Proprietà di ancoraggio'
+				),
+				'link'=>array(
+					'title'=>'Proprietà collegamento'
+				),
+				'table'=>array(
+					'title'=>'Proprietà tabella'
+				),
+				'uploads'=>array(
+					'title'=>'Carica proprietà',
+					'label'=>'Caricare un file'
+				),
+				'style'=>'Stile',
+				'classes'=>'Classi di fogli di stile',
+				'id'=>'ID',
+				'lang'=>'Codice lingua',
+				'advisorytitle'=>'Titolo consultivo',
+				'close'=>'Vicino',
+				'save'=>'Salva',
+				'advanced'=>'Avanzate',
+				'general'=>'Generale',
+				'dir'=>'Direzione linguistica',
+				'name'=>'Nome',
+				'type'=>'Tipo',
+				'protocol'=>'Protocollo',
+				'url'=>'URL',
+				'target'=>'Obbiettivo',
+				'email'=>array(
+					'title'=>'Indirizzo e-mail',
+					'subject'=>'soggetto del messaggio',
+					'body'=>'corpo del messaggio'
+				),
+				'phone'=>'Telefono',
+				'displayname'=>'Nome da visualizzare',
+				'advisorycontenttype'=>'Tipo di contenuto consultivo',
+				'linkedresourcecharset'=>'Set di caratteri della risorsa collegata',
+				'rel'=>'Relazione',
+				'download'=>'Forza il download',
+				'width'=>'Larghezza',
+				'height'=>'altezza',
+				'borderSpacing'=>'Spaziatura del bordo'
+			),
+			'pf'=>array(
+				'label'=>'Formato paragrafo',
+				'lists'=>array(
+					''=>'Normale',
+					'h1'=>'Intestazione 1',
+					'h2'=>'Intestazione 2',
+					'h3'=>'Intestazione 3',
+					'h4'=>'Intestazione 4',
+					'h5'=>'Intestazione 5',
+					'h6'=>'Intestazione 6',
+					'pre'=>'Formattato',
+					'address'=>'Indirizzo',
+					'div'=>'Normale (DIV)'
+				)
+				),
+				'fs'=>array(
+					'label'=>'Dimensione del font',
+					'lists'=>array(
+					''=>'Predefinito',
+					'8'=>'8',
+					'9'=>'9',
+					'10'=>'10',
+					'11'=>'11',
+					'12'=>'12',
+					'14'=>'14',
+					'16'=>'16',
+					'18'=>'18',
+					'20'=>'20',
+					'22'=>'22',
+					'24'=>'24',
+					'26'=>'26',
+					'28'=>'28',
+					'36'=>'36',
+					'48'=>'48',
+					'72'=>'72'
+					)
+				),
+				'fn'=>array(
+					'label'=>'Nome carattere',
+					'lists'=>array(
+						''=>'Predefinito',
+						'Arial,Helvetica,sans-serif'=>'Aereo',
+						'Comic Sans MS,cursive'=>'Comic Sans MS',
+						'Courier New,Courier,monospace'=>'Courier New',
+						'Georgia,serif'=>'Georgia',
+						'Lucida Sans Unicode,Lucida Grande,sans-serif'=>'Lucida Sans Unicode',
+						'Tahoma,Geneva,sans-serif'=>'Tahoma',
+						'Times New Roman,Times,serif'=>'Times New Roman',
+						'Trebuchet MS,Helvetica,sans-serif'=>'Trebuchet MS',
+						'Verdana,Geneva,sans-serif'=>'Verdana'
+					)
+				
+				),
+				'bs'=>array(
+					'label'=>'Stile blocco',
+					'lists'=>array(
+						# ',' are used for multiple actions
+						''=>'Predefinito',
+						'h2,italic'=>'Titolo corsivo',
+						'h3,italic'=>'Sottotitolo',
+						'attr,special-container'=>'<span class="special-container">Contenitore speciale</span>',
+						'attr,marker'=>'<span class="marker">Marcatore</span>',
+						'big'=>'Grande',
+						'small'=>'piccolo',
+						'tt'=>'Macchina da scrivere',
+						'code'=>'Codice Informatico',
+						'kbd'=>'Frase da tastiera',
+						'samp'=>'Testo di esempio',
+						'var'=>'Variable',
+						'del'=>'Testo cancellato',
+						'ins'=>'Inserisci testo',
+						'cite'=>'Opera citata',
+						'q'=>'Citazione in linea',
+						'attr,rtl'=>'<span dir="rtl">Lingua: RTL</span>',
+						'attr,ltr'=>'<span dir="ltr">Lingua: LTR</span>'
+					)
+				),
+				'prebtn'=>array(
+					'label'=>'Attiva/disattiva anteprima'
+				),
+				'tc'=>array(
+					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'lists'=>array(
+						'rgba(0,0,0,0)'=>'<span style="color:black;">Trasparente</span>',
+						'#000000'=>'Nero',
+						'#ffffff'=>'Bianco',
+						'#ff0000'=>'Rosso',
+						'#ffa500'=>'Arancia',
+						'#ffff00'=>'Giallo',
+						'#00ff00'=>'Lime',
+						'#008000'=>'Verde',
+						'#00ffff'=>'Ciano',
+						'#0000ff'=>'Blu',
+						'#800080'=>'Porpora',
+						'#ff00ff'=>'Magenta',
+						'#ffc0cb'=>'Rosa',
+						'#808080'=>'Grigio',
+						'#d3d3d3'=>'Grigio chiaro',
+						'#c0c0c0'=>'Argento',
+						'#f5f5f5'=>'Fumo bianco',
+						'#2f4f4f'=>'Grigio scuro'
+					)
+					),
+					'bg'=>array(
+						'label'=>'<i class="fas fa-fill-drip"></i>',
+						'lists'=>array(
+							'rgba(0,0,0,0)'=>'<span style="color:black;">Trasparente</span>',
+						'#000000'=>'Nero',
+						'#ffffff'=>'Bianco',
+						'#ff0000'=>'Rosso',
+						'#ffa500'=>'Arancia',
+						'#ffff00'=>'Giallo',
+						'#00ff00'=>'Lime',
+						'#008000'=>'Verde',
+						'#00ffff'=>'Ciano',
+						'#0000ff'=>'Blu',
+						'#800080'=>'Porpora',
+						'#ff00ff'=>'Magenta',
+						'#ffc0cb'=>'Rosa',
+						'#808080'=>'Grigio',
+						'#d3d3d3'=>'Grigio chiaro',
+						'#c0c0c0'=>'Argento',
+						'#f5f5f5'=>'Fumo bianco',
+						'#2f4f4f'=>'Grigio scuro'
+					)
+				),
+				'bold'=>array(
+					'label'=>'<i class="fas fa-bold"></i>'
+				),
+				'italic'=>array(
+					'label'=>'<i class="fas fa-italic"></i>'
+				),
+				'underline'=>array(
+					'label'=>'<i class="fas fa-underline"></i>'
+				),
+				'strikethrough'=>array(
+					'label'=>'<i class="fas fa-strikethrough"></i>'
+				),
+				'superscript'=>array(
+					'label'=>'<i class="fas fa-superscript"></i>'
+				),
+				'subscript'=>array(
+					'label'=>'<i class="fas fa-subscript"></i>'
+				),
+				'align'=>array(
+					'label'=>'<i class="fas fa-align-left"></i>',
+					'lists'=>array(
+						'left'=>'<i class="fas fa-align-left"></i>',
+						'center'=>'<i class="fas fa-align-center"></i>',
+						'right'=>'<i class="fas fa-align-right"></i>',
+						'justify'=>'<i class="fas fa-align-justify"></i>'
+					)
+				),
+				'bq'=>array(
+					'label'=>'<i class="fas fa-quote-left"></i>'
+				),
+				'div'=>array(
+					'label'=>'<i class="fas fa-code"></i>'
+				),
+				'uploads'=>array(
+					'label'=>'<i class="fa-solid fa-upload"></i>'
+				),
+				'copy'=>array(
+					'label'=>'<i class="fas fa-copy"></i>'
+				),
+				'paste'=>array(
+					'label'=>'<i class="fas fa-paste"></i>'
+				),
+				'fullscreen'=>array(
+					'label'=>'<i class="far fa-expand-arrows"></i>'
+				),
+				'pdir'=>array(
+					'label'=>'<i class="fas fa-paragraph"></i>',
+					'lists'=>array(
+						'ltr'=>'<i class="fas fa-paragraph-rtl" style="transform: scaleX(-1);"></i>',
+						'rtl'=>'<i class="fas fa-paragraph-rtl"></i>'
+					)
+				),
+				'indent'=>array(
+					'label'=>'<i class="fas fa-indent"></i>',
+					'lists'=>array(
+						'increase'=>'<i class="fas fa-indent"></i>',
+						'decrease'=>'<i class="fas fa-indent" style="transform: scaleX(-1);"></i>'
+					)
+				),
+				'listing'=>array(
+					'label'=>'<i class="fas fa-list-alt"></i>',
+					'lists'=>array(
+						'ol'=>'<i class="fas fa-list-ol"></i>',
+						'ul'=>'<i class="fas fa-list-ul"></i>'
+					)
+				),
+				'anchor'=>array(
+					'label'=>'<i class="fas fa-anchor"></i>'
+				),
+				'link'=>array(
+					'label'=>'<i class="fas fa-link"></i>',
+					'lists'=>array(
+						'url'=>'URL',
+						'anchor'=>'Ancora',
+						'email'=>'E-mail',
+						'phone'=>'Telefono'
+					),
+					'targets'=>array(
+						''=>'&lt;Non impostato&gt;',
+						'_blank'=>'Nuova finestra',
+						'_top'=>'Finestra più in alto',
+						'_self'=>'Stessa finestra',
+						'_parent'=>'Finestra padre'
+					)
+				),
+				'table'=>array(
+					'label'=>'<i class="fal fa-table"></i>',
+					'rows'=>'Righe',
+					'cols'=>'Colonne',
+					'cellSpacing'=>'Spaziatura delle celle',
+					'cellPadding'=>'Imbottitura cellulare',
+					'headers'=>array(
+						'label'=>'Intestazioni',
+						'lists'=>array(
+							''=>'Nessuno',
+							'firstrow'=>'Prima riga',
+							'firstcol'=>'Prima colonna',
+							'both'=>'Tutti e due'
+						)
+					),
+					'align'=>array(
+						'label'=>'Allineamento',
+						'lists'=>array(
+							''=>'&lt;Non impostato&gt;',
+							'left'=>'Sono partiti',
+							'center'=>'Centro',
+							'right'=>'Destro'
+						)
+					),
+					'caption'=>'Caption',
+					'summary'=>'Summary'
+				),
+				'selectAll'=>array(
+					'label'=>'<i class="fas fa-highlighter"></i>'
+				),
+				'imgs'=>array(
+					'label'=>'<i class="fa-solid fa-image"></i>'
+				),
+				'vids'=>array(
+					'label'=>'<i class="fa-solid fa-video"></i>'
+				)
+				
+			)
+			
 		);
 }
 	function paragraphFormat($options=[]){

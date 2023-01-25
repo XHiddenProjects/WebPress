@@ -140,6 +140,7 @@ Here is a list of available hooks:
 | beforePage | `core` | executes code before page load |
 | afterPage | `core` | executes code after page load |
 | replyBottom | `core` | displays in the bottom of the reply message |
+| init | `core` | executes before everything loads |
 
 ### [Bans](./docs#bans) {#bans}
 

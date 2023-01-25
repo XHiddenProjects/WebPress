@@ -140,6 +140,7 @@ Ecco un elenco di ganci disponibili:
 | primaPagina | `nucleo` | esegue il codice prima del caricamento della pagina |
 | dopoPagina | `nucleo` | eseccodice utes dopo il caricamento della pagina |
 | rispostaBottom | `nucleo` | viene visualizzato nella parte inferiore del messaggio di risposta |
+| inizia | `nucleo` | viene eseguito prima che tutto venga caricato |
 
 ### [Ban](./docs#bans) {#bans}
 

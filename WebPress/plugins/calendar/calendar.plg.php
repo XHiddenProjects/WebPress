@@ -2,7 +2,7 @@
 function calendar_install(){
 	$out = '';
 	$plugin = 'calendar';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 'active'=>'',
@@ -13,11 +13,11 @@ $data = array(
 	'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 	'allow'=>'administrator'
 ));
-$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 WebDB::makeDB('plugins', $plugin.'/events');
 $Calevents = array();
 $Calevents['events']=array();
-$out.= WebDB::saveDB('Plugins', $plugin.'/events', $Calevents) ? '' : 'Error';
+$out.= WebDB::saveDB('plugins', $plugin.'/events', $Calevents) ? '' : 'Error';
 return $out;
 }
 function calendar_config(){
@@ -25,7 +25,7 @@ function calendar_config(){
 	$out='';
 	$plugin = 'calendar';
 	$access = array('administrator'=>$lang[$plugin.'_admin'], 'anyone'=>$lang[$plugin.'_any']);
-	$d = WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
+	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 			$type = array('success'=>'success', 'warning'=>'warning', 'info'=>'info', 'danger'=>'danger', 'dark'=>'dark', 'light'=>'light');
 			$out.=HTMLForm::form(CONFIG_SAVE.$plugin.'', '<div class="row">
 		<div class="col w-100">
@@ -66,7 +66,7 @@ function calendar_dblist(){
 	$plugin='calendar';
 	$d = WebDB::dbExists('plugins',$plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : array('active'=>'');
 	if($d['active']){
-		$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
+		$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
 	}
 	return $out;
 }
@@ -338,7 +338,7 @@ $out.='<div class="modal fade" id="removeEventCal" tabindex="-1" aria-labelledby
 			</div>';
 		$out.='<div class="container calendar">
 		<div class="calender-header">
-			<h3 class="text-center"><a href="?plugin='.$plugin.'&ym='.$prevY.'"><i class="fa-solid fa-caret-left"></i><i class="fa-solid fa-caret-left"></i></a> <span class="split me-3"></span> <a href="?plugin='.$plugin.'&ym='.$prev.'"><i class="fa-solid fa-caret-left"></i></a>'.$html_title.'<a href="?plugin='.$plugin.'&ym='.$next.'"><i class="fa-solid fa-caret-right"></i></a> <span class="me-3 split"></span> <a href="?plugin='.$plugin.'&ym='.$nextY.'"><i class="fa-solid fa-caret-right"></i><i class="fa-solid fa-caret-right"></i></a></h3>
+			<h3 class="text-center"><a href="?plugins='.$plugin.'&ym='.$prevY.'"><i class="fa-solid fa-caret-left"></i><i class="fa-solid fa-caret-left"></i></a> <span class="split me-3"></span> <a href="?plugins='.$plugin.'&ym='.$prev.'"><i class="fa-solid fa-caret-left"></i></a>'.$html_title.'<a href="?plugins='.$plugin.'&ym='.$next.'"><i class="fa-solid fa-caret-right"></i></a> <span class="me-3 split"></span> <a href="?plugins='.$plugin.'&ym='.$nextY.'"><i class="fa-solid fa-caret-right"></i><i class="fa-solid fa-caret-right"></i></a></h3>
 		</div>
 			<table class="table table-bordered" nostyle>
 				<thead>
@@ -440,16 +440,16 @@ $(document).ready(function(){
 			'icon'=>$icon,
 			'created'=>$session
 		);
-		echo WebDB::saveDB('plugins', $plugin.'/events', $e) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'danger');
+		echo WebDB::saveDB('plugins', $plugin.'/events', $e) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugins='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugins='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'danger');
 	}
 	if(isset($_POST['eventNameRem'])){
 		$name = preg_replace('/^\s/','',$_POST['eventNameRemover']);
 		$e = WebDB::dbExists('plugins', $plugin.'/events') ? WebDB::getDB('plugins', $plugin.'/events') : '';
 		unset($e['events'][$name]);
 		if($name!==''){
-			echo WebDB::saveDB('plugins', $plugin.'/events', $e) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'danger');	
+			echo WebDB::saveDB('plugins', $plugin.'/events', $e) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugins='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugins='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'danger');	
 		}else{
-			echo Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'danger');
+			echo Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugins='.$plugin.(isset($_GET['ym']) ? '&ym='.$_GET['ym'] : '').'', 'danger');
 		}
 		
 	}

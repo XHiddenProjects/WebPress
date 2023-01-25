@@ -1,0 +1,24 @@
+{
+    "name": {
+        "en": "Lumen",
+        "de": "Lumen",
+        "it": "Lume",
+        "fr": "Lumen"
+    },
+    "active": "on",
+    "desc": {
+        "en": "Light and shadow",
+        "de": "Licht und Schatten",
+        "it": "Luce e ombra",
+        "fr": "Lumière et ombre"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR"
+        ]
+    }
+}

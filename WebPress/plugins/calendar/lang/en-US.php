@@ -3,6 +3,9 @@ $plugin='calendar';
 $lang[$plugin.'_name'] = 'Calendar';
 $lang[$plugin.'_desc'] = 'Calendar is an easy build to allow you to organize your schedule and create events, and can also
 notify you when you allow';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '12-28-2022';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_admin']='administrator';
 $lang[$plugin.'_any']='anyone';
 $lang[$plugin.'_submit']='Save';

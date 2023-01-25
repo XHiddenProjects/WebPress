@@ -185,7 +185,7 @@ width: calc(100% - 50px);
 					$r = Files::removeExtension($replys);
 					$topID = WebDB::getDB('topics', $name);
 					$db = WebDB::getDB('replys', $r);
-					if(isset($db[$topID['id']])){
+					if($db['topic']===$topID['id']){
 						WebDB::removeDB('replys',$r);
 					}
 				}
@@ -522,7 +522,7 @@ if(isset($_POST['replySub'])){
 }
 ?>
 
-<?php echo Plugin::hook('afterPage'); ?>
+
 <?php
 echo '<br/><br/><br/><br/><br/><br/><br/>';
 echo foot($BASEPATH);

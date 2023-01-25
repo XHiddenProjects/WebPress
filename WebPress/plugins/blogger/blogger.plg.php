@@ -2,7 +2,7 @@
 function blogger_install(){
 	$out = '';
 	$plugin = 'blogger';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 'active'=>'',
@@ -17,16 +17,16 @@ $data = array(
 	'blogs'=>array()
 ));
 @mkdir(ROOT.'uploads'.DS.'blogs');
-$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+$out.= WebDB::saveDB('PLUGINS', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }
 function blogger_head(){
 		global $lang, $BASEPATH;
 	$plugin = 'blogger';
 	$out='';
-	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : '';
+	$d = WebDB::dbExists('PLUGINS', $plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : '';
 	if(isset($d['active'])&&$d['active']){
-		$out.='<link rel="stylesheet" href="'.$BASEPATH.'/plugins/'.$plugin.'/css/'.$plugin.'.css?v='.$d['version'].'"/>';
+		$out.='<link rel="stylesheet" href="'.$BASEPATH.'/plugin/'.$plugin.'/css/'.$plugin.'.css?v='.$d['version'].'"/>';
 	}
 	return $out;
 }
@@ -34,14 +34,14 @@ function blogger_nav(){
 	global $lang, $BASEPATH;
 	$plugin = 'blogger';
 	$out='';
-	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : '';
+	$d = WebDB::dbExists('PLUGINS', $plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : '';
 	if($d['active']){
 		if($d['config']['display']==='link'){
-		$out.='<li class="dropdown-item"><a class="link-'.$d['config']['color'].'" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'">'.$lang[$plugin.'_viewBlog'].'</a></li>';	
+		$out.='<li class="dropdown-item"><a class="link-'.$d['config']['color'].'" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_viewBlog'].'</a></li>';	
 		}elseif($d['config']['display']==='button'){
-			$out.='<li class="dropdown-item"><a class="btn btn-'.$d['config']['color'].'" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'">'.$lang[$plugin.'_viewBlog'].'</a></li>';
+			$out.='<li class="dropdown-item"><a class="btn btn-'.$d['config']['color'].'" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_viewBlog'].'</a></li>';
 		}elseif($d['config']['display']==='outline'){
-			$out.='<li class="dropdown-item"><a class="btn btn-outline-'.$d['config']['color'].'" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'">'.$lang[$plugin.'_viewBlog'].'</a></li>';
+			$out.='<li class="dropdown-item"><a class="btn btn-outline-'.$d['config']['color'].'" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_viewBlog'].'</a></li>';
 		}
 			
 			
@@ -52,9 +52,9 @@ function blogger_dblist(){
 	global $BASEPATH, $lang;
 	$out='';
 	$plugin='blogger';
-	$d = WebDB::dbExists('plugins',$plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : array('active'=>'');
+	$d = WebDB::dbExists('PLUGINS',$plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : array('active'=>'');
 	if($d['active']){
-		$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
+		$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
 	}
 	return $out;
 }
@@ -66,7 +66,7 @@ function blogger_config(){
 	$color = array('primary'=>$lang['blue'], 'secondary'=>$lang['gray'], 'success'=>$lang['green'], 'warning'=>$lang['yellow'], 'danger'=>$lang['red'], 'dark'=>$lang['black'], 'light'=>$lang['white']);
 	$display = array('link'=>$lang['link'], 'button'=>$lang['button'], 'outline'=>$lang['outline']);
 	
-	$d = WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
+	$d = WebDB::dbExists('PLUGINS', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 			$out.=HTMLForm::form(CONFIG_SAVE.$plugin.'', '<div class="row">
 		<div class="col w-100">
 			'.HTMLForm::checkBox('form_active', $d['active']).'
@@ -143,7 +143,7 @@ function blogger_onSubmit(){
 			
 			
 			}
-			$out .= WebDB::saveDB('plugins', $plugin.'/plugin', $d) ? Utils::redirect('modal.pedit.title', 'config.success', CONFIG_LOAD.$plugin, 'success') : Utils::redirect('modal.failed.title', 'config.failed', CONFIG_LOAD.$plugin, 'danger');
+			$out .= WebDB::saveDB('PLUGINS', $plugin.'/plugin', $d) ? Utils::redirect('modal.pedit.title', 'config.success', CONFIG_LOAD.$plugin, 'success') : Utils::redirect('modal.failed.title', 'config.failed', CONFIG_LOAD.$plugin, 'danger');
 			
 			return $out;
 		}
@@ -175,13 +175,13 @@ function blogger_view(){
 			$setPages[]='<div class="card blogpost">
   <img src="'.$BASEPATH.DS.'uploads'.DS.'blogs'.DS.$query[$i]['logo'].'" class="card-img-top" alt="'.$query[$i]['name'].'">
   <div class="card-body">
-    <h1 class="card-title">'.$query[$i]['name'].(Users::isAdmin() ? '<a href="./view?plugin='.$plugin.'&delete='.$i.'" class="text-danger float-end d-inline-block"><i class="fa-solid fa-trash-can"></i></a>' : '').'</h1>
+    <h1 class="card-title">'.$query[$i]['name'].(Users::isAdmin() ? '<a href="./view?plugins='.$plugin.'&delete='.$i.'" class="text-danger float-end d-inline-block"><i class="fa-solid fa-trash-can"></i></a>' : '').'</h1>
     <p class="card-text blogger-desc">'. $query[$i]['desc'].'</p>
 	
   </div>
   <div class="card-body blog-thumbs float-end">
-    <a'.(!isset($d['config']['blogs'][$i]['users'][$session]) ? ' href="./view?plugin='.$plugin.'&help=like&id='.$i.'" ' : ' href="./view?plugin='.$plugin.'&remove=like&id='.$i.'" ').'class="card-link fs-3"><i class="fa-solid fa-thumbs-up me-2"></i><span class="badge bg-secondary">'.$query[$i]['like'].'</span></a>
-    <a'.(!isset($d['config']['blogs'][$i]['users'][$session]) ? ' href="./view?plugin='.$plugin.'&help=dislike&id='.$i.'" ' : ' href="./view?plugin='.$plugin.'&remove=dislike&id='.$i.'" ').'class="card-link fs-3"><i class="fa-solid fa-thumbs-down me-2"></i><span class="badge bg-secondary">'.$query[$i]['dislike'].'</span></a>
+    <a'.(!isset($d['config']['blogs'][$i]['users'][$session]) ? ' href="./view?plugins='.$plugin.'&help=like&id='.$i.'" ' : ' href="./view?plugins='.$plugin.'&remove=like&id='.$i.'" ').'class="card-link fs-3"><i class="fa-solid fa-thumbs-up me-2"></i><span class="badge bg-secondary">'.$query[$i]['like'].'</span></a>
+    <a'.(!isset($d['config']['blogs'][$i]['users'][$session]) ? ' href="./view?plugins='.$plugin.'&help=dislike&id='.$i.'" ' : ' href="./view?plugins='.$plugin.'&remove=dislike&id='.$i.'" ').'class="card-link fs-3"><i class="fa-solid fa-thumbs-down me-2"></i><span class="badge bg-secondary">'.$query[$i]['dislike'].'</span></a>
   </div>
   <small class="text-secondary">
   '.date($conf['page']['dateFormat'], strtotime($query[$i]['created'])).' | '.$query[$i]['author'].'
@@ -220,7 +220,7 @@ function blogger_view(){
 	for($i=0;$i<count(array_slice($setPages, $nb*($p-1), $nb));$i++){
 	$out.=array_slice($setPages, $nb*($p-1), $nb)[$i];
 	}
-	$out.=Paginate::pageLink(Paginate::pid($d['config']['show']), Paginate::countPage($query, $d['config']['show']), './view?plugin='.$plugin.'&');
+	$out.=Paginate::pageLink(Paginate::pid($d['config']['show']), Paginate::countPage($query, $d['config']['show']), './view?plugins='.$plugin.'&');
 	return $out;
 }
 function blogger_footerJS(){

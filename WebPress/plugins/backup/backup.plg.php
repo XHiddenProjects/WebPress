@@ -3,7 +3,7 @@ function backup_install(){
 	global $lang;
 		$out = '';
 	$plugin = 'backup';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 	'active'=>'',
@@ -13,7 +13,7 @@ $data = array(
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
 	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')));
-	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	@mkdir(dirname(ROOT).'/backup');
 	return $out; 
 }
@@ -23,7 +23,7 @@ function backup_dblist(){
 	$plugin='backup';
 	$d = WebDB::dbExists('plugins',$plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : array('active'=>'');
 	if($d['active']){
-		$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugin='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
+		$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
 	}
 	return $out;
 }
@@ -94,19 +94,19 @@ function backup_view(){
 		foreach(Files::Scan(dirname(ROOT).'/backup') as $backup){
 			$out.='<tr>
 			<th scope="row"><i class="fa-solid fa-file-zipper"></i> '.$backup.' <span class="badge text-bg-secondary">'.Files::sizeFormat(filesize(dirname(ROOT).'/backup/'.$backup)).'</span></th>
-			<td><a href="./view?plugin='.$_GET['plugin'].'&deleteBackup='.$backup.'"><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button></a></td>
-			<td><a href="./view?plugin='.$_GET['plugin'].'&restoreBackup='.$backup.'"><button class="btn btn-info"><i class="fa-solid fa-rotate-left"></i></button></a></td>
+			<td><a href="./view?plugins='.$_GET['plugins'].'&deleteBackup='.$backup.'"><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button></a></td>
+			<td><a href="./view?plugins='.$_GET['plugins'].'&restoreBackup='.$backup.'"><button class="btn btn-info"><i class="fa-solid fa-rotate-left"></i></button></a></td>
 			<td><a href="'.$BASEPATH.'/download.php?path='.($BASEPATH.'/backup/'.$backup).'&name='.$backup.'"><button class="btn btn-success"><i class="fa-solid fa-download"></i></button></a></td>
 		</tr>';
 		}
 		$out.='</tbody></table></div>';
-		$out.='<center><a href="./view?plugin='.$_GET['plugin'].'&createBackup=true"><button class="btn btn-warning fs-5 m-2">'.$lang[$plugin.'_createBackup'].'</button></a></center>';
+		$out.='<center><a href="./view?plugins='.$_GET['plugins'].'&createBackup=true"><button class="btn btn-warning fs-5 m-2">'.$lang[$plugin.'_createBackup'].'</button></a></center>';
 		if(isset($_GET['createBackup']))
-			echo createBackup() ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'danger');
+			echo createBackup() ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugins='.$_GET['plugins'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugins='.$_GET['plugins'], 'danger');
 		if(isset($_GET['deleteBackup']))
-			echo removeBackup($_GET['deleteBackup']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'danger');
+			echo removeBackup($_GET['deleteBackup']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugins='.$_GET['plugins'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugins='.$_GET['plugins'], 'danger');
 		if(isset($_GET['restoreBackup']))
-			echo restoreBackup($_GET['restoreBackup']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugin='.$_GET['plugin'], 'danger');
+			echo restoreBackup($_GET['restoreBackup']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/view?plugins='.$_GET['plugins'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/view?plugins='.$_GET['plugins'], 'danger');
 		}
 	}
 	return $out;

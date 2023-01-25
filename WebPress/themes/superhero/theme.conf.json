@@ -1,0 +1,24 @@
+{
+    "name": {
+        "en": "Superhero",
+        "de": "Superheld",
+        "it": "Supereroe",
+        "fr": "Super-héros"
+    },
+    "active": "on",
+    "desc": {
+        "en": "The brave and the blue",
+        "de": "Die Mutigen und die Blauen",
+        "it": "Il coraggioso e il blu",
+        "fr": "Le brave et le bleu"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR"
+        ]
+    }
+}

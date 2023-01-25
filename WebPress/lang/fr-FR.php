@@ -1,9 +1,9 @@
 <?php
 $lang = array(
 'lang'=>array(
-'en-US'=>'Anglais',
-'de-DE'=>'Allemand',
-'it-IT'=>'Italien',
+'en-US'=>'English',
+'de-DE'=>'Deutsch',
+'it-IT'=>'Italiano',
 'fr-FR'=>'Français'
 ),
 'sitemap.title'=>'WebPress-Plans de site',
@@ -23,6 +23,7 @@ $lang = array(
 'hide_show_more'=>'Afficher plus...',
 'plural'=>'s',
 'posting_frame'=>'Tu dois poster ça sur le forum',
+'pro'=>'Pro',
 # S'inscrire
 'register.title'=>'Créer un compte',
 'register.name'=>'votre nom',
@@ -81,6 +82,7 @@ $lang = array(
 'dashboard.config.panel.email'=>'Domaine de messagerie personnalisé',
 'dashboard.config.panel.editor'=>'Éditeur',
 'dashboard.config.panel.theme'=>'Thèmes',
+'dashboard.config.panel.index'=>'Indice predefinito',
 'dashboard.config.panel.dateformat'=>'Format de date (<a href="https://www.php.net/manual/fr/datetime.format.php" target="_blank">format datetime php</a>)',
 'dashboard.config.panel.emaildisabled'=>'Vous ne pouvez pas changer cela, veuillez mettre à jour',
 'dashboard.config.panel.emailHelp'=>'Entrez votre domaine personnalisé pour l`autoriser',
@@ -313,6 +315,7 @@ $lang = array(
 'contact.hidden'=>'Il s`agit d`un message masqué destiné uniquement à un utilisateur spécifique !',
 'contact.option.all'=>'Tout',
 'contact.msg.exists'=>'Le message existe déjà',
+'report'=>'<i class="fa-solid fa-bell"></i> Reportage',
 'contact.report.prioiry'=>'<i class="fas fa-asterisk text-danger"></i> Priorité',
 'contact.report'=>'Dénoncer un utilisateur',
 'contact.report.label'=>'[Entrez le raisonnement ici]',
@@ -681,6 +684,8 @@ $lang = array(
 'animate.swirl.bottom'=>'Tourbillon (Bas)',
 'animate.swirl.left'=>'Tourbillon (gauche)',
 'animate.swirl.right'=>'Tourbillon (droite)',
-'animate.swirl.top'=>'Tourbillon (Haut)'
+'animate.swirl.top'=>'Tourbillon (Haut)',
+#plugins
+'plugins.pluginUpdated'=>'Dernière mise à jour : '
 );
 ?>

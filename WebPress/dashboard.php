@@ -118,7 +118,7 @@ if(!isset($_SESSION['guest'])){
 	$getWeather = file_get_contents('https://content.api.nytimes.com/svc/weather/v2/current.json');
 	$weather = json_decode($getWeather, true);
 	$out .= '<br/>'.$lang['dashboard.side.weather'].' <img src="'.$weather['results'][0]['image'].'" alt="'.$weather['results'][0]['phrase'].'" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$weather['results'][0]['phrase'].'"/>';
-	$out .= '<br/>'.(Utils::checkVersion()[0] ? '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i> Current '.Utils::checkVersion()[1].'</div>' : '<div class="alert alert-danger" role="alert"><i class="fas fa-upload"></i> Outdated '.Utils::checkVersion()[1].'</div>');
+	$out .= '<br/>'.(Utils::checkVersion()[0] ? '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i> Current '.Utils::checkVersion()[1].(Users::isProVersion() ? ' <span class="badge bg-danger probadeg">'.$lang['pro'].'</span>' : '').'</div>' : '<div class="alert alert-danger" role="alert"><i class="fas fa-upload"></i> Outdated '.Utils::checkVersion()[1].(Users::isProVersion() ? ' <span class="badge bg-danger probadeg">'.$lang['pro'].'</span>' : '').'</div>');
 	$out.='</div>';
 	$out.='<textarea class="form-control mb-2 wpnotes" oninput="saveNotes();" style="height: 130px;"></textarea>';
       $out.= '  <ul class="list-group list-group-flush">
@@ -238,7 +238,7 @@ $out.='</div>';
 	</div>
 	<div class="row">
 	<div class="col">
-	<p class="card-text">'.$lang['dashboard.profile.created'].$d[$info]['created'].'</p>
+	<p class="card-text">'.$lang['dashboard.profile.created'].Utils::toDate(explode('+',$d[$info]['created'])[0].' '.explode('+',$d[$info]['created'])[1], $conf['page']['dateFormat']).'</p>
 	</div>
 	<div class="col">
 	<p class="card-text">'.$lang['dashboard.profile.email'].$d[$info]['email'].'</p>
@@ -292,7 +292,7 @@ $out.='</div>';
 	<div class="col">'.$lang['dashboard.profile.topics'].Forum::usersData((isset($_GET['name']) ? $_GET['name'] : $_SESSION['user']), 'topics').'</div>
 	<div class="col">'.$lang['dashboard.profile.replys'].Forum::usersData((isset($_GET['name']) ? $_GET['name'] : $_SESSION['user']), 'replys').'</div>
 	</div>
-	'.Plugin::hook('profile').'
+	<div class="row">'.Plugin::hook('profile').'</div>
 	</div>
     
     
@@ -436,7 +436,7 @@ Utils::isPost('removedAvatar', false, function(){
 		$theme = Files::removeExtension($themes);
 		$dbtheme = WebDB::getDB('themes', $theme.'/theme','.conf.json');
 		if($dbtheme['active']){
-		$out.='<option'.($themes===$conf['page']['themes'] ? ' selected="selected"' : '').' value="'.$themes.'">'.$themes.'</option>';
+		$out.='<option'.($themes===$conf['page']['themes'] ? ' selected="selected"' : '').' value="'.$themes.'" '.($themes==='default' ? 'style="background-color:lightgray;"' : '').'>'.$dbtheme['name'][Users::getLang()].'</option>';
 		}
 	}
 	$out.='
@@ -494,6 +494,18 @@ Utils::isPost('removedAvatar', false, function(){
 	<div class="input-group">
 	<label class="input-group-text">themes/</label>
 	<input type="text" name="icon512" class="form-control" value="'.str_replace('themes/','',$conf['page']['page-icon']['512']).'"/>
+	</div>
+	</div>
+	<div class="row">
+	<div class="col">
+	<h4>'.$lang['dashboard.config.panel.index'].'</h4>
+	<select name="defaultIndex" class="form-control">';
+	foreach(Files::Scan(ROOT.'pages'.DS) as $files){
+		if(is_file(ROOT.'pages'.DS.$files)){
+			$out.='<option '.(Files::removeExtension($files, '.html')===$conf['page']['index'] ? 'selected="selected"' : '').' value="'.Files::removeExtension($files, '.html').'">'.$files.'</option>';
+		}
+	}
+	$out.='</select>
 	</div>
 	</div>
 	</div>';
@@ -644,6 +656,7 @@ Utils::isPost('removedAvatar', false, function(){
 		$replyAmount = isset($_POST['displayReplyAmount'])&&$_POST['displayReplyAmount']>1 ? (int) $_POST['displayReplyAmount'] : $conf['forum']['maxReplyDisplay'];
 		$themes = isset($_POST['themes']) ? $_POST['themes'] : $conf['page']['themes'];
 		$timeZone = isset($_POST['defaultTimeZone'])&&$_POST['defaultTimeZone']!=='' ? $_POST['defaultTimeZone'] : $conf['page']['defaultTimeZone'];
+		$dI = isset($_POST['defaultIndex']) ? $_POST['defaultIndex'] : $conf['page']['index'];
 		
 		$d['page']['errors']['400'] = $e400;
 		$d['page']['errors']['401'] = $e401;
@@ -684,6 +697,7 @@ Utils::isPost('removedAvatar', false, function(){
 		$d['forum']['maxTopicDisplay'] = $topicAmount;
 		$d['forum']['maxReplyDisplay'] = $replyAmount;
 		$d['page']['defaultTimeZone'] = $timeZone;
+		$d['page']['index'] = $dI;
 		
 		WebDB::saveDB('CONFIG', 'config', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/configs', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/config', 'danger');
 	});
@@ -695,6 +709,12 @@ Utils::isPost('removedAvatar', false, function(){
 	
 	$out.='</div>';
 }elseif(preg_match('/\/dashboard(?:\.php)\/themes/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('activeThemes')){
+	$listThemes = array();
+	$tplot='';
+	$p = isset($_GET['p']) ? $_GET['p'] : 1;
+	$nb = $conf['themesDisplayAmount'];
+	$coun=0;
+
 	$out.='<ul class="list-group list-group-flush list-group-horizontal">';
 foreach(Files::Scan(DATA_THEMES) as $themes){
 	if(!file_exists(ROOT.'themes'.DS.$themes.DS.'theme.conf.json')){
@@ -715,7 +735,7 @@ foreach(Files::Scan(DATA_THEMES) as $themes){
 			}
 		}
 		}
-		$out.='<li class="list-group-item"><div class="card h-100 text-bg-secondary theme '.($themeConfig['active']!=='' ? 'theme-active' : '').'" style="width:18rem;">
+		$tplot='<li class="list-group-item"><div class="card h-100 text-bg-secondary theme '.($themeConfig['active']!=='' ? 'theme-active' : '').'" style="width:18rem;">
 <div class="card-header text-center h3">
 '.(isset($themeConfig['name'][Users::getLang()]) ? $themeConfig['name'][Users::getLang()] : '<div class="alert alert-danger">'.$lang['theme.error.missingName'].'</div>').'
 </div>
@@ -730,9 +750,15 @@ foreach(Files::Scan(DATA_THEMES) as $themes){
 '.($themes==='default'&&!$themeConfig['options']['canDisabled'] ? '</div>' : '').'
 </div>
 </div></li>';
+$listThemes[] = $tplot;
 	}
+		
+}
+for($i=0;$i<count(array_slice($listThemes, $nb*($p-1), $nb));$i++){
+	$out.=array_slice($listThemes, $nb*($p-1), $nb)[$i];
 }
 $out.='</ul>';
+$out.= Paginate::pageLink(Paginate::pid($conf['themesDisplayAmount']), Paginate::countPage(Files::Scan(DATA_THEMES), $conf['themesDisplayAmount']), './themes?');
 }elseif(preg_match('/\/dashboard(?:\.php)\/plugins/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('activePlugins')){
 $out.='<ul class="list-group list-group-flush list-group-horizontal">';
 $listPlugins = array();
@@ -759,7 +785,8 @@ foreach(Files::Scan(ROOT.'plugins') as $plugins){
 		}
 		$plout='<li class="list-group-item"><div class="card h-100 text-bg-secondary plugin '.($pluginsConfig['active']!=='' ? 'plugin-active' : '').'" style="width:18rem;">
 <div class="card-header text-center h3">
-'.(isset($lang[$plugins.'_name']) ? $lang[$plugins.'_name'] . ' <h6><small class="badge bg-primary">v'.$pluginsConfig['version'].'</small></h6>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingName'].'</div>').'
+'.(isset($lang[$plugins.'_name']) ? $lang[$plugins.'_name'] . ' <h6><small data-bs-toggle="tooltip" data-bs-placement="top" title="'.(isset($lang[$plugins.'_updated']) ? $lang['plugins.pluginUpdated'].$lang[$plugins.'_updated'] : '').'" class="badge bg-primary">v'.$pluginsConfig['version'].'</small></h6>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingName'].'</div>').'
+'.(isset($lang[$plugins.'_author']) ? '<a target="_blank" '.(isset($lang[$plugins.'_homepage']) ? 'href="'.$lang[$plugins.'_homepage'].'"' : '').'><small class="badge'.(isset($lang[$plugins.'_homepage']) ? ' link-primary' : '').'">'.$lang[$plugins.'_author'].'</small></a>' : '').'
 </div>
 <div class="card-body text-bg-primary overflow-auto">
 '.(isset($lang[$plugins.'_desc']) ? '<div style="overflow:auto;height:26%;">'.$lang[$plugins.'_desc'].'</div>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingDesc'].'</div>').'
@@ -959,7 +986,7 @@ $out.='<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false
 		<div class="col">
 		 <label class="form-label" for="toemail">'.$lang['contact.emailto'].'</label>
 	 <div class="autocomplete">
-	 <input type="text" required="required" placeholder="'.$lang['contact.emailto.placeholder'].'" class="form-control" id="toemail" name="toemail"/>
+	 <input type="text" '.(isset($_GET['to']) ? 'value="'.$_GET['to'].'"' : '').' required="required" placeholder="'.$lang['contact.emailto.placeholder'].'" class="form-control" id="toemail" name="toemail"/>
 	  </div>
 	  <small class="text-muted form-text">'.$lang['contact.to.example'].'</small>
 		</div>';
@@ -1882,7 +1909,7 @@ if(isset($_POST['saveFile'])){
 
 	
 }elseif(preg_match('/\/dashboard(?:\.php)\/(view|view\/)/', $_SERVER['REQUEST_URI'])){
-	$out .= Plugin::useHook('view', $_GET['plugin']);
+	$out .= Plugin::useHook('view', $_GET['plugins']);
 }elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('events')){
 	$out.='<div class="h-50" style="overflow:auto;"><table class="table">
 	<thead class="position-sticky top-0">

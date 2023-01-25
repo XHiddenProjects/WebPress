@@ -1,5 +1,6 @@
 {
     "page": {
+        "index": "test",
         "page-title": "Demo",
         "page-icon": {
             "16": "themes/default/images/16x16.png",
@@ -65,6 +66,7 @@
         "maxReplyDisplay": 5
     },
     "pluginDisplayAmount": 4,
+    "themesDisplayAmount": 4,
     "uploads": {
         "maxSize": 500000,
         "extentions": [
@@ -90,7 +92,7 @@
     "bootstrap": {
         "cssurl": "assets/bootstrap/{version}/css/bootstrap.min.css",
         "jsurl": "assets/bootstrap/{version}/js/bootstrap.bundle.min.js",
-        "version": "5.2.3"
+        "version": "5.3.0"
     },
     "fontawesome": {
         "cssurl": "assets/fontawesome/{version}/css/all.min.css",

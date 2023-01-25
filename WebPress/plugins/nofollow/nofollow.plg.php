@@ -2,7 +2,7 @@
 function nofollow_install(){
 		$out = '';
 	$plugin = 'nofollow';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 	'active'=>'',
@@ -14,7 +14,7 @@ $data = array(
 	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
 	)
 	);
-	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	return $out;
 }
 function nofollow_footerJS(){

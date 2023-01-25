@@ -140,6 +140,7 @@ Voici une liste des crochets disponibles :
 | avantPage | `noyau` | exécute le code avant le chargement de la page |
 | aprèsPage | `noyau` | exécutecode après le chargement de la page |
 | répondreBas | `noyau` | s'affiche en bas du message de réponse |
+| initialisation | `noyau` | s'exécute avant que tout ne soit chargé |
 
 ### [Bannis](./docs#bans) {#bans}
 

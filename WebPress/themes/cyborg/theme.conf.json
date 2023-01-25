@@ -1,0 +1,24 @@
+{
+    "name": {
+        "en": "Cyborg",
+        "de": "Cyborg",
+        "it": "Cyborg",
+        "fr": "Cyborg"
+    },
+    "active": "on",
+    "desc": {
+        "en": "Jet black and electric blue",
+        "de": "Tiefschwarz und elektrisches Blau",
+        "it": "Nero corvino e blu elettrico",
+        "fr": "Noir de jais et bleu électrique"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR"
+        ]
+    }
+}

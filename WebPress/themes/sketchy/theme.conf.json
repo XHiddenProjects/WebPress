@@ -1,0 +1,24 @@
+{
+    "name": {
+        "en": "Sketchy",
+        "de": "Skizzenhaft",
+        "it": "Abbozzato",
+        "fr": "Vague"
+    },
+    "active": "on",
+    "desc": {
+        "en": "A hand-drawn look for mockups and mirth",
+        "de": "Ein handgezeichneter Look für Modelle und Heiterkeit",
+        "it": "Un look disegnato a mano per mockup e allegria",
+        "fr": "Un look dessiné à la main pour les maquettes et la gaieté"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR"
+        ]
+    }
+}

@@ -31,29 +31,43 @@ public static function ipInfo($ip, $sel, $msg=''){
 	return $msg;
 }
 public static function isProVersion(){
-	return file_exists(ROOT.'webpressPro') ? file_get_contents(ROOT.'webpressPro') : false;
+	return file_exists(ROOT.'webpress.pro.php')&&WEBPRESSPRO ? true : false;
 }
 public static function getSession(){
 	return isset($_SESSION['user'])&&WebDB::getDB('users', 'users') ? $_SESSION['user'] : false;
 }
 public static function isAdmin(){
-	if(isset($_SESSION['user']) ){
+	if(isset($_SESSION['user']))
 		return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']==='admin' ? true : false;
-}
+	else
+		return false;
+		
 	}
 	
 public static function isMod(){
-	return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']==='mod' ? true : false;
+		if(isset($_SESSION['user']))
+			return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']==='mod' ? true : false;
+		else
+			return false;
 }
 public static function isMember(){
-	return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']==='member' ? true : false;
+	if(isset($_SESSION['user']))
+		return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']==='member' ? true : false;
+	else
+		return false;
 }
 public static function isGuest(){
-	return isset($_SESSION['guest']) ? true : false;
+	if(isset($_SESSION['user']))
+		return isset($_SESSION['guest']) ? true : false;
+	else
+		return false;
 }
 # Custom roles
 public static function isRole($role){
-	return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']===$role ? true : false;
+	if(isset($_SESSION['user']))
+		return WebDB::getDB('users', 'users')[(isset($_SESSION['user']) ? $_SESSION['user'] : '')]['type']===$role ? true : false;
+	else
+		return false;
 }
 public static function hasPermission($access){
 	$roles = json_decode(file_get_contents(ROOT.'ROLES.json'), true);

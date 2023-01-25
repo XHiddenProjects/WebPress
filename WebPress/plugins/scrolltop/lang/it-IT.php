@@ -2,6 +2,9 @@
 $plugin='scrolltop';
 $lang[$plugin.'_name'] = 'Scorrere verso l`alto';
 $lang[$plugin.'_desc'] = 'Scorri verso l`alto con i pulsanti personalizzati';
+$lang[$plugin.'_author'] = 'SurveyBuilderTeams';
+$lang[$plugin.'_updated'] = '01-07-2023';
+$lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
 $lang[$plugin.'_submit'] = 'Invia';
 $lang['up-arrow.png']='freccia-su';
 $lang['up-arrow10.png']='freccia-su10';

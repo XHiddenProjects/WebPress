@@ -2,7 +2,7 @@
 function online_install(){
 		$out = '';
 	$plugin = 'online';
-	!WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::makeDB('PLUGINS', $plugin.'/plugin') : 'You cannot make folder';
+	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
 	'active'=>'',
@@ -16,11 +16,11 @@ $data = array(
 	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
 	)
 	);
-	$out.= WebDB::saveDB('Plugins', $plugin.'/plugin', $data) ? '' : 'Error';
+	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	WebDB::makeDB('plugins', $plugin.'/online_hit');
 	$online=array();
 	$online[Users::getRealIP()] = time();
-	$out.= WebDB::saveDB('Plugins', $plugin.'/online_hit', $online) ? '' : 'Error';
+	$out.= WebDB::saveDB('plugins', $plugin.'/online_hit', $online) ? '' : 'Error';
 	return $out; 
 }
 function online_config(){
@@ -29,7 +29,7 @@ function online_config(){
 	$plugin = 'online';
 	$color = array('primary'=>$lang['blue'], 'secondary'=>$lang['gray'], 'success'=>$lang['green'], 'warning'=>$lang['yellow'], 'danger'=>$lang['red'], 'dark'=>$lang['black'], 'light'=>$lang['white']);
 	$display =   $display = array('icon'=> $lang['icon'], 'text'=> $lang['text']);
-	$d = WebDB::dbExists('Plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
+	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 			$type = array('success'=>'success', 'warning'=>'warning', 'info'=>'info', 'danger'=>'danger', 'dark'=>'dark', 'light'=>'light');
 			$out.=HTMLForm::form(CONFIG_SAVE.$plugin.'', '<div class="row">
 		<div class="col w-100">

@@ -20,7 +20,7 @@ if(isset($_SESSION['guest'])){
 	echo '<div class="alert alert-warning m-0">'.$lang['expect.guest'].'</div>';
 }
 ?>
-<?php echo Plugin::hook('beforePage'); ?>
+
 <header>
 <nav class="navbar navbar-expand-lg bg-secondary">
  <div class="container-fluid">
@@ -56,25 +56,14 @@ if(isset($_SESSION['guest'])){
 </nav>
 </header>
 <!--Write contents below here-->
-<h1 class="text-center">Welcome to WebPress an CMS and a forum script</h1>
-<iframe src="./forum" id="forumFrame" style="width:100%;height:100%;"></iframe>
+<iframe class="baseFrame" src="./page.php/<?php echo $conf['page']['index'];?>" style="border:0;width:100%;height:69.8%;"></iframe>
 <script>
-window.addEventListener('load', function(){
-  var x = document.getElementById("forumFrame");
+window.addEventListener('load',function(){
+	 var x = document.querySelector(".baseFrame");
   var y = (x.contentWindow || x.contentDocument);
   if (y.document)y = y.document;
-  y.body.querySelector('footer').style.display='none';
-  y.body.querySelector('.frameOpt').innerHTML = '<div class="text-bg-secondary p-5"><div class="text-center"><?php echo $lang['posting_frame']?></div><a onclick="javascript:window.open(\'./forum\', \'_top\');"><button class="btn btn-primary w-100 btn-lg"><i class="fa-solid fa-arrow-up-right-from-square"></i></button></a></div>';
-  if(y.body.querySelector('.loginbtn')){
-	  y.body.querySelector('.loginbtn').style.display='none';
-  }
-  let links = y.body.querySelectorAll('[href]');
-  for(let i=0;i<links.length;i++){
-	  links[i].removeAttribute('href');
-  }
-  y.body.querySelector('[role="search"]').setAttribute('style','display:none!important;');
+  y.body.querySelector('footer').style.display = 'none';
 });
-
 
 </script>
 <?php

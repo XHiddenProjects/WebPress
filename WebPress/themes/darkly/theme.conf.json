@@ -1,0 +1,24 @@
+{
+    "name": {
+        "en": "Darkly",
+        "de": "Dunkel",
+        "it": "Oscuramente",
+        "fr": "Obscurément"
+    },
+    "active": "on",
+    "desc": {
+        "en": "Flatly in night mode",
+        "de": "Rundum im Nachtmodus",
+        "it": "Assolutamente in modalità notturna",
+        "fr": "Carrément en mode nuit"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR"
+        ]
+    }
+}
