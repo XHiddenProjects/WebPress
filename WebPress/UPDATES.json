@@ -376,6 +376,23 @@
                     "type": "info"
 				}
             ]
+        },
+        "2.1.1": {
+            "textsets": [
+                {
+                    "text": "Version 2.1.1 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+                {
+                    "text": "Fixed Navbar for mobile",
+                    "icon": "fa-solid fa-wrench",
+                    "tag": "fixed",
+                    "show": true,
+                    "type": "info"
+                }
+            ]
         }
     },
     "needsAttation": false
