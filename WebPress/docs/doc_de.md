@@ -125,22 +125,26 @@ Der öffentliche Schlüssel ermöglicht Ihnen Plugins und Themen für Benutzerin
 
 Mit Hooks können Sie alle Arten von WebPress-Ereignissen abfangen, um Ihren eigenen Code einzufügen.
 
-Hier ist eine Liste der verfügbaren Haken:
+Hier ist eine Liste der verfügbaren Haken: **(Verwenden Sie die englische Übersetzung für `function_name`)**
 
 | Haken | ausführen in | Hinweis |
 | ---- | ---------- | ---- |
-| Profil | `Themen` | wird auf der Profilseite angezeigt |
-| edit_profil | `Themen` | im Profileditor bearbeiten |
-| Kopf | `Themen` | wird im __head__-Tag | ausgeführt
-| Navi | `Themen` | wird in der Navigationsleiste angezeigt |
-| Herausgeber | `Themen` | wird in der Editorleiste angezeigt |
-| FußzeileJS | `Themen` | Führt Code in der Fußzeile aus (als __Javascript__) |
-| Fußzeile | `Themen` | Führt Code in der Fußzeile aus |
-| Datenbankliste | `Kern` | wird in den Listen des Dashboards angezeigt |
-| vorSeite | `Kern` | führt Code vor dem Laden der Seite aus |
-| nachSeite | `Kern` | Exekutivenutzt den Code nach dem Laden der Seite |
-| antwortenUnten | `Kern` | wird unten in der Antwortnachricht angezeigt |
-| initiieren | `Kern` | wird ausgeführt, bevor alles geladen wird |
+| Profile | `Themen` | wird auf der Profilseite angezeigt |
+| edit_profile | `Themen` | im Profileditor bearbeiten |
+| head | `Themen` | wird im __head__-Tag | ausgeführt
+| nav | `Themen` | wird in der Navigationsleiste angezeigt |
+| editor | `Themen` | wird in der Editorleiste angezeigt |
+| footerJS | `Themen` | Führt Code in der Fußzeile aus (als __Javascript__) |
+| footer | `Themen` | Führt Code in der Fußzeile aus |
+| dblist | `Kern` | wird in den Listen des Dashboards angezeigt |
+| beforePage | `Kern` | führt Code vor dem Laden der Seite aus |
+| afterPage | `Kern` | Exekutivenutzt den Code nach dem Laden der Seite |
+| replyBottom | `Kern` | wird unten in der Antwortnachricht angezeigt |
+| init | `Kern` | wird ausgeführt, bevor alles geladen wird |
+| profileCards_box | `Forum` | wird im Feld "Profilkarte" | angezeigt
+| profileCards_btn | `Forum` | wird in der Schaltflächengruppe "Profilkarte" | angezeigt
+| beforeMsg | `Forum` | wird angezeigt, bevor die Nachricht geladen wird |
+| afterMsg | `Forum` | wird angezeigt, nachdem die Nachricht geladen wurde |
 
 ### [Verbote](./docs#Verbote) {#Verbote}
 
@@ -199,8 +203,8 @@ Erlaubte Selektoren:
 Themen lassen die Software so aussehen, wie sie aussieht, sie ist einfach einzurichten und konfigurierbar.
 
 So richten Sie es ein.
-1. Kopieren Sie den Ordner „Default“ in den _theme-Ordner_ (dies ist erforderlich, da die meisten Ordner dafür benötigt werden).
-2. Gehen Sie zu „theme.conf.json“ und ändern Sie alles, was geändert werden muss.
+1. Kopieren Sie den Ordner `Default` in den _theme-Ordner_ (dies ist erforderlich, da die meisten Ordner dafür benötigt werden).
+2. Gehen Sie zu `theme.conf.json` und ändern Sie alles, was geändert werden muss.
 3. Viel Spaß, beginnen Sie mit dem Platzieren von CSS/JS-Codes in Ihrem Ordner und gestalten Sie Ihre Seite.
 
 ### [Richtlinien](./docs#policy) {#policy}
@@ -208,7 +212,7 @@ So richten Sie es ein.
 
 ##### WebPress - Richtlinie
 
-Willkommen bei WebPress, einem kostenlosen Open-Source- und selbsthostenden CMS und Forum-Skript. Als Entwickler (ich selbst) macht es Spaß, Software zu entwickeln, die jeder verwenden kann, und die Daten fair zu nutzen, da dies als _Social Media_-Plattform klassifiziert wird, kann ich Ihnen sagen, dass Social Media mit missbräuchlichen Idealen außer Kontrolle geraten ist und nicht aktuell Mäßigung. Auch wenn Sie auf diese Weise sagen können, was Sie möchten, werde ich einspringen, um eine **_Second-Hand-Moderation_** zu sein. Weiterlesen...
+Willkommen bei WebPress, einem kostenlosen Open-Source- und selbsthostenden CMS und Forum-Skript. Als Entwickler (ich selbst) macht es Spaß, Software zu entwickeln, die jeder verwenden kann, und die Daten fair zu nutzen, da dies als _Social Media_-Plattform klassifiziert wird, kann ich Ihnen sagen, dass Social Media mit missbräuchlicher Macht und nicht angemessen aus dem Ruder gelaufen ist moderieren. Auch wenn Sie auf diese Weise sagen können, was Sie möchten, werde ich einspringen, um eine **_Second-Hand-Moderation_** zu sein. Weiterlesen...
 
   
 
@@ -239,7 +243,7 @@ Willkommen bei WebPress, einem kostenlosen Open-Source- und selbsthostenden CMS 
 
 #### Verwaltung
 
-All diese Regeln beziehen sich auch auf Sie, nicht nur auf Ihre _Kunden_. Ihre _Kunden_ können Ihr Konto melden und werden von [surveybuilderteams](#) entschieden. Ihre Bestrafung kann eine _Kontolöschung_ sein. SurveyBuilderTeams toleriert nichts **Kinderschutz** oder falsche Sperren **OHNE** und eine angemessene Erklärung.
+Alle diese Regeln beziehen sich auch auf Sie, nicht nur auf Ihre _Kunden_. Ihre _Kunden_ können Ihr Konto melden und werden von [surveybuilderteams](#) entschieden. Ihre Bestrafung kann eine _Kontolöschung_ sein. SurveyBuilderTeams hat 0 Toleranz gegenüber allem **Mangelnder Kinderschutz** oder falscher Sperrung **OHNE** und angemessener Erklärung.
 
   
 
@@ -256,11 +260,11 @@ An der Seite Ihres Bildschirms wird eine Chat-Leiste angezeigt. Füllen Sie die 
 Wenn Sie den Link zur Quelle des Banns anfordern, müssen die Administratoren **ERFORDERLICH** diesen angeben, andernfalls würde das Urteil aufgehoben und der Bann aufgehoben, da der Administrator keinen Beweis erbracht hat.
 **Hinweis:** Manipulieren Sie _KEINE_ Beweise bei der Überprüfung, dies ist überprüfbar und kann bestraft werden.
 
-  
-
 Wenn Sie Fragen haben, stellen Sie sie in den [Diskussionen](https://github.com/surveybuilderteams/WebPress/discussions/2) auf github.
 
 ### Medien
 Like auf [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Upvote auf [producthunt](https://www.producthunt.com/posts/webpress)
+
+Zusammenarbeiten [Github](https://github.com/SurveyBuilderTeams/WebPress)

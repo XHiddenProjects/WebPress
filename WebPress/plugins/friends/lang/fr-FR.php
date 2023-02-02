@@ -17,10 +17,11 @@ $lang[$plugin.'norequest'] = 'Désolé, il n\'y a pas de requête. Veuillez en d
 $lang[$plugin.'noblocked'] = 'Aucun utilisateur n\'est bloqué';
 $lang[$plugin.'addUser'] = 'Ajouter un utilisateur';
 $lang[$plugin.'usernotfound'] = 'Désolé, le nom d\'utilisateur n\'existe pas !';
-$lang[$plugin.'userfound'] = ['Demande d'ami envoyée avec succès à ', 'Cette demande durera jusqu'à 5 jours'];
+$lang[$plugin.'userfound'] = ['Demande d`ami envoyée avec succès à ', 'Cette demande durera jusqu`à 5 jours'];
 $lang[$plugin.'requestbusy'] = 'les requêtes sont occupées en ce moment, veuillez réessayer plus tard !';
 $lang[$plugin.'friendexists'] = 'est déjà ami avec vous !';
 $lang[$plugin.'_blockUserLabel'] = 'Bloquer l`utilisateur';
 $lang[$plugin.'usersInRequest'] = 'Impossible de bloquer, vous avez envoyé une requête à cet utilisateur.';
 $lang[$plugin.'successBan'] = 'Bloqué avec succès ';
+$lang[$plugin.'selffriend'] = 'Vous ne pouvez pas vous ami!';
 ?>

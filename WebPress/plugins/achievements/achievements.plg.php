@@ -8,7 +8,7 @@ $data = array(
 'active'=>'',
 'version'=>'1.2.2', 
 'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN), 
-'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
+'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	'users'=>array()
@@ -20,7 +20,7 @@ function achievements_dblist(){
 	global $lang, $BASEPATH;
 		$out = '';
 	$plugin = 'achievements';
-	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::GetDB('plugins', $plugin.'/plugin') : '';
+	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::GetDB('plugins', $plugin.'/plugin') : ['active'=>''];
 
 	if($d['active']){
 				$out.='<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/view?plugins='.$plugin.'">'.$lang[$plugin.'_listItem'].'</a>';
@@ -105,7 +105,7 @@ function achievements_beforePage(){
 	global $lang, $BASEPATH, $session;
 		$out = '';
 	$plugin = 'achievements';
-	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::GetDB('plugins', $plugin.'/plugin') : '';
+	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::GetDB('plugins', $plugin.'/plugin') : ['active'=>''];
 	if($d['active']&&isset($session)&&$session!==''){
 		if(!isset($d['config']['users'][$session])){
 			$d['config']['users'][$session][] = 'first_timer';
@@ -128,7 +128,7 @@ function achievements_profile(){
 	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::GetDB('plugins', $plugin.'/plugin') : '';
 	if($d['active']){
 		$out.='<div class="col">
-			<a href="./view?plugins=achievements'.(isset($_GET['name']) ? '?user='.$_GET['name']: '').'"><button type="button" class="btn btn-warning">'.$lang[$plugin.'_name'].'<span class="badge bg-secondary ms-1 rounded">'.(isset($_GET['name']) ? count($d['config']['users'][$_GET['name']]) : count($d['config']['users'][$session])).'</span></button></a>
+			<a href="./view?plugins=achievements'.(isset($_GET['name']) ? '&user='.$_GET['name']: '').'"><button type="button" class="btn btn-warning">'.$lang[$plugin.'_name'].'<span class="badge bg-secondary ms-1 rounded">'.(isset($_GET['name']) ? count($d['config']['users'][$_GET['name']]) : count($d['config']['users'][$session])).'</span></button></a>
 			</div>';
 	}
 	return $out;

@@ -8,7 +8,7 @@ $data = array(
 'active'=>'',
 'version'=>'2.0.0', 
 'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN), 
-'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
+'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
 	'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 	'allow'=>'administrator'
@@ -459,7 +459,7 @@ function calendar_beforePage(){
 	global $lang;
 	$out='';
 	$plugin='calendar';
-	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
+	$d = WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : ['active'=>''];
 	if($d['active']){
 	$events = WebDB::dbExists('plugins', $plugin.'/events') ? WebDB::getDB('plugins', $plugin.'/events') : '';	
 	foreach($events['events'] as $e=>$info){

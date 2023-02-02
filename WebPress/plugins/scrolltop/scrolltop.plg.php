@@ -5,10 +5,10 @@ function scrolltop_install(){
 	!WebDB::dbExists('plugins', $plugin.'/plugin') ? WebDB::makeDB('plugins', $plugin.'/plugin') : 'You cannot make folder';
 
 $data = array(
-'active'=>'on',
+'active'=>'',
 'version'=>'1.1.0', 
 'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN), 
-'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
+'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
 	'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 	'design'=>'up-arrow'

@@ -465,3 +465,80 @@ input[type=text] {
     50% {box-shadow: 0px 0px 13px rgba(8, 252, 180, 0.75);}
     100% {box-shadow: 0px 0px 5px rgba(8, 252, 180, 0.75);}
 }
+.infocard{
+	position:absolute;
+	left: calc(0px + 8.3%);
+    top: calc(0px - 50px);
+	height:70%;
+	overflow:auto;
+	display:none;
+	width:340px;
+	z-index:100;
+}
+.replyBox .infocard{
+	left: calc(0px + 18%)!important;
+    top: calc(0px + 50px)!important;
+}
+.infocard .box{
+			box-sizing: border-box;
+		width: 120px;
+		height: 72px;
+		background: #F5E8DF;
+		text-align: center;
+		padding-top: 28px;
+		transition: all .4s ease-in-out;	
+}
+.infocard .box:hover{
+		background: #E1CFC2;
+			cursor: pointer;
+}
+.infocard .box:nth-child(2) {
+	margin: 1px 0;
+}
+.infocard .box span{
+	display:block;
+	position:relative;
+	top:0%;
+	transform:translateY(-50%);
+}
+.stats {
+	float: left;
+}
+.infocard .box span.value{
+	font-size: 18px;
+		font-weight: 600;
+}
+.infocard .box span.parameter{
+	font-size: 11px;
+}
+blockquote {
+    display: block;
+    background: #fff;
+    padding: 15px 20px 15px 45px;
+    margin: 0 0 20px;
+    position: relative;
+    font-family: Georgia,serif;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #666;
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
+    border-left-style: solid;
+    border-left-width: 15px;
+    border-right-style: solid;
+    border-right-width: 2px;
+}
+blockquote::before {
+    content: "\201C";
+    font-family: Georgia,serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: #999;
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+blockquote::after {
+    content: "";
+}

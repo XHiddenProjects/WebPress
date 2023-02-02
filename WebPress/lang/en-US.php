@@ -4,7 +4,8 @@ $lang = array(
 'en-US'=>'English',
 'de-DE'=>'Deutsch',
 'it-IT'=>'Italiano',
-'fr-FR'=>'Français'
+'fr-FR'=>'Français',
+'zh-CN'=>'中國人(傳統的)'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Authorization',
@@ -291,6 +292,7 @@ $lang = array(
 'plugin.error.missingDesc'=>'Missing Description',
 'plugin.allow.lang'=>'Allowed Languages: ',
 'plugin.allow.lang.null'=>'Undefined',
+'plugin.pluginUpdated'=>'Last Updated: ',
 #Debug
 'debug.off'=>'<a href="./configs">Debug</a> is off, you can no longer log any feature errors.',
 # contact
@@ -560,7 +562,7 @@ $lang = array(
 'blocks.class.prompt'=>'Enter Class, type &quote;cancel&quote; to cancel, otherwise it will remove Class',
 'blocks.href'=>'<i class="fa-solid fa-link"></i> Insert Link',
 'blocks.href.prompt'=>'Enter Link, type &quote;cancel&quote; to cancel, otherwise it will remove Link',
-'blocks.hrefTar.prompt'=>'Enter target:\n1. self\n2. blank\n3. parnet\n4. top',
+'blocks.hrefTar.prompt'=>'Enter target:\n1. self\n2. blank\n3. parent\n4. top',
 'blocks.RemHref'=>'<i class="fa-solid fa-link-slash"></i> Remove Link',
 'blocks.Bold'=>'<i class="fa-solid fa-bold"></i> Bold',
 'blocks.Italic'=>'<i class="fa-solid fa-italic"></i> Italic',
@@ -684,8 +686,6 @@ $lang = array(
 'animate.swirl.bottom'=>'Swirl(Bottom)',
 'animate.swirl.left'=>'Swirl(Left)',
 'animate.swirl.right'=>'Swirl(Right)',
-'animate.swirl.top'=>'Swirl(Top)',
-#plugins
-'plugins.pluginUpdated'=>'Last Updated: '
+'animate.swirl.top'=>'Swirl(Top)'
 );
 ?>

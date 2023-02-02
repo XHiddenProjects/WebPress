@@ -393,6 +393,44 @@
                     "type": "info"
                 }
             ]
+        },
+        "2.1.2": {
+            "textsets": [
+                {
+                    "text": "Version 2.1.2 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+                {
+                    "text": "New Plugin",
+                    "icon": "fa-solid fa-puzzle-piece",
+                    "tag": "plugins",
+                    "show": true,
+                    "type": "info"
+                },
+				{
+                    "text": "Fixed Replies boxes",
+                    "icon": "fa-solid fa-comment",
+                    "tag": "themes",
+                    "show": true,
+                    "type": "warning"
+                },
+				{
+                    "text": "Remove themes",
+                    "icon": "fa-solid fa-images",
+                    "tag": "themes",
+                    "show": true,
+                    "type": "danger"
+                },
+				{
+                    "text": "Fixed Bugs/Glitches",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "themes",
+                    "show": true,
+                    "type": "warning"
+                }
+            ]
         }
     },
     "needsAttation": false

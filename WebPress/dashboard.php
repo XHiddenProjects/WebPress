@@ -436,7 +436,10 @@ Utils::isPost('removedAvatar', false, function(){
 		$theme = Files::removeExtension($themes);
 		$dbtheme = WebDB::getDB('themes', $theme.'/theme','.conf.json');
 		if($dbtheme['active']){
-		$out.='<option'.($themes===$conf['page']['themes'] ? ' selected="selected"' : '').' value="'.$themes.'" '.($themes==='default' ? 'style="background-color:lightgray;"' : '').'>'.$dbtheme['name'][Users::getLang()].'</option>';
+		$out.='<option'.($themes===$conf['page']['themes'] ? ' selected="selected"' : '').
+		' value="'.$themes.'" '.
+		($themes==='default' ? 'style="background-color:lightgray;"' : '').
+		'>'.$dbtheme['name'][Users::getLang()].'</option>';
 		}
 	}
 	$out.='
@@ -785,7 +788,7 @@ foreach(Files::Scan(ROOT.'plugins') as $plugins){
 		}
 		$plout='<li class="list-group-item"><div class="card h-100 text-bg-secondary plugin '.($pluginsConfig['active']!=='' ? 'plugin-active' : '').'" style="width:18rem;">
 <div class="card-header text-center h3">
-'.(isset($lang[$plugins.'_name']) ? $lang[$plugins.'_name'] . ' <h6><small data-bs-toggle="tooltip" data-bs-placement="top" title="'.(isset($lang[$plugins.'_updated']) ? $lang['plugins.pluginUpdated'].$lang[$plugins.'_updated'] : '').'" class="badge bg-primary">v'.$pluginsConfig['version'].'</small></h6>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingName'].'</div>').'
+'.(isset($lang[$plugins.'_name']) ? $lang[$plugins.'_name'] . ' <h6><small data-bs-toggle="tooltip" data-bs-placement="top" title="'.(isset($lang[$plugins.'_updated']) ? $lang['plugin.pluginUpdated'].$lang[$plugins.'_updated'] : '').'" class="badge bg-primary">v'.$pluginsConfig['version'].'</small></h6>' : '<div class="alert alert-danger">'.$lang['plugin.error.missingName'].'</div>').'
 '.(isset($lang[$plugins.'_author']) ? '<a target="_blank" '.(isset($lang[$plugins.'_homepage']) ? 'href="'.$lang[$plugins.'_homepage'].'"' : '').'><small class="badge'.(isset($lang[$plugins.'_homepage']) ? ' link-primary' : '').'">'.$lang[$plugins.'_author'].'</small></a>' : '').'
 </div>
 <div class="card-body text-bg-primary overflow-auto">

@@ -8,7 +8,7 @@ $data = array(
 'active'=>'on',
 'version'=>'1.2.1', 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
-'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
+'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN)
 ));

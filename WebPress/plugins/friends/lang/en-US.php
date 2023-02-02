@@ -23,4 +23,5 @@ $lang[$plugin.'friendexists'] = 'is already friends with you!';
 $lang[$plugin.'_blockUserLabel'] = 'Block User';
 $lang[$plugin.'usersInRequest'] = 'Cannot block, you have sent a request to this user.';
 $lang[$plugin.'successBan'] = 'Successfully blocked ';
+$lang[$plugin.'selffriend'] = 'You cannot friend yourself!';
 ?>

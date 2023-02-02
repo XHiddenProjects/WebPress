@@ -125,22 +125,26 @@ La chiave pubblica consente plug-in e temi per le informazioni dell'utente.
 
 Con gli hook puoi intercettare tutti i tipi di eventi WebPress per iniettare il tuo codice.
 
-Ecco un elenco di ganci disponibili:
+Ecco un elenco di ganci disponibili: **(Utilizzare la traduzione inglese per `nome_funzione`)**
 
 | gancio | eseguire in | nota |
 | ---- | ---------- | ---- |
-| Profilo | `temi` | viene visualizzato nella pagina del profilo |
-| modifica_profilo | `temi` | modifica sull'editor del profilo |
-| testa | `temi` | viene eseguito nel tag __head__ |
-| navigazione | `temi` | viene visualizzato nella barra di navigazione |
-| editore | `temi` | viene visualizzato nella barra dell'editor |
-| piè di paginaJS | `temi` | Esegue il codice nel piè di pagina (come __Javascript__) |
-| piè di pagina | `temi` | Esegue il codice nel piè di pagina |
+| Profile | `temi` | viene visualizzato nella pagina del profilo |
+| edit_profile | `temi` | modifica sull'editor del profilo |
+| head | `temi` | viene eseguito nel tag __head__ |
+| nav | `temi` | viene visualizzato nella barra di navigazione |
+| editor | `temi` | viene visualizzato nella barra dell'editor |
+| footerJS | `temi` | Esegue il codice nel piè di pagina (come __Javascript__) |
+| footer | `temi` | Esegue il codice nel piè di pagina |
 | dblist | `nucleo` | viene visualizzato negli elenchi del dashboard |
-| primaPagina | `nucleo` | esegue il codice prima del caricamento della pagina |
-| dopoPagina | `nucleo` | eseccodice utes dopo il caricamento della pagina |
-| rispostaBottom | `nucleo` | viene visualizzato nella parte inferiore del messaggio di risposta |
-| inizia | `nucleo` | viene eseguito prima che tutto venga caricato |
+| beforePage | `nucleo` | esegue il codice prima del caricamento della pagina |
+| afterPage | `nucleo` | eseccodice utes dopo il caricamento della pagina |
+| replyBottom | `nucleo` | viene visualizzato nella parte inferiore del messaggio di risposta |
+| init | `nucleo` | viene eseguito prima che tutto venga caricato |
+| profileCards_box | `forum` | viene visualizzato nel riquadro "scheda profilo" |
+| profileCards_btn | `forum` | viene visualizzato nel gruppo di pulsanti "scheda profilo" |
+| beforeMsg | `Forum` | wird angezeigt, bevor die Nachricht geladen wird |
+| afterMsg | `Forum` | wird angezeigt, nachdem die Nachricht geladen wurde |
 
 ### [Ban](./docs#bans) {#bans}
 
@@ -239,7 +243,7 @@ Benvenuto in WebPress, un CMS open source e self-hosting gratuito e Forum-Script
 
 #### Amministrazione
 
-Tutte queste regole si riferiscono anche a te, non solo ai tuoi _Clienti_. I tuoi _Clienti_ possono segnalare il tuo account e saranno decisi da [surveybuilderteams](#). La tua punizione può essere una _rimozione dell'account_. SurveyBuilderTeams ha tolleranza 0 con qualsiasi cosa **protezione dei minori** o falsa messa al bando **SENZA** e una spiegazione ragionevole.
+Benvenuto in WebPress, un CMS gratuito open source e self-hosting e Forum-Script. In qualità di sviluppatore (io stesso) mi diverto a creare software che chiunque possa utilizzare e avere un uso equo dei dati, dal momento che questa è classificata come una piattaforma di _social media_, posso dirti che i social media sono sfuggiti di mano con il potere abusivo e non in modo appropriato moderatore. Quindi, anche se questo ti permette di dire quello che ti piace, ho intenzione di essere una **_moderazione di seconda mano_** Leggi di più...
 
   
 
@@ -264,3 +268,5 @@ Se hai domande, ponile nelle [discussioni](https://github.com/surveybuilderteams
 Metti mi piace su [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Voto positivo su [producthunt](https://www.producthunt.com/posts/webpress)
+
+Collabora [Github](https://github.com/SurveyBuilderTeams/WebPress)

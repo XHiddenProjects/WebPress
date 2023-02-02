@@ -125,22 +125,26 @@ La clé publique vous permet des plugins et des thèmes pour les informations ut
 
 Avec les crochets, vous pouvez intercepter toutes sortes d'événements WebPress pour injecter votre propre code.
 
-Voici une liste des crochets disponibles :
+Voici une liste des crochets disponibles: **(Utilisez la traduction anglaise pour `function_name`)**
 
 | crochet | exécuter dans | remarque |
 | ---- | ---------- | ---- |
-| Profil | `thèmes` | s'affiche sur la page de profil |
-| modifier_profil | `thèmes` | modifier sur l'éditeur de profil |
-| tête | `thèmes` | s'exécute dans la balise __head__ |
-| navigation | `thèmes` | s'affiche dans la barre de navigation |
-| éditeur | `thèmes` | s'affiche dans la barre d'édition |
+| Profile | `thèmes` | s'affiche sur la page de profil |
+| edit_profile | `thèmes` | modifier sur l'éditeur de profil |
+| head | `thèmes` | s'exécute dans la balise __head__ |
+| nav | `thèmes` | s'affiche dans la barre de navigation |
+| editor | `thèmes` | s'affiche dans la barre d'édition |
 | footerJS | `thèmes` | Exécute le code dans le pied de page (comme __Javascript__) |
-| pied de page | `thèmes` | Exécute le code dans le pied de page |
+| footer | `thèmes` | Exécute le code dans le pied de page |
 | dblist | `noyau` | s'affiche sur les listes du tableau de bord |
-| avantPage | `noyau` | exécute le code avant le chargement de la page |
-| aprèsPage | `noyau` | exécutecode après le chargement de la page |
-| répondreBas | `noyau` | s'affiche en bas du message de réponse |
-| initialisation | `noyau` | s'exécute avant que tout ne soit chargé |
+| beforePage | `noyau` | exécute le code avant le chargement de la page |
+| afterPage | `noyau` | exécutecode après le chargement de la page |
+| replyBottom | `noyau` | s'affiche en bas du message de réponse |
+| init | `noyau` | s'exécute avant que tout ne soit chargé |
+| profileCards_box | `forum` | s'affiche dans la case "carte de profil" |
+| profileCards_btn | `forum` | s'affiche dans le groupe de boutons "carte de profil" |
+| beforeMsg | `forum` | s'affiche avant le chargement du message |
+| afterMsg | `forum` | s'affiche après le chargement du message |
 
 ### [Bannis](./docs#bans) {#bans}
 
@@ -208,7 +212,7 @@ Voici comment vous l'avez configuré.
 
 ##### WebPress - Politique
 
-Bienvenue sur WebPress, un CMS et Forum-Script libre et auto-hébergé. En tant que développeur (moi-même) aime créer des logiciels pour que tout le monde puisse les utiliser et faire un usage équitable des données, car cela est classé comme une plate-forme de _médias sociaux_, je peux vous dire que les médias sociaux sont devenus incontrôlables avec des idéaux abusifs et pas actuellement modération. Donc, même si cela vous permet de dire ce que vous aimez, je vais participer pour être une **_modération de seconde main_** Lire la suite...
+Bienvenue sur WebPress, un CMS et Forum-Script libre et auto-hébergé. En tant que développeur (moi-même) aime créer des logiciels pour que tout le monde puisse les utiliser et faire un usage équitable des données, car cela est classé comme une plate-forme de _médias sociaux_, je peux vous dire que les médias sociaux sont devenus incontrôlables avec un pouvoir abusif et pas de manière appropriée modération. Donc, même si cela vous permet de dire ce que vous aimez, je vais participer pour être une **_modération de seconde main_** Lire la suite...
 
   
 
@@ -239,7 +243,7 @@ Bienvenue sur WebPress, un CMS et Forum-Script libre et auto-hébergé. En tant 
 
 #### Administration
 
-Toutes ces règles font également référence à vous, et pas seulement à vos _Clients_. Vos _Clients_ peuvent signaler votre compte et seront décidés par [surveybuilderteams](#). Votre punition peut être une _suppression de compte_. SurveyBuilderTeams a une tolérance de 0 avec toute **protection de l'enfant** ou fausse interdiction **SANS** et explication raisonnable.
+Toutes ces règles font également référence à vous, et pas seulement à vos _Clients_. Vos _Clients_ peuvent signaler votre compte et seront décidés par [surveybuilderteams](#). Votre punition peut être une _suppression de compte_. SurveyBuilderTeams a une tolérance de 0 avec tout **manque de protection de l'enfant** ou fausse interdiction **SANS** et explication raisonnable.
 
   
 
@@ -264,3 +268,5 @@ Si vous avez des questions, posez-les sur les [discussions](https://github.com/s
 Comme sur [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Votez pour [producthunt](https://www.producthunt.com/posts/webpress)
+
+Collaborer [Github](https://github.com/SurveyBuilderTeams/WebPress)

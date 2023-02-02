@@ -48,11 +48,10 @@ $data = array(
 		'replies'=>array()
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')
 	)
 	);
 	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
-	checkEmojiSetup();
 	return $out;
 }
 function reactionsList($d){
@@ -119,9 +118,11 @@ function reactions_onSubmit(){
 		}
 }
 function reactions_beforePage(){
-	checkEmojiSetup();
+	$plugin = 'reactions';
+	if(WebDB::dbExists('plugins', $plugin.'/plugin'))
+		checkEmojiSetup();
 }
-function reactions_replybottom(){
+function reactions_bottomReply(){
 	global $lang, $BASEPATH, $rInfo, $session;
 		$out='';
 		$plugin = 'reactions';

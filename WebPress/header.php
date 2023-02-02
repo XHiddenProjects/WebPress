@@ -19,6 +19,8 @@ require_once('libs/toolkit.lib.php');
 require_once('libs/forum.lib.php');
 require_once('libs/Pagination.lib.php');
 require_once('libs/page.lib.php');
+require_once('libs/encryption.lib.php');
+
 if(file_exists(ROOT.'webpress.pro.php'))
 	require_once(ROOT.'webpress.pro.php');
 

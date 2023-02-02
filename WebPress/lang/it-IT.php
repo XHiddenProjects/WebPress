@@ -4,7 +4,8 @@ $lang = array(
 'en-US'=>'English',
 'de-DE'=>'Deutsch',
 'it-IT'=>'Italiano',
-'fr-FR'=>'Français'
+'fr-FR'=>'Français',
+'zh-CN'=>'中國人(傳統的)'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Autorizzazione',
@@ -291,6 +292,7 @@ $lang = array(
 'plugin.error.missingDesc'=>'Descrizione mancante',
 'plugin.allow.lang'=>'Lingue consentite: ',
 'plugin.allow.lang.null'=>'Non definito',
+'plugin.pluginUpdated'=>'Ultimo aggiornamento: ',
 #Debug
 'debug.off'=>'<a href="./configs">Debug</a> è disattivato, non è più possibile registrare errori di funzionalità.',
 # contatto
@@ -684,8 +686,6 @@ Le <li class="list-group-item"><em>Parole</em> possono influenzare le parole/il 
 'animate.swirl.bottom'=>'Swirl(Bottom)',
 'animate.swirl.left'=>'Swirl(Sinistra)',
 'animate.swirl.right'=>'Swirl(Destra)',
-'animate.swirl.top'=>'Swirl(Top)',
-#plugin
-'plugins.pluginUpdated'=>'Ultimo aggiornamento: '
+'animate.swirl.top'=>'Swirl(Top)'
 );
 ?>

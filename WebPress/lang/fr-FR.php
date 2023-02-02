@@ -4,7 +4,8 @@ $lang = array(
 'en-US'=>'English',
 'de-DE'=>'Deutsch',
 'it-IT'=>'Italiano',
-'fr-FR'=>'Français'
+'fr-FR'=>'Français',
+'zh-CN'=>'中國人(傳統的)'
 ),
 'sitemap.title'=>'WebPress-Plans de site',
 'index.authdown'=> 'Autorisation',
@@ -291,6 +292,7 @@ $lang = array(
 'plugin.error.missingDesc'=>'Description manquante',
 'plugin.allow.lang'=>'Langues autorisées: ',
 'plugin.allow.lang.null'=>'Indéfini',
+'plugin.pluginUpdated'=>'Dernière mise à jour : ',
 #Debug
 'debug.off'=>'<a href="./configs">Debug</a> est désactivé, vous ne pouvez plus consigner d`erreurs de fonctionnalités.',
 # Contactez
@@ -684,8 +686,6 @@ $lang = array(
 'animate.swirl.bottom'=>'Tourbillon (Bas)',
 'animate.swirl.left'=>'Tourbillon (gauche)',
 'animate.swirl.right'=>'Tourbillon (droite)',
-'animate.swirl.top'=>'Tourbillon (Haut)',
-#plugins
-'plugins.pluginUpdated'=>'Dernière mise à jour : '
+'animate.swirl.top'=>'Tourbillon (Haut)'
 );
 ?>

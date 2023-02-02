@@ -141,6 +141,10 @@ Here is a list of available hooks:
 | afterPage | `core` | executes code after page load |
 | replyBottom | `core` | displays in the bottom of the reply message |
 | init | `core` | executes before everything loads |
+| profileCards_box | `forum` | displays in the "profile card" box |
+| profileCards_btn | `forum` | displays in the "profile card" button group |
+| beforeMsg | `forum` | displays before the message is loaded |
+| afterMsg | `forum` | displays after the message is loaded |
 
 ### [Bans](./docs#bans) {#bans}
 
@@ -208,7 +212,7 @@ Here is how you set it up.
 
 ##### WebPress - Policy
 
-Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. As a developer (myself) enjoys making software for anyone to use and have a fair use of the data, since this is classified as a _social media_ platform, I can tell you that social media has gone out of hand with abusive ideals and not currectly moderation. So even tho this allows you to say what every you like, I am going to hop in to be a **_second-hand moderation_** Read more...
+Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. As a developer (myself) enjoys making software for anyone to use and have a fair use of the data, since this is classified as a _social media_ platform, I can tell you that social media has gone out of hand with abusive power and not appropriately moderating. So even tho this allows you to say what every you like, I am going to hop in to be a **_second-hand moderation_** Read more...
 
   
 
@@ -217,8 +221,8 @@ Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. A
 *   Share your opions
 *   Share your ideas/requests
 *   Political/termology ideals
-*   Sell Products or promote of your choice (make sure it\\'s appropriate)
-*   Upload/Post whatever you like (make sure it\\'s appropriate)
+*   Sell Products or promote of your choice (make sure it's appropriate)
+*   Upload/Post whatever you like (make sure it's appropriate)
 *   Reply whatever you like
 
   
@@ -233,13 +237,13 @@ Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. A
 
   
 
-**IF ALL ANY OF THESE ARE VIOLATED** admin\\'s can ban/remove account or _can be used agaist court with any information provide correctly. Example: images/videos/posts/replies and anything that can be shown_ that can be shown to federal authorities.
+**IF ALL ANY OF THESE ARE VIOLATED** admin's can ban/remove account or _can be used agaist court with any information provide correctly. Example: images/videos/posts/replies and anything that can be shown_ that can be shown to federal authorities.
 
   
 
 #### Administration
 
-All these rules also refrence to you as well, not just your _Customers_. Your _Customers_ can report your account, and will be decided by [surveybuilderteams](#). Your punishement can be a _removal of account_. SurveyBuilderTeams has 0 tolerance with anything **child protection** or false banning **WITHOUT** and reasonable explaination.
+All these rules also refrence to you as well, not just your _Customers_. Your _Customers_ can report your account, and will be decided by [surveybuilderteams](#). Your punishement can be a _removal of account_. SurveyBuilderTeams has 0 tolerance with anything **lack of child protection** or false banning **WITHOUT** and reasonable explaination.
 
   
 
@@ -264,3 +268,5 @@ If you have any questions, ask them on the [discussions](https://github.com/surv
 Like on [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Upvote on [producthunt](https://www.producthunt.com/posts/webpress)
+
+Collaborate [Github](https://github.com/SurveyBuilderTeams/WebPress)

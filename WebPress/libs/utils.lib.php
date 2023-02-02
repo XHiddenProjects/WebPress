@@ -3,6 +3,14 @@ class Utils{
 	protected function __construct(){
 		
 	}
+	public static function baseURL(){
+		$host = $_SERVER['HTTP_HOST'];
+		$uri = $_SERVER['REQUEST_URI'];
+		if(isset($_SERVER['HTTPS'])&&$_SERVER['HTTPS']==='on')
+			return 'https://'.$host.$uri;
+		else
+			return 'http://'.$host.$uri;
+	}
 	public static function redirect($title, $desc, $redirect, $type='success'){
 		global $lang;
 		echo '

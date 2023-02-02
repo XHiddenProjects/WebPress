@@ -78,8 +78,18 @@ public static function getRole($name=null){
 	return @WebDB::getDB('users', 'users')[($name!=='' ? $name : $_SESSION['user'])]['type'];
 }
 #list Users
-public static function ListUsers(){
-	return WebDB::getDB('users', 'users');
+public static function ListUsers($bigArg=true): array{
+	$users=[];
+	if($bigArg){
+		return WebDB::getDB('users', 'users');
+	}else{
+		$users = WebDB::getDB('users', 'users');
+		foreach($users as $u=>$i){
+			$users[$u] = $u;
+		}
+		return $users;
+	}
+	
 }
 #editProfile
 public static function editProfile($base=''){
@@ -98,7 +108,7 @@ public static function editProfile($base=''){
 		<div class="row">
 		<div class="col">
 		<label for="webuser" class="form-label">'.$lang['modal.profile.username'].'</label>
-		<input type="text" readonly="" id="webuser" name="webuser" class="form-control" value="'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'" placeholder="'.$lang['modal.profile.username'].'"/>
+		<input type="text" readonly="" style="background-color:var(--bs-form-control-disabled-bg);" id="webuser" name="webuser" class="form-control" value="'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'" placeholder="'.$lang['modal.profile.username'].'"/>
 		</div>
 		<div class="col">
 		<label for="webname" class="form-label">'.$lang['modal.profile.name'].'</label>

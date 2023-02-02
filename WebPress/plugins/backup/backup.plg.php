@@ -12,7 +12,7 @@ $data = array(
 		'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')));
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')));
 	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	@mkdir(dirname(ROOT).'/backup');
 	return $out; 

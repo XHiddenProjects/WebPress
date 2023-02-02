@@ -90,7 +90,7 @@ $BASEPATH = '.';
 !defined('DB_EXTENSIONS') ? define('DB_EXTENSIONS', '.dat.json') : '';
 #Project Info
 !defined('PROJECT_NAME') ? define('PROJECT_NAME', 'WebPress') : '';
-!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '230108 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('23-01-08')).'</span>') : '';
+!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '230127 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('23-01-27')).'</span>') : '';
 !defined('PROJECT_VERSION') ? define('PROJECT_VERSION', file_get_contents(ROOT.'VERSION')) : '';
 !defined('WEBPRESS') ? define('WEBPRESS', true) : ''; # Use for plugins
 require_once('init.php');
@@ -140,7 +140,7 @@ $token = str_replace('=','',base64_encode(md5($session)));
 
 function langpack(){
 	global $lang;
-	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE'], 'it-IT'=>$lang['lang']['it-IT'], 'fr-FR'=>$lang['lang']['fr-FR']);
+	return array('en-US'=>$lang['lang']['en-US'], 'de-DE'=>$lang['lang']['de-DE'], 'it-IT'=>$lang['lang']['it-IT'], 'fr-FR'=>$lang['lang']['fr-FR'], 'zh-CN'=>$lang['lang']['zh-CN']);
 }
 
 function install(){

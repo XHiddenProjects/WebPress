@@ -8,7 +8,7 @@ $data = array(
 'active'=>'',
 'version'=>'1.2.1', 
 'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN), 
-'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')),
+'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
 	'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	'users'=>array()
@@ -188,7 +188,9 @@ function friends_view(){
 		#actions
 		if(isset($_POST['submitFriend'])){
 			$un = isset($_POST['friendUser']) ? $_POST['friendUser'] : '';
-			if(isset($u[$un])){
+			if($un===$_SESSION['user']){
+				$out.='<p class="text-danger text-center fw-bold">'.$lang[$plugin.'selffriend'].'</p>';
+			}elseif(isset($u[$un])){
 				if(in_array($un,$d['config']['users'][$session]['accepted'])){
 					$out.='<p class="text-danger text-center fw-bold">'.$un.' '.$lang[$plugin.'friendexists'].'</p>';
 				}elseif(empty($d['config']['users'][$un]['request'])){

@@ -12,7 +12,7 @@ $data = array(
 		'forum'=>array(),
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR')
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')
 	)
 	);
 	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
