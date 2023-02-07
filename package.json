@@ -1,0 +1,27 @@
+{
+  "name": "webpress",
+  "version": "2.1.2",
+  "description": "A free open-source CMS(content-management system) and a forum-script use custom made plugins and themes and doesn't need SQL, just JSON database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surveybuilderteams/WebPress.git"
+  },
+  "keywords": [
+    "cms",
+    "forum-software",
+    "json",
+    "php",
+    "plugins",
+    "themes"
+  ],
+  "author": "SurveyBuilderTeams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/surveybuilderteams/WebPress/issues"
+  },
+  "homepage": "https://github.com/surveybuilderteams/WebPress#readme"
+}
