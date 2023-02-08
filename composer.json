@@ -1,0 +1,19 @@
+{
+ "name":"webpress",
+  "description":"A free open-source CMS(content management system) and forum script that allows you to showcase your website by using a custom made themes and plugins. This also includes easy configuration and easy way to make your own plugins. This uses JSON database (no SQL required) to make it easier to read the database. You can also have collaborations with…",
+  "version":"2.1.2",
+  "keywords":["webpress", "php", "json", "cms", "forum-script"],
+  "license":"MIT",
+  "homepage": "https://github.com/surveybuilderteams/webpress",
+  "authors":[{
+    "name":"SurveyBuilder-Admin",
+    "email":"surveybuildersbot@gmail.com",
+    "role":"Developer"
+  }],
+  "support":{
+    "email":"surveybuildersbot@gmail.com"
+  },
+  "require":{
+      "php":">=7.4"
+  }
+}
