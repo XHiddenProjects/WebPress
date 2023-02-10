@@ -21,5 +21,13 @@
 	.replyItem div{
 		margin:0!important;
 	}
-	
+	a{
+		text-decoration:none;
+		color:rgb(33,37,41)!important;
+	}
+	.text-muted, small, small.text-muted{
+		opacity:1!important;
+		color:rgba(33, 37, 41, 0.75)!important;
+		font-size: .875em!important;
+	}
 }

@@ -129,5 +129,11 @@ class Page{
 			'swirl_top'=>$lang['animate.swirl.top']
 		);
 	}
+	public static function summary($str,$maxLength=50){
+		if(strlen($str)>$maxLength)
+			return substr_replace($str, '...', -(strlen($str)-$maxLength));
+		else
+			return $str;
+	}
 }
 ?>

@@ -69,6 +69,7 @@ class HTMLForm{
 				  </div>';
 	}
 	
+
 	
 	public static function textarea($name, $default='', $class='', $desc='', $rows='', $placeholder='', $disabled=false)
 	{
@@ -85,6 +86,7 @@ class HTMLForm{
 					' .$desc. '
 				</div>';
 	}
+	
 	public static function select($name, $options, $default = '', $class='', $desc='', $disabled=false)
 	{
 		global $lang;

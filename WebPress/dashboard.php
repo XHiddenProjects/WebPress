@@ -608,6 +608,10 @@ Utils::isPost('removedAvatar', false, function(){
 	<h4>'.$lang['dashboard.config.forum.reply'].'</h4>
 	<input name="displayReplyAmount" class="form-control" type="number" value="'.$conf['forum']['maxReplyDisplay'].'" min="2"/>
 	</div>
+	<div class="col">
+	<h4>'.$lang['dashboard.config.forum.summary'].'</h4>
+	<input name="displaySumAmount" class="form-control" type="number" value="'.$conf['forum']['maxSummary'].'" min="10" max="100"/>
+	</div>
 	</div>';
 	
 	$out.='<br/>
@@ -660,6 +664,7 @@ Utils::isPost('removedAvatar', false, function(){
 		$themes = isset($_POST['themes']) ? $_POST['themes'] : $conf['page']['themes'];
 		$timeZone = isset($_POST['defaultTimeZone'])&&$_POST['defaultTimeZone']!=='' ? $_POST['defaultTimeZone'] : $conf['page']['defaultTimeZone'];
 		$dI = isset($_POST['defaultIndex']) ? $_POST['defaultIndex'] : $conf['page']['index'];
+		$sumAmount = isset($_POST['displaySumAmount'])&&$_POST['displaySumAmount']>=10&&$_POST['displaySumAmount']<=100 ? $_POST['displaySumAmount'] : $conf['forum']['maxSummary'];
 		
 		$d['page']['errors']['400'] = $e400;
 		$d['page']['errors']['401'] = $e401;
@@ -699,8 +704,10 @@ Utils::isPost('removedAvatar', false, function(){
 		$d['page']['dateFormat'] = $dateFormat;
 		$d['forum']['maxTopicDisplay'] = $topicAmount;
 		$d['forum']['maxReplyDisplay'] = $replyAmount;
+		$d['forum']['maxSummary'] = $sumAmount;
 		$d['page']['defaultTimeZone'] = $timeZone;
 		$d['page']['index'] = $dI;
+		
 		
 		WebDB::saveDB('CONFIG', 'config', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/configs', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/config', 'danger');
 	});
@@ -1644,6 +1651,7 @@ if(isset($_POST['createFolder'])){
 		$name = isset($_POST['filename']) ? $_POST['filename'] : '';
 	@mkdir($_GET['createFolder'].$name) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
 }
+$out.='<h1 class="text-center">'.count(Files::Scan(ROOT.(isset($_GET['path']) ? $_GET['path']: ''))).' '.$lang['dashboard.pageResults'].'</h1>';
 	$out.='<ol class="breadcrumb text-big container-p-x py-3 m-0">
 	<li class="breadcrumb-item"> 
 	<a href="./files">'.str_replace('/','',str_replace($_SERVER['DOCUMENT_ROOT'].'/','',str_replace('\\','/',ROOT))).'</a>
@@ -1914,6 +1922,8 @@ if(isset($_POST['saveFile'])){
 }elseif(preg_match('/\/dashboard(?:\.php)\/(view|view\/)/', $_SERVER['REQUEST_URI'])){
 	$out .= Plugin::useHook('view', $_GET['plugins']);
 }elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('events')){
+	$_SESSION['access'] = (isset($_SESSION['access']) ? $_SESSION['access'] : false);
+	if($_SESSION['access']){
 	$out.='<div class="h-50" style="overflow:auto;"><table class="table">
 	<thead class="position-sticky top-0">
 	 <tr>
@@ -1940,6 +1950,20 @@ if(isset($_POST['saveFile'])){
    $out.='
 	</tbody>
 	</table></div>';
+}else{
+	$out.='<form method="post">
+	<label class="form-label">'.$lang['login.token'].'</label>
+	<input class="form-control" name="pkey" type="password"/>
+	<button class="btn btn-success" name="viewEvents" type="submit">'.$lang['btn.confirm'].'</button>
+	</form>';
+}
+if(isset($_POST['viewEvents'])){
+	if(CSRF::check()!=='tokenExpired'&&CSRF::check()!=='invalidKey'){
+		$_SESSION['access'] = true;
+	}else{
+		$_SESSION['access'] = false;
+	}
+}
 }elseif(preg_match('/\/dashboard(?:\.php)\/(pages\/|pages)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('pages')){
 	$out.='<div class="alert alert-danger">'.$lang['pages.form.notice'].'</div>';
 	$out.='<ul class="list-group list-group-flush">';

@@ -63,7 +63,7 @@ width: calc(100% - 50px);
         </li>
 		<?php echo plugin::hook('forumnav');?>
       </ul>
-      <form class="d-flex" role="search" method="get">
+      <form class="d-flex" role="search" method="get" action="<?php echo $BASEPATH.'/';?>forum">
 	  <div class="input-group">
 	  <div class="autocomplete">
         <input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" onkeydown="returnSearch(event);" name="search" id="search" type="search" placeholder="Search" aria-label="Search">

@@ -142,7 +142,7 @@ class WYSIWYG
 					'label'=>'Toggle Preview'
 				),
 				'tc'=>array(
-					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'label'=>'<i class="fa-solid fa-paintbrush"></i>',
 					'lists'=>array(
 						'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
 						'#000000'=>'Black',
@@ -230,7 +230,7 @@ class WYSIWYG
 					'label'=>'<i class="fas fa-paste"></i>'
 				),
 				'fullscreen'=>array(
-					'label'=>'<i class="far fa-expand-arrows"></i>'
+					'label'=>'<i class="fa-solid fa-expand"></i>'
 				),
 				'pdir'=>array(
 					'label'=>'<i class="fas fa-paragraph"></i>',
@@ -300,7 +300,7 @@ class WYSIWYG
 					'summary'=>'Summary'
 				),
 				'selectAll'=>array(
-					'label'=>'<i class="fas fa-highlighter"></i>'
+					'label'=>'<i class="fa-solid fa-highlighter"></i>'
 				),
 				'imgs'=>array(
 					'label'=>'<i class="fa-solid fa-image"></i>'
@@ -439,7 +439,7 @@ class WYSIWYG
 					'label'=>'Vorschau umschalten'
 				),
 				'tc'=>array(
-					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'label'=>'<i class="fa-solid fa-paintbrush"></i>',
 					'lists'=>array(
 						'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
 						'#000000'=>'Schwarz',
@@ -527,7 +527,7 @@ class WYSIWYG
 					'label'=>'<i class="fas fa-paste"></i>'
 				),
 				'fullscreen'=>array(
-					'label'=>'<i class="far fa-expand-arrows"></i>'
+					'label'=>'<i class="fa-solid fa-expand"></i>'
 				),
 				'pdir'=>array(
 					'label'=>'<i class="fas fa-paragraph"></i>',
@@ -597,7 +597,7 @@ class WYSIWYG
 					'summary'=>'Zusammenfassung'
 				),
 				'selectAll'=>array(
-					'label'=>'<i class="fas fa-highlighter"></i>'
+					'label'=>'<i class="fa-solid fa-highlighter"></i>'
 				),
 				'imgs'=>array(
 					'label'=>'<i class="fa-solid fa-image"></i>'
@@ -736,7 +736,7 @@ class WYSIWYG
 					'label'=>'Basculer l`aperçu'
 				),
 				'tc'=>array(
-					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'label'=>'<i class="fa-solid fa-paintbrush"></i>',
 					'lists'=>array(
 						'rgba(0,0,0,0)'=>'<span style="color:black;">Transparent</span>',
 						'#000000'=>'Noir',
@@ -824,7 +824,7 @@ class WYSIWYG
 					'label'=>'<i class="fas fa-paste"></i>'
 				),
 				'fullscreen'=>array(
-					'label'=>'<i class="far fa-expand-arrows"></i>'
+					'label'=>'<i class="fa-solid fa-expand"></i>'
 				),
 				'pdir'=>array(
 					'label'=>'<i class="fas fa-paragraph"></i>',
@@ -894,7 +894,7 @@ class WYSIWYG
 					'summary'=>'Résumé'
 				),
 				'selectAll'=>array(
-					'label'=>'<i class="fas fa-highlighter"></i>'
+					'label'=>'<i class="fa-solid fa-highlighter"></i>'
 				),
 				'imgs'=>array(
 					'label'=>'<i class="fa-solid fa-image"></i>'
@@ -1033,7 +1033,7 @@ class WYSIWYG
 					'label'=>'Attiva/disattiva anteprima'
 				),
 				'tc'=>array(
-					'label'=>'<i class="fas fa-paint-brush-alt"></i>',
+					'label'=>'<i class="fa-solid fa-paintbrush"></i>',
 					'lists'=>array(
 						'rgba(0,0,0,0)'=>'<span style="color:black;">Trasparente</span>',
 						'#000000'=>'Nero',
@@ -1121,7 +1121,7 @@ class WYSIWYG
 					'label'=>'<i class="fas fa-paste"></i>'
 				),
 				'fullscreen'=>array(
-					'label'=>'<i class="far fa-expand-arrows"></i>'
+					'label'=>'<i class="fa-solid fa-expand"></i>'
 				),
 				'pdir'=>array(
 					'label'=>'<i class="fas fa-paragraph"></i>',
@@ -1191,7 +1191,304 @@ class WYSIWYG
 					'summary'=>'Summary'
 				),
 				'selectAll'=>array(
-					'label'=>'<i class="fas fa-highlighter"></i>'
+					'label'=>'<i class="fa-solid fa-highlighter"></i>'
+				),
+				'imgs'=>array(
+					'label'=>'<i class="fa-solid fa-image"></i>'
+				),
+				'vids'=>array(
+					'label'=>'<i class="fa-solid fa-video"></i>'
+				)
+				
+			),
+			'zh'=>array(
+			'modal'=>array(
+				'divContainer'=>array(
+					'title'=>'Div 容器屬性'
+					),
+				'anchor'=>array(
+					'title'=>'錨屬性'
+				),
+				'link'=>array(
+					'title'=>'鏈接屬性'
+				),
+				'table'=>array(
+					'title'=>'表格屬性'
+				),
+				'uploads'=>array(
+					'title'=>'上傳屬性',
+					'label'=>'上傳文件'
+				),
+				'style'=>'風格',
+				'classes'=>'樣式表類',
+				'id'=>'ID',
+				'lang'=>'語言代碼',
+				'advisorytitle'=>'諮詢標題',
+				'close'=>'關閉',
+				'save'=>'節省',
+				'advanced'=>'先進的',
+				'general'=>'一般的',
+				'dir'=>'語言方向',
+				'name'=>'姓名',
+				'type'=>'類型',
+				'protocol'=>'協議',
+				'url'=>'網址',
+				'target'=>'目標',
+				'email'=>array(
+					'title'=>'電子郵件地址',
+					'subject'=>'信息主題',
+					'body'=>'郵件正文'
+				),
+				'phone'=>'電話',
+				'displayname'=>'顯示名稱',
+				'advisorycontenttype'=>'諮詢內容類型',
+				'linkedresourcecharset'=>'鏈接資源字符集',
+				'rel'=>'關係',
+				'download'=>'強制下載',
+				'width'=>'寬度',
+				'height'=>'高度',
+				'borderSpacing'=>'邊框間距'
+			),
+			'pf'=>array(
+				'label'=>'段落格式',
+				'lists'=>array(
+					''=>'Normal',
+					'h1'=>'標題 1',
+					'h2'=>'標題 2',
+					'h3'=>'標題 3',
+					'h4'=>'標題 4',
+					'h5'=>'標題 5',
+					'h6'=>'標題 6',
+					'pre'=>'格式化',
+					'address'=>'地址',
+					'div'=>'正常 (DIV)'
+				)
+				),
+				'fs'=>array(
+					'label'=>'字體大小',
+					'lists'=>array(
+					''=>'默認',
+					'8'=>'8',
+					'9'=>'9',
+					'10'=>'10',
+					'11'=>'11',
+					'12'=>'12',
+					'14'=>'14',
+					'16'=>'16',
+					'18'=>'18',
+					'20'=>'20',
+					'22'=>'22',
+					'24'=>'24',
+					'26'=>'26',
+					'28'=>'28',
+					'36'=>'36',
+					'48'=>'48',
+					'72'=>'72'
+					)
+				),
+				'fn'=>array(
+					'label'=>'字體名稱',
+					'lists'=>array(
+						''=>'默認',
+						'Arial,Helvetica,sans-serif'=>'航空',
+						'Comic Sans MS,cursive'=>'漫畫無 MS',
+						'Courier New,Courier,monospace'=>'快遞新',
+						'Georgia,serif'=>'喬治亞州',
+						'Lucida Sans Unicode,Lucida Grande,sans-serif'=>'Lucida Sans Unicode',
+						'Tahoma,Geneva,sans-serif'=>'塔霍馬',
+						'Times New Roman,Times,serif'=>'英語字體格式一種',
+						'Trebuchet MS,Helvetica,sans-serif'=>'投石機 MS',
+						'Verdana,Geneva,sans-serif'=>'佛達納'
+					)
+				
+				),
+				'bs'=>array(
+					'label'=>'塊樣式',
+					'lists'=>array(
+						# ',' are used for multiple actions
+						''=>'默認',
+						'h2,italic'=>'斜體標題',
+						'h3,italic'=>'字幕',
+						'attr,special-container'=>'<span class="special-container">特種集裝箱</span>',
+						'attr,marker'=>'<span class="marker">標記</span>',
+						'big'=>'大的',
+						'small'=>'小的',
+						'tt'=>'打字機',
+						'code'=>'計算機代碼',
+						'kbd'=>'鍵盤樂句',
+						'samp'=>'示例文本',
+						'var'=>'多變的',
+						'del'=>'刪除的文本',
+						'ins'=>'插入文字',
+						'cite'=>'被引著作',
+						'q'=>'行內報價',
+						'attr,rtl'=>'<span dir="rtl">語言： RTL</span>',
+						'attr,ltr'=>'<span dir="ltr">語言： LTR</span>'
+					)
+				),
+				'prebtn'=>array(
+					'label'=>'切換預覽'
+				),
+				'tc'=>array(
+					'label'=>'<i class="fa-solid fa-paintbrush"></i>',
+					'lists'=>array(
+						'rgba(0,0,0,0)'=>'<span style="color:black;">透明的</span>',
+						'#000000'=>'黑色的',
+						'#ffffff'=>'白色的',
+						'#ff0000'=>'紅色的',
+						'#ffa500'=>'橙子',
+						'#ffff00'=>'黃色的',
+						'#00ff00'=>'酸橙',
+						'#008000'=>'綠色的',
+						'#00ffff'=>'青色',
+						'#0000ff'=>'藍色的',
+						'#800080'=>'紫色的',
+						'#ff00ff'=>'品紅',
+						'#ffc0cb'=>'粉色的',
+						'#808080'=>'灰色的',
+						'#d3d3d3'=>'淺灰',
+						'#c0c0c0'=>'銀',
+						'#f5f5f5'=>'白色的煙',
+						'#2f4f4f'=>'深石板灰'
+					)
+					),
+					'bg'=>array(
+						'label'=>'<i class="fas fa-fill-drip"></i>',
+						'lists'=>array(
+							'rgba(0,0,0,0)'=>'<span style="color:black;">透明的</span>',
+							'#000000'=>'黑色的',
+							'#ffffff'=>'白色的',
+							'#ff0000'=>'紅色的',
+							'#ffa500'=>'橙子',
+							'#ffff00'=>'黃色的',
+							'#00ff00'=>'酸橙',
+							'#008000'=>'綠色的',
+							'#00ffff'=>'青色',
+							'#0000ff'=>'藍色的',
+							'#800080'=>'紫色的',
+							'#ff00ff'=>'品紅',
+							'#ffc0cb'=>'粉色的',
+							'#808080'=>'灰色的',
+							'#d3d3d3'=>'淺灰',
+							'#c0c0c0'=>'銀',
+							'#f5f5f5'=>'白色的煙',
+							'#2f4f4f'=>'深石板灰'
+					)
+				),
+				'bold'=>array(
+					'label'=>'<i class="fas fa-bold"></i>'
+				),
+				'italic'=>array(
+					'label'=>'<i class="fas fa-italic"></i>'
+				),
+				'underline'=>array(
+					'label'=>'<i class="fas fa-underline"></i>'
+				),
+				'strikethrough'=>array(
+					'label'=>'<i class="fas fa-strikethrough"></i>'
+				),
+				'superscript'=>array(
+					'label'=>'<i class="fas fa-superscript"></i>'
+				),
+				'subscript'=>array(
+					'label'=>'<i class="fas fa-subscript"></i>'
+				),
+				'align'=>array(
+					'label'=>'<i class="fas fa-align-left"></i>',
+					'lists'=>array(
+						'left'=>'<i class="fas fa-align-left"></i>',
+						'center'=>'<i class="fas fa-align-center"></i>',
+						'right'=>'<i class="fas fa-align-right"></i>',
+						'justify'=>'<i class="fas fa-align-justify"></i>'
+					)
+				),
+				'bq'=>array(
+					'label'=>'<i class="fas fa-quote-left"></i>'
+				),
+				'div'=>array(
+					'label'=>'<i class="fas fa-code"></i>'
+				),
+				'uploads'=>array(
+					'label'=>'<i class="fa-solid fa-upload"></i>'
+				),
+				'copy'=>array(
+					'label'=>'<i class="fas fa-copy"></i>'
+				),
+				'paste'=>array(
+					'label'=>'<i class="fas fa-paste"></i>'
+				),
+				'fullscreen'=>array(
+					'label'=>'<i class="fa-solid fa-expand"></i>'
+				),
+				'pdir'=>array(
+					'label'=>'<i class="fas fa-paragraph"></i>',
+					'lists'=>array(
+						'ltr'=>'<i class="fas fa-paragraph-rtl" style="transform: scaleX(-1);"></i>',
+						'rtl'=>'<i class="fas fa-paragraph-rtl"></i>'
+					)
+				),
+				'indent'=>array(
+					'label'=>'<i class="fas fa-indent"></i>',
+					'lists'=>array(
+						'increase'=>'<i class="fas fa-indent"></i>',
+						'decrease'=>'<i class="fas fa-indent" style="transform: scaleX(-1);"></i>'
+					)
+				),
+				'listing'=>array(
+					'label'=>'<i class="fas fa-list-alt"></i>',
+					'lists'=>array(
+						'ol'=>'<i class="fas fa-list-ol"></i>',
+						'ul'=>'<i class="fas fa-list-ul"></i>'
+					)
+				),
+				'anchor'=>array(
+					'label'=>'<i class="fas fa-anchor"></i>'
+				),
+				'link'=>array(
+					'label'=>'<i class="fas fa-link"></i>',
+					'lists'=>array(
+						'url'=>'網址',
+						'anchor'=>'錨',
+						'email'=>'電子郵件',
+						'phone'=>'電話'
+					),
+					'targets'=>array(
+						''=>'&lt;沒有設置&gt;',
+						'_blank'=>'新窗戶',
+						'_top'=>'最頂層窗口',
+						'_self'=>'同一窗口',
+						'_parent'=>'父窗口'
+					)
+				),
+				'table'=>array(
+					'label'=>'<i class="fal fa-table"></i>',
+					'rows'=>'行數',
+					'cols'=>'列',
+					'cellSpacing'=>'單元間距',
+					'cellPadding'=>'細胞填充',
+					'headers'=>array(
+						'label'=>'標頭',
+						'lists'=>array(
+							''=>'沒有任何',
+							'firstrow'=>'第一排',
+							'firstcol'=>'第一欄',
+							'both'=>'兩個都'
+						)
+					),
+					'align'=>array(
+						'label'=>'結盟',
+						'lists'=>array(
+							''=>'&lt;沒有設置&gt;',
+							'left'=>'左邊',
+							'center'=>'中心',
+							'right'=>'正確的'
+						)
+					),
+					'caption'=>'標題',
+					'summary'=>'概括'
+				),
+				'selectAll'=>array(
+					'label'=>'<i class="fa-solid fa-highlighter"></i>'
 				),
 				'imgs'=>array(
 					'label'=>'<i class="fa-solid fa-image"></i>'

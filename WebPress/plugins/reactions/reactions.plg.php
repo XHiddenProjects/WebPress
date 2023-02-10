@@ -38,12 +38,12 @@ $data = array(
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'reactions'=>array(
-		'like'=>'/plugin/reactions/icons/like.png',
-		'dislike'=>'/plugin/reactions/icons/dislike.png',
-		'love'=>'/plugin/reactions/icons/love.png',
-		'hate'=>'/plugin/reactions/icons/hate.png',
-		'applause'=>'/plugin/reactions/icons/applause.png',
-		'wave'=>'/plugin/reactions/icons/wave.png'
+		'like'=>'/plugins/reactions/icons/like.png',
+		'dislike'=>'/plugins/reactions/icons/dislike.png',
+		'love'=>'/plugins/reactions/icons/love.png',
+		'hate'=>'/plugins/reactions/icons/hate.png',
+		'applause'=>'/plugins/reactions/icons/applause.png',
+		'wave'=>'/plugins/reactions/icons/wave.png'
 		),
 		'replies'=>array()
 	),

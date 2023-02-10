@@ -96,7 +96,7 @@ public static function usersData($name, $type){
 		foreach(Files::Scan(DATA_FORUMS) as $forums){
 			$forums = str_replace('.dat.json', '', $forums);
 			$forumDB = WebDB::getDB('forums', $forums);
-			$lists[(string)$forumDB['val']] = '<a href="./forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> <a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a></li></a>';
+			$lists[(string)$forumDB['val']] = '<a href="'.$BASEPATH.'/forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> <a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a></li></a>';
 		}
 		ksort($lists);
 		foreach($lists as $item => $list){
@@ -201,7 +201,7 @@ public static function usersData($name, $type){
 		<div class="col">
 			<img width="64" height="64" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"/>
 			<span class="d-block mt-2 mb-2">'.Users::createBadge($info['author']).'</span>
-			<p class="text-secondary">'.$userInfo[$info['author']]['about'].'</p>
+			<p class="text-secondary">'.Page::summary($userInfo[$info['author']]['about'], $conf['forum']['maxSummary']).'</p>
 			<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$info['author'].':<'.$userInfo[$info['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
 			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$info['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
 			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
@@ -236,7 +236,7 @@ public static function usersData($name, $type){
 		'.($info['locked'] ? '<span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.(isset($langs['forum.locked']) ? $langs['forum.locked'] : 'Locked').'" class="badge text-bg-danger"><i class="fa-solid fa-lock"></i></span>' : '').'
 	</h5>
     <p class="text-bg-dark me-2 p-2 rounded showPreMsg">
-     '.$info['msg'].'
+     '.Page::summary($info['msg'], $conf['forum']['maxSummary']).'
     </p>
 	<div class="d-inline-block" '.(strtotime($info['created'])===strtotime($info['edited']) ? 'style="display:none!important;"' : '').'><small class="text-muted" style="float:left;"><i class="fa-solid fa-pen-to-square"></i> '.(isset($langs['forum.edited']) ? $langs['forum.edited'] : 'Last Edited: ').' '.date($conf['page']['dateFormat'], strtotime($info['edited'])).'</small></div>
 	<div><i class="fa-solid fa-eye"></i> <span class="text-secondary">'.self::number_abbr($info['views']).'</span><i style="transform:rotateY(180deg);" class="fa-solid fa-comment ms-3"></i> <span class="text-secondary">'.self::getReplysByTopic($info['id']).'</span></div>
@@ -329,7 +329,7 @@ public static function usersData($name, $type){
 		<div class="col">
 			<img width="64" height="64" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"/>
 			<span class="d-block mt-2 mb-2">'.Users::createBadge($info['author']).'</span>
-			<p class="text-secondary">'.$userInfo[$info['author']]['about'].'</p>
+			<p class="text-secondary">'.Page::summary($userInfo[$info['author']]['about'], $conf['forum']['maxSummary']).'</p>
 			<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$info['author'].':<'.$userInfo[$info['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
 			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$info['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
 			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
@@ -355,7 +355,6 @@ public static function usersData($name, $type){
 	</div>
   </div>
 </div>
-
   <!-- Media body -->
   <div>
     <h5 class="fw-bold mt-2">
@@ -399,7 +398,7 @@ public static function usersData($name, $type){
 		<div class="col">
 			<img width="64" height="64" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.DATA_AVATARS.$rInfo['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"/>
 			<span class="d-block mt-2 mb-2">'.Users::createBadge($rInfo['author']).'</span>
-			<p class="text-secondary">'.$userInfo[$rInfo['author']]['about'].'</p>
+			<p class="text-secondary">'.Page::summary($userInfo[$rInfo['author']]['about'],$conf['forum']['maxSummary']).'</p>
 			<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$rInfo['author'].':<'.$userInfo[$rInfo['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
 			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$rInfo['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$rInfo['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
 			'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$rInfo['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'

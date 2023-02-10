@@ -475,6 +475,7 @@ input[type=text] {
 	width:340px;
 	z-index:100;
 }
+
 .replyBox .infocard{
 	left: calc(0px + 18%)!important;
     top: calc(0px + 50px)!important;

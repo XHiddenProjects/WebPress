@@ -431,6 +431,23 @@
                     "type": "warning"
                 }
             ]
+        },
+        "2.1.3": {
+            "textsets": [
+                {
+                    "text": "Version 2.1.3 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+                {
+                    "text": "Fixed Bugs",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "fixed",
+                    "show": true,
+                    "type": "danger"
+                }
+            ]
         }
     },
     "needsAttation": false
