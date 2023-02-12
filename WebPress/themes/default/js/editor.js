@@ -815,7 +815,7 @@ function togglePreview(element, mode){
 		textbox.disabled = false;
 		document.querySelector('.lineCount').hidden=false;
 	}else{
-		result_element.innerHTML = textbox.value.replace(new RegExp("&", "g"), "&").replace(new RegExp("<", "g"), "<").replace(new RegExp('<\\?','g'), '&lt;?').replace(new RegExp('\\?>','g'), '?&gt;'); /* Global RegExp */;
+		result_element.innerHTML = textbox.value.replace(new RegExp("&", "g"), "&").replace(new RegExp("<", "g"), "<").replace(new RegExp('<\\?','g'), '&lt;?').replace(new RegExp('\\?>','g'), '?&gt;'); /* Global RegExp */
 		element.setAttribute('toggle-mode', 'preview');
 		textbox.style.zIndex = 0;
 		if(document.querySelector('.editor pre.viewCode')){
