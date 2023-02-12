@@ -12,7 +12,7 @@ A free open-source CMS(content management system) and forum script that allows y
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/surveybuilderteams/webpress/php.yml)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/surveybuilderteams/WebPress?style=plastic)
 [![GitHub contributors](https://img.shields.io/github/contributors/surveybuilderteams/webpress?style=plastic)](https://github.com/surveybuilderteams/WebPress/graphs/contributors)
-[![npm](https://img.shields.io/npm/v/@surveybuilder-admin/webpress)](https://www.npmjs.com/package/@surveybuilder-admin/webpress)
+[![npm](https://img.shields.io/npm/v/@surveybuilder-admin/webpress)](https://www.npmjs.com/package/@surveybuilder-admin/webpress) [![Join the chat at https://gitter.im/webpresschat/community](https://badges.gitter.im/webpresschat/community.svg)](https://gitter.im/webpresschat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## How to install
 Download ZIP folder take the `WebPress` Folder and insert it into your **ROOT** folder and go to `{yourdomain}/WebPress`, then click `register` to create account.
