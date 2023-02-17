@@ -85,7 +85,7 @@ function reactions_config(){
 	<input type="text" id="reactionName" name="reactionName" class="form-control"/>
 	<label class="form-label">'.$lang[$plugin.'_reactionIcon'].'</label>
 	<div class="input-group">
-	<span class="input-group-text">/plugin/reactions/icons/</span>
+	<span class="input-group-text">/plugins/reactions/icons/</span>
 	<input type="text" id="reactionIcon" readonly="" name="reactionIcon" class="form-control"/>
 	</div>
 	</div>
@@ -104,7 +104,7 @@ function reactions_onSubmit(){
 		$plugin = 'reactions';
 		if(isset($_POST['reactions_submit'])){
 			$active = isset($_POST['form_active']) ? $_POST['form_active'] : '';
-			$icon = isset($_POST['reactionIcon'])&&$_POST['reactionIcon']!==''?'/plugin/reactions/icons/'.$_POST['reactionIcon']:'';
+			$icon = isset($_POST['reactionIcon'])&&$_POST['reactionIcon']!==''?'/plugins/reactions/icons/'.$_POST['reactionIcon']:'';
 			$name = $_POST['reactionName'];
 			$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 			$d['active'] = $active;
@@ -158,7 +158,7 @@ function reactions_footerJS(){
 		$plugin = 'reactions';
 		$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 		if($d['active']){
-		$out.='<script src="'.$BASEPATH.'/plugin/reactions/js/reactions.js?v='.$d['version'].'"></script>';	
+		$out.='<script src="'.$BASEPATH.'/plugins/reactions/js/reactions.js?v='.$d['version'].'"></script>';	
 		}
 		return $out;
 }
@@ -197,7 +197,7 @@ function reactions_replyMsg(){
 				foreach($d['config']['replies'][$reply['id']]['users'] as $name=>$info){
 					if($display<5){
 					$out.='<div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="'.$name.' has <b>'.$info.'</b>" class="position-relative ms-2"><img width="42" height="42" class="rounded-circle img-fluid" src="'.(file_exists(ROOT.'uploads'.DS.'avatars'.DS.$name.'.png') ? $BASEPATH.DATA_AVATARS.$name.'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/> <span class="position-absolute top-0 translate-middle badge rounded-circle">
-    <img width="18" height="18" alt="'.$info.'" src="'.$BASEPATH.'/plugin/reactions/icons/'.$info.'.png"/>
+    <img width="18" height="18" alt="'.$info.'" src="'.$BASEPATH.'/plugins/reactions/icons/'.$info.'.png"/>
   </span></div>';
 					$display++;
 					}else{

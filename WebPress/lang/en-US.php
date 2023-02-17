@@ -688,6 +688,14 @@ $lang = array(
 'animate.swirl.bottom'=>'Swirl(Bottom)',
 'animate.swirl.left'=>'Swirl(Left)',
 'animate.swirl.right'=>'Swirl(Right)',
-'animate.swirl.top'=>'Swirl(Top)'
+'animate.swirl.top'=>'Swirl(Top)',
+#security
+'csrf.privateHook'=>' is requesting to steal your private key! For security reasons, please remove it at ',
+'csrf.generateHook'=>' is rewriting your key preventing! For security reasons, please remove it at ',
+'csrf.tokenTheft'=>' is requesting/rewriting for user token! For security reasons, please remove it at ',
+'csrf.fileAccess'=>' is requesting/rewriting for files! For security reasons, please remove it at ',
+'csrf.apiKey'=>' is requesting for API key! For security reasons, please remove it at ',
+'csrf.themeHook'=>' is using a non-valid file for theme! For security reasons, please remove it at ',
+'csrf.themeFHook'=>' is using a non-valid folder for theme! For security reasons, please remove it at '
 );
 ?>

@@ -30,7 +30,6 @@ function Core_beforePage(){
 	}else{
 		$out='';
 	}
-
 	return $out;
 }
 ?>

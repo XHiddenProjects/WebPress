@@ -448,7 +448,32 @@
                     "type": "danger"
                 }
             ]
+        },
+        "2.1.4": {
+            "textsets": [
+                {
+                    "text": "Version 2.1.4 has been fully released!",
+                    "icon": "fas fa-check",
+                    "tag": "offical",
+                    "show": true
+                },
+                {
+                    "text": "Added new plugin",
+                    "icon": "fa-solid fa-puzzle-piece",
+                    "tag": "plugins",
+                    "show": true,
+                    "type": "info"
+                },
+				{
+					"text": "Fixed bugs",
+                    "icon": "fa-solid fa-bug",
+                    "tag": "bugs",
+                    "show": true,
+                    "type": "warning"
+				}
+            ]
         }
+		
     },
     "needsAttation": false
 }

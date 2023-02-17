@@ -145,6 +145,8 @@ Ecco un elenco di ganci disponibili: **(Utilizzare la traduzione inglese per `no
 | profileCards_btn | `forum` | viene visualizzato nel gruppo di pulsanti "scheda profilo" |
 | beforeMsg | `Forum` | wird angezeigt, bevor die Nachricht geladen wird |
 | afterMsg | `Forum` | wird angezeigt, nachdem die Nachricht geladen wurde |
+| bottomReply | `forum` | viene visualizzato nella parte inferiore del messaggio di risposta |
+| bottomTopic | `forum` | viene visualizzato nella parte inferiore del messaggio dell'argomento |
 
 ### [Ban](./docs#bans) {#bans}
 

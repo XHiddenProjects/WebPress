@@ -688,6 +688,14 @@ $lang = array(
 'animate.swirl.bottom'=>'漩渦（底部）',
 'animate.swirl.left'=>'漩渦（左）',
 'animate.swirl.right'=>'漩渦（右）',
-'animate.swirl.top'=>'漩渦（上）'
+'animate.swirl.top'=>'漩渦（上）',
+# 安全
+'csrf.privateHook'=>' 正在請求竊取您的私鑰！ 出於安全原因，請在 ',
+'csrf.generateHook'=>' 正在重寫您的密鑰以防止！ 出於安全原因，請在 ',
+'csrf.tokenTheft'=>' 正在請求/重寫用戶令牌！ 出於安全原因，請在 ',
+'csrf.fileAccess'=>' 正在請求/重寫文件！ 出於安全原因，請在 ',
+'csrf.apiKey'=>' 正在請求 API 密鑰！ 出於安全原因，請在 ',
+'csrf.themeHook'=>' 正在使用無效的主題文件！ 出於安全原因，請在 ',
+'csrf.themeFHook'=>' 正在使用無效的主題文件夾！ 出於安全原因，請在 '
 );
 ?>

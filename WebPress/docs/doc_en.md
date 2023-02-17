@@ -139,12 +139,13 @@ Here is a list of available hooks:
 | dblist | `core` | displays on dashboard's lists |
 | beforePage | `core` | executes code before page load |
 | afterPage | `core` | executes code after page load |
-| replyBottom | `core` | displays in the bottom of the reply message |
 | init | `core` | executes before everything loads |
 | profileCards_box | `forum` | displays in the "profile card" box |
 | profileCards_btn | `forum` | displays in the "profile card" button group |
 | beforeMsg | `forum` | displays before the message is loaded |
 | afterMsg | `forum` | displays after the message is loaded |
+| bottomReply | `forum` | displays in the bottom of the reply message |
+| bottomTopic | `forum` | displays in the bottom of the topic message |
 
 ### [Bans](./docs#bans) {#bans}
 

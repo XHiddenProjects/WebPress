@@ -139,12 +139,13 @@ Voici une liste des crochets disponibles: **(Utilisez la traduction anglaise pou
 | dblist | `noyau` | s'affiche sur les listes du tableau de bord |
 | beforePage | `noyau` | exécute le code avant le chargement de la page |
 | afterPage | `noyau` | exécutecode après le chargement de la page |
-| replyBottom | `noyau` | s'affiche en bas du message de réponse |
 | init | `noyau` | s'exécute avant que tout ne soit chargé |
 | profileCards_box | `forum` | s'affiche dans la case "carte de profil" |
 | profileCards_btn | `forum` | s'affiche dans le groupe de boutons "carte de profil" |
 | beforeMsg | `forum` | s'affiche avant le chargement du message |
 | afterMsg | `forum` | s'affiche après le chargement du message |
+| bottomReply  | `forum` | s'affiche en bas du message de réponse |
+| bottomTopic | `forum` | affiche en bas du message du sujet |
 
 ### [Bannis](./docs#bans) {#bans}
 

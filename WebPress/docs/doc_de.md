@@ -139,12 +139,13 @@ Hier ist eine Liste der verfügbaren Haken: **(Verwenden Sie die englische Über
 | dblist | `Kern` | wird in den Listen des Dashboards angezeigt |
 | beforePage | `Kern` | führt Code vor dem Laden der Seite aus |
 | afterPage | `Kern` | Exekutivenutzt den Code nach dem Laden der Seite |
-| replyBottom | `Kern` | wird unten in der Antwortnachricht angezeigt |
 | init | `Kern` | wird ausgeführt, bevor alles geladen wird |
 | profileCards_box | `Forum` | wird im Feld "Profilkarte" | angezeigt
 | profileCards_btn | `Forum` | wird in der Schaltflächengruppe "Profilkarte" | angezeigt
 | beforeMsg | `Forum` | wird angezeigt, bevor die Nachricht geladen wird |
 | afterMsg | `Forum` | wird angezeigt, nachdem die Nachricht geladen wurde |
+| bottomReply | `Forum` | erscheint am Ende der Antwortnachricht |
+| bottomTopic | `Forum` | wird unten in der Themennachricht angezeigt |
 
 ### [Verbote](./docs#Verbote) {#Verbote}
 

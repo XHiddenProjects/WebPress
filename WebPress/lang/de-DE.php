@@ -688,6 +688,14 @@ $lang = array(
 'animate.swirl.bottom'=>'Wirbel (unten)',
 'animate.swirl.left'=>'Wirbel (links)',
 'animate.swirl.right'=>'Wirbel (rechts)',
-'animate.swirl.top'=>'Wirbel (oben)'
+'animate.swirl.top'=>'Wirbel (oben)',
+#Sicherheit
+'csrf.privateHook'=>' fordert Sie auf, Ihren privaten Schlüssel zu stehlen! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.generateHook'=>' verhindert das Umschreiben Ihres Schlüssels! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.tokenTheft'=>' fordert/überschreibt Benutzertoken! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.fileAccess'=>' fordert/überschreibt Dateien! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.apiKey'=>' fordert API-Schlüssel an! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.themeHook'=>' verwendet eine ungültige Datei für das Design! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.themeFHook'=>' verwendet einen ungültigen Ordner für das Design! Bitte entfernen Sie es aus Sicherheitsgründen unter '
 );
 ?>

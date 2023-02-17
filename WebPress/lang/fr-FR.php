@@ -688,6 +688,14 @@ $lang = array(
 'animate.swirl.bottom'=>'Tourbillon (Bas)',
 'animate.swirl.left'=>'Tourbillon (gauche)',
 'animate.swirl.right'=>'Tourbillon (droite)',
-'animate.swirl.top'=>'Tourbillon (Haut)'
+'animate.swirl.top'=>'Tourbillon (Haut)',
+#sécurité
+'csrf.privateHook'=>' demande de voler votre clé privée ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.generateHook'=>' est en train de réécrire votre clé empêchant ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.tokenTheft'=>' demande/réécrit un jeton utilisateur ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.fileAccess'=>' demande/réécrit des fichiers ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.apiKey'=>' demande une clé API ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.themeHook'=>' utilise un fichier non valide pour le thème ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.themeFHook'=>' utilise un dossier non valide pour le thème ! Pour des raisons de sécurité, veuillez le supprimer à '
 );
 ?>

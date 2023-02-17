@@ -158,7 +158,7 @@ public static function editProfile($base=''){
 # help hover
 	public static function helpPrompt($label){
 		global $lang;
-		return '<i class="fas fa-question-circle" style="cursor:help;" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$lang[$label].'"></i>';
+		return '<i class="fas fa-question-circle" style="cursor:help;" data-bs-toggle="tooltip" data-html="true" data-bs-placement="top" title="'.$lang[$label].'"></i>';
 	}
 # getSelectedLang
 	public static function getLang(){

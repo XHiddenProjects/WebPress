@@ -688,6 +688,14 @@ Le <li class="list-group-item"><em>Parole</em> possono influenzare le parole/il 
 'animate.swirl.bottom'=>'Swirl(Bottom)',
 'animate.swirl.left'=>'Swirl(Sinistra)',
 'animate.swirl.right'=>'Swirl(Destra)',
-'animate.swirl.top'=>'Swirl(Top)'
+'animate.swirl.top'=>'Swirl(Top)',
+#sicurezza
+'csrf.privateHook'=>' sta richiedendo di rubare la tua chiave privata! Per motivi di sicurezza, rimuovilo da ',
+'csrf.generateHook'=>' sta riscrivendo la tua chiave impedendo! Per motivi di sicurezza, rimuovilo da ',
+'csrf.tokenTheft'=>' sta richiedendo/riscrivendo il token utente! Per motivi di sicurezza, rimuovilo da ',
+'csrf.fileAccess'=>' sta richiedendo/riscrivendo i file! Per motivi di sicurezza, rimuovilo da ',
+'csrf.apiKey'=>' sta richiedendo la chiave API! Per motivi di sicurezza, rimuovilo da ',
+'csrf.themeHook'=>' sta usando un file non valido per il tema! Per motivi di sicurezza, rimuovilo da ',
+'csrf.themeFHook'=>' sta usando una cartella non valida per il tema! Per motivi di sicurezza, rimuovilo all`indirizzo '
 );
 ?>

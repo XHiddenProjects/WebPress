@@ -826,10 +826,14 @@ $out.= Paginate::pageLink(Paginate::pid($conf['pluginDisplayAmount']), Paginate:
 	$data = '';
 	$getLog = preg_split('/\R/', Files::getFileData(ROOT.'debug.log'));
 	$id=0;
+	$targetCurrent=0;
+	$remove=$conf['page']['panel']['console'];
 	foreach($getLog as $log){
 		if($log!==''){
-			$id++;
-			if($id<=$conf['page']['panel']['console']||$conf['page']['panel']['console']===(int)'-1'){
+			$targetCurrent++;
+			if($targetCurrent===(count($getLog)-$remove)&&$id<=$conf['page']['panel']['console']||$conf['page']['panel']['console']===(int)'-1'){
+				$id++;
+				$remove--;
 			if(preg_match('/Warning/', $log)){
 				
 			$data.='<div log="'.$id.'" id="log-'.$id.'" class="alert alert-warning" role="alert"><a href="./console#log-'.$id.'"><i id="logCapture" class="fas fa-exclamation-triangle"></i></a> <span class="msg">'.$log.'</span><div class="dropdown">
@@ -862,6 +866,7 @@ $out.= Paginate::pageLink(Paginate::pid($conf['pluginDisplayAmount']), Paginate:
 	$out.='<div class="console text-bg-dark" style="height:77.3%;overflow:auto;">
 	'.$data.'
 	</div>';
+
 }elseif(preg_match('/\/dashboard(?:\.php)\/editors/', $_SERVER['REQUEST_URI'])){
 	$out .= $Editor->createEditor($conf['editor']);
 }elseif(preg_match('/\/dashboard(?:\.php)\/assets/', $_SERVER['REQUEST_URI'])){

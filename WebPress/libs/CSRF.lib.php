@@ -71,6 +71,48 @@ class CSRF{
 			return false;
 		}
 	}
+	public static function checkBadPlugin(){
+		global $lang;
+		/*
+		ClassName::target; --selects a specific function of the class
+		ClassName::*; --selects any function of the class
+		*/
+		foreach(Files::Scan(ROOT.'plugins'.DS) as $plugins){
+			$badPlugin = file_get_contents(ROOT.'plugins'.DS.$plugins.DS.$plugins.'.plg.php');
+
+			if(strpos($badPlugin, 'CSRF::check')){
+				die('<b>'.$plugins.'</b>'.$lang['csrf.privateHook'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
+			}elseif(strpos($badPlugin, 'CSRF::generate')){
+				die('<b>'.$plugins.'</b>'.$lang['csrf.generateHook'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
+			}elseif(strpos($badPlugin, '$_SESSION[\'token\']')||strpos($badPlugin, '$_SESSION["token"]')){
+				die('<b>'.$plugins.'</b>'.$lang['csrf.tokenTheft'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
+			}elseif(strpos($badPlugin, 'Files::')&&!strpos($badPlugin, 'Files::Scan')&&!strpos($badPlugin, 'Files::upload')){
+				die('<b>'.$plugins.'</b>'.$lang['csrf.fileAccess'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
+			}elseif(preg_match_all('/api\/keys\.json|api\.DS\.keys\.json/i',$badPlugin)){
+				die('<b>'.$plugins.'</b>'.$lang['csrf.apiKey'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
+			}
+		}
+	}
+	public static function checkBadTheme($theme){
+		global $lang;
+		foreach(Files::Scan(ROOT.'themes'.DS.$theme) as $themes){
+			if(is_dir(ROOT.'themes'.DS.$theme.DS.$themes)&&$themes!=='css'&&$themes!=='js'&&$themes!=='images'&&$themes!=='fonts'){
+				die('<b>'.$theme.'</b> '.$lang['csrf.themeFHook'].'<u><i>'.ROOT.'themes'.DS.$theme.DS.$themes.'</i></u>');
+			}elseif(is_dir(ROOT.'themes'.DS.$theme.DS.$themes)){
+				foreach(Files::Scan(ROOT.'themes'.DS.$theme.DS.$themes) as $themess){
+					if(@end(explode('.',$themess))!=='css'&&@end(explode('.',$themess))!=='js'&&@end(explode('.',$themess))!=='json'&&
+						@end(explode('.',$themess))!=='ttf'&&@end(explode('.',$themess))!=='png'&&@end(explode('.',$themess))!=='jpg'&&
+						@end(explode('.',$themess))!=='gif'&&@end(explode('.',$themess))!=='pdf'&&@end(explode('.',$themess))!=='txt'){
+							die('<b>'.$theme.'</b> '.$lang['csrf.themeHook'].'<u><i>'.ROOT.'themes'.DS.$theme.DS.$themess.'</i></u>');
+					}
+				}
+			}elseif(@end(explode('.',$themes))!=='css'&&@end(explode('.',$themes))!=='js'&&@end(explode('.',$themes))!=='json'&&
+				@end(explode('.',$themes))!=='tff'&&@end(explode('.',$themes))!=='png'&&@end(explode('.',$themes))!=='jpg'&&
+				@end(explode('.',$themes))!=='gif'&&@end(explode('.',$themes))!=='pdf'&&@end(explode('.',$themess))!=='txt'){
+					die('<b>'.$theme.'</b> '.$lang['csrf.themeHook'].'<u><i>'.ROOT.'themes'.DS.$theme.DS.$themes.'</i></u>');
+				}		
+		}
+	}
 }
 
 ?>

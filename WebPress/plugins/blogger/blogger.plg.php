@@ -26,7 +26,7 @@ function blogger_head(){
 	$out='';
 	$d = WebDB::dbExists('PLUGINS', $plugin.'/plugin') ? WebDB::getDB('plugins',$plugin.'/plugin') : '';
 	if(isset($d['active'])&&$d['active']){
-		$out.='<link rel="stylesheet" href="'.$BASEPATH.'/plugin/'.$plugin.'/css/'.$plugin.'.css?v='.$d['version'].'"/>';
+		$out.='<link rel="stylesheet" href="'.$BASEPATH.'/plugins/'.$plugin.'/css/'.$plugin.'.css?v='.$d['version'].'"/>';
 	}
 	return $out;
 }
