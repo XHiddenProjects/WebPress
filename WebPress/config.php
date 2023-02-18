@@ -6,16 +6,6 @@ require_once('libs/plugin.lib.php');
 require_once('libs/users.lib.php');
 require_once('libs/utils.lib.php');
 require_once('libs/webdb.lib.php');
-require_once('libs/files.lib.php');
-require_once('libs/Parsedown.lib.php');
-require_once('libs/ParsedownExtra.lib.php');
-require_once('libs/BBlight.lib.php');
-require_once('libs/BBcode.lib.php');
-require_once('libs/wysiwyg.lib.php');
-require_once('libs/Editor.lib.php');
-require_once('libs/CSRF.lib.php');
-require_once('libs/Captcha.lib.php');
-require_once('libs/HTMLForm.lib.php');
 
 !Users::isAdmin() ? die($lang['forum.sortUser']) : '';
 
