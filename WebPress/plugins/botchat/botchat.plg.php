@@ -254,7 +254,7 @@ function botchat_footer(){
 		$plugin = 'botchat';
 		$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
 		if($d['active']){
-			$out.='<script>var botconfig = {"playSound": '.($d['config']['playSound'] ? 'true' : 'false').',"cmds": ['.implode(',',array_map('botchat_addquotes',$d['config']['cmds'])).'],"sentAudio": "'.$BASEPATH.'/plugins/'.$plugin.'/assets/sent.wav'.'","receivedAudio": "'.$BASEPATH.'/plugins/'.$plugin.'/assets/received.mp3","failedAudio":"'.$BASEPATH.'/plugins/'.$plugin.'/assets/failed.mp3","senderColor":"'.$d['config']['senderColor'].'","receivedColor":"'.$d['config']['receiverColor'].'","session":"'.$session.'"}</script><script src="'.$BASEPATH.DS.'plugins'.DS.$plugin.'/js/'.$plugin.'.min.js?v='.$d['version'].'"></script>';
+			$out.='<script>var botconfig = {"playSound": '.($d['config']['playSound'] ? 'true' : 'false').',"cmds": ['.implode(',',array_map('botchat_addquotes',$d['config']['cmds'])).'],"sentAudio": "'.$BASEPATH.'/plugins/'.$plugin.'/assets/sent.wav","receivedAudio": "'.$BASEPATH.'/plugins/'.$plugin.'/assets/received.mp3","failedAudio":"'.$BASEPATH.'/plugins/'.$plugin.'/assets/failed.mp3","senderColor":"'.$d['config']['senderColor'].'","receivedColor":"'.$d['config']['receiverColor'].'","session":"'.$session.'"}</script><script src="'.$BASEPATH.DS.'plugins'.DS.$plugin.'/js/'.$plugin.'.min.js?v='.$d['version'].'"></script>';
 		}
 		return $out;
 }
