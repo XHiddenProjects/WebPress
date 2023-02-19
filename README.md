@@ -14,6 +14,13 @@ A free open-source CMS(content management system) and forum script that allows y
 [![GitHub contributors](https://img.shields.io/github/contributors/surveybuilderteams/webpress?style=plastic)](https://github.com/surveybuilderteams/WebPress/graphs/contributors)
 [![Matrix](https://img.shields.io/matrix/WebPressChat:matrix.org)](https://matrix.to/#/#WebPressChat:matrix.org)
 
+***
+
+## Showcase
+![WebPress](./showcase/showcase.gif)
+
+***
+
 ## How to install
 Download ZIP folder take the `WebPress` Folder and insert it into your **ROOT** folder and go to `{yourdomain}/WebPress`, then click `register` to create account.
 
