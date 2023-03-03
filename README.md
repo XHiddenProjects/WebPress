@@ -13,6 +13,7 @@ A free open-source CMS(content management system) and forum script that allows y
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/surveybuilderteams/webpress?style=plastic)](https://www.codefactor.io/repository/github/surveybuilderteams/webpress)
 [![GitHub contributors](https://img.shields.io/github/contributors/surveybuilderteams/webpress?style=plastic)](https://github.com/surveybuilderteams/WebPress/graphs/contributors)
 [![Matrix](https://img.shields.io/matrix/WebPressChat:matrix.org)](https://matrix.to/#/#WebPressChat:matrix.org)
+[![npm](https://img.shields.io/npm/v/@surveybuilder-admin/webpress)](https://www.npmjs.com/package/@surveybuilder-admin/webpress)
 
 ***
 
