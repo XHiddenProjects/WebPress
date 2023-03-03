@@ -80,18 +80,18 @@ width: calc(100% - 50px);
 	  if(!Users::isGuest()){
 		  $db = WebDB::getDB('users', 'users');
 		  $logo='';
-		  $logo.= '<div><a data-bs-toggle="collapse" href="#userinfo" role="button" aria-expanded="false" aria-controls="userinfo" style="cursor:pointer;"><img class="img-fluid ms-2" style="border-radius:15px;" width="100" height="100" src="'.(!file_exists(DATA_UPLOADS.'avatars'.DS.$_SESSION['user'].'.png') ? $BASEPATH.DATA_AVATARS.'default.png' : $BASEPATH.DATA_AVATARS.$_SESSION['user'].'.png').'"/></a>';
+		  $logo.= (isset($_SESSION['user']) ? '<div><a data-bs-toggle="collapse" href="#userinfo" role="button" aria-expanded="false" aria-controls="userinfo" style="cursor:pointer;"><img class="img-fluid ms-2" style="border-radius:15px;" width="100" height="100" src="'.(isset($_SESSION['user'])&&file_exists(DATA_UPLOADS.'avatars'.DS.$_SESSION['user'].'.png') ? $BASEPATH.DATA_AVATARS.$_SESSION['user'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/></a>' : '');
 		$logo.='<div class="collapse position-absolute" style="z-index:5000;right:1%;width:15%;" id="userinfo">
   <div class="card card-body">
-  <p class="text-secondary">'.$_SESSION['user'].'('.$db[$_SESSION['user']]['name'].')</p>
+  <p class="text-secondary">'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'('.(isset($_SESSION['user']) ? $db[$_SESSION['user']]['name'] : '').')</p>
     <a href="'.$BASEPATH.'/auth.php/logout" class="mt-2"><button class="btn btn-danger">'.$lang['index.loginoutbtn'].'</button></a>
 	<a href="'.$BASEPATH.'/dashboard" class="mt-2"><button class="btn btn-primary">'.$lang['index.dashboardbtn'].'</button></a>
 	<a href="'.$BASEPATH.'/dashboard.php/profile" class="mt-2"><button class="btn btn-secondary">'.$lang['dashboard.side.profile'].'</button></a>
 	'.(Users::isAdmin() ? '<a href="'.$BASEPATH.'/dashboard.php/configs#configForum" class="mt-2"><button class="btn btn-success">'.$lang['dashboard.side.config'].'</button></a>' : '').'
 	<hr/>
 	<span class="fs-5 text-secondary">'.$lang['forum.userStatus'].'</span>
-	<span class="d-inline-block">'.$lang['dashboard.profile.topics'].Forum::usersData($_SESSION['user'], 'topics').'
-	'.$lang['dashboard.profile.replys'].Forum::usersData($_SESSION['user'], 'replys').'</span>
+	<span class="d-inline-block">'.$lang['dashboard.profile.topics'].Forum::usersData((isset($_SESSION['user']) ? $_SESSION['user'] : ''), 'topics').'
+	'.$lang['dashboard.profile.replys'].Forum::usersData((isset($_SESSION['user']) ? $_SESSION['user'] : ''), 'replys').'</span>
   </div>
 </div></div>';
 	  echo $logo;
@@ -198,6 +198,12 @@ width: calc(100% - 50px);
 		if(isset($_GET['removeReply'])){
 			if(WebDB::dbExists('replys', $_GET['removeReply'])){
 				Events::createEvent(Users::getRealIP($session), date('m/d/Y h:i:sa'), $session, 'success', 'remove reply');
+				$d = WebDB::getDB('topics', Forum::getTopicsByID($_GET['id']));
+				if (in_array($_GET['removeReply'], $d['replys'])) 
+				{
+					unset($d['replys'][array_search($_GET['removeReply'], $d['replys'])]);
+				}
+				WebDB::saveDB('topics', Forum::getTopicsByID($_GET['id']), $d);
 				WebDB::removeDB('replys', $_GET['removeReply']) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/forum.php/view?id='.$_GET['id'], 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/forum.php/view?id='.$_GET['id'], 'danger');
 			}
 		}
@@ -488,7 +494,7 @@ if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
 </div>' : '<div class="alert alert-danger ms-2 me-2"><b><i class="fa-solid fa-triangle-exclamation"></i> '.$lang['forum.noreply'].'</b></div>'; 
   }else{
 	  if(Users::isGuest()&&!$db['locked']){
-		  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3 loginbtn"><a href="'.$BASEPATH.'/auth.php/login"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';
+		  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3 loginbtn"><a href="'.$BASEPATH.'/auth.php/login?redirect=forum"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';
 	  }else{
 		  echo '';
 	  }
@@ -499,7 +505,7 @@ if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
  
 	
 }else{
-	echo (isset($_GET['search']) ? '' : '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
+	echo (isset($_GET['search']) ? '<h1 class="text-secondary ms-1">'.ucfirst(preg_replace('/forum:|tags:|status:|topic:/','',$_GET['search'])).'</h1>' : '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
 	echo Forum::loadTopics();
 	echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage(Files::Scan(DATA_TOPICS), $conf['forum']['maxTopicDisplay']), './forum?');
 }

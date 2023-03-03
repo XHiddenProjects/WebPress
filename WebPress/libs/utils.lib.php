@@ -122,6 +122,20 @@ class Utils{
 		}
 		
 	}
+	public static function isGETValidEntry($type, $name, $dbType='.dat.json')
+	{
+		return Utils::isGET($name) && WebDB::dbExists($type, $_GET[$name]);
+	}
+	
+	public static function isGETValidHook($hook, $name)
+	{
+		return Utils::isGET($name) && Plugin::isValidHook($hook, $_GET[$name]);
+	}
+	public static function onPage($item, $items)
+	{
+		global $conf;
+		return (int) (array_search($item, array_values($items), true) / $conf['forum']['maxReplyDisplay']) + 1;
+	}
 	public static function checkVersion(){
 		$v1 = file_get_contents(ROOT.'VERSION');
 		$v2 = preg_replace('/\n|\s$/','',file_get_contents('https://raw.githubusercontent.com/surveybuilderteams/WebPress/master/VERSION'));

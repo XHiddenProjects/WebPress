@@ -14,7 +14,7 @@
 		background-color:lightgray!important;
 	}
 	.forumNavBar, footer section, footer .badge, .avatar-status, button[data-bs-target="#PostReply"], .pagination,
-	.forumoptions, .container-fluid .collapse, .navbar-toggler, .replyBox i{
+	.forumoptions, .container-fluid .collapse, .navbar-toggler, .replyBox i,.rmsg, [data-name="botchat-box"]{
 		display:none!important;
 		border:none!important;
 	}

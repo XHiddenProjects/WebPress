@@ -597,6 +597,16 @@ Utils::isPost('removedAvatar', false, function(){
 	<input type="text" autocorrect="off" name="defaultTimeZone" class="form-control" value="'.$conf['page']['defaultTimeZone'].'"/>
 	</div>
 	</div>';
+	$out.='<div class="row">
+	<div class="col">
+	<h4>'.$lang['dashboard.config.security.title'].'</h4>
+	<select class="form-control" name="defaultSecurity">';
+	foreach($lang['dashboard.config.security.list'] as $val=>$name){
+		$out.='<option '.($val===$conf['security'] ? 'selected="selected"' : '').' value="'.$val.'">'.$name.'</option>';
+	}
+	$out.='</select>
+	</div>
+	</div>';
 	$out.='<hr class="border border-5 border-primary"/>';
 	$out.='<h1 class="text-center" id="configForum">'.$lang['dashboard.config.forum.title'].' </h1>';
 	$out.='<div class="row">
@@ -664,7 +674,8 @@ Utils::isPost('removedAvatar', false, function(){
 		$themes = isset($_POST['themes']) ? $_POST['themes'] : $conf['page']['themes'];
 		$timeZone = isset($_POST['defaultTimeZone'])&&$_POST['defaultTimeZone']!=='' ? $_POST['defaultTimeZone'] : $conf['page']['defaultTimeZone'];
 		$dI = isset($_POST['defaultIndex']) ? $_POST['defaultIndex'] : $conf['page']['index'];
-		$sumAmount = isset($_POST['displaySumAmount'])&&$_POST['displaySumAmount']>=10&&$_POST['displaySumAmount']<=100 ? $_POST['displaySumAmount'] : $conf['forum']['maxSummary'];
+		$sumAmount = isset($_POST['displaySumAmount'])&&$_POST['displaySumAmount']>=10&&$_POST['displaySumAmount']<=100 ? (int)$_POST['displaySumAmount'] : (int)$conf['forum']['maxSummary'];
+		$security = isset($_POST['defaultSecurity']) ? $_POST['defaultSecurity'] : $conf['security'];
 		
 		$d['page']['errors']['400'] = $e400;
 		$d['page']['errors']['401'] = $e401;
@@ -707,7 +718,7 @@ Utils::isPost('removedAvatar', false, function(){
 		$d['forum']['maxSummary'] = $sumAmount;
 		$d['page']['defaultTimeZone'] = $timeZone;
 		$d['page']['index'] = $dI;
-		
+		$d['security'] = $security;
 		
 		WebDB::saveDB('CONFIG', 'config', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/configs', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/config', 'danger');
 	});
@@ -1207,6 +1218,7 @@ if(isset($_GET['removeMessage'])){
 		$d[$_GET['remove']]['ban']['isBanned'] = filter_var(false, FILTER_VALIDATE_BOOLEAN);
 		$d[$_GET['remove']]['ban']['reason'] = '';
 		$d[$_GET['remove']]['ban']['time'] = '';
+		$d[$_GET['remove']]['ban']['orgtime'] = '';
 		$d[$_GET['remove']]['ban']['bannedBy'] = '';
 		$d[$_GET['remove']]['ban']['duration'] = '';
 		echo WebDB::saveDB('users', 'users', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/ban', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/ban', 'danger');
@@ -1234,7 +1246,8 @@ if(isset($_GET['removeMessage'])){
 		if(isset($d[$username])){
 			$d[$username]['ban']['isBanned'] = filter_var(true, FILTER_VALIDATE_BOOLEAN);
 		$d[$username]['ban']['reason'] = $reason;
-		$d[$username]['ban']['time'] = ($time==='forever' ? (int)'-1' : date('m/d/Y H:i:s', strtotime('+'.$time)));
+		$d[$username]['ban']['time'] = ($time==='forever' ? (int)'-1' : date('m/d/Y H:i:sa', strtotime('+'.$time)));
+		$d[$username]['ban']['orgtime'] = date('m/d/Y H:i:sa');
 		$d[$username]['ban']['bannedBy'] = $by;
 		$d[$username]['ban']['duration'] = '+'.$time;
 		echo WebDB::saveDB('users', 'users', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/ban', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/ban', 'danger');

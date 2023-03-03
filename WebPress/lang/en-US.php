@@ -11,9 +11,9 @@ $lang = array(
 'index.authdown'=> 'Authorization',
 'index.registerbtn'=>'Create Account <i class="fas fa-user"></i>',
 'index.forumbtn'=>'Forum <i class="fa-duotone fa-comments"></i>',
-'index.loginbtn'=>'Login <i class="fas fa-sign-in"></i>',
+'index.loginbtn'=>'Login <i class="fa-solid fa-right-to-bracket"></i>',
 'index.dashboardbtn'=>'Dashboard <i class="fa-solid fa-gauge-min"></i>',
-'index.loginoutbtn'=>'Logout <i class="fas fa-sign-out"></i>',
+'index.loginoutbtn'=>'Logout <i class="fa-solid fa-sign-out"></i>',
 'index.noScript'=>'Sorry Javascript is not activated, please activate it!',
 'index.label.copyright'=>'Copyright',
 'index.label.license'=>'and Licensed by',
@@ -89,6 +89,8 @@ $lang = array(
 'dashboard.config.panel.emailHelp'=>'Enter your custom domain to allow it',
 'dashboard.config.panel.icons'=>'Website Logo',
 'dashboard.config.timeZone.title'=>'<a href="https://www.php.net/manual/en/timezones.php" target="_blank">Timezone <i class="fa-solid fa-calendar-days"></i></a>',
+'dashboard.config.security.title'=>'Security <i class="fa-solid fa-shield-halved"></i>',
+'dashboard.config.security.list'=>['flexible'=>'flexible', 'moderate'=>'moderate', 'strict'=>'strict'],
 'dashboard.userKey'=>'Public Key',
 'dashboard.userKey.copy'=>'Copy Public Key',
 'dashboard.userPKey'=>'Private Key',
@@ -175,7 +177,7 @@ $lang = array(
 'dashboard.config.500'=>'International Error',
 'dashboard.config.301.help'=>'Leave blank to not include it',
 'dashboard.config.debug.title'=>'Debug',
-'dashboard.config.seo.title'=>'SEO Tools <i class="fas fa-tools"></i>',
+'dashboard.config.seo.title'=>'SEO Tools <i class="fa-solid fa-screwdriver-wrench"></i>',
 'dashboard.config.description'=>'Enter Web Description <i class="fas fa-edit"></i>',
 'dashboard.config.author'=>'Author <i class="fas fa-at"></i>',
 'dashboard.config.refresh'=>'Auto Refresh <i class="fas fa-sync"></i>',
@@ -195,12 +197,12 @@ $lang = array(
 'safe_for_kids'=>'Safe for kids'
 ),
 'dashboard.config.copyright'=>'Copyright <i class="fas fa-copyright"></i>',
-'dashboard.config.distribution.title'=>'Distribution <i class="fas fa-chart-network"></i>',
+'dashboard.config.distribution.title'=>'Distribution <i class="fa-solid fa-chart-network"></i>',
 'dashboard.config.distribution'=>array(
 'Global'=>'Global',
 'Local'=>'Local'
 ),
-'dashboard.config.revisted.title'=>'Revisit-after <i class="fas fa-exchange"></i>',
+'dashboard.config.revisted.title'=>'Revisit-after <i class="fa-solid fa-exchange"></i>',
 'dashboard.config.revisted'=>array(
 '1_Day'=>'1 Day',
 '7_Days'=>'7 Days',
@@ -208,7 +210,7 @@ $lang = array(
 '180_Days'=>'180 Days',
 '360_Days'=>'360 Days'
 ),
-'dashboard.config.charset.title'=>'Charset <i class="fas fa-file-times"></i>',
+'dashboard.config.charset.title'=>'Charset <i class="fa-solid fa-file-times"></i>',
 'dashboard.config.charset'=>array(
 'GB2312'=>'GB2312',
 'US-ASCII'=>'US-ASCII',
@@ -337,6 +339,10 @@ $lang = array(
 # assets
 'assets.title'=>'Assets',
 # ban list
+'ban.label'=>'You are banned!',
+'ban.reasonLabel'=>'Reason',
+'ban.orgtimeLabel'=>'Original',
+'ban.unbanbyLabel'=>'Unbanned at',
 'ban.empty'=>'No users are banned',
 'ban.request'=>'Request appeal',
 'ban.remove'=>'Remove',
@@ -503,6 +509,7 @@ $lang = array(
 #forum
 'forum.title'=>'Forum',
 'forum.author'=>'Created by: ',
+'forum.forumTag'=>'Tags: ',
 'forum.sidebar'=>'Forums',
 'forum.addForum'=>'Add Forum',
 'forum.addTopic'=>'Add Topic',
@@ -694,6 +701,8 @@ $lang = array(
 'csrf.generateHook'=>' is rewriting your key preventing! For security reasons, please remove it at ',
 'csrf.tokenTheft'=>' is requesting/rewriting for user token! For security reasons, please remove it at ',
 'csrf.fileAccess'=>' is requesting/rewriting for files! For security reasons, please remove it at ',
+'csrf.filegetcontent'=>' is triggering file content ',
+'csrf.noCSRF'=>' is using CSRF, this is not allowed ',
 'csrf.apiKey'=>' is requesting for API key! For security reasons, please remove it at ',
 'csrf.themeHook'=>' is using a non-valid file for theme! For security reasons, please remove it at ',
 'csrf.themeFHook'=>' is using a non-valid folder for theme! For security reasons, please remove it at '

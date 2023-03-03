@@ -82,7 +82,6 @@ if(!isset($_SESSION['user'])){
 /*move on*/
 if(Users::isBanned()){
 	global $lang;
-
 	$banned = WebDB::DBexists('users', 'users') ? WebDB::getDB('users', 'users') : '';
 	if(strtotime(date('m/d/Y H:i:s')) >= strtotime($banned[Users::getSession()]['ban']['time'])&&$banned[Users::getSession()]['ban']['time']!==(int)'-1'){
 		$banned[Users::getSession()]['ban']['isBanned'] = filter_var(false, FILTER_VALIDATE_BOOLEAN);
@@ -104,15 +103,15 @@ if(Users::isBanned()){
 			switch($banned[Users::getSession()]['ban']['bannedBy']){
 				case 'username':
 					if(Users::getSession()===$banned[Users::getSession()]['username'])
-						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span><a class="link-primary d-block urlban" href="/'.MAINDIR.'/dashboard.php/mail">'.$lang['ban.request'].'</a></span></div>';                
+						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">'.$lang['ban.label'].'<br/><span class="fst-italic fw-normal" style="font-size:32px;">'.$lang['ban.reasonLabel'].': '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['ban.orgtimeLabel'].': '.$banned[Users::getSession()]['ban']['orgtime'].'" class="fst-italic fw-normal" style="font-size:32px;cursor:help;">'.$lang['ban.unbanbyLabel'].': '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? $lang['ban.list']['forever'] : $banned[Users::getSession()]['ban']['time']).'</span><a class="link-primary d-block urlban" href="/'.MAINDIR.'/dashboard.php/mail">'.$lang['ban.request'].'</a></span></div>';                
 				break;
 				case 'ip':
 					if(Users::getRealIP()===$banned[Users::getSession()]['ip'])
-						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
+						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">'.$lang['ban.label'].'<br/><span class="fst-italic fw-normal" style="font-size:32px;">'.$lang['ban.reasonLabel'].': '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['ban.orgtimeLabel'].': '.$banned[Users::getSession()]['ban']['orgtime'].'" class="fst-italic fw-normal" style="font-size:32px;cursor:help;">'.$lang['ban.unbanbyLabel'].': '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? $lang['ban.list']['forever'] : $banned[Users::getSession()]['ban']['time']).'</span><a class="link-primary d-block urlban" href="/'.MAINDIR.'/dashboard.php/mail">'.$lang['ban.request'].'</a></span></div>';
 				break;
 				case 'hardwareid':
 					if(Users::hardwareID()===$banned[Users::getSession()]['id'])
-						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">You are banned!<br/><span class="fst-italic fw-normal" style="font-size:32px;">Reason: '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span class="fst-italic fw-normal" style="font-size:32px;">Unbanned at: '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? 'Forever': $banned[Users::getSession()]['ban']['time']).'</span></span></div>';
+						echo '<style>body{overflow:hidden;}.bannedMsg{font-size:86px;}</style><div class="alert alert-danger text-center w-100 h-100"><span class="fw-bold position-absolute top-50 start-50 translate-middle bannedMsg">'.$lang['ban.label'].'<br/><span class="fst-italic fw-normal" style="font-size:32px;">'.$lang['ban.reasonLabel'].': '.$banned[Users::getSession()]['ban']['reason'].'</span><br/><span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['ban.orgtimeLabel'].': '.$banned[Users::getSession()]['ban']['orgtime'].'" class="fst-italic fw-normal" style="font-size:32px;cursor:help;">'.$lang['ban.unbanbyLabel'].': '.($banned[Users::getSession()]['ban']['time']===(int)'-1' ? $lang['ban.list']['forever'] : $banned[Users::getSession()]['ban']['time']).'</span><a class="link-primary d-block urlban" href="/'.MAINDIR.'/dashboard.php/mail">'.$lang['ban.request'].'</a></span></div>';
 				break;
 			}
 		}
@@ -166,7 +165,7 @@ $header .= '<html lang="'.Users::getLang().'">
 <head>
 <meta charset="'.$conf['page']['charset'].'">
 <meta name="viewport" content="width=device-width, initial-scale=1">';
-$header.='<meta name="description" content="'.$conf['page']['description'][Users::getLang()].'"/>';
+$header.='<meta name="description" content="'.Page::summary($conf['page']['description'][Users::getLang()], 157).'"/>';
 $header.='<meta name="author" content="'.$conf['page']['author'].'"/>';
 $header .= $conf['page']['refresh']>0 ? '<meta http-equiv="refresh" content="'.$conf['page']['refresh'].'"/>' : '';
 $header .= '<meta name="keywords" content="'.$conf['page']['keywords'].'"/>';

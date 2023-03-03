@@ -5,5 +5,5 @@ $lang[$plugin.'_desc'] = 'Un moyen facile d`exécuter WebPress, d`activer et de 
 $lang[$plugin.'_author'] = 'SurveyBuilderTeams';
 $lang[$plugin.'_updated'] = '12-04-2022';
 $lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
-$lang['checkPolicy']='Consultez la politique WebPress sur la <a href="/dashboard.php/docs#policy">documentation</a>';
+$lang['checkPolicy']='Consultez la politique WebPress sur la <a href="/'.MAINDIR.'/dashboard.php/docs#policy">documentation</a>';
 ?>

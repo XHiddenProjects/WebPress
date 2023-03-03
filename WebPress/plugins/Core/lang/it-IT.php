@@ -5,5 +5,5 @@ $lang[$plugin.'_desc'] = 'Modo semplice per eseguire WebPress, attivare e creare
 $lang[$plugin.'_author'] = 'SurveyBuilderTeams';
 $lang[$plugin.'_updated'] = '12-04-2022';
 $lang[$plugin.'_homepage'] = 'https://github.com/surveybuilderteams/webpress';
-$lang['checkPolicy']='Consulta la politica di WebPress nella <a href="/dashboard.php/docs#policy">documentazione</a>';
+$lang['checkPolicy']='Consulta la politica di WebPress nella <a href="/'.MAINDIR.'/dashboard.php/docs#policy">documentazione</a>';
 ?>

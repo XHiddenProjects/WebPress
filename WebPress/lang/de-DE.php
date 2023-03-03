@@ -11,7 +11,7 @@ $lang = array(
 'index.authdown'=> 'Genehmigung',
 'index.registerbtn'=>'Konto anlegen <i class="fas fa-user"></i>',
 'index.forumbtn'=>'Forum <i class="fa-duotone fa-comments"></i>',
-'index.loginbtn'=>'Anmeldung <i class="fas fa-sign-in"></i>',
+'index.loginbtn'=>'Anmeldung <i class="fa-solid fa-right-to-bracket"></i>',
 'index.dashboardbtn'=>'Armaturenbrett <i class="fa-solid fa-gauge-min"></i>',
 'index.loginoutbtn'=>'Ausloggen <i class="fas fa-sign-out"></i>',
 'index.noScript'=>'Entschuldigung, Javascript ist nicht aktiviert, bitte aktivieren Sie es!',
@@ -89,6 +89,8 @@ $lang = array(
 'dashboard.config.panel.emailHelp'=>'Geben Sie Ihre benutzerdefinierte Domäne ein, um sie zuzulassen',
 'dashboard.config.panel.icons'=>'Website Logo',
 'dashboard.config.timeZone.title'=>'<a href="https://www.php.net/manual/de/timezones.php" target="_blank">Zeitzone <i class="fa-solid fa-calendar-days"></i></a>',
+'dashboard.config.security.title'=>'Sicherheit <i class="fa-solid fa-shield-halved"></i>',
+'dashboard.config.security.list'=>['flexible'=>'flexibel', 'moderate'=>'mäßig', 'strict'=>'strikt'],
 'dashboard.userKey'=>'Öffentlicher Schlüssel',
 'dashboard.userKey.copy'=>'Öffentlichen Schlüssel kopieren',
 'dashboard.userPKey'=>'Privat Schlüssel',
@@ -175,7 +177,7 @@ $lang = array(
 'dashboard.config.500'=>'Internationaler Fehler',
 'dashboard.config.301.help'=>'Lassen Sie das Feld leer, um es nicht einzuschließen',
 'dashboard.config.debug.title'=>'Debuggen',
-'dashboard.config.seo.title'=>'SEO Tools <i class="fas fa-tools"></i>',
+'dashboard.config.seo.title'=>'SEO Tools <i class="fa-solid fa-screwdriver-wrench"></i>',
 'dashboard.config.description'=>'Geben Sie die Webbeschreibung einn <i class="fas fa-edit"></i>',
 'dashboard.config.author'=>'Author <i class="fas fa-at"></i>',
 'dashboard.config.refresh'=>'Automatische Aktualisierung <i class="fas fa-sync"></i>',
@@ -194,13 +196,13 @@ $lang = array(
 'restricted'=>'Eingeschränkt',
 'safe_for_kids'=>'Sicher für Kinder'
 ),
-'dashboard.config.copyright'=>'Urheberrechte <i class="fas fa-copyright"></i>',
-'dashboard.config.distribution.title'=>'Verteilung <i class="fas fa-chart-network"></i>',
+'dashboard.config.copyright'=>'Urheberrechte <i class="fa-solid fa-copyright"></i>',
+'dashboard.config.distribution.title'=>'Verteilung <i class="fa-solid fa-chart-network"></i>',
 'dashboard.config.distribution'=>array(
 'Global'=>'Global',
 'Local'=>'Lokal'
 ),
-'dashboard.config.revisted.title'=>'Revisit-after <i class="fas fa-exchange"></i>',
+'dashboard.config.revisted.title'=>'Revisit-after <i class="fa-solid fa-exchange"></i>',
 'dashboard.config.revisted'=>array(
 '1_Day'=>'1 Tag',
 '7_Days'=>'7 Tage',
@@ -208,7 +210,7 @@ $lang = array(
 '180_Days'=>'180 Tage',
 '360_Days'=>'360 Tage'
 ),
-'dashboard.config.charset.title'=>'Zeichensatz <i class="fas fa-file-times"></i>',
+'dashboard.config.charset.title'=>'Zeichensatz <i class="fa-solid fa-file-times"></i>',
 'dashboard.config.charset'=>array(
 'GB2312'=>'GB2312',
 'US-ASCII'=>'US-ASCII',
@@ -337,6 +339,10 @@ $lang = array(
 # Vermögenswerte
 'assets.title'=>'Vermögenswerte',
 # Verbotsliste
+'ban.label'=>'Du bist verbannt!',
+'ban.reasonLabel'=>'Grund',
+'ban.orgtimeLabel'=>'Original',
+'ban.unbanbyLabel'=>'Entsperrt bei',
 'ban.empty'=>'Es werden keine Benutzer gesperrt',
 'ban.request'=>'Berufung beantragen',
 'ban.remove'=>'Entfernen',
@@ -503,6 +509,7 @@ $lang = array(
 #forum
 'forum.title'=>'Forum',
 'forum.author'=>'Erstellt von: ',
+'forum.forumTag'=>'Stichworte: ',
 'forum.sidebar'=>'Foren',
 'forum.addForum'=>'Forum hinzufügen',
 'forum.addTopic'=>'Thema hinzufügen',
@@ -694,6 +701,8 @@ $lang = array(
 'csrf.generateHook'=>' verhindert das Umschreiben Ihres Schlüssels! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
 'csrf.tokenTheft'=>' fordert/überschreibt Benutzertoken! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
 'csrf.fileAccess'=>' fordert/überschreibt Dateien! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
+'csrf.filegetcontent'=>' löst Dateiinhalt aus ',
+'csrf.noCSRF'=>' verwendet CSRF, dies ist nicht erlaubt ',
 'csrf.apiKey'=>' fordert API-Schlüssel an! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
 'csrf.themeHook'=>' verwendet eine ungültige Datei für das Design! Entfernen Sie es aus Sicherheitsgründen bitte unter ',
 'csrf.themeFHook'=>' verwendet einen ungültigen Ordner für das Design! Bitte entfernen Sie es aus Sicherheitsgründen unter '

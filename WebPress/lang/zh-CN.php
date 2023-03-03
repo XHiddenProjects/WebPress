@@ -13,7 +13,7 @@ $lang = array(
 'index.forumbtn'=>'論壇 <i class="fa-duotone fa-comments"></i>',
 'index.loginbtn'=>'登錄 <i class="fas fa-sign-in"></i>',
 'index.dashboardbtn'=>'儀表板 <i class="fa-solid fa-gauge-min"></i>',
-'index.loginoutbtn'=>'登出 <i class="fas fa-sign-out"></i>',
+'index.loginoutbtn'=>'登出 <i class="fa-solid fa-right-to-bracket"></i>',
 'index.noScript'=>'抱歉，Javascript 未激活，請激活它!',
 'index.label.copyright'=>'版權',
 'index.label.license'=>'並獲得許可',
@@ -89,6 +89,8 @@ $lang = array(
 'dashboard.config.panel.emailHelp'=>'Enter your custom domain to allow it',
 'dashboard.config.panel.icons'=>'Website Logo',
 'dashboard.config.timeZone.title'=>'<a href="https://www.php.net/manual/zh/timezones.php" target="_blank">時區 <i class="fa-solid fa-calendar-days"></i></a>',
+'dashboard.config.security.title'=>'安全 <i class="fa-solid fa-shield-halved"></i>',
+'dashboard.config.security.list'=>['flexible'=>'靈活的', 'moderate'=>'緩和', 'strict'=>'嚴格的'],
 'dashboard.userKey'=>'公鑰',
 'dashboard.userKey.copy'=>'複製公鑰',
 'dashboard.userPKey'=>'私鑰',
@@ -175,7 +177,7 @@ $lang = array(
 'dashboard.config.500'=>'國際錯誤',
 'dashboard.config.301.help'=>'留空不包括它',
 'dashboard.config.debug.title'=>'調試',
-'dashboard.config.seo.title'=>'搜索引擎優化工具 <i class="fas fa-tools"></i>',
+'dashboard.config.seo.title'=>'搜索引擎優化工具 <i class="fa-solid fa-screwdriver-wrench"></i>',
 'dashboard.config.description'=>'輸入網頁描述 <i class="fas fa-edit"></i>',
 'dashboard.config.author'=>'作者 <i class="fas fa-at"></i>',
 'dashboard.config.refresh'=>'自動刷新 <i class="fas fa-sync"></i>',
@@ -183,7 +185,7 @@ $lang = array(
 'dashboard.config.keywords'=>'輸入關鍵字 <i class="fas fa-spell-check"></i>',
 'dashboard.config.keywords.help'=>'使用逗號(,)來使用多個關鍵字',
 'dashboard.config.robotIndex.title'=>'允許機器人索引您的網站？ <i class="fas fa-robot"></i>',
-'dashboard.config.robotFollow.title'=>'允許機器人跟踪所有鏈接？ <i class="fas fa-external-link"></i>',
+'dashboard.config.robotFollow.title'=>'允許機器人跟踪所有鏈接？ <i class="fa-solid fa-external-link"></i>',
 'dashboard.config.rate.title'=>'評分 <i class="fas fa-star"></i>',
 'dashboard.config.rate'=>array(
 'null'=>'未標明',
@@ -195,12 +197,12 @@ $lang = array(
 'safe_for_kids'=>'對孩子安全'
 ),
 'dashboard.config.copyright'=>'版權 <i class="fas fa-copyright"></i>',
-'dashboard.config.distribution.title'=>'分配 <i class="fas fa-chart-network"></i>',
+'dashboard.config.distribution.title'=>'分配 <i class="fa-solid fa-chart-network"></i>',
 'dashboard.config.distribution'=>array(
 'Global'=>'全球的',
 'Local'=>'當地的'
 ),
-'dashboard.config.revisted.title'=>'重訪後 <i class="fas fa-exchange"></i>',
+'dashboard.config.revisted.title'=>'重訪後 <i class="fa-solid fa-exchange"></i>',
 'dashboard.config.revisted'=>array(
 '1_Day'=>'1 天',
 '7_Days'=>'7 天',
@@ -208,7 +210,7 @@ $lang = array(
 '180_Days'=>'180 天',
 '360_Days'=>'360 天'
 ),
-'dashboard.config.charset.title'=>'字符集 <i class="fas fa-file-times"></i>',
+'dashboard.config.charset.title'=>'字符集 <i class="fa-solid fa-file-times"></i>',
 'dashboard.config.charset'=>array(
 'GB2312'=>'GB2312',
 'US-ASCII'=>'US-ASCII',
@@ -337,6 +339,10 @@ $lang = array(
 # 資產
 'assets.title'=>'資產',
 # 禁令名單
+'ban.label'=>'你被禁止了！',
+'ban.reasonLabel'=>'原因',
+'ban.orgtimeLabel'=>'原來的',
+'ban.unbanbyLabel'=>'解禁於',
 'ban.empty'=>'沒有用戶被禁止',
 'ban.request'=>'請求上訴',
 'ban.remove'=>'消除',
@@ -503,6 +509,7 @@ $lang = array(
 #論壇
 'forum.title'=>'論壇',
 'forum.author'=>'由...製作: ',
+'forum.forumTag'=>'標籤: ',
 'forum.sidebar'=>'論壇',
 'forum.addForum'=>'添加論壇',
 'forum.addTopic'=>'添加主題',
@@ -694,6 +701,8 @@ $lang = array(
 'csrf.generateHook'=>' 正在重寫您的密鑰以防止！ 出於安全原因，請在 ',
 'csrf.tokenTheft'=>' 正在請求/重寫用戶令牌！ 出於安全原因，請在 ',
 'csrf.fileAccess'=>' 正在請求/重寫文件！ 出於安全原因，請在 ',
+'csrf.filegetcontent'=>'正在觸發文件內容',
+'csrf.noCSRF'=>' 正在使用 CSRF，這是不允許的 ',
 'csrf.apiKey'=>' 正在請求 API 密鑰！ 出於安全原因，請在 ',
 'csrf.themeHook'=>' 正在使用無效的主題文件！ 出於安全原因，請在 ',
 'csrf.themeFHook'=>' 正在使用無效的主題文件夾！ 出於安全原因，請在 '

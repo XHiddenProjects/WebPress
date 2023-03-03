@@ -131,9 +131,24 @@ class Page{
 	}
 	public static function summary($str,$maxLength=50){
 		if(strlen($str)>$maxLength)
-			return substr_replace($str, '...', -(strlen($str)-$maxLength));
+			return preg_replace('/\s\.\.\./','...',substr_replace($str, '...', -(strlen($str)-$maxLength)));
 		else
 			return $str;
+	}
+	public static function content($text, $summary = false)
+	{
+		global $conf;			
+		if($conf['editor'] === 'markdown'){	
+			global $parseBB, $parseBBL;	
+			# Parse markdown content.
+			$text = $parseMD->text($text);
+			$text = $parseBBL->toHTML($text, false, true);
+		} else {
+			global $parseBB;
+			# Parse BBcode content.	
+			$text = $parseBB->toHTML($text, false, true);	
+		}			
+		return $text;
 	}
 }
 ?>

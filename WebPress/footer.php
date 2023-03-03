@@ -28,7 +28,7 @@ $footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0
         style="background-color: #333333;"
         href="https://alternativeto.net/software/webpress/about/" target="_blank"
         role="button"
-        ><img src="https://alternativeto.net/static/icons/favicon.ico" width="18" height="18"/></a>
+        ><img src="https://alternativeto.net/static/icons/a2/favicon.ico" width="18" height="18"/></a>
 		  <!-- producthunt -->
       <a
 		data-bs-toggle="tooltip" 
@@ -39,7 +39,7 @@ $footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0
         href="https://www.producthunt.com/posts/webpress" target="_blank"
         role="button"
         ><img src="https://ph-static.imgix.net/ph-favicon-coral.ico" width="18" height="18"/></a>
-	  <!--Website-->
+	<!--Website-->
 	  <a
 		data-bs-toggle="tooltip" 
 		data-bs-placement="top" 
@@ -68,6 +68,11 @@ $footer.='<footer class="bg-light text-center text-dark position-sticky bottom-0
 </g>
 </svg></a>
     </section>
+	<div class="position-absolute fs-4 m-2 text-light" style="right:calc(0px + 2%); top:calc(0px + 8%);">
+	<i class="fa-solid fa-rss d-block"></i>
+	<a class="d-block link-light" href="'.$basepath.'/feed.php/topics">'.$lang['dashboard.graph.forums.topics'].'</a>
+	<a class="d-block link-light" href="'.$basepath.'/feed.php/replies">'.$lang['dashboard.graph.forums.replies'].'</a>
+	</div>
 	'.Plugin::hook('footer').'
   </div>
 </footer>';

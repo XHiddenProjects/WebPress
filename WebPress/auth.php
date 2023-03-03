@@ -110,7 +110,7 @@ echo $output;
 	}elseif(preg_match('/\/login/', $_SERVER['REQUEST_URI'])){
 	if(Users::getSession()){
 			echo '<script>
-				window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
+				window.open("../'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? ($_GET['redirect']==='forum' ? 'forum' : 'dashboard.php/'.$_GET['redirect']) : '').'", "_self");
 				</script>';
 	}
 	echo '<script>
@@ -281,7 +281,7 @@ if(isset($_POST['webpresscreate'])){
 			 $users = fopen(DATA_USERS.'users.dat.json', 'w+');
 			 $date=date('m-d-Y+h:i:sa');
 			 $timezone = gettype(Users::ipInfo(Users::getRealIP(), 'timezone'))==="string" ? Users::ipInfo(Users::getRealIP(), 'timezone') : Users::ipInfo(Users::getRealIP())['timezone'];
-			 $data = array($user=>array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'id'=>Users::hardwareID(),'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>''));
+			 $data = array($user=>array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'id'=>Users::hardwareID(),'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'orgtime'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>''));
 			 $store = json_encode($data, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 			 fwrite($users, $store);
 			 fclose($users);

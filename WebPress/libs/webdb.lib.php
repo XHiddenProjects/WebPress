@@ -37,5 +37,9 @@ class WebDB{
 		$e = constant('DATA_'.strtoupper($type));
 		return file_exists($e.$name.$dbType) ? true : false;
 	}
+	public static function listDB($type) : array{
+		$e = constant('DATA_'.strtoupper($type));
+		return array_diff(scandir($e), ['.','..']);
+	}
 }
 ?>

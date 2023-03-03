@@ -475,10 +475,14 @@ input[type=text] {
 	width:340px;
 	z-index:100;
 }
-
+.replyItem .infocard{
+	height:20%!important;
+}
 .replyBox .infocard{
-	left: calc(0px + 18%)!important;
-    top: calc(0px + 50px)!important;
+	position:absolute;
+	left: calc(0px + 77%)!important;
+    top: calc(0px - 110px)!important;
+	height:308px!important;
 }
 .infocard .box{
 			box-sizing: border-box;

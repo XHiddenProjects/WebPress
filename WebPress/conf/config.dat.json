@@ -62,10 +62,11 @@
         "dateFormat": "F d, Y h:ia",
         "defaultTimeZone": "America/New_York"
     },
+    "security": "moderate",
     "forum": {
         "maxTopicDisplay": 5,
         "maxReplyDisplay": 5,
-        "maxSummary": "30"
+        "maxSummary": 30
     },
     "pluginDisplayAmount": 4,
     "themesDisplayAmount": 4,

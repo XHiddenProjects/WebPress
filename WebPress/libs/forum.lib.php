@@ -47,7 +47,14 @@ class Forum{
 		}
 		return count($reply);
 	}
-	
+	public static function getTopicsByID($id){
+		foreach(Files::Scan(DATA_TOPICS) as $topics){
+			$topics = Files::removeExtension($topics);
+			if(strpos($topics, $id)){
+				return $topics;
+			}
+		}
+	}
 	public static function number_abbr($number)
 {
     $abbrevs = [12 => 'T', 9 => 'B', 6 => 'M', 3 => 'K', 0 => ''];
@@ -96,7 +103,7 @@ public static function usersData($name, $type){
 		foreach(Files::Scan(DATA_FORUMS) as $forums){
 			$forums = str_replace('.dat.json', '', $forums);
 			$forumDB = WebDB::getDB('forums', $forums);
-			$lists[(string)$forumDB['val']] = '<a href="'.$BASEPATH.'/forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> <a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a></li></a>';
+			$lists[(string)$forumDB['val']] = '<a href="'.$BASEPATH.'/forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> '.(Users::isAdmin() ? '<a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a>' : '').'</li></a>';
 		}
 		ksort($lists);
 		foreach($lists as $item => $list){
@@ -228,7 +235,7 @@ public static function usersData($name, $type){
   </div>
 </div>
   <!-- Media body -->
-  <div>
+  <div class="p-2">
     <h5 class="fw-bold mt-2">
       '.(Users::createBadge($info['author']) ? Users::createBadge($info['author']) : '<span class="ms-2 me-2 badge text-bg-secondary">'.(isset($langs['forum.anonumous']) ? $langs['forum.anonumous'] : 'System').'</span>').$info['author'].' - <em>'.$info['name'].'</em>
       <small class="text-muted">'.(isset($langs['forum.created']) ? $langs['forum.created'] : 'Created: ').' '.date($conf['page']['dateFormat'], strtotime($info['created'])).'</small>
@@ -241,7 +248,7 @@ public static function usersData($name, $type){
 	<div class="d-inline-block" '.(strtotime($info['created'])===strtotime($info['edited']) ? 'style="display:none!important;"' : '').'><small class="text-muted" style="float:left;"><i class="fa-solid fa-pen-to-square"></i> '.(isset($langs['forum.edited']) ? $langs['forum.edited'] : 'Last Edited: ').' '.date($conf['page']['dateFormat'], strtotime($info['edited'])).'</small></div>
 	<div><i class="fa-solid fa-eye"></i> <span class="text-secondary">'.self::number_abbr($info['views']).'</span><i style="transform:rotateY(180deg);" class="fa-solid fa-comment ms-3"></i> <span class="text-secondary">'.self::getReplysByTopic($info['id']).'</span></div>
 
-	<tags>'.$listTags.'</tags>
+	<tags>'.(isset($langs['forum.forumTag']) ? $langs['forum.forumTag'] : 'Tags: ').$listTags.'</tags>
 	<a class="text-decoration-none" href="./forum.php/view?id='.$info['id'].'"><button class="btn '.($info['locked'] ? 'btn-secondary' : 'btn-primary').' d-flex mt-2 mb-2">'.($info['locked'] ? (isset($langs['forum.view']) ? $langs['forum.view'] : 'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>') : (isset($langs['forum.replys']) ? $langs['forum.replys'] : 'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>')).'</button></a><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'" class="text-decoration-none"><button class="btn btn-info">'.(isset($langs['report']) ? $langs['report'] : '<i class="fa-solid fa-bell"></i> Report').'</button></a>
 	'.($session===$info['author']||Users::isAdmin() ? '<a'.(Users::hasPermission('delete') ? '' : ' hidden="hidden"').' href="./forum?removeTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-danger">'.(isset($langs['forum.deleteTopic']) ? $langs['forum.deleteTopic'] : 'Delete Topic').' <i class="fa-solid fa-trash-can"></i></button></a> <a'.(Users::hasPermission('write') ? '' : ' hidden="hidden"').' href="./forum?editTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-success">'.(isset($langs['forum.editBtn']) ? $langs['forum.editBtn'] : '<i class="fa-solid fa-pen-to-square"></i> Edit').'</button></a>':'').'
 
@@ -273,13 +280,20 @@ public static function usersData($name, $type){
 				 !in_array($r, $items) ? array_push($items, $r) : '';
 				}
 			}
-			$items = array_reverse($items);
+		
 		$p = isset($_GET['p']) ? $_GET['p'] : 1;
 		$nb = $conf['forum']['maxReplyDisplay'];
 		for($i=0;$i<count(array_slice($items, $nb*($p-1), $nb));$i++){
 			$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 			}
 			return $d;
+	}
+	public static function checkReplyByTopic($tid){
+		foreach(Files::Scan(DATA_TOPICS) as $topics){
+			if(strpos($topics, $tid)){
+				return Files::removeExtension($topics);
+			}
+		}
 	}
 	public static function loadReplys(){
 		global $langs, $BASEPATH, $conf, $session, $replaysArr; 
@@ -356,7 +370,7 @@ public static function usersData($name, $type){
   </div>
 </div>
   <!-- Media body -->
-  <div>
+  <div class="p-2">
     <h5 class="fw-bold mt-2">
       '.$info['author'].(Users::createBadge($info['author']) ? Users::createBadge($info['author']) : '<span class="ms-2 me-2 badge text-bg-secondary">'.$langs['forum.anonumous'].'</span>').
      '<small class="text-muted">'.(isset($langs['forum.created']) ? $langs['forum.created'] : '').' '.date($conf['page']['dateFormat'], strtotime($info['created'])).'</small>
@@ -368,7 +382,7 @@ public static function usersData($name, $type){
      '.$info['msg'].'
     </p>
 	'.Plugin::hook('afterMsg').'
-	<tags>'.$listTags.'</tags><br/>
+	<tags>'.(isset($langs['forum.forumTag']) ? $langs['forum.forumTag'] : 'Tags: ').$listTags.'</tags><br/>
 	<small '.(strtotime($info['created'])===strtotime($info['edited']) ? 'hidden="hidden"' : '').' class="text-muted"><i class="fa-solid fa-pen-to-square"></i> '.(isset($langs['forum.edited']) ? $langs['forum.edited'] : 'Last Edited: ').' '.date($conf['page']['dateFormat'], strtotime($info['edited'])).'</small>
 	<div class="forumoptions"><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'" class="text-decoration-none"><button class="btn btn-info">'.$langs['report'].'</button></a></div>
 		'.Plugin::hook('bottomTopic').'
@@ -382,6 +396,7 @@ public static function usersData($name, $type){
 				if($rInfo['topic']===$_GET['id']){
 					$replyItem='<div id="'.$rInfo['id'].'" class="d-flex mt-4 replyBox">
     <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$langs['forum.anchorID'].'" onclick="copyReplyID(\''.$rInfo['id'].'\')" class="link-primary fs-3 me-2" href="#'.$rInfo['id'].'"><i class="fa-solid fa-anchor"></i></a>  
+	<div class="position-relative">
 	<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$rInfo['author'].'"').'><img
         src="'.(file_exists(ROOT.DATA_AVATARS.$rInfo['author'].'.png') ? $BASEPATH.DATA_AVATARS.$rInfo['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"
         alt="'.$rInfo['author'].'"
@@ -424,6 +439,7 @@ public static function usersData($name, $type){
 	</div>
   </div>
 </div>
+</div>
 	  <div>
         <h5 class="fw-bold">
           '.$rInfo['author'].(Users::createBadge($rInfo['author']) ? Users::createBadge($rInfo['author']) : '<span class="ms-2 me-2 badge text-bg-secondary">'.$langs['forum.anonumous'].'</span>').'
@@ -435,7 +451,7 @@ public static function usersData($name, $type){
         </p>
 		'.Plugin::hook('afterMsg').'
 		<small '.(strtotime($rInfo['created'])===strtotime($rInfo['edited']) ? 'hidden="hidden"' : '').' class="text-muted"><i class="fa-solid fa-pen-to-square"></i> '.(isset($langs['forum.edited']) ? $langs['forum.edited'] : '').' '.date($conf['page']['dateFormat'], strtotime($rInfo['edited'])).'</small>
-		<div style="display:flex;">'.Plugin::hook('replyMsg').'</div>
+		<div style="display:flex;" class="m-2 rmsg">'.Plugin::hook('replyMsg').'</div>
 		<div class="forumoptions">'.($session===$rInfo['author']&&!$info['locked']||Users::isAdmin()&&!$info['locked'] ? '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="./view?id='.$_GET['id'].'&editReply='.$rInfo['id'].'"><button class="btn btn-success">'.$langs['forum.editBtn'].'</button></a> <a href="./view?id='.$_GET['id'].'&removeReply='.$rInfo['id'].'"><button class="btn btn-danger">'.$langs['forum.removeBtn'].'</button></a>
 		<a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'&replyID='.$rInfo['id'].'&pnum='.(isset($_GET['p']) ? $_GET['p'] : '1').'" class="text-decoration-none ms-1"><button class="btn btn-info">'.$langs['report'].'</button></a>' : '<a href="./view?id='.$_GET['id'].'&quoteReply='.$rInfo['id'].'"><button class="btn btn-primary">'.$langs['btn.quote'].'</button></a> <a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'&replyID='.$rInfo['id'].'&pnum='.(isset($_GET['p']) ? $_GET['p'] : '1').'" class="text-decoration-none ms-1"><button class="btn btn-info">'.$langs['report'].'</button></a>').'
 		'.Plugin::hook('bottomReply').'</div>
@@ -466,11 +482,12 @@ public static function usersData($name, $type){
 	public static function makeReply($msg, $author, $raw, $topicID=null, $created=null, $edited=null, $id=null){
 		$edited = date('m/d/Y h:i:sa');
 		$id = !isset($_GET['editReply']) ? self::replyID() : $_GET['editReply'];
-		$topicID = isset($_GET['id']) ? $_GET['id'] : '';
+		
 		!WebDB::DBexists('replys', $id) ? WebDB::makeDB('replys', $id) : '';
 		$d = WebDB::DBexists('replys', $id) ? WebDB::getDB('replys', $id) : '';
+		$t = WebDB::dbExists('topics', self::getTopicsByID($_GET['id'])) ? WebDB::getDB('topics', self::getTopicsByID($_GET['id'])) : '';
 		$data = array(
-				'topic'=>$topicID,
+				'topic'=>$t['id'],
 				'id'=>$id,
 				'created'=>(isset($d['created']) ? $d['created'] : date('m/d/Y h:i:sa')),
 				'edited'=>$edited,
@@ -479,6 +496,8 @@ public static function usersData($name, $type){
 				'raw'=>$raw
 		);
 		Events::createEvent(Users::getRealIP($author), date('m/d/Y h:i:sa'), $author, 'success', 'create reply');
+		$t['replys'][] = $id;
+		WebDB::saveDB('topics', self::getTopicsByID($_GET['id']), $t);
 		return WebDB::saveDB('replys', $id, $data) ? true : false; 
 	}
 	public static function makeTopic($name, $forum, $author, $msg, $tags, $raw, $pinned=false, $locked=false, $created=null, $edited=null, $id=null){
@@ -487,7 +506,7 @@ public static function usersData($name, $type){
 		$id = !isset($_GET['editTopic']) ? self::generate_id() : preg_replace('/[\d]{4}\-[\d]{2}\-/','',$_GET['editTopic']);
 		$idFile = isset($_GET['editTopic']) ? $_GET['editTopic'] : date('Y-m').'-'.$id;
 		$topic = !WebDB::DBexists('topics', $idFile) ? WebDB::makeDB('topics', $idFile) : 'error';
-		$d = WebDB::dbExists('topics', $id) ? WebDB::getDB('topics', $id) : '';
+		$d = WebDB::dbExists('topics', $idFile) ? WebDB::getDB('topics', $idFile) : '';
 		$data = array(
 			'name'=>$name,
 			'msg'=>$msg,
@@ -498,14 +517,14 @@ public static function usersData($name, $type){
 			'author'=>(isset($d['author']) ? $d['author']  : $author),
 			'tags'=>$tags,
 			'forum'=>$forum,
-			'views'=>filter_var(0, FILTER_VALIDATE_INT),
+			'views'=>(isset($d['views']) ? (int)$d['views'] : filter_var(0, FILTER_VALIDATE_INT)),
 			'pinned'=>filter_var($pinned, FILTER_VALIDATE_BOOLEAN),
-			'locked'=>filter_var($locked, FILTER_VALIDATE_BOOLEAN)
+			'locked'=>filter_var($locked, FILTER_VALIDATE_BOOLEAN),
+			'replys'=>(isset($d['replys']) ? $d['replys'] : [])
 		);
 		Events::createEvent(Users::getRealIP($author), date('m/d/Y h:i:sa'), $author, 'success', 'create topic');
 		return WebDB::saveDB('topics', $idFile, $data) ? true : false; 
 	}
 	
 }
-
 ?>

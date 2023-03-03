@@ -66,6 +66,7 @@ window.addEventListener('load',function(){
   var y = (x.contentWindow || x.contentDocument);
   if (y.document)y = y.document;
   y.body.querySelector('footer').style.display = 'none';
+  y.body.querySelector('[data-name="botchat-box"]').style.display='none';
 });
 
 </script>

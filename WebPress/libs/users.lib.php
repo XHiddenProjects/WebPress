@@ -37,7 +37,7 @@ public static function getSession(){
 	return isset($_SESSION['user'])&&WebDB::getDB('users', 'users') ? $_SESSION['user'] : false;
 }
 public static function isAdmin(){
-	if(isset($_SESSION['user']))
+	if(isset($_SESSION['user'])&&$_SESSION['user']!=='')
 		return WebDB::getDB('users', 'users')[$_SESSION['user']]['type']==='admin' ? true : false;
 	else
 		return false;

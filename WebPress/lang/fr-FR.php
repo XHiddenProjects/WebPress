@@ -11,7 +11,7 @@ $lang = array(
 'index.authdown'=> 'Autorisation',
 'index.registerbtn'=>'Créer un compte <i class="fas fa-user"></i>',
 'index.forumbtn'=>'Forum <i class="fa-duotone fa-comments"></i>',
-'index.loginbtn'=>'Connexion <i class="fas fa-sign-in"></i>',
+'index.loginbtn'=>'Connexion <i class="fa-solid fa-right-to-bracket"></i>',
 'index.dashboardbtn'=>'Tableau de bord <i class="fa-solid fa-gauge-min"></i>',
 'index.loginoutbtn'=>'Se déconnecter <i class="fas fa-sign-out"></i>',
 'index.noScript'=>'Désolé Javascript n`est pas activé, veuillez l`activer!',
@@ -89,6 +89,8 @@ $lang = array(
 'dashboard.config.panel.emailHelp'=>'Entrez votre domaine personnalisé pour l`autoriser',
 'dashboard.config.panel.icons'=>'Logo du site Web',
 'dashboard.config.timeZone.title'=>'<a href="https://www.php.net/manual/fr/timezones.php" target="_blank">Fuseau horaire <i class="fa-solid fa-calendar-days"></i></a>',
+'dashboard.config.security.title'=>'Sécurité <i class="fa-solid fa-shield-halved"></i>',
+'dashboard.config.security.list'=>['flexible'=>'flexible', 'moderate'=>'modéré', 'strict'=>'strict'],
 'dashboard.userKey'=>'Clé publique',
 'dashboard.userKey.copy'=>'Copier la clé publique',
 'dashboard.userPKey'=>'Clé privée',
@@ -175,7 +177,7 @@ $lang = array(
 'dashboard.config.500'=>'Erreur internationale',
 'dashboard.config.301.help'=>'Laisser vide pour ne pas l`nclure',
 'dashboard.config.debug.title'=>'Déboguer',
-'dashboard.config.seo.title'=>'SEO Tools <i class="fas fa-tools"></i>',
+'dashboard.config.seo.title'=>'SEO Tools <i class="fa-solid fa-screwdriver-wrench"></i>',
 'dashboard.config.description'=>'Entrez la description Web <i class="fas fa-edit"></i>',
 'dashboard.config.author'=>'Auteur <i class="fas fa-at"></i>',
 'dashboard.config.refresh'=>'Actualisation automatique <i class="fas fa-sync"></i>',
@@ -195,12 +197,12 @@ $lang = array(
 'safe_for_kids'=>'Sûr pour les enfants'
 ),
 'dashboard.config.copyright'=>'droits d`auteur <i class="fas fa-copyright"></i>',
-'dashboard.config.distribution.title'=>'Distribution <i class="fas fa-chart-network"></i>',
+'dashboard.config.distribution.title'=>'Distribution <i class="fa-solid fa-chart-network"></i>',
 'dashboard.config.distribution'=>array(
 'Global'=>'Mondial',
 'Local'=>'Local'
 ),
-'dashboard.config.revisted.title'=>'Revisiter-après <i class="fas fa-exchange"></i>',
+'dashboard.config.revisted.title'=>'Revisiter-après <i class="fa-solid fa-exchange"></i>',
 'dashboard.config.revisted'=>array(
 '1_Day'=>'1 Jour',
 '7_Days'=>'7 jours',
@@ -208,7 +210,7 @@ $lang = array(
 '180_Days'=>'180 jours',
 '360_Days'=>'360 jours'
 ),
-'dashboard.config.charset.title'=>'Jeu de caractères <i class="fas fa-file-times"></i>',
+'dashboard.config.charset.title'=>'Jeu de caractères <i class="fa-solid fa-file-times"></i>',
 'dashboard.config.charset'=>array(
 'GB2312'=>'GB2312',
 'US-ASCII'=>'US-ASCII',
@@ -337,6 +339,10 @@ $lang = array(
 # des atouts
 'assets.title'=>'Des atouts',
 # liste d`interdiction
+'ban.label'=>'Vous êtes banni!',
+'ban.reasonLabel'=>'Raison',
+'ban.orgtimeLabel'=>'Original',
+'ban.unbanbyLabel'=>'Débanni à',
 'ban.empty'=>'Aucun utilisateur n`est banni',
 'ban.request'=>'Faire appel',
 'ban.remove'=>'Retirer',
@@ -503,6 +509,7 @@ $lang = array(
 #forum
 'forum.title'=>'Forum',
 'forum.author'=>'Créé par: ',
+'forum.forumTag'=>'Mots clés: ',
 'forum.sidebar'=>'Forums',
 'forum.addForum'=>'Ajouter un forum',
 'forum.addTopic'=>'Ajouter un sujet',
@@ -694,6 +701,8 @@ $lang = array(
 'csrf.generateHook'=>' est en train de réécrire votre clé empêchant ! Pour des raisons de sécurité, veuillez le supprimer à ',
 'csrf.tokenTheft'=>' demande/réécrit un jeton utilisateur ! Pour des raisons de sécurité, veuillez le supprimer à ',
 'csrf.fileAccess'=>' demande/réécrit des fichiers ! Pour des raisons de sécurité, veuillez le supprimer à ',
+'csrf.filegetcontent'=>' déclenche le contenu du fichier ',
+'csrf.noCSRF'=>' utilise CSRF, ce n`est pas autorisé ',
 'csrf.apiKey'=>' demande une clé API ! Pour des raisons de sécurité, veuillez le supprimer à ',
 'csrf.themeHook'=>' utilise un fichier non valide pour le thème ! Pour des raisons de sécurité, veuillez le supprimer à ',
 'csrf.themeFHook'=>' utilise un dossier non valide pour le thème ! Pour des raisons de sécurité, veuillez le supprimer à '
