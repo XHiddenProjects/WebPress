@@ -1,25 +1,18 @@
 {
     "versions": {
-        "2.1.5": {
+        "2.1.6": {
             "textsets": [
                 {
-                    "text": "Version 2.1.5 has been released!",
+                    "text": "Version 2.1.6 has been released!",
                     "icon": "fas fa-check",
                     "tag": "offical",
                     "show": true
                 },
 				{
-					"text": "Added Feed",
-                    "icon": "fa-solid fa-rss",
+					"text": "Added Updater",
+                    "icon": "fa-solid fa-square-terminal",
 					"type": "info",
                     "tag": "info",
-                    "show": true
-				},
-				{
-					"text": "Fixed bugs",
-                    "icon": "fa-solid fa-bug",
-					"type": "warning",
-                    "tag": "bug",
                     "show": true
 				}
             ]
