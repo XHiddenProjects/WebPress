@@ -16,7 +16,6 @@ if(preg_match('/\/feed(?:\.php)\/topics/', $_SERVER['REQUEST_URI'])){
 	$t = 'Replies - '.MAINDIR;
 }
 header('Content-Type: application/xml; charset=utf-8');
-echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
 echo '<feed xmlns="http://www.w3.org/2005/Atom" xml:base="'.preg_replace('/feed.php\/[\w]+/','',Utils::baseURL()).'">'.
 PHP_EOL;
 $u = WebDB::getDB('users', 'users');
