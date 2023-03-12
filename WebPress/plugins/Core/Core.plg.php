@@ -6,7 +6,7 @@ function Core_install(){
 
 $data = array(
 'active'=>'on',
-'version'=>'1.2.1', 
+'version'=>'2.1.6', 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
 'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
@@ -15,9 +15,13 @@ $data = array(
 $out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 return $out;
 }
+function useQuotes($q){
+	return '"'.$q.'"';
+}
 function Core_head(){
 	global $BASEPATH;
-	$out = '<script src="'.$BASEPATH.DS.'plugins'.DS.'Core'.DS.'js'.DS.'core.js?catche='.date('m-d-Ys').substr(uniqid(), 2, 5).'" class="CoreJS"></script>';
+	$out='<script>var coreUsers = {listUsers:['.implode(',', array_map('useQuotes',Users::listUsers(false))).']}</script>';
+	$out .= '<script src="'.$BASEPATH.DS.'plugins'.DS.'Core'.DS.'js'.DS.'core.js?catche='.date('m-d-Ys').substr(uniqid(), 2, 5).'" class="CoreJS"></script>';
 	return $out;
 }
 function Core_beforePage(){

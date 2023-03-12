@@ -1,6 +1,9 @@
 @ECHO OFF
 cls
 title WebPress - Updater
+
+echo Warning: Data folders will not be updated, so if a plugin has been updated, you may want to delete the "pluginname" folder in the data^>plugin folder
+
 :choice
 set /P c=[WebPress] ^> Are you sure you want to continue[Y/N]?
 if /I "%c%" EQU "Y" goto :install

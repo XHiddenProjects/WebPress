@@ -24,4 +24,5 @@ $lang[$plugin.'_blockUserLabel'] = '阻止用戶';
 $lang[$plugin.'usersInRequest'] = '無法阻止，您已向該用戶發送請求。';
 $lang[$plugin.'successBan'] = '成功屏蔽 ';
 $lang[$plugin.'selffriend'] = '你不能和自己交朋友！';
+$lang[$plugin.'friendblocked'] = '該用戶已被屏蔽或已屏蔽您。';
 ?>

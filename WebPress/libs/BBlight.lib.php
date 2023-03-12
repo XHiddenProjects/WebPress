@@ -28,7 +28,7 @@ class BBlight
 		  <figure class="bg-white p-3 rounded mb-0" style="border-left: 0.25rem solid rgb(163, 78, 120);">
             <blockquote class="blockquote pb-2">
 			<img class="img-fluid rounded img-thumbnail" src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$replyEntry['author'].'.png') ? $BASEPATH.DATA_AVATARS.$replyEntry['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png' ).'"/>
-              <p>
+              <p class="text-bg-secondary w-100 rounded-1 text-center">
                '.$replyEntry['msg'].'
               </p>
             </blockquote>

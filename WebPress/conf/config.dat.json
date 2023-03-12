@@ -1,6 +1,6 @@
 {
     "page": {
-        "index": "test",
+        "index": "index",
         "page-title": "Demo",
         "page-icon": {
             "16": "themes/default/images/16x16.png",

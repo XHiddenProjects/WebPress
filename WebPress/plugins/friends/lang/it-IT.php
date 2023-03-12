@@ -25,4 +25,5 @@ $lang[$plugin.'_blockUserLabel'] = 'Blocca utente';
 $lang[$plugin.'usersInRequest'] = 'Impossibile bloccare, hai inviato una richiesta a questo utente.';
 $lang[$plugin.'successBan'] = 'Bloccato con successo ';
 $lang[$plugin.'selffriend'] = 'Non puoi essere amico di te stesso!';
+$lang[$plugin.'friendblocked'] = 'Questo utente è stato bloccato o ti ha bloccato.';
 ?>

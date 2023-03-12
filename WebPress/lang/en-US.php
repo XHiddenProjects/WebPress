@@ -439,6 +439,11 @@ $lang = array(
 'ban.UI.reason'=>'<i class="fa-solid fa-asterisk" style="color:red;"></i> Reason',
 'ban.UI.banBy'=>'Ban Type',
 'ban.UI.submit'=>'Ban User',
+#date
+'day' => 'days',
+'hour' => 'hours',
+'minute' => 'minutes',
+'second' =>'seconds',
 # uploads
 'upload.failed.data'=>'Cannot receive data',
 'upload.failed.large'=>'Sorry, your file is to large',
@@ -552,6 +557,9 @@ $lang = array(
 'forum.sortUser'=>'Please login as administrator to use this option',
 # events
 'events.ip'=>'IP',
+'events.device'=>'Device',
+'events.browser'=>'Browser',
+'events.loc'=>'Location',
 'events.date'=>'Date',
 'events.target'=>'Target',
 'events.stat'=>'Status',

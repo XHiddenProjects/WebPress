@@ -923,8 +923,10 @@ class Blocks{
 	<li class="list-group-item drag" id="search" draggable="true" data-tag="search" ondragstart="dragItem(event)"><i class="fa-solid fa-magnifying-glass"></i> Search</li>
 	<li class="list-group-item drag" id="upload" draggable="true" data-tag="upload" ondragstart="dragItem(event)"><i class="fa-solid fa-upload"></i> Upload</li>
   </div>
-
+  </div>
+  <li class="list-group-item drag" id="img" draggable="true" data-tag="img" ondragstart="dragItem(event)"><i class="fa-solid fa-image"></i> Image</li>
 		</ul>
+		
 		<button onclick="saveBlocks(\''.$BASEPATH.'/libs\', \''.self::requestPage().'\')" class="btn btn-success btn-lg mt-1 float-end fs-3"><i class="fa-solid fa-floppy-disk"></i></button>
 	</div>
 </div>';

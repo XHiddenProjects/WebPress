@@ -439,6 +439,11 @@ $lang = array(
 'ban.UI.reason'=>'<i class="fa-solid fa-asterisk" style="color:red;"></i> 原因',
 'ban.UI.banBy'=>'禁令類型',
 'ban.UI.submit'=>'禁止用戶',
+#日期
+'day' => '天',
+'hour' => '小時',
+'minute' => '分鐘',
+'second' =>'秒',
 # 上傳
 'upload.failed.data'=>'無法接收數據',
 'upload.failed.large'=>'抱歉，您的文件太大',
@@ -552,6 +557,9 @@ $lang = array(
 'forum.sortUser'=>'請以管理員身份登錄以使用此選項',
 # 事件
 'events.ip'=>'知識產權',
+'events.device'=>'設備',
+'events.browser'=>'瀏覽器',
+'events.loc'=>'位置',
 'events.date'=>'日期',
 'events.target'=>'目標',
 'events.stat'=>'地位',

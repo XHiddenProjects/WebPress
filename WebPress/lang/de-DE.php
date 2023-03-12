@@ -439,6 +439,11 @@ $lang = array(
 'ban.UI.reason'=>'<i class="fa-solid fa-asterisk" style="color:red;"></i> Grund',
 'ban.UI.banBy'=>'Verbot Typ',
 'ban.UI.submit'=>'Einen Nutzer ausschließen',
+#Datum
+'day' => 'Tage',
+'hour' => 'Std.',
+'minute' => 'Protokoll',
+'second' =>'Sekunden',
 # uploads
 'upload.failed.data'=>'Kann keine Daten empfangen',
 'upload.failed.large'=>'Entschuldigung, Ihre Datei ist zu groß',
@@ -552,6 +557,9 @@ $lang = array(
 'forum.sortUser'=>'Bitte melden Sie sich als Administrator an, verwenden Sie diese Option',
 # Veranstaltungen
 'events.ip'=>'IP',
+'events.device'=>'Gerät',
+'events.browser'=>'Browser',
+'events.loc'=>'Ort',
 'events.date'=>'Datum',
 'events.target'=>'Ziel',
 'events.stat'=>'Status',

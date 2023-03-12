@@ -439,6 +439,11 @@ $lang = array(
 'ban.UI.reason'=>'<i class="fa-solid fa-asterisk" style="color:red;"></i> Raison',
 'ban.UI.banBy'=>'Type d`interdiction',
 'ban.UI.submit'=>'Utilisateur banni',
+#date
+'day' => 'jours',
+'hour' => 'heures',
+'minute' => 'minutes',
+'second' =>'seconds',
 # téléchargements
 'upload.failed.data'=>'Impossible de recevoir des données',
 'upload.failed.large'=>'Désolé, votre fichier est trop volumineux',
@@ -552,6 +557,9 @@ $lang = array(
 'forum.sortUser'=>'Veuillez vous connecter en tant qu`administrateur pour utiliser cette option',
 # événements
 'events.ip'=>'IP',
+'events.device'=>'Appareil',
+'events.browser'=>'Navigateur',
+'events.loc'=>'Emplacement',
 'events.date'=>'Date',
 'events.target'=>'Cible',
 'events.stat'=>'Statut',

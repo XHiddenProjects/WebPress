@@ -19,7 +19,6 @@ function stylizeHighlightedString() {
     // For diagnostics
     var start = text.anchorOffset;
     var end = text.focusOffset - text.anchorOffset;
-	console.log(start+'-'+end);
     range = window.getSelection().getRangeAt(0);
 	
 	selectedTxt = range;
@@ -76,6 +75,7 @@ function dropItem(ev) {
 	   case 'p':
 	   h = document.createElement(data);
 		h.innerHTML = 'paragraph';
+		h.style.textIndent = '0.5in';
 	   ev.target.appendChild(h);
 	  break;
 	  case 'a':
@@ -295,11 +295,26 @@ function dropItem(ev) {
 	   h.className = 'form-control';
 	   ev.target.appendChild(h);
 	  break;
-	    case 'upload':
+	  case 'upload':
 	   h = document.createElement('input');
 	   h.type="file";
 	   h.className = 'form-control';
 	   ev.target.appendChild(h);
+	  break;
+	  case 'img':
+	  h = document.createElement('img');
+	  h.className = 'img img-fluid';
+	  let url = prompt('Enter Image URL:');
+	  let width = prompt('Enter Width:');
+	  let hight = prompt('Enter Height:');
+	  let alt = prompt('Alt Name:')
+	  if(url){
+		  h.src = url;
+		  h.alt = alt;
+		  h.width = parseInt(width);
+		  h.height = parseInt(hight);
+	  }
+	  ev.target.appendChild(h);
 	  break;
   }
 

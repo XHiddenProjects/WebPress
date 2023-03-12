@@ -1,22 +1,22 @@
-{
-    "versions": {
-        "2.1.6": {
-            "textsets": [
-                {
-                    "text": "Version 2.1.6 has been released!",
-                    "icon": "fas fa-check",
-                    "tag": "offical",
-                    "show": true
-                },
-				{
-					"text": "Added Updater",
-                    "icon": "fa-solid fa-square-terminal",
-					"type": "info",
-                    "tag": "info",
-                    "show": true
-				}
-            ]
-        }	
-    },
-    "needsAttation": false
-}
+	{
+		"versions": {
+			"2.1.7": {
+				"textsets": [
+					{
+						"text": "Version 2.1.7 has been released!",
+						"icon": "fas fa-check",
+						"tag": "offical",
+						"show": true
+					},
+					{
+						"text": "Updated Events",
+						"icon": "fa-regular fa-calendar-exclamation",
+						"type": "info",
+						"tag": "info",
+						"show": true
+					}
+				]
+			}	
+		},
+		"needsAttation": false
+	}
