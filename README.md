@@ -14,6 +14,7 @@ A free open-source CMS(content management system) and forum script that allows y
 [![GitHub contributors](https://img.shields.io/github/contributors/surveybuilderteams/webpress?style=plastic)](https://github.com/surveybuilderteams/WebPress/graphs/contributors)
 [![Matrix](https://img.shields.io/matrix/WebPressChat:matrix.org)](https://matrix.to/#/#WebPressChat:matrix.org)
 [![npm](https://img.shields.io/npm/v/@surveybuilder-admin/webpress)](https://www.npmjs.com/package/@surveybuilder-admin/webpress)
+[![Website](https://img.shields.io/website?up_message=online&url=http%3A%2F%2Fwebpress1.epizy.com)](https://webpress1.epizy.com/)
 
 ***
 
