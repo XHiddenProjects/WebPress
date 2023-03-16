@@ -233,7 +233,7 @@
 		<p class="card-text">'.$lang['dashboard.profile.ip'].$d[$info]['ip'].'</p>
 		</div>' : '');
 		$out.='<div class="col">
-		<p class="card-text">'.$lang['dashboard.profile.location'].Users::ipInfo($d[$info]['ip'], 'loc', 'Private IP').'</p>
+		<p class="card-text">'.$lang['dashboard.profile.location'].Users::ipInfo($d[$info]['ip'], 'city', 'Private IP').', '.Users::ipInfo($d[$info]['ip'], 'country', 'Private IP').'</p>
 		</div>
 		</div>
 		<div class="row">

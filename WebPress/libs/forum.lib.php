@@ -495,7 +495,7 @@
 					'msg'=>$msg,
 					'raw'=>$raw
 			);
-			Events::createEvent(Users::getRealIP($author),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $author, 'success', 'create reply');
+			Events::createEvent(Users::getRealIP($author),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $author, 'success', 'create reply');
 			$t['replys'][] = $id;
 			WebDB::saveDB('topics', self::getTopicsByID($_GET['id']), $t);
 			return WebDB::saveDB('replys', $id, $data) ? true : false; 
@@ -522,7 +522,7 @@
 				'locked'=>filter_var($locked, FILTER_VALIDATE_BOOLEAN),
 				'replys'=>(isset($d['replys']) ? $d['replys'] : [])
 			);
-			Events::createEvent(Users::getRealIP($author),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'].'|'.Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $author, 'success', 'create topic');
+			Events::createEvent(Users::getRealIP($author),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $author, 'success', 'create topic');
 			return WebDB::saveDB('topics', $idFile, $data) ? true : false; 
 		}
 		

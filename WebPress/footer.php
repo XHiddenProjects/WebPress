@@ -46,7 +46,7 @@
 			data-bs-title="website"
 			class="btn btn-primary btn-floating m-1"
 			style="background-color: #1765da;"
-			href="#" target="_blank"
+			href="https://webpress1.epizy.com" target="_blank"
 			role="button"
 			><?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 	<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">

@@ -104,10 +104,12 @@
 			if(isset($_POST['makeForum'])){
 				$name = isset($_POST['forumName'])&&$_POST['forumName']!=='' ? $_POST['forumName'] : 0;
 				$color = isset($_POST['forumColor'])&&$_POST['forumColor']!=='' ? $_POST['forumColor'] : 0;
+				$desc = isset($_POST['forumDesc'])&&$_POST['forumDesc']!==''  ? $_POST['forumDesc'] : 0;
 				$icon = isset($_POST['iconpicker'])&&$_POST['iconpicker']!=='' ? $_POST['iconpicker'] : 0;
-				if($name!=0&&$color!=0&&$icon!=0){
+				if($name!=0&&$color!=0&&$desc!=0&&$icon!=0){
 					$data = array(
 						'name'=>$name,
+						'desc'=>$desc,
 						'created'=>date('m/d/Y h:i:sa'),
 						'tagColor'=>$color,
 						'tagIcon'=>$icon,
@@ -117,9 +119,9 @@
 						WebDB::makeDB('forums', $name) ? true : false;
 						echo WebDB::saveDB('forums', $name, $data) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/forum', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/forum', 'danger');
 					}
-					Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'create forum');
+					Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'create forum');
 				}else{
-					Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'failed', 'create forum');
+					Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'failed', 'create forum');
 					echo '<div class="alert alert-danger">'.$lang['expect.requiements'].'</div>';
 				}
 			}
@@ -193,11 +195,11 @@
 					}
 				
 				}
-				Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'remove topic');
+				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'remove topic');
 			}
 			if(isset($_GET['removeReply'])){
 				if(WebDB::dbExists('replys', $_GET['removeReply'])){
-					Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'remove reply');
+					Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'remove reply');
 					$d = WebDB::getDB('topics', Forum::getTopicsByID($_GET['id']));
 					if (in_array($_GET['removeReply'], $d['replys'])) 
 					{
@@ -308,7 +310,7 @@
 	  </div>
 	</div>';
 	echo $out;
-	Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'edit topic');
+	Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'edit topic');
 		}
 
 	?>
@@ -382,6 +384,10 @@
 				<label class="form-label" for="forumColor"><?php echo $lang['forum.inputForumColor'];?></label>
 					<input type="color" id="forumColor" name="forumColor" class="form-control"/>
 				</div>
+				<div class="col">
+				<label class="form-label" for="forumDesc"><?php echo $lang['forum.inputForumDesc'];?></label>
+					<textarea id="forumDesc" name="forumDesc" class="form-control"></textarea>
+				</div>
 			</div>
 			<?php
 				echo HTMLForm::loadIcons();
@@ -401,7 +407,7 @@
 	if(isset($_GET['editReply'])){
 		$db = WebDB::getDB('replys', $_GET['editReply']);
 		$source = isset($db['raw']) ? $db['raw'] : null;
-		Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'edit reply');
+		Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'edit reply');
 	}
 	if(isset($_GET['quoteReply'])){
 		global $BASEPATH;
@@ -436,7 +442,7 @@
 				</figcaption>
 			  </figure></a>';
 		}
-		Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'quoted reply');	
+		Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'quoted reply');	
 	}
 	echo '<ul class="list-group w-100">';
 	if(preg_match('/\/forum(?:\.php)\/forums/', $_SERVER['REQUEST_URI'])){
@@ -470,7 +476,7 @@
 			WebDB::saveDB('forums', $forums, $d);
 			$id++;
 			}
-			Events::createEvent(Users::getRealIP($session),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'].'|'.Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'sorted forum');
+			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $session, 'success', 'sorted forum');
 			echo Utils::redirect('modal.pedit.title', 'modal.pedit.desc', $BASEPATH.'/forum.php/forums', 'success');
 		}
 	}elseif(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
@@ -505,7 +511,8 @@
 	 
 		
 	}else{
-		echo (isset($_GET['search']) ? '<h1 class="text-secondary ms-1">'.ucfirst(preg_replace('/forum:|tags:|status:|topic:/','',$_GET['search'])).'</h1>' : '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
+		$s = (isset($_GET['search']) ? preg_replace('/forum:|tags:|status:|topic:/','',$_GET['search']) : '');
+		echo (isset($_GET['search']) ? (!preg_match('/forum:/', $_GET['search']) ?  '<h1 class="text-secondary">'.ucfirst($s).'</h1>' : '<div class="text-center text-secondary p-3 fs-1" style="background-color:'.WebDB::getDB('forums', $s)['tagColor'].'"><h1 class="text-dark"><i class="'.WebDB::getDB('forums', $s)['tagIcon'].'"></i> '.ucfirst($s).'</h1><p class="lead">'.WebDB::getDB('forums', $s)['desc'].'</p></div>'  ): '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
 		echo Forum::loadTopics();
 		echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage(Files::Scan(DATA_TOPICS), $conf['forum']['maxTopicDisplay']), './forum?');
 	}

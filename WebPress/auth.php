@@ -193,7 +193,7 @@
 		if(isset($_POST['webpresstoken'])){
 			if($token===hash('gost',hash('sha512',CSRF::hide()))&&$token!==''){
 			CSRF::generate();
-			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'success','logon');
+			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'success','logon');
 			echo '<script>
 					window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
 					</script>';
@@ -209,34 +209,34 @@
 			if(password_verify($psw, $users[$user]['psw'])){
 				if(CSRF::check()!=='tokenExpired'&&CSRF::check()!=='invalidKey'||$users[$user]['type']!=="admin"){
 					$_SESSION['user']=$user;
-				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'success','logon');
+				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'success','logon');
 					echo '<script>
 					window.open("../dashboard'.(isset($_GET['redirect'])&&$_GET['redirect']!==null ? '.php/'.$_GET['redirect'].'' : '').'", "_self");
 					</script>';
 					return false;
 				}else{
-				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
+				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
 					echo '<script>
 					window.open("./login?error=invalid_token", "_self");
 					</script>';
 					return false;
 				}	
 			}else{
-			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
+			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
 				echo '<script>
 					window.open("./login?error=invalid_psw", "_self");
 					</script>';
 					return false;
 			}
 		}else{
-			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
+			Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
 			echo '<script>
 					window.open("./login?error=invalid_auth", "_self");
 					</script>';
 					return false;
 		}
 			}else{
-				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].','.Users::getSystInfo()['device'],Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
+				Events::createEvent(Users::getRealIP(),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')),date('m/d/Y h:i:sa'),$user,'failed','logon');
 					echo '<script>
 					window.open("./login?error=invalid_user", "_self");
 					</script>';

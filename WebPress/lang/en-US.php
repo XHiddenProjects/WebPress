@@ -444,6 +444,7 @@ $lang = array(
 'hour' => 'hours',
 'minute' => 'minutes',
 'second' =>'seconds',
+'ago' => 'ago',
 # uploads
 'upload.failed.data'=>'Cannot receive data',
 'upload.failed.large'=>'Sorry, your file is to large',
@@ -530,6 +531,7 @@ $lang = array(
 'forum.anonumous'=>'System',
 'forum.inputForumName'=>'Forum Name',
 'forum.inputForumColor'=>'Enter Color',
+'forum.inputForumDesc'=>'Enter Description',
 'forum.selectIcon'=>'Select Icon',
 'forum.inputTopicName'=>'Topic Name',
 'forum.inputTopicCategory'=>'Select Forum',

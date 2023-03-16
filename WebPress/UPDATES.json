@@ -1,17 +1,17 @@
 	{
 		"versions": {
-			"2.1.7": {
+			"2.1.8": {
 				"textsets": [
 					{
-						"text": "Version 2.1.7 has been released!",
+						"text": "Version 2.1.8 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
 						"show": true
 					},
 					{
-						"text": "Updated Events",
-						"icon": "fa-regular fa-calendar-exclamation",
-						"type": "info",
+						"text": "Fixed Bugs",
+						"icon": "fa-regular fa-bug",
+						"type": "warning",
 						"tag": "info",
 						"show": true
 					}

@@ -444,6 +444,7 @@ $lang = array(
 'hour' => 'heures',
 'minute' => 'minutes',
 'second' =>'seconds',
+'ago' => 'il y a',
 # téléchargements
 'upload.failed.data'=>'Impossible de recevoir des données',
 'upload.failed.large'=>'Désolé, votre fichier est trop volumineux',
@@ -530,6 +531,7 @@ $lang = array(
 'forum.anonumous'=>'Système',
 'forum.inputForumName'=>'Nom du forum',
 'forum.inputForumColor'=>'Entrez la couleur',
+'forum.inputForumDesc'=>'Entrez la description',
 'forum.selectIcon'=>'Sélectionnez l`icône',
 'forum.inputTopicName'=>'Nom du sujet',
 'forum.inputTopicCategory'=>'Sélectionnez Forum',

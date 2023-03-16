@@ -442,6 +442,7 @@
 								'/win16/i'              =>  'Windows 3.11',
 								'/macintosh|mac os x/i' =>  'Mac OS X',
 								'/mac_powerpc/i'        =>  'Mac OS 9',
+								'/chrome/i'             =>  'Chrome OS',
 								'/linux/i'              =>  'Linux',
 								'/ubuntu/i'             =>  'Ubuntu',
 								'/iphone/i'             =>  'iPhone',
@@ -457,11 +458,13 @@
 		 if (preg_match($regex, $user_agent)) 
 			{
 				$os_platform    =   $value;
-				$device = !preg_match('/(windows|mac|linux|ubuntu)/i',$os_platform) ?'MOBILE':(preg_match('/phone/i', $os_platform)?'MOBILE':'SYSTEM');
+				$device = !preg_match('/(windows|mac|linux|ubuntu|chrome)/i',$os_platform) ?'MOBILE':(preg_match('/phone/i', $os_platform)?'MOBILE':'DESKTOP');
+				return array('os'=>$os_platform,'device'=>$device);
 			}
 		}
-		$device = ($device==='' ? 'SYSTEM':$device);
-		return array('os'=>$os_platform,'device'=>$device);
+			$device = ($device==='' ? 'DESKTOP':$device);
+			return array('os'=>$os_platform,'device'=>$device);
+		
 	 }
 
 	 public static function getBrowser() 
@@ -471,8 +474,7 @@
 
 		$browser        =   "Unknown Browser";
 
-		$browser_array  = array('/edg/i'        =>  'Microsoft Edge',
-								'/safari/i'     =>  'Safari',
+		$browser_array  = array('/edg/i'        =>  'Edge',
 								'/msie/i'       =>  'Internet Explorer',
 								'/firefox/i'    =>  'Firefox',
 								'/safari/i'     =>  'Safari',
@@ -490,9 +492,9 @@
 			else if (preg_match($regex, $user_agent,$result)) 
 			{
 				$browser    =   $value;
+				return $browser;
 			}
 		}
-		return $browser;
 	 }
 	 
 	  public static function hardwareID($salt="") {

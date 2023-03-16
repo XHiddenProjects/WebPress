@@ -444,6 +444,7 @@ $lang = array(
 'hour' => '小時',
 'minute' => '分鐘',
 'second' =>'秒',
+'ago' => '前',
 # 上傳
 'upload.failed.data'=>'無法接收數據',
 'upload.failed.large'=>'抱歉，您的文件太大',
@@ -530,6 +531,7 @@ $lang = array(
 'forum.anonumous'=>'系統',
 'forum.inputForumName'=>'論壇名稱',
 'forum.inputForumColor'=>'輸入顏色',
+'forum.inputForumDesc'=>'輸入說明',
 'forum.selectIcon'=>'選擇圖標',
 'forum.inputTopicName'=>'主題名稱',
 'forum.inputTopicCategory'=>'選擇論壇',

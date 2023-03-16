@@ -88,5 +88,4 @@ function onlyforum_footerJS(){
 }
 
 
-
 ?>
