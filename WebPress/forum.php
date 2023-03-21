@@ -14,9 +14,13 @@
 	<?php
 	$BASEPATH=(!preg_match('/\/forum(?:\.php\/)/',$_SERVER['REQUEST_URI']) ? '.' : '..');
 	$BASEPATH = (!preg_match('/\/forum(?:\.php)\/p\/[\d]+/',$_SERVER['REQUEST_URI']) ? $BASEPATH : '../..');
+	$BASEPATH = (!preg_match('/\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+/',$_SERVER['REQUEST_URI']) ? $BASEPATH : '../..');
 	if(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
 		echo head($lang['forum.title'], $BASEPATH);
-	}if(preg_match('/\/forum(?:\.php)\/p\/[\d]+/', $_SERVER['REQUEST_URI'])){
+	}else if(preg_match('/\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+/', $_SERVER['REQUEST_URI'])){
+		echo head(preg_replace('/\/[\w]+\/forum(?:\.php)\/(forum|tags|status|topic)\/|\?[\w]+=\d/', '', $_SERVER['REQUEST_URI']), $BASEPATH);
+	}
+	else if(preg_match('/\/forum(?:\.php)\/p\/[\d]+/', $_SERVER['REQUEST_URI'])){
 		echo head($lang['forum.title'], $BASEPATH);
 	}else{
 		echo head($lang['forum.title'], $BASEPATH);
@@ -63,11 +67,10 @@
 			</li>
 			<?php echo plugin::hook('forumnav');?>
 		  </ul>
-		  <form class="d-flex" role="search" method="get" action="<?php echo $BASEPATH.'/';?>forum">
+		  <form class="d-flex" role="search" method="get" action="<?php echo $BASEPATH.'/';?>search">
 		  <div class="input-group">
-		  <div class="autocomplete">
-			<input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" onkeydown="returnSearch(event);" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
-		  </div>
+			<input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" name="results" id="search" type="search" placeholder="Search" aria-label="Search">
+		
 				 <button class="btn btn-outline-success input-group-text submitsearch" type="submit">Search</button>
 		  </div>
 		   <?php
@@ -143,7 +146,7 @@
 				$tags = isset($_POST['topicTags'])&&$_POST['topicTags']!=='' ? str_replace(' ','',$_POST['topicTags']) : 0;
 				$pinned = isset($_POST['pinnedTopic']) ? $_POST['pinnedTopic'] : (isset($db['pinned']) ? $db['pinned'] : 'no');
 				$locked = isset($_POST['lockedTopic']) ? $_POST['lockedTopic'] : (isset($db['locked']) ? $db['locked'] : 'no');
-				if($name!=0&&$forum!=0&&$msg!=0&&$tags!=0&&$author!=0){
+				if($name!==0&&$forum!==0&&$msg!==0&&$tags!==0&&$author!==0){
 					echo Forum::makeTopic($name, $forum, $author, $msg, $tags, $getMsg, $pinned, $locked ,(isset($db['created']) ? $db['created'] : null)) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/forum', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/forum', 'danger');
 				}else{
 					echo '<div class="alert alert-danger">'.$lang['expect.requiements'].'</div>';
@@ -415,7 +418,7 @@
 			$source = '[quote]'.$_GET['quoteReply'].'[/quote]';
 		}elseif($conf['editor']==='markdown'){
 		$db = WebDB::getDB('replys', $_GET['quoteReply']);
-			$source = '<a style="text-decoration:none;" href="./view?id=69608770#'.$_GET['quoteReply'].'" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to Show original">
+			$source = '<a style="text-decoration:none;" href="'.$BASEPATH.'/view?id=69608770#'.$_GET['quoteReply'].'" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to Show original">
 			  <figure class="bg-white p-3 rounded mb-0" style="border-left: 0.25rem solid rgb(163, 78, 120);">
 				<blockquote class="blockquote pb-2">
 				<img class="img-fluid rounded img-thumbnail" src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$db['author'].'.png') ? $BASEPATH.DATA_AVATARS.$db['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'">
@@ -429,7 +432,7 @@
 			  </figure></a>';
 		}else{
 			$db = WebDB::getDB('replys', $_GET['quoteReply']);
-			$source = '<a style="text-decoration:none;" href="./view?id=69608770#'.$_GET['quoteReply'].'" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to Show original">
+			$source = '<a style="text-decoration:none;" href="'.$BASEPATH.'/view?id=69608770#'.$_GET['quoteReply'].'" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to Show original">
 			  <figure class="bg-white p-3 rounded mb-0" style="border-left: 0.25rem solid rgb(163, 78, 120);">
 				<blockquote class="blockquote pb-2">
 				<img class="img-fluid rounded img-thumbnail" src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$db['author'].'.png') ? $BASEPATH.DATA_AVATARS.$db['author'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'">
@@ -481,7 +484,8 @@
 		}
 	}elseif(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
 		echo Forum::loadReplys();
-		echo Paginate::pageLink(Paginate::pid($conf['forum']['maxReplyDisplay']), Paginate::countPage(Files::Scan(DATA_REPLYS), $conf['forum']['maxReplyDisplay']), './view?id='.$_GET['id'].'&');
+		global $replaysArr;
+		echo Paginate::pageLink(Paginate::pid($conf['forum']['maxReplyDisplay']), Paginate::countPage($replaysArr['replys'], $conf['forum']['maxReplyDisplay']), './view?id='.$_GET['id'].'&');
 	  if(isset($_GET['id'])){
 		foreach(Files::Scan(DATA_TOPICS) as $topics){
 			$topics = Files::removeExtension($topics);
@@ -500,7 +504,7 @@
 	</div>' : '<div class="alert alert-danger ms-2 me-2"><b><i class="fa-solid fa-triangle-exclamation"></i> '.$lang['forum.noreply'].'</b></div>'; 
 	  }else{
 		  if(Users::isGuest()&&!$db['locked']){
-			  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3 loginbtn"><a href="'.$BASEPATH.'/auth.php/login?redirect=forum"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';
+			  echo '<div class="alert alert-secondary mt-2 ms-2 me-2 fs-3 loginbtn"><a href="'.$BASEPATH.'/auth.php/login"><button class="border border-0 btn w-100 fs-3">'.$lang['fourm.guest'].'</button></a></div>';
 		  }else{
 			  echo '';
 		  }
@@ -511,10 +515,14 @@
 	 
 		
 	}else{
-		$s = (isset($_GET['search']) ? preg_replace('/forum:|tags:|status:|topic:/','',$_GET['search']) : '');
-		echo (isset($_GET['search']) ? (!preg_match('/forum:/', $_GET['search']) ?  '<h1 class="text-secondary">'.ucfirst($s).'</h1>' : '<div class="text-center text-secondary p-3 fs-1" style="background-color:'.WebDB::getDB('forums', $s)['tagColor'].'"><h1 class="text-dark"><i class="'.WebDB::getDB('forums', $s)['tagIcon'].'"></i> '.ucfirst($s).'</h1><p class="lead">'.WebDB::getDB('forums', $s)['desc'].'</p></div>'  ): '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
+		preg_match('/(forum|tags|status|topic)\/[\w]+$|(forum|tags|status|topic)\/[\w]+\?/',$_SERVER['REQUEST_URI'], $ot);
+		$s = (preg_match('/(forum|tags|status|topic)\/[\w]+$|(forum|tags|status|topic)\/[\w]+\?/',(isset($ot[0]) ? str_replace('?','',$ot[0]) : $_SERVER['REQUEST_URI'])) ? preg_replace('/$ot[0]/','',(isset($ot[0]) ? str_replace('?','',$ot[0]) : $_SERVER['REQUEST_URI'])) : '');
+		$s = preg_replace('/(forum|tags|status|topic)\//','',$s);
+		echo (preg_match('/(forum|tags|status|topic)\/[\w]+$|(forum|tags|status|topic)\/[\w]+\?/',$_SERVER['REQUEST_URI']) ? (!preg_match('/forum\/[\w]+$|forum\/[\w]+\?/', $_SERVER['REQUEST_URI']) ?  '<h1 class="text-secondary">'.ucfirst($s).'</h1>' : '<div class="text-center text-secondary p-3 fs-1" style="background-color:'.WebDB::getDB('forums', $s)['tagColor'].'"><h1 class="text-dark"><i class="'.WebDB::getDB('forums', $s)['tagIcon'].'"></i> '.ucfirst($s).'</h1><p class="lead">'.WebDB::getDB('forums', $s)['desc'].'</p></div>'  ) : '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
 		echo Forum::loadTopics();
-		echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage(Files::Scan(DATA_TOPICS), $conf['forum']['maxTopicDisplay']), './forum?');
+		global $countTopics;
+		preg_match('/\/[\w]+$|\/[\w]+\?/', $_SERVER['REQUEST_URI'], $ot);
+		echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage($countTopics, $conf['forum']['maxTopicDisplay']), '.'.str_replace('?','',$ot[0]).'?');
 	}
 
 	echo '</ul>';

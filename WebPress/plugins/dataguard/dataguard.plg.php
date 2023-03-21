@@ -103,7 +103,7 @@ function dataguard_footerJS(){
 				menu: "'.$d['config']['menu'].'",
 				paste: "'.$d['config']['paste'].'"
 			}</script>';
-			$out.='<script src="'.$BASEPATH.'/plugin/'.$plugin.'/js/'.$plugin.'.min.js?v='.$d['version'].'"></script>';
+			$out.='<script src="'.$BASEPATH.'/plugins/'.$plugin.'/js/'.$plugin.'.min.js?v='.$d['version'].'"></script>';
 		}
 		return $out;
 }

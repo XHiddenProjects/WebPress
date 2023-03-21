@@ -34,7 +34,7 @@ function reactions_install(){
 
 $data = array(
 	'active'=>'',
-	'version'=>'2.0.0', 
+	'version'=>'2.0.1', 
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'reactions'=>array(
@@ -123,7 +123,7 @@ function reactions_beforePage(){
 		checkEmojiSetup();
 }
 function reactions_bottomReply(){
-	global $lang, $BASEPATH, $rInfo, $session;
+	global $lang, $BASEPATH, $session, $reply;
 		$out='';
 		$plugin = 'reactions';
 		$d = WebDB::DBexists('plugins', $plugin.'/plugin') ? WebDB::getDB('plugins', $plugin.'/plugin') : '';
@@ -138,10 +138,12 @@ function reactions_bottomReply(){
   <ul class="dropdown-menu"><div class="row">';
 
 	if(!Users::isGuest()){
-		foreach($d['config']['replies'] as $reply=>$count){
-			$reply = WebDB::getDB('replys', $reply);
+		foreach($d['config']['replies'] as $r=>$count){
+			if($r===$reply){
+			$r = WebDB::getDB('replys', $reply);
 			foreach($d['config']['reactions'] as $reaction=>$emoji){
-				$out.='<div class="col"><a '.(!isset($d['config']['replies'][$reply['id']]['users'][$session]) ? 'href="'.$BASEPATH.DS.'dashboard.php/view?plugins='.$plugin.'&reply='.$reply['id'].'&react='.$reaction.'"' : '').'><li><img width="32" height="32" alt="'.$reaction.'" src="'.$BASEPATH.$emoji.'"/>'.$count[$reaction].'</li></a></div>';
+				$out.='<div class="col"><a '.(!isset($d['config']['replies'][$r['id']]['users'][$session]) ? 'href="'.$BASEPATH.DS.'dashboard.php/view?plugins='.$plugin.'&reply='.$r['id'].'&react='.$reaction.'"' : '').'><li><img width="32" height="32" alt="'.$reaction.'" src="'.$BASEPATH.$emoji.'"/>'.$count[$reaction].'</li></a></div>';
+				}
 			}
 		}
 	}else{
@@ -192,6 +194,7 @@ function reactions_replyMsg(){
 		if($d['active']){
 			
 			foreach($d['config']['replies'] as $replys=>$count){
+				if($replys===$reply){
 				$r = WebDB::getDB('replys', $replys);
 				$display=0;
 				if($replys===WebDB::getDB('replys',$reply)['id']){
@@ -214,6 +217,7 @@ function reactions_replyMsg(){
 				}
 			}
 		}
+	}
 		return $out;
 }
 

@@ -312,10 +312,7 @@
 			return false;
 	}
 	public static function isGuest(){
-		if(isset($_SESSION['user']))
 			return isset($_SESSION['guest']) ? true : false;
-		else
-			return false;
 	}
 	# Custom roles
 	public static function isRole($role){
@@ -477,8 +474,8 @@
 		$browser_array  = array('/edg/i'        =>  'Edge',
 								'/msie/i'       =>  'Internet Explorer',
 								'/firefox/i'    =>  'Firefox',
-								'/safari/i'     =>  'Safari',
 								'/chrome/i'     =>  'Chrome',
+								'/safari/i'     =>  'Safari',
 								'/opera/i'      =>  'Opera',
 								'/netscape/i'   =>  'Netscape',
 								'/maxthon/i'    =>  'Maxthon',

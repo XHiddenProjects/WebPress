@@ -1246,8 +1246,8 @@
 			if(isset($d[$username])){
 				$d[$username]['ban']['isBanned'] = filter_var(true, FILTER_VALIDATE_BOOLEAN);
 			$d[$username]['ban']['reason'] = $reason;
-			$d[$username]['ban']['time'] = ($time==='forever' ? (int)'-1' : date('m/d/Y H:i:sa', strtotime('+'.$time)));
-			$d[$username]['ban']['orgtime'] = date('m/d/Y H:i:sa');
+			$d[$username]['ban']['time'] = ($time==='forever' ? (int)'-1' : date('m/d/Y H:i:s', strtotime('+'.$time)));
+			$d[$username]['ban']['orgtime'] = date('m/d/Y H:i:s');
 			$d[$username]['ban']['bannedBy'] = $by;
 			$d[$username]['ban']['duration'] = '+'.$time;
 			echo WebDB::saveDB('users', 'users', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/ban', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/ban', 'danger');

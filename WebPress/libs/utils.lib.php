@@ -216,7 +216,7 @@
 					if($diff >= $key)
 					{
 						$num = (int) ($diff / $key);
-						if(TIMESTAMP)
+						if($timestamp)
 							$date = $num. ' ' .$value.($num > 1? $lang['plural'] : ''). ' ' .$lang['ago'];
 						else
 							$date = $lang['ago']. ' ' .$num. ' ' .$value.($num > 1? $lang['plural'] : '');

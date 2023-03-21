@@ -1,6 +1,6 @@
 	{
 		"versions": {
-			"2.1.9": {
+			"2.2.0": {
 				"textsets": [
 					{
 						"text": "Version 2.1.8 has been released!",
@@ -9,10 +9,17 @@
 						"show": true
 					},
 					{
-						"text": "Fixed Bugs",
-						"icon": "fa-regular fa-bug",
-						"type": "warning",
-						"tag": "info",
+						"text": "Fixed Fourm Filter",
+						"icon": "fa-regular fa-filter",
+						"type": "info",
+						"tag": "fixed",
+						"show": true
+					},
+					{
+						"text": "Fixed Pagination",
+						"icon": "fa-solid fa-ellipsis",
+						"type": "info",
+						"tag": "fixed",
 						"show": true
 					}
 				]

@@ -1,0 +1,27 @@
+{
+    "name": {
+        "en": "Dark",
+        "de": "Dunkel",
+        "it": "Buio",
+        "fr": "Sombre",
+        "zh": "黑暗的"
+    },
+    "active": "",
+    "desc": {
+        "en": "Darkends the board to make it more eye friendly.",
+        "de": "Verdunkelt das Board, um es augenfreundlicher zu machen.",
+        "it": "Oscura il tabellone per renderlo più piacevole per gli occhi.",
+        "fr": "Obscurcit le tableau pour le rendre plus convivial.",
+        "zh": "使電路板變暗以使其更適合眼睛。"
+    },
+    "options": {
+        "canDisabled": true,
+        "usedLang": [
+            "en-US",
+            "de-DE",
+            "it-IT",
+            "fr-FR",
+            "zh-CN"
+        ]
+    }
+}

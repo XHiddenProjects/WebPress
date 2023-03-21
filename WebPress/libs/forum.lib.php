@@ -103,7 +103,7 @@
 			foreach(Files::Scan(DATA_FORUMS) as $forums){
 				$forums = str_replace('.dat.json', '', $forums);
 				$forumDB = WebDB::getDB('forums', $forums);
-				$lists[(string)$forumDB['val']] = '<a href="'.$BASEPATH.'/forum?search=forum:'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> '.(Users::isAdmin() ? '<a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a>' : '').'</li></a>';
+				$lists[(string)$forumDB['val']] = '<a href="'.$BASEPATH.'/forum.php/forum/'.$forumDB['name'].'" style="text-decoration:none;"><li class="nav-item"><i style="color:'.$forumDB['tagColor'].'!important;" class="'.$forumDB['tagIcon'].'"></i> <span style="color:'.$forumDB['tagColor'].'";>'.$forumDB['name'].'</span> <span class="badge bg-danger rounded-circle">'.(self::getTopicsByForum($forumDB['name'])).'</span> '.(Users::isAdmin() ? '<a href="'.$BASEPATH.'/forum?removeForum='.$forumDB['name'].'"><i style="color:red;" class="fa-solid fa-trash-can"></i></a>' : '').'</li></a>';
 			}
 			ksort($lists);
 			foreach($lists as $item => $list){
@@ -112,10 +112,11 @@
 			return $out;
 		}
 		public static function renderTopic($topics){
-			global $conf;
+			global $conf, $countTopics;
 			$out='';
 			$items = array();
 			$pinned = array();
+			$setTopicData = array();
 			$d='';
 			foreach($topics as $args=>$topic){
 				$out='';
@@ -133,25 +134,29 @@
 			$p = isset($_GET['p']) ? $_GET['p'] : 1;
 			$nb = $conf['forum']['maxTopicDisplay'];
 			for($i=0;$i<count(array_slice($items, $nb*($p-1), $nb));$i++){
-				if(isset($_GET['search'])){
-				$target = @explode(':', $_GET['search']);
-				
+				if(preg_match('/\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+|\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
+						preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'], $url);
+				$target = @explode('/', str_replace('?','',$url[0]));
 				if($target[0]==='tags'){
 					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
 						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 					}
+					
 				}elseif($target[0]==='forum'){
 					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
 						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 					}
+					
 				}elseif($target[0]==='topic'){
 					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
 						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 					}
+					
 				}elseif($target[0]==='status'){
 					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
 						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 					}
+					
 				}elseif($target[0]===''||$target[0]==='all'){
 					$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 				}
@@ -159,6 +164,18 @@
 				$d.=array_slice($items, $nb*($p-1), $nb)[$i];
 			}
 				
+			}
+			foreach(Files::Scan(DATA_TOPICS) as $topics){
+				$topics = Files::removeExtension($topics);
+				$db = WebDB::getDB('topics', $topics);
+				if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
+					preg_match('/(forum|tags|status|topic)\/[\w\-\_]+|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'], $ot);
+					$forum = preg_replace('/(forum|tags|status|topic)\/|\?/','',$ot[0]);
+					if($db['forum']===$forum)
+						$countTopics[] = $topics;
+				}else{
+					$countTopics[] = $topics;
+				}
 			}
 			
 			return $d;
@@ -186,7 +203,7 @@
 						}else{
 							$comma = '';
 						}
-						$listTags .= '<a class="link-primary fst-italic" href="./forum?search=tags:'.$tags.'">'.$tags.'</a>'.$comma.' ';
+						$listTags .= '<a class="link-primary fst-italic" href="'.$BASEPATH.'/forum.php/tags/'.$tags.'">'.$tags.'</a>'.$comma.' ';
 						$dontIncludeLastTag++;
 					}
 					$dinfo = '<!-- Media object -->
@@ -249,8 +266,8 @@
 		<div><i class="fa-solid fa-eye"></i> <span class="text-secondary">'.self::number_abbr($info['views']).'</span><i style="transform:rotateY(180deg);" class="fa-solid fa-comment ms-3"></i> <span class="text-secondary">'.self::getReplysByTopic($info['id']).'</span></div>
 
 		<tags>'.(isset($langs['forum.forumTag']) ? $langs['forum.forumTag'] : 'Tags: ').$listTags.'</tags>
-		<a class="text-decoration-none" href="./forum.php/view?id='.$info['id'].'"><button class="btn '.($info['locked'] ? 'btn-secondary' : 'btn-primary').' d-flex mt-2 mb-2">'.($info['locked'] ? (isset($langs['forum.view']) ? $langs['forum.view'] : 'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>') : (isset($langs['forum.replys']) ? $langs['forum.replys'] : 'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>')).'</button></a><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'" class="text-decoration-none"><button class="btn btn-info">'.(isset($langs['report']) ? $langs['report'] : '<i class="fa-solid fa-bell"></i> Report').'</button></a>
-		'.($session===$info['author']||Users::isAdmin() ? '<a'.(Users::hasPermission('delete') ? '' : ' hidden="hidden"').' href="./forum?removeTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-danger">'.(isset($langs['forum.deleteTopic']) ? $langs['forum.deleteTopic'] : 'Delete Topic').' <i class="fa-solid fa-trash-can"></i></button></a> <a'.(Users::hasPermission('write') ? '' : ' hidden="hidden"').' href="./forum?editTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-success">'.(isset($langs['forum.editBtn']) ? $langs['forum.editBtn'] : '<i class="fa-solid fa-pen-to-square"></i> Edit').'</button></a>':'').'
+		<a class="text-decoration-none" href="'.$BASEPATH.'/forum.php/view?id='.$info['id'].'"><button class="btn '.($info['locked'] ? 'btn-secondary' : 'btn-primary').' d-flex mt-2 mb-2">'.($info['locked'] ? (isset($langs['forum.view']) ? $langs['forum.view'] : 'View&nbsp;&nbsp;<i class="fa-solid fa-eye fs-5 mt-1"></i>') : (isset($langs['forum.replys']) ? $langs['forum.replys'] : 'Reply&nbsp;&nbsp;<i class="fa-solid fa-reply fs-5 mt-1"></i>')).'</button></a><a href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail?report='.$info['id'].'" class="text-decoration-none"><button class="btn btn-info">'.(isset($langs['report']) ? $langs['report'] : '<i class="fa-solid fa-bell"></i> Report').'</button></a>
+		'.($session===$info['author']||Users::isAdmin() ? '<a'.(Users::hasPermission('delete') ? '' : ' hidden="hidden"').' href="'.$BASEPATH.'/forum?removeTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-danger">'.(isset($langs['forum.deleteTopic']) ? $langs['forum.deleteTopic'] : 'Delete Topic').' <i class="fa-solid fa-trash-can"></i></button></a> <a'.(Users::hasPermission('write') ? '' : ' hidden="hidden"').' href="'.$BASEPATH.'/forum?editTopic='.date('Y-m', strtotime($info['created'])).'-'.$info['id'].'"><button class="btn btn-success">'.(isset($langs['forum.editBtn']) ? $langs['forum.editBtn'] : '<i class="fa-solid fa-pen-to-square"></i> Edit').'</button></a>':'').'
 
 	 </div>
 

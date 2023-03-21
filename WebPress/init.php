@@ -109,7 +109,7 @@
 	$selLang = $conf['lang'];
 	$topicsArr = array('pinned'=>array(), 'topics'=>array());
 	$replaysArr = array('replys'=>array());
-
+	$countTopics = array();
 	function errormsg($errno, $errstr, $errfile, $errline, $errcontext){
 		echo '<div class="alert alert-danger"><i class="fas fa-times-circle"></i> '.$errstr.'</div>';
 	}

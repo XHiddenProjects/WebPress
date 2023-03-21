@@ -3,20 +3,25 @@
 	require_once('header.php');
 	require_once('footer.php');
 
-	global $lang, $selLang, $conf, $defaultIcon;
+	global $lang, $selLang, $conf, $defaultIcon, $BASEPATH;
 	require_once('lang/'.$selLang.'.php');
 	?>
 	<html>
 	<head>
 	<?php
 	if(preg_match('/\/register/', $_SERVER['REQUEST_URI'])){
+	$BASEPATH='..';
 	echo head('Register', '..');	
+	
 	}elseif(preg_match('/\/login/', $_SERVER['REQUEST_URI'])){
-	echo head('Login', '..');		
+		$BASEPATH='..';
+	echo head('Login', '..');	
 	}elseif(preg_match('/\/logout/', $_SERVER['REQUEST_URI'])){
-	echo head('Logout', '..');		
+		$BASEPATH='..';
+	echo head('Logout', '..');	
 	}elseif(preg_match('/\/delete/', $_SERVER['REQUEST_URI'])){
-	echo head('Delete', '..');		
+		$BASEPATH='..';
+	echo head('Delete', '..');	
 	}
 
 	?>

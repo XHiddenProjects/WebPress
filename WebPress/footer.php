@@ -104,34 +104,6 @@
 		autocomplete(document.querySelector("#toemail"), emailSelector);
 	}
 	</script>';
-	$footer.='<script>
-	const complete = [';
-	$searchItem=array();
-	foreach(Files::Scan(DATA_FORUMS) as $forums){
-		$forums = Files::removeExtension($forums);
-		array_push($searchItem, '"forum:'.$forums.'"');
-	}
-	foreach(Files::Scan(DATA_TOPICS) as $topics){
-		$topics = Files::removeExtension($topics);
-		$data = WebDB::getDB('topics', $topics);
-		foreach(@explode(',',$data['tags']) as $tags){
-			array_push($searchItem,'"tags:'.$tags.'"');
-		}	
-	}
-	foreach(Files::Scan(DATA_TOPICS) as $topics){
-		$topics = Files::removeExtension($topics);
-		$data = WebDB::getDB('topics', $topics);
-		array_push($searchItem, '"topic:'.$data['name'].'"');
-	}
-	array_push($searchItem, '"status:Pinned"');
-	array_push($searchItem, '"status:Locked"');
-
-	$footer.=implode(',',$searchItem);
-	$footer.='];
-	if(document.querySelector("#search")){
-		autocomplete(document.querySelector("#search"), complete);
-	}
-	</script>';
 	$footer.= Plugin::hook('footerJS');
 	Page::ends();
 	$footer.='<script>
