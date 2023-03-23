@@ -18,7 +18,7 @@
 	if(preg_match('/\/forum(?:\.php)\/view/', $_SERVER['REQUEST_URI'])){
 		echo head($lang['forum.title'], $BASEPATH);
 	}else if(preg_match('/\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+/', $_SERVER['REQUEST_URI'])){
-		echo head(preg_replace('/\/[\w]+\/forum(?:\.php)\/(forum|tags|status|topic)\/|\?[\w]+=\d/', '', $_SERVER['REQUEST_URI']), $BASEPATH);
+		echo head(preg_replace('/(\/forum(?:\.php)\/(forum|tags|status|topic)\/|\?[\w]+=\d|\/[\w]+\/forum(?:\.php)\/(forum|tags|status|topic)\/|\?[\w]+=\d)/', '', $_SERVER['REQUEST_URI']), $BASEPATH);
 	}
 	else if(preg_match('/\/forum(?:\.php)\/p\/[\d]+/', $_SERVER['REQUEST_URI'])){
 		echo head($lang['forum.title'], $BASEPATH);

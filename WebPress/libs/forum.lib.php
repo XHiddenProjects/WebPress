@@ -121,10 +121,18 @@
 			foreach($topics as $args=>$topic){
 				$out='';
 				foreach($topic as $t){
-					if(preg_replace('/[\d]+/','',$args)==='pinned'){
+				if(preg_replace('/[\d]+/','',$args)==='pinned'){
 					array_push($pinned, $t);
 				}else{
-					array_push($items, $t);
+					if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
+						preg_match('/[\w\-\_]+$|[\w\-\_]+\?/', $_SERVER['REQUEST_URI'],$durl);
+						if(preg_match('/forum="'.$durl[0].'"/', $t)){
+							array_push($items, $t);
+						}
+					}else{
+						array_push($items, $t);
+					}
+					
 					}
 				}
 				
@@ -137,6 +145,7 @@
 				if(preg_match('/\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+|\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
 						preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'], $url);
 				$target = @explode('/', str_replace('?','',$url[0]));
+			
 				if($target[0]==='tags'){
 					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
 						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
@@ -285,6 +294,7 @@
 			
 		
 		}
+		
 			return self::renderTopic($topicsArr);
 		}
 		public static function renderReply($replys){
