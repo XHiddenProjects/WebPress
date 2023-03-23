@@ -1,15 +1,15 @@
 	{
 		"versions": {
-			"2.2.1": {
+			"2.2.2": {
 				"textsets": [
 					{
-						"text": "Version 2.2.1 has been released!",
+						"text": "Version 2.2.2 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
 						"show": true
 					},
 					{
-						"text": "Fixed Fourm Filter",
+						"text": "Fixed Fourm Filter again",
 						"icon": "fa-regular fa-filter",
 						"type": "info",
 						"tag": "fixed",

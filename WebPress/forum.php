@@ -521,6 +521,7 @@
 		echo (preg_match('/(forum|tags|status|topic)\/[\w]+$|(forum|tags|status|topic)\/[\w]+\?/',$_SERVER['REQUEST_URI']) ? (!preg_match('/forum\/[\w]+$|forum\/[\w]+\?/', $_SERVER['REQUEST_URI']) ?  '<h1 class="text-secondary">'.ucfirst($s).'</h1>' : '<div class="text-center text-secondary p-3 fs-1" style="background-color:'.WebDB::getDB('forums', $s)['tagColor'].'"><h1 class="text-dark"><i class="'.WebDB::getDB('forums', $s)['tagIcon'].'"></i> '.ucfirst($s).'</h1><p class="lead">'.WebDB::getDB('forums', $s)['desc'].'</p></div>'  ) : '<h1 class="text-secondary ms-1">'.$lang['forum.recent'].'</h1>');
 		echo Forum::loadTopics();
 		global $countTopics;
+		
 		preg_match('/\/[\w]+$|\/[\w]+\?/', $_SERVER['REQUEST_URI'], $ot);
 		echo Paginate::pageLink(Paginate::pid($conf['forum']['maxTopicDisplay']), Paginate::countPage($countTopics, $conf['forum']['maxTopicDisplay']), '.'.str_replace('?','',$ot[0]).'?');
 	}

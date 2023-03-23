@@ -122,11 +122,18 @@
 				$out='';
 				foreach($topic as $t){
 				if(preg_replace('/[\d]+/','',$args)==='pinned'){
-					array_push($pinned, $t);
+					if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
+						preg_match('/[\w\-\_]+$|[\w\-\_]+\?/', $_SERVER['REQUEST_URI'],$durl);
+						if(preg_match('/forum="'.str_replace('?','',$durl[0]).'"/', $t)){
+							array_push($pinned, $t);
+						}
+					}else{
+						array_push($pinned, $t);
+					}
 				}else{
 					if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
 						preg_match('/[\w\-\_]+$|[\w\-\_]+\?/', $_SERVER['REQUEST_URI'],$durl);
-						if(preg_match('/forum="'.$durl[0].'"/', $t)){
+						if(preg_match('/forum="'.str_replace('?','',$durl[0]).'"/', $t)){
 							array_push($items, $t);
 						}
 					}else{
@@ -138,36 +145,19 @@
 				
 				
 			}
+
 			$items = array_reverse(array_merge($items, $pinned));
 			$p = isset($_GET['p']) ? $_GET['p'] : 1;
 			$nb = $conf['forum']['maxTopicDisplay'];
+			
 			for($i=0;$i<count(array_slice($items, $nb*($p-1), $nb));$i++){
 				if(preg_match('/\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+|\/forum(?:\.php)\/(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
 						preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'], $url);
 				$target = @explode('/', str_replace('?','',$url[0]));
-			
-				if($target[0]==='tags'){
+				if($target[0]==='forum'){
 					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
 						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
-					}
-					
-				}elseif($target[0]==='forum'){
-					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
-						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
-					}
-					
-				}elseif($target[0]==='topic'){
-					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
-						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
-					}
-					
-				}elseif($target[0]==='status'){
-					if(strstr(array_slice($items, $nb*($p-1), $nb)[$i], $target[1])){
-						$d.=array_slice($items, $nb*($p-1), $nb)[$i];
-					}
-					
-				}elseif($target[0]===''||$target[0]==='all'){
-					$d.=array_slice($items, $nb*($p-1), $nb)[$i];
+					}		
 				}
 			}else{
 				$d.=array_slice($items, $nb*($p-1), $nb)[$i];
