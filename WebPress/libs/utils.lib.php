@@ -14,7 +14,7 @@
 		public static function redirect($title, $desc, $redirect, $type='success'){
 			global $lang;
 			echo '
-			<div class="modal position-static d-block" tabindex="-1" style="z-index:10000;">
+			<div class="modal position-static d-block" data-ignore="true" tabindex="-1" style="z-index:10000;">
 		<div class="modal-dialog">
 		  <div class="modal-content text-light bg-'.$type.'">
 			<div class="modal-header">
@@ -29,6 +29,14 @@
 		</div>
 	  </div>
 	  <script>
+	 setInterval(function(){
+		let m = document.querySelectorAll(".modal:not([data-ignore])");
+			for(let i=0;i<m.length;i++){
+				if(m[i].className.match(/d-block/g)){
+					m[i].className = m[i].className.replace("d-block","");
+				}
+			}
+	 });
 	  setTimeout(function(){
 		  window.open("'.$redirect.'", "_self");
 	  }, 3000);

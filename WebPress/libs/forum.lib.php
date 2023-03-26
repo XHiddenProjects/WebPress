@@ -23,7 +23,7 @@
 			return substr(sha1(uniqid()),0,4);
 		}
 		protected static function replyID(){
-			return date('Y-m').'-'.substr(self::generate_id(), 0, 10);
+			return date('Y-m').'-'.date('d').substr(self::generate_id(), 0, 10);
 		}
 		protected static function getTopicsByForum($forumName){
 			$forum = array();
@@ -145,7 +145,7 @@
 				
 				
 			}
-
+			
 			$items = array_reverse(array_merge($items, $pinned));
 			$p = isset($_GET['p']) ? $_GET['p'] : 1;
 			$nb = $conf['forum']['maxTopicDisplay'];
@@ -183,7 +183,9 @@
 			global $langs, $BASEPATH, $conf, $session, $topicsArr;
 			$out='';
 			$setOnce=0;
-			foreach(Files::Scan(DATA_TOPICS) as $topics){
+			$scanDir = Files::Scan(DATA_TOPICS);
+			 asort($scanDir);
+			foreach($scanDir as $topics){
 			$genID = self::generate_ProfileID();
 			$user = WebDB::dbExists('users', 'users') ? WebDB::getDB('users', 'users') : '';
 			  
@@ -332,7 +334,7 @@
 						}else{
 							$comma = '';
 						}
-						$listTags .= '<a class="link-primary fst-italic" href="./forum?search=tags:'.$tags.'">'.$tags.'</a>'.$comma.' ';
+						$listTags .= '<a class="link-primary fst-italic" href="'.$BASEPATH.'/search?results='.$tags.'">'.$tags.'</a>'.$comma.' ';
 						$dontIncludeLastTag++;
 					}
 					
@@ -520,7 +522,7 @@
 		public static function makeTopic($name, $forum, $author, $msg, $tags, $raw, $pinned=false, $locked=false, $created=null, $edited=null, $id=null){
 			$created = $created!==null ? $created : date('m/d/Y h:i:sa');
 			$edited = date('m/d/Y h:i:sa');
-			$id = !isset($_GET['editTopic']) ? self::generate_id() : preg_replace('/[\d]{4}\-[\d]{2}\-/','',$_GET['editTopic']);
+			$id = !isset($_GET['editTopic']) ? date('d').self::generate_id() : preg_replace('/[\d]{4}\-[\d]{2}\-/','',$_GET['editTopic']);
 			$idFile = isset($_GET['editTopic']) ? $_GET['editTopic'] : date('Y-m').'-'.$id;
 			$topic = !WebDB::DBexists('topics', $idFile) ? WebDB::makeDB('topics', $idFile) : 'error';
 			$d = WebDB::dbExists('topics', $idFile) ? WebDB::getDB('topics', $idFile) : '';

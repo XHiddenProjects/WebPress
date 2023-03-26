@@ -1,6 +1,6 @@
 	{
 		"versions": {
-			"2.2.2": {
+			"2.2.3": {
 				"textsets": [
 					{
 						"text": "Version 2.2.2 has been released!",
@@ -9,7 +9,7 @@
 						"show": true
 					},
 					{
-						"text": "Fixed Fourm Filter again",
+						"text": "Fixed Forum ordering",
 						"icon": "fa-regular fa-filter",
 						"type": "info",
 						"tag": "fixed",

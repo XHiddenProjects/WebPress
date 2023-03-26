@@ -271,15 +271,17 @@
 			</div>
 			<div class="row">
 			<div class="col">
-				<label for="topicMsg" class="topicMsg">'.$lang['forum.entermsg'].'('.$conf['editor'].')</label>
-				<textarea id="topicMsg" name="topicMsg" class="form-control">'.$db['raw'].'</textarea>
-			</div>
-			<div class="col">
 				<label class="form-label" for="topicAuthor">'.$lang['forum.inputTopicAuthor'].'</label>
 					<input type="text" id="topicAuthor" name="topicAuthor" readonly value="'.$db['author'].'" class="form-control"/>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mt-5" style="margin-bottom:10rem!important;">
+			<div class="col">
+				<label for="topicMsg" class="topicMsg">'.$lang['forum.entermsg'].'('.$conf['editor'].')</label>
+				'.$Editor->createEditor($conf['editor'], true, null, $db['raw'], true, 'topicMsg').'
+			</div>
+			</div>
+			<div class="row" style="margin-top: 8rem!important;">
 			<div class="col">
 				<label class="form-label" for="topicTags">'.$lang['forum.inputTopicTags'].'</label>
 					<input type="text" value="'.$db['tags'].'" id="topicTags" name="topicTags"  class="form-control"/>
@@ -303,9 +305,7 @@
 					$out.='</select>
 				</div>
 			</div>
-		  </div>
-		  <div class="modal-footer">
-			<button type="submit" name="makeTopic" class="btn btn-primary">'.$lang['btn.save'].'</button>
+			<button type="submit" name="makeTopic" class="btn btn-primary mt-2 w-100">'.$lang['btn.save'].'</button>
 		  </div>
 		  </form>
 		 
@@ -345,24 +345,24 @@
 			</div>
 			<div class="row">
 			<div class="col">
-				<label for="topicMsg" class="topicMsg"><?php echo $lang['forum.entermsg'].'('.$conf['editor'].')';?></label>
-				<textarea id="topicMsg" name="topicMsg" class="form-control"></textarea>
-			</div>
-			<div class="col">
 				<label class="form-label" for="topicAuthor"><?php echo $lang['forum.inputTopicAuthor'];?></label>
 					<input type="text" id="topicAuthor" name="topicAuthor" readonly value="<?php echo $session;?>" class="form-control"/>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mt-5" style="margin-bottom:10rem!important;">
+				<div class="col">
+				<label for="topicMsg" class="topicMsg"><?php echo $lang['forum.entermsg'].'('.$conf['editor'].')';?></label>
+				<?php echo $Editor->createEditor($conf['editor'], true, null, null, false, 'topicMsg');?>
+			</div>
+			</div>
+			<div class="row" style="margin-top: 8rem!important;">
 			<div class="col">
 				<label class="form-label" for="topicTags"><?php echo $lang['forum.inputTopicTags'];?></label>
 					<input type="text" id="topicTags" name="topicTags"  class="form-control"/>
 				</div>
 			</div>
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php echo $lang['btn.close'];?></button>
-			<button type="submit" name="makeTopic" class="btn btn-primary"><?php echo $lang['btn.save'];?></button>
+				<button type="button" class="btn btn-secondary mt-2 float-end" data-bs-dismiss="modal"><?php echo $lang['btn.close'];?></button>
+			<button type="submit" name="makeTopic" class="btn btn-primary mt-2 me-2 float-end"><?php echo $lang['btn.save'];?></button>
 		  </div>
 		  </form>
 		 
