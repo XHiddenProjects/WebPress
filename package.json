@@ -1,6 +1,6 @@
 {
   "name": "@surveybuilder-admin/webpress",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A free open-source CMS(content-management system) and a forum-script use custom made plugins and themes and doesn't need SQL, just JSON database",
   "main": "index.js",
   "scripts": {
@@ -23,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/surveybuilderteams/WebPress/issues"
   },
-  "homepage": "https://github.com/surveybuilderteams/WebPress#readme"
+  "homepage": "https://webpress1.epizy.com"
 }

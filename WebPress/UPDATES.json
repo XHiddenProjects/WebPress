@@ -1,6 +1,6 @@
 	{
 		"versions": {
-			"2.2.3": {
+			"2.2.4": {
 				"textsets": [
 					{
 						"text": "Version 2.2.2 has been released!",
@@ -9,8 +9,8 @@
 						"show": true
 					},
 					{
-						"text": "Fixed Forum ordering",
-						"icon": "fa-regular fa-filter",
+						"text": "Fixed modal",
+						"icon": "fa-regular fa-form",
 						"type": "info",
 						"tag": "fixed",
 						"show": true
