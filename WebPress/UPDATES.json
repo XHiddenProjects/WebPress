@@ -1,6 +1,6 @@
 	{
 		"versions": {
-			"2.2.4": {
+			"2.2.5": {
 				"textsets": [
 					{
 						"text": "Version 2.2.2 has been released!",
@@ -9,7 +9,7 @@
 						"show": true
 					},
 					{
-						"text": "Fixed modal",
+						"text": "Fixed Editor.lib.php",
 						"icon": "fa-regular fa-form",
 						"type": "info",
 						"tag": "fixed",

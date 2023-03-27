@@ -1,6 +1,6 @@
 {
   "name": "@surveybuilder-admin/webpress",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "A free open-source CMS(content-management system) and a forum-script use custom made plugins and themes and doesn't need SQL, just JSON database",
   "main": "index.js",
   "scripts": {
