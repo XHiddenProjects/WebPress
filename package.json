@@ -16,7 +16,8 @@
     "json",
     "php",
     "plugins",
-    "themes"
+    "themes",
+    "webpress"
   ],
   "author": "SurveyBuilderTeams",
   "license": "MIT",
