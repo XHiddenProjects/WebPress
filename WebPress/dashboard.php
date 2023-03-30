@@ -214,7 +214,7 @@
 	$out.='</div>';
 
 
-	}elseif(preg_match('/\/dashboard(?:\.php)\/phpinfo/', $_SERVER['REQUEST_URI'])){
+	}elseif(preg_match('/\/dashboard(?:\.php)\/phpinfo/', $_SERVER['REQUEST_URI'])&&Users::isAdmin()){
 		$out.='<iframe src="../phpinfo.php" style="width:100%;height:77%;"></iframe>';
 	}elseif(preg_match('/\/dashboard(?:\.php)\/profile/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('changeProfile')){
 		$info = isset($_GET['name']) ? $_GET['name'] : $_SESSION['user'];
@@ -833,7 +833,7 @@
 
 	$out.='</ul>';
 	$out.= Paginate::pageLink(Paginate::pid($conf['pluginDisplayAmount']), Paginate::countPage(Files::Scan(DATA_PLUGINS), $conf['pluginDisplayAmount']), './plugins?');
-	}elseif(preg_match('/\/dashboard(?:\.php)\/console/', $_SERVER['REQUEST_URI'])){
+	}elseif(preg_match('/\/dashboard(?:\.php)\/console/', $_SERVER['REQUEST_URI'])&&Users::isAdmin()){
 		$data = '';
 		$getLog = preg_split('/\R/', Files::getFileData(ROOT.'debug.log'));
 		$id=0;
@@ -1702,13 +1702,15 @@
 		$audio = array('mp3', 'wav', 'ogg');
 		$video = array('mp4', 'mov', 'avi');
 		$compress = array('zip', '7z', 'rar', 'gz');
-		$hidden = array('controller', 'controller.lib.php', 'install');
+		$hidden = array('controller', 'controller.lib.php', 'install', 'api');
 		#sender 
 		foreach(Files::Scan(ROOT.$path) as $send){
 			$type = @end(explode('.',strtolower($send)));
 			$name = @reset(explode('.',strtolower($send)));
 			if(is_dir(ROOT.$path.$send)){
-				if(Files::LockedItem($send, array('api', 'docs', 'assets')) || !is_writable(ROOT.$path.$send)){
+				if(in_array($send, $hidden)){
+					$out.='';
+				}elseif(Files::LockedItem($send, array('docs', 'assets')) || !is_writable(ROOT.$path.$send)){
 				$out.= '<a style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.folder'].'"><span><i class="fa-solid fa-folder-xmark" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
 				}else{
 				$out.= '<a href="./files?path='.$path.$send.'/" style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action"><span><i class="fa-solid fa-folder" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
@@ -1900,7 +1902,7 @@
 	}
 	# other
 	if(isset($_GET['edit'])){
-		 preg_match('/((\w+\.\w+\.\w+)|(\w+\.\w+))/', $_GET['edit'], $d);
+		 preg_match('/((\w+\.\w+\.\w+)|(\w+\.\w+))$/', $_GET['edit'], $d);
 		 $type = @end(explode('.',$d[0]));
 	$out.='<div class="modal d-block" tabindex="-1" id="filemanager">
 	  <div class="modal-dialog modal-fullscreen">
@@ -1940,8 +1942,6 @@
 	}elseif(preg_match('/\/dashboard(?:\.php)\/(view|view\/)/', $_SERVER['REQUEST_URI'])){
 		$out .= Plugin::useHook('view', $_GET['plugins']);
 	}elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('events')){
-		$_SESSION['access'] = (isset($_SESSION['access']) ? $_SESSION['access'] : false);
-		if($_SESSION['access']){
 		$out.='<div class="h-50" style="overflow:auto;"><table class="table">
 		<thead class="position-sticky top-0">
 		 <tr>
@@ -1995,13 +1995,7 @@
 	   $out.='
 		</tbody>
 		</table></div>';
-	}else{
-		$out.='<form method="post">
-		<label class="form-label">'.$lang['login.token'].'</label>
-		<input class="form-control" name="pkey" type="password"/>
-		<button class="btn btn-success" name="viewEvents" type="submit">'.$lang['btn.confirm'].'</button>
-		</form>';
-	}
+	
 	if(isset($_POST['viewEvents'])){
 		if(CSRF::check()!=='tokenExpired'&&CSRF::check()!=='invalidKey'){
 			$_SESSION['access'] = true;

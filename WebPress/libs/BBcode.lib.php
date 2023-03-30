@@ -71,48 +71,7 @@ class BBCode extends BBlight
 	    // Replace [u]...[/u] with <span style="text-decoration:underline;">...</span>
 	    $this->bbcode_table["/\[u\](.*?)\[\/u\]/is"] = function ($match) {
 	      return '<span style="text-decoration:underline;">' . $match[1] . '</span>';
-	    };
-
-	    // Replace [hide=show more]...[/hide] with <button class="btn" type="button" onclick="toggle(this)">...</button><div style="display:none;" id="cont">...</div>
-	    $this->bbcode_table["/\[hide=(.*?)\](.*?)\[\/hide\]/is"] = function ($match) {
-		  global $lang;
-		  $hideID=BBCode::gen_uid(5);
-	      	return '<button class="btn btn-outline-secondary btn-sm" type="button" onclick="toggle_'.$hideID.'(this)">'.$match[1].'</button><div style="display:none;" id="'.$hideID.'">' . $match[2] . '</div><script>function toggle_'.$hideID.'(e){var t=document.getElementById("'.$hideID.'");"block"==t.style.display?(t.style.display="none"):(t.style.display="block")}</script>';
-	    };
-
-	    // Replace [hideuser=show more]...[/hideuser] with <button class="btn" type="button" onclick="toggle(this)">...</button><div style="display:none;" id="cont">...</div>
-	    $this->bbcode_table["/\[hideuser=(.*?)\](.*?)\[\/hideuser\]/is"] = function ($match) {
-		  global $session, $lang;
-		  $hideID=BBCode::gen_uid(5);
-		  if($session || Users::isMod()){
-	      	return '<button class="btn btn-outline-secondary btn-sm" type="button" onclick="toggle_'.$hideID.'(this)">'.$match[1].'</button><div style="display:none;" id="'.$hideID.'">' . $match[2] . '</div><script>function toggle_'.$hideID.'(e){var t=document.getElementById("'.$hideID.'");"block"==t.style.display?(t.style.display="none"):(t.style.display="block")}</script>';
-	      } else {
-		    return '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> ' .$lang['visible_for_logged']. '</div>';
-	      }
-	    };
-
-	    // Replace [hideworker=show more]...[/hideworker] with <button class="btn" type="button" onclick="toggle(this)">...</button><div style="display:none;" id="cont">...</div>
-	    $this->bbcode_table["/\[hideworker=(.*?)\](.*?)\[\/hideworker\]/is"] = function ($match) {
-		  global $lang;
-		  $hideID=BBCode::gen_uid(5);
-		  if(Users::isMod()){
-	      	return '<button class="btn btn-outline-secondary btn-sm" type="button" onclick="toggle_'.$hideID.'(this)">'.$match[1].'</button><div style="display:none;" id="'.$hideID.'">' . $match[2] . '</div><script>function toggle_'.$hideID.'(e){var t=document.getElementById("'.$hideID.'");"block"==t.style.display?(t.style.display="none"):(t.style.display="block")}</script>';
-	      } else {
-		    return '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> ' .$lang['visible_for_staff']. '</div>';
-	      }
-	    };
-
-	    // Replace [hidetrip=name]...[/hidetrip] with <button class="btn" type="button" onclick="toggle(this)">...</button><div style="display:none;" id="cont">...</div>
-	    $this->bbcode_table["/\[hidetrip=(.*?)\](.*?)\[\/hidetrip\]/is"] = function ($match) {
-		  global $session,$lang;
-		  $hideID		= BBCode::gen_uid(5);
-		  if(Users::isMod() || $session===$match[1]){
-	      	return '<button class="btn btn-outline-secondary btn-sm" type="button" onclick="toggle_'.$hideID.'(this)">' .$lang['hide_show_more']. '</button><div style="display:none;" id="'.$hideID.'">' . $match[2] . '</div><script>function toggle_'.$hideID.'(e){var t=document.getElementById("'.$hideID.'");"block"==t.style.display?(t.style.display="none"):(t.style.display="block")}</script>';
-	      } else {
-		    return '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> ' .$lang['visible_for_specific_user']. '</div>';
-	      }
-	    };
-	    	    	    	    	    
+	    };	    	    	    	    
 	    // Replace [center]...[/center] with <div style="text-align:center;">...</div>
 	    $this->bbcode_table["/\[center\](.*?)\[\/center\]/is"] = function ($match) {
 	      return '<div style="text-align:center;">' . $match[1] . '</div>';

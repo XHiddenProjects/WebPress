@@ -541,7 +541,7 @@ function saveBlocks(root, page){
         alert(this.responseText);
       }
     };
-xmlhttp.open("GET", root+"/saveBlocks.lib.php?page="+page+"&code=" + elem.innerHTML.replace('&nbsp;',' ').replace('#','/ht/')+'&body='+document.body.getAttribute('style').replaceAll('"','_quoteicon_').replaceAll('&','__andicon_').replaceAll(' ',''), true);
+xmlhttp.open("GET", root+"/saveBlocks.lib.php?page="+page+"&code=" + elem.innerHTML.replaceAll('&nbsp;',' ').replaceAll('#','/ht/')+'&body='+document.body.getAttribute('style').replaceAll('"','_quoteicon_').replaceAll('&','__andicon_').replaceAll(' ',''), true);
     xmlhttp.send();
 }
 function blockSettings(){

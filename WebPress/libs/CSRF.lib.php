@@ -86,7 +86,7 @@
 						die('<b>'.$plugins.'</b>'.$lang['csrf.generateHook'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
 					}elseif(strpos($badPlugin, '$_SESSION[\'token\']')||strpos($badPlugin, '$_SESSION["token"]')){
 						die('<b>'.$plugins.'</b>'.$lang['csrf.tokenTheft'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
-					}elseif(strpos($badPlugin, 'Files::')&&!strpos($badPlugin, 'Files::Scan')&&!strpos($badPlugin, 'Files::upload')){
+					}elseif(strpos($badPlugin, 'Files::')&&!strpos($badPlugin, 'Files::Scan')&&!strpos($badPlugin, 'Files::minify')&&!strpos($badPlugin, 'Files::upload')){
 						die('<b>'.$plugins.'</b>'.$lang['csrf.fileAccess'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
 					}elseif(preg_match_all('/api\/keys\.json|api\.DS\.keys\.json/i',$badPlugin)){
 						die('<b>'.$plugins.'</b>'.$lang['csrf.apiKey'].'<u><i>'.ROOT.'plugins'.DS.$plugins.'</i></u>');
@@ -123,6 +123,11 @@
 				}
 			}
 			
+		}
+		public static function filterScript($msg){
+			$msg = preg_replace('/<script>/', '&lt;script&gt;', $msg);
+			$msg = preg_replace('/<\/script>/','&lt;/script&gt;',$msg);
+			return $msg;
 		}
 	}
 

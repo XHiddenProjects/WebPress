@@ -15,7 +15,8 @@ if ($code !== "" && $page !== '') {
 		  $open = fopen('../pages/'.$page.'.html', 'w+');
 		  $openCSS = fopen('../pages/'.$page.'/'.$page.'.css', 'w+');
 		  $body = str_replace('_quoteicon_','\'',$body);
-		  $body = str_replace('__andicon_','&',$body);
+		  $body = str_replace('_andicon_','&',$body);
+		  $body = str_replace('/ht/','#',$body);
 		   preg_match('/background-color\:\s?rgb\(\d{1,3},\s?\d{1,3},\s?\d{1,3}\)/', $body, $rgb);
 		  $rgb = str_replace(array('rgb(',')',' ','background-color:'), '', $rgb[0]);
 		  $r = (int)explode(',',$rgb)[0];

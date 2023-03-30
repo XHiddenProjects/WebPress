@@ -2,6 +2,8 @@
 	class Encrypt{
 		protected static $alphaArg;
 		protected static $shuffleKey;
+		protected static $perpsw;
+		protected static $sharPsw;
 		
 		protected function __construct(){
 			

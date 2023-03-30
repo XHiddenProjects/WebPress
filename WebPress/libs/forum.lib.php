@@ -411,7 +411,7 @@
 					$replys = str_replace('.dat.json','',$replys);
 					$rInfo = WebDB::getDB('replys', $replys);
 					$GLOBALS['author'] = $rInfo['author'];
-					$GLOBALS['reply'] = $replys;
+					$GLOBALS['reply'][]=$replys;
 					if($rInfo['topic']===$_GET['id']){
 						$replyItem='<div id="'.$rInfo['id'].'" class="d-flex mt-4 replyBox">
 		<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$langs['forum.anchorID'].'" onclick="copyReplyID(\''.$rInfo['id'].'\')" class="link-primary fs-3 me-2" href="#'.$rInfo['id'].'"><i class="fa-solid fa-anchor"></i></a>  
@@ -511,8 +511,8 @@
 					'created'=>(isset($d['created']) ? $d['created'] : date('m/d/Y h:i:sa')),
 					'edited'=>$edited,
 					'author'=>(isset($d['author']) ? $d['author'] : $author),
-					'msg'=>$msg,
-					'raw'=>$raw
+					'msg'=>CSRF::filterScript($msg),
+					'raw'=>CSRF::filterScript($raw)
 			);
 			Events::createEvent(Users::getRealIP($author),Users::getSystInfo()['os'].'('.Users::getSystInfo()['device'].')',Users::getBrowser(),Users::ipInfo(Users::getRealIP(), 'city').','.Users::ISO2COUNTRY(Users::ipInfo(Users::getRealIP(), 'country')), date('m/d/Y h:i:sa'), $author, 'success', 'create reply');
 			$t['replys'][] = $id;
@@ -527,14 +527,14 @@
 			$topic = !WebDB::DBexists('topics', $idFile) ? WebDB::makeDB('topics', $idFile) : 'error';
 			$d = WebDB::dbExists('topics', $idFile) ? WebDB::getDB('topics', $idFile) : '';
 			$data = array(
-				'name'=>$name,
-				'msg'=>$msg,
-				'raw'=>$raw,
+				'name'=>CSRF::filterScript($name),
+				'msg'=>CSRF::filterScript($msg),
+				'raw'=>CSRF::filterScript($raw),
 				'created'=>$created,
 				'edited'=>$edited,
 				'id'=>$id,
 				'author'=>(isset($d['author']) ? $d['author']  : $author),
-				'tags'=>$tags,
+				'tags'=>CSRF::filterScript($tags),
 				'forum'=>$forum,
 				'views'=>(isset($d['views']) ? (int)$d['views'] : filter_var(0, FILTER_VALIDATE_INT)),
 				'pinned'=>filter_var($pinned, FILTER_VALIDATE_BOOLEAN),
