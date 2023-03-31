@@ -28,10 +28,7 @@ setTimeout(function(){
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 }, 300);
-window.addEventListener('load',function(){
-	document.querySelector('html').setAttribute('data-bs-theme', 'dark');
-	(document.querySelector('#pageColor') ? document.querySelector('#pageColor').setAttribute('style', 'background-color:#000000;color:#FFFFFF;') : '');
-}, 0);
+
 setTimeout(function(){
 	let tables = document.querySelectorAll('table');
 	for(let i=0;i<tables.length;i++){
@@ -109,7 +106,7 @@ function addConsoleViewer(target){
 }
 
 
-	 logCapture = document.querySelectorAll('[id="logCapture"]') ? document.querySelectorAll('[id="logCapture"]') : '';
+	let logCapture = document.querySelectorAll('[id="logCapture"]') ? document.querySelectorAll('[id="logCapture"]') : '';
 for (let i = 0; i < logCapture.length; i++) {
 	logCapture[i].addEventListener('click', function() {
 			if (document.querySelector('#log-'+this.parentElement.parentElement.getAttribute('log'))) {
@@ -167,8 +164,8 @@ for(let i=0;i<notifyAlert.length;i++){
 }, 300);
 
 
-function syntaxHighlight(text) {
-  let result_element = document.querySelector("#highlighting-content");
+function syntaxHighlight(elem,text) {
+  let result_element = elem.parentElement.querySelector("#highlighting-content");
 	    // Update code
   result_element.innerText = text;
   // Syntax Highlight

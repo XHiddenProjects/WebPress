@@ -1,16 +1,16 @@
 	{
 		"versions": {
-			"2.2.6": {
+			"2.2.7": {
 				"textsets": [
 					{
-						"text": "Version 2.2.6 has been released!",
+						"text": "Version 2.2.7 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
 						"show": true
 					},
 					{
-						"text": "Fixed SCRIPT tag in text post/replys",
-						"icon": "fa-regular fa-code",
+						"text": "Fixed EDITOR text display",
+						"icon": "fa-regular fa-edit",
 						"type": "info",
 						"tag": "fixed",
 						"show": true

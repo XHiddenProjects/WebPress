@@ -111,13 +111,15 @@
 					foreach(Files::Scan(ROOT.'themes'.DS.$theme.DS.$themes) as $themess){
 						if(@end(explode('.',$themess))!=='css'&&@end(explode('.',$themess))!=='js'&&@end(explode('.',$themess))!=='json'&&
 							@end(explode('.',$themess))!=='ttf'&&@end(explode('.',$themess))!=='png'&&@end(explode('.',$themess))!=='jpg'&&
-							@end(explode('.',$themess))!=='gif'&&@end(explode('.',$themess))!=='pdf'&&@end(explode('.',$themess))!=='txt'){
+							@end(explode('.',$themess))!=='gif'&&@end(explode('.',$themess))!=='pdf'&&@end(explode('.',$themess))!=='txt'&&
+							@end(explode('.',$themess))!=='ico'){
 								die('<b>'.$theme.'</b> '.$lang['csrf.themeHook'].'<u><i>'.ROOT.'themes'.DS.$theme.DS.$themess.'</i></u>');
 						}
 					}
 				}elseif(@end(explode('.',$themes))!=='css'&&@end(explode('.',$themes))!=='js'&&@end(explode('.',$themes))!=='json'&&
 					@end(explode('.',$themes))!=='tff'&&@end(explode('.',$themes))!=='png'&&@end(explode('.',$themes))!=='jpg'&&
-					@end(explode('.',$themes))!=='gif'&&@end(explode('.',$themes))!=='pdf'&&@end(explode('.',$themess))!=='txt'){
+					@end(explode('.',$themes))!=='gif'&&@end(explode('.',$themes))!=='pdf'&&@end(explode('.',$themess))!=='txt'&&
+					@end(explode('.',$themess))!=='ico'){
 						die('<b>'.$theme.'</b> '.$lang['csrf.themeHook'].'<u><i>'.ROOT.'themes'.DS.$theme.DS.$themes.'</i></u>');
 					}		
 				}

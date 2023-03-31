@@ -5,7 +5,7 @@ function warn(){
 	console.warn('You must select a string to add element');
 	alert('You must select a string to add element');
 }
-
+var targetItem;
 
 function selectedString(elem, editor='wysiwyg'){
  if(typeof elem != "undefined"){
@@ -24,19 +24,19 @@ function paragraphFormat(format){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');
 	format = (format!=='' ? format : 'p');
 	code.innerText = targetItem.value.replace(selectedItem, '<'+(format!=='pre' ? format : format+' class="viewCode"')+'>'+selectedItem+'</'+format+'>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<'+(format!=='pre' ? format : format+' class="viewCode"')+'>'+selectedItem+'</'+format+'>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-					let code = document.querySelector('#highlighting-content');
+					let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	format = (format!=='' ? format : 'p');
 	code.innerText = targetItem.value.replace(selectedItem, '['+(format==='pre' ? 'code' : format)+']'+selectedItem+'[/'+(format==='pre' ? 'code' : format)+']');
 	targetItem.value = targetItem.value.replace(selectedItem, '['+(format==='pre' ? 'code' : format)+']'+selectedItem+'[/'+(format==='pre' ? 'code' :format)+']');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
-					let code = document.querySelector('#highlighting-content');
+					let code = targetItem.parentElement.querySelector('#highlighting-content');
 	format = (format!=='' ? format : 'p');
 	switch(format){
 		case 'h1':
@@ -80,14 +80,14 @@ function fontSize(size){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');
 	let tag = (size!=='' ? 'span' : 'p');
 	size = (size!=='' ? ' style="font-size:'+size+'px;"' : '');
 	code.innerText = targetItem.value.replace(selectedItem, '<'+tag+size+'>'+selectedItem+'</'+tag+'>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<'+tag+size+'>'+selectedItem+'</'+tag+'>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');
 	let tag = (size!=='' ? 'span' : 'p');
 	size = (size!=='' ? size : '');
 	code.innerText = targetItem.value.replace(selectedItem, '[size='+size+']'+selectedItem+'[/size]');
@@ -101,7 +101,7 @@ function fontName(font){
 		if(selectedItem===''){
 		warn();
 	}else{
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');
 		font = (font!='' ? '<span style="font-family:'+font+';">'+selectedItem+'</span>' : selectedItem);
 	code.innerText = targetItem.value.replace(selectedItem, font);
 	targetItem.value = targetItem.value.replace(selectedItem, font);
@@ -113,7 +113,7 @@ function blockStyle(style){
 		if(selectedItem===''){
 		warn();
 	}else{
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');
 		let splitCode = style.split(',');
 		if(splitCode[0]==='h2'||splitCode[0]==='h3'&&splitCode[1]==='italic'){
 			flat = '<'+splitCode[0] + ' style="font-style:italic;">'+selectedItem+'</'+splitCode[0]+'>';
@@ -136,13 +136,13 @@ function textColor(color){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');
 		color = (color!='' ? '<span style="color:'+color+';">'+selectedItem+'</span>' : selectedItem);
 	code.innerText = targetItem.value.replace(selectedItem, color);
 	targetItem.value = targetItem.value.replace(selectedItem, color);
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		color = (color!='' ? '[color='+color+']'+selectedItem+'[/color]' : selectedItem);
 	code.innerText = targetItem.value.replace(selectedItem, color);
 	targetItem.value = targetItem.value.replace(selectedItem, color);
@@ -156,7 +156,7 @@ function backgroundColor(color){
 	if(selectedItem===''){
 		warn();
 	}else{
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');
 		color = (color!='' ? '<span style="background-color:'+color+';">'+selectedItem+'</span>' : selectedItem);
 	code.innerText = targetItem.value.replace(selectedItem, color);
 	targetItem.value = targetItem.value.replace(selectedItem, color);
@@ -169,17 +169,17 @@ function createBold(){
 	}else{
 		console.log(selectedEditor);
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<strong>'+selectedItem+'</strong>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<strong>'+selectedItem+'</strong>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '[b]'+selectedItem+'[/b]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[b]'+selectedItem+'[/b]');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '**'+selectedItem+'**');
 	targetItem.value = targetItem.value.replace(selectedItem, '**'+selectedItem+'**');
 	 Prism.highlightElement(code);
@@ -193,17 +193,17 @@ function createItalic(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<em>'+selectedItem+'</em>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<em>'+selectedItem+'</em>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '[i]'+selectedItem+'[/i]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[i]'+selectedItem+'[/i]');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '_'+selectedItem+'_');
 	targetItem.value = targetItem.value.replace(selectedItem, '_'+selectedItem+'_');
 	 Prism.highlightElement(code);
@@ -217,12 +217,12 @@ function createUnderline(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<u>'+selectedItem+'</u>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<u>'+selectedItem+'</u>');
 	 Prism.highlightElement(code);	
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '[u]'+selectedItem+'[/u]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[u]'+selectedItem+'[/u]');
 	 Prism.highlightElement(code);
@@ -236,12 +236,12 @@ function createStrikethrough(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<s>'+selectedItem+'</s>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<s>'+selectedItem+'</s>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '[s]'+selectedItem+'[/s]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[s]'+selectedItem+'[/s]');
 	 Prism.highlightElement(code);
@@ -255,12 +255,12 @@ function createSuper(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<sup>'+selectedItem+'</sup>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<sup>'+selectedItem+'</sup>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '[sup]'+selectedItem+'[/sup]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[sup]'+selectedItem+'[/sup]');
 	 Prism.highlightElement(code);
@@ -274,12 +274,12 @@ function createSub(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<sub>'+selectedItem+'</sub>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<sub>'+selectedItem+'</sub>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '[sub]'+selectedItem+'[/sub]');
 	targetItem.value = targetItem.value.replace(selectedItem, '[sub]'+selectedItem+'[/sub]');
 	 Prism.highlightElement(code);
@@ -292,12 +292,12 @@ function textAlign(alignment){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<p style="text-align:'+alignment+';">'+selectedItem+'</p>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<p style="text-align:'+alignment+';">'+selectedItem+'</p>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '['+alignment+']'+selectedItem+'[/'+alignment+']');
 	targetItem.value = targetItem.value.replace(selectedItem, '['+alignment+']'+selectedItem+'[/'+alignment+']');
 	 Prism.highlightElement(code);
@@ -310,17 +310,17 @@ function createBlockQuote(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<figure><blockquote class="blockquote"><p>'+selectedItem+'</p></blockquote><figcaption class="blockquote-footer"><cite>Source Title</cite></figcaption></figure>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<figure><blockquote class="blockquote"><p>'+selectedItem+'</p></blockquote><figcaption class="blockquote-footer"><cite>Source Title</cite></figcaption></figure>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 			code.innerText = targetItem.value.replace(selectedItem, '> '+selectedItem);
 			targetItem.value = targetItem.value.replace(selectedItem, '> '+selectedItem);
 			 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 			code.innerText = targetItem.value.replace(selectedItem, '[quote]'+selectedItem+'[/quote]');
 			targetItem.value = targetItem.value.replace(selectedItem, '[quote]'+selectedItem+'[/quote]');
 			 Prism.highlightElement(code);
@@ -344,7 +344,7 @@ function createDiv(style='', classes='', id='', lang='', styleText='', title='',
 		
 		let divAttr = divClass+divID+divLang+divLang+divTitle+divStyle+divDir;
 		
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<div'+divAttr+'><p>'+selectedItem+'</p></div>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<div'+divAttr+'><p>'+selectedItem+'</p></div>');
 	 Prism.highlightElement(code);
@@ -402,7 +402,7 @@ function copyText(){
 
 function pasteText(){
     let ta = document.querySelector('#editing');
-	let code = document.querySelector('#highlighting-content');
+	let code = targetItem.parentElement.querySelector('#highlighting-content');;
     if(navigator.clipboard.readText()){
 		navigator.clipboard.readText().then((clipText)=>(ta.value = clipText));
 		navigator.clipboard.readText().then((clipText)=>(code.innerHTML = clipText.replace(/</g, '&lt;').replace(/>/g, '&gt;')));
@@ -436,7 +436,7 @@ function paragraphDir(dir){
 		if(selectedItem===''){
 		warn();
 	}else{
-	let code = document.querySelector('#highlighting-content');
+	let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	let direct = (dir==="rtl" ? 'rtl' : 'ltr');
 	code.innerText = targetItem.value.replace(selectedItem, '<p dir="'+direct+'">'+selectedItem+'</p>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<p dir="'+direct+'">'+selectedItem+'</p>');
@@ -448,7 +448,7 @@ function indent(indent){
 		if(selectedItem===''){
 		warn();
 	}else{
-	let code = document.querySelector('#highlighting-content');
+	let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	let ind = (indent==="increase" ? ' style="margin-left:40px;"' : '');
 	code.innerText = targetItem.value.replace(selectedItem, '<p'+ind+'>'+selectedItem+'</p>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<p'+ind+'>'+selectedItem+'</p>');
@@ -461,17 +461,17 @@ function listing(list){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<'+list+' class="list-group list-group-flush'+(list==='ol' ? ' list-group-numbered' : '')+'">\n<li class="list-group-item">'+selectedItem+'</li>\n</'+list+'>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<'+list+' class="list-group list-group-flush'+(list==='ol' ? ' list-group-numbered' : '')+'">\n<li class="list-group-item">'+selectedItem+'</li>\n</'+list+'>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '['+list+']\n[*]'+selectedItem+'\n[/'+list+']');
 	targetItem.value = targetItem.value.replace(selectedItem, '['+list+']\n[*]'+selectedItem+'\n[/'+list+']');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 			switch(list){
 				case 'ul':
 			
@@ -497,7 +497,7 @@ function createAnchor(name){
 		if(selectedItem===''){
 		warn();
 	}else{
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');;
 	code.innerText = targetItem.value.replace(selectedItem, '<p><a id="'+name+'" name="'+name+'">'+selectedItem+'</a></p>');
 	targetItem.value = targetItem.value.replace(selectedItem, '<p><a id="'+name+'" name="'+name+'">'+selectedItem+'</a></p>');
 	 Prism.highlightElement(code);
@@ -527,7 +527,7 @@ function createLink(display, id, name, href, lang, dir, download, title, charset
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		id = (id!=='' ? ' id="'+id+'"' : '');
 		name = (name!=='' ? ' name="'+name+'"' : '');
 		href = (href!=='' ? ' '+ href : '');
@@ -545,7 +545,7 @@ function createLink(display, id, name, href, lang, dir, download, title, charset
 	targetItem.value = targetItem.value.replace(selectedItem, '<p><a'+id+name+href+lang+dir+download+title+charset+type+classes+rel+style+'>'+(display!=='' ? display : selectedItem)+'</a></p>');
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='bbcode'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		href = (href!=='' ? ' '+ href.replace(/href=|"|target=/g,'') : '');
 		let tag = (href.match('mailto:') ? 'email' : 'url');
 		let str = '['+tag+'='+href.replace(' ','')+']'+(display!=='' ? display : selectedItem)+'[/'+tag+']';
@@ -553,7 +553,7 @@ function createLink(display, id, name, href, lang, dir, download, title, charset
 	targetItem.value = targetItem.value.replace(selectedItem, str.replace(/\[url\]\s|\s\[\/url\]/, ''));
 	 Prism.highlightElement(code);
 		}else if(selectedEditor==='markdown'){
-				let code = document.querySelector('#highlighting-content');
+				let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		href = (href!=='' ? ' '+ href.replace(/href=|"|target=/g,'') : '');
 		let str = '['+(display!=='' ? display : selectedItem)+']('+href.replace(' ','')+')';
 	code.innerText = targetItem.value.replace(selectedItem, str.replace(' ', ''));
@@ -638,7 +638,7 @@ function createTable(rows=3, cols=2, width=500, height, header, border=1, spacin
 			if(selectedItem===''){
 		warn();
 	}else{
-		let code = document.querySelector('#highlighting-content');
+		let code = targetItem.parentElement.querySelector('#highlighting-content');;
 			let table = '';
 			width = width!=='' ? 'width:'+width+'px;' : '';
 			height = height!=='' ? ' height:'+height+'px;' : '';
@@ -763,19 +763,19 @@ function createImg(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		code.innerText = targetItem.value.replace(selectedItem, '<img src="'+selectedItem+'" width="320" height="320" alt="myimage"/>');
 		targetItem.value = targetItem.value.replace(selectedItem, '<img src="'+selectedItem+'" width="320" height="320" alt="myimage"/>');
 		Prism.highlightElement(code);
 		}
 		if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		code.innerText = targetItem.value.replace(selectedItem, '[img width="320" height="320"]'+selectedItem+'[/img]');
 		targetItem.value = targetItem.value.replace(selectedItem, '[img width="320" height="320"]'+selectedItem+'[/img]');
 		Prism.highlightElement(code);
 		}
 		if(selectedEditor==='markdown'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		code.innerText = targetItem.value.replace(selectedItem, '![alt]('+selectedItem+')');
 		targetItem.value = targetItem.value.replace(selectedItem, '![alt]('+selectedItem+')');
 		Prism.highlightElement(code);
@@ -788,13 +788,13 @@ function createVids(){
 		warn();
 	}else{
 		if(selectedEditor==='wysiwyg'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		code.innerText = targetItem.value.replace(selectedItem, '<video controls width="320" height="320"><source src="'+selectedItem+'" type="video/mp4"/>   Your browser does not support the video tag.</video>');
 		targetItem.value = targetItem.value.replace(selectedItem, '<video controls width="320" height="320"><source src="'+selectedItem+'" type="video/mp4"/>   Your browser does not support the video tag.</video>');
 		Prism.highlightElement(code);
 		}
 		if(selectedEditor==='bbcode'){
-			let code = document.querySelector('#highlighting-content');
+			let code = targetItem.parentElement.querySelector('#highlighting-content');;
 		code.innerText = targetItem.value.replace(selectedItem, '[video width="320" height="320"]'+selectedItem+'[/video]');
 		targetItem.value = targetItem.value.replace(selectedItem, '[video width="320" height="320"]'+selectedItem+'[/video]');
 		Prism.highlightElement(code);

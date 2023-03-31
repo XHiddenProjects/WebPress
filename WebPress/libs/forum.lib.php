@@ -343,7 +343,8 @@
 			# modal
 			  $genID = self::generate_ProfileID();
 			  $GLOBALS['author'] = $info['author'];
-			  $GLOBALS['topic'] = $topics;
+			  $GLOBALS['topic'][$topics] = $topics;
+			  $GLOBALS['topicID'] = $topics;
 								$dinfo = '<!-- Media object -->
 	<li class="list-group-item replyItem border-0" forum="'.$info['forum'].'"><div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
 	  <!-- Image -->
@@ -411,7 +412,8 @@
 					$replys = str_replace('.dat.json','',$replys);
 					$rInfo = WebDB::getDB('replys', $replys);
 					$GLOBALS['author'] = $rInfo['author'];
-					$GLOBALS['reply'][]=$replys;
+					$GLOBALS['reply'][$replys] = $replys;
+					$GLOBALS['replyID'] = $replys;
 					if($rInfo['topic']===$_GET['id']){
 						$replyItem='<div id="'.$rInfo['id'].'" class="d-flex mt-4 replyBox">
 		<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$langs['forum.anchorID'].'" onclick="copyReplyID(\''.$rInfo['id'].'\')" class="link-primary fs-3 me-2" href="#'.$rInfo['id'].'"><i class="fa-solid fa-anchor"></i></a>  

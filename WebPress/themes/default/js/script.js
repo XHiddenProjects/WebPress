@@ -164,8 +164,8 @@ for(let i=0;i<notifyAlert.length;i++){
 }, 300);
 
 
-function syntaxHighlight(text) {
-  let result_element = document.querySelector("#highlighting-content");
+function syntaxHighlight(elem,text) {
+  let result_element = elem.parentElement.querySelector("#highlighting-content");
 	    // Update code
   result_element.innerText = text;
   // Syntax Highlight

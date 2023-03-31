@@ -111,7 +111,7 @@ class Editor{
 		}
 	
 		$out .= '<div class="editor">';
-		$out .= '<textarea id="editing" name="'.($name!=='' ? $name : 'editorText').'" class="form-control lined" spellcheck="false" onkeydown="check_tab(this, event); createLineNum(event);" oninput="syntaxHighlight(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onselect="selectedString(this, \''.$editor.'\');">'.($show_source!==null ? htmlentities((!$raw ? file_get_contents($show_source) : $show_source)) : '').'</textarea>';
+		$out .= '<textarea id="editing" name="'.($name!=='' ? $name : 'editorText').'" class="form-control lined" spellcheck="false" onkeydown="check_tab(this, event); createLineNum(event);" oninput="syntaxHighlight(this,this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onselect="selectedString(this, \''.$editor.'\');">'.($show_source!==null ? htmlentities((!$raw ? file_get_contents($show_source) : $show_source)) : '').'</textarea>';
 		$out .= '<pre id="highlighting">
 					<code class="language-'.$code.'" id="highlighting-content">'.($show_source!==null ? htmlentities((!$raw ? file_get_contents($show_source) : $show_source)) : '').'</code>
 					<span aria-hidden="true" class="lineCount">

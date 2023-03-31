@@ -105,6 +105,11 @@ tt{
   width: calc(100% - 32px);
   height: 150px;
   display: block;
+    overflow: auto;
+  white-space: nowrap; /* Allows textarea to scroll horizontally */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #editing, #highlighting, #highlighting * {
@@ -115,30 +120,18 @@ tt{
    tab-size: 2;
 }
 
-#editing, #highlighting {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 #editing {
   z-index: 1;
   resize: none;
   margin-left:11px;
   width:96.5%;
+  color:transparent;
+  background: transparent;
+  caret-color: black; /* Or choose your favorite color */
 }
 
 #highlighting {
   z-index: 0;
-}
-
-#editing {
-  background: transparent;
-  caret-color: black; /* Or choose your favorite color */
-}
-#editing, #highlighting {
-  overflow: auto;
-  white-space: nowrap; /* Allows textarea to scroll horizontally */
 }
 
 .wysiwyg-editor .dropdown-menu li{
