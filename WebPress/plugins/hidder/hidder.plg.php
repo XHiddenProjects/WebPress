@@ -6,7 +6,7 @@ function hidder_install(){
 
 $data = array(
 'active'=>'on',
-'version'=>'0.0.1', 
+'version'=>'0.0.2', 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
 'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(
@@ -44,6 +44,25 @@ function hidder_replacement($matches){
 	 } 
 function hidder_noreplace($matches){
 	return $matches[0];
+}
+function hidder_editor(){
+	global $lang;
+	$plugin = 'hidder';
+	$out='';
+	$d= WebDB::getDB('plugins',$plugin.'/plugin');
+	if($d['active']){
+		$out.='<li class="list-group-item"><div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="hidderCodes" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa-solid fa-eye-slash"></i>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="hidderCodes">
+	<li onclick="customSyntax(\'{hide}Enter Message{/hide}\')" class="m-0" value="hide"><a class="btn" rel="nofollow"><span><i class="fa-solid fa-eye-slash"></i></span></a></li>
+	<li onclick="customSyntax(\'{hidemod}Enter Message{/hidemod}\')" class="m-0" value="hidemod"><a class="btn" rel="nofollow"><span><i class="fa-solid fa-eye-low-vision"></i></span></a></li>
+	<li onclick="customSyntax(\'{hideuser=username}Enter Message{/hideuser}\')" class="m-0" value="hideuser"><a class="btn" rel="nofollow"><span><i class="fa-solid fa-users-slash"></i></span></a></li>
+  </ul>
+</div></li>';
+	}
+	return $out;
 }
 function hidder_footerJS(){
 	global $lang, $reply;
@@ -84,4 +103,5 @@ function hidder_footerJS(){
 	}
 	return $out;
 }
+
 ?>

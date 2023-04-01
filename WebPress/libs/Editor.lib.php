@@ -13,7 +13,6 @@ class Editor{
 		$show_source = $show_source;
 		$out = '';
 		$out .= '<div class="editorpanel" expended="false">';
-		$out .= Plugin::hook('editor');
 		$setClass = '';
 		if($customCode!==null){
 			$code = $customCode;
@@ -50,6 +49,7 @@ class Editor{
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->uploads().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->imgs().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->vids().'</li>';
+			$out.=Plugin::hook('editor');
 			$out .= '</ul>';
 			$out .= $this->WYSIWYG->divEdit();
 			$out .= $this->WYSIWYG->anchorEdit();
@@ -82,7 +82,7 @@ class Editor{
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->selectAll().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->copyText().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->pasteText().'</li>';
-			
+			$out.=Plugin::hook('editor');
 			$out .= '</ul>';
 			$out .= $this->WYSIWYG->linksEdit();
 			$out .= $this->WYSIWYG->uploadEdit();
@@ -104,6 +104,7 @@ class Editor{
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->selectAll().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->copyText().'</li>';
 			$out.='<li class="list-group-item">'.$this->WYSIWYG->pasteText().'</li>';
+			$out.=Plugin::hook('editor');
 			$out .= '</ul>';
 			$out .= $this->WYSIWYG->linksEdit();
 			$out .= $this->WYSIWYG->uploadEdit();

@@ -69,7 +69,7 @@
 		  </ul>
 		  <form class="d-flex" role="search" method="get" action="<?php echo $BASEPATH.'/';?>search">
 		  <div class="input-group">
-			<input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control me-2" name="results" id="search" type="search" placeholder="Search" aria-label="Search">
+			<input style="border-top-right-radius:0;border-bottom-right-radius:0;" class="form-control" name="results" id="search" type="search" placeholder="Search" aria-label="Search">
 		
 				 <button class="btn btn-outline-success input-group-text submitsearch" type="submit">Search</button>
 		  </div>

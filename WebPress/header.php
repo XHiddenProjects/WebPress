@@ -26,7 +26,6 @@
 
 	global $conf, $selLang, $plugins, $lang;
 	require_once('lang/'.$selLang.'.php');
-
 	Page::start();
 	CSRF::checkBadPlugin();
 	foreach(Files::Scan(ROOT.'themes') as $theme){
