@@ -455,7 +455,16 @@ function indent(indent){
 	 Prism.highlightElement(code);
 	}
 }
-
+function customSyntax(syntax){
+	if(selectedItem===''){
+		warn();
+	}else{
+	let code = targetItem.parentElement.querySelector('#highlighting-content');;
+	code.innerText = targetItem.value.replace(selectedItem, syntax);
+	targetItem.value = targetItem.value.replace(selectedItem, syntax);
+	Prism.highlightElement(code);
+	}
+}
 function listing(list){
 		if(selectedItem===''){
 		warn();
