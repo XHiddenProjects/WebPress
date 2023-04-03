@@ -90,7 +90,7 @@
 	!defined('DB_EXTENSIONS') ? define('DB_EXTENSIONS', '.dat.json') : '';
 	#Project Info
 	!defined('PROJECT_NAME') ? define('PROJECT_NAME', 'WebPress') : '';
-	!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '230401 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('23-04-01')).'</span>') : '';
+	!defined('PROJECT_BUILD') ? define('PROJECT_BUILD', '230403 <span class="text-secondary" style="font-size:12px;">'.date('d (F) Y', strtotime('23-04-03')).'</span>') : '';
 	!defined('PROJECT_VERSION') ? define('PROJECT_VERSION', file_get_contents(ROOT.'VERSION')) : '';
 	!defined('WEBPRESS') ? define('WEBPRESS', true) : ''; # Use for plugins
 	require_once('init.php');

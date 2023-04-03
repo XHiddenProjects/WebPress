@@ -1,18 +1,11 @@
 	{
 		"versions": {
-			"2.2.8": {
+			"2.3.0": {
 				"textsets": [
 					{
-						"text": "Version 2.2.9 has been released!",
+						"text": "Version 2.3.0 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
-						"show": true
-					},
-					{
-						"text": "Fixed bugs",
-						"icon": "fa-regular fa-bug",
-						"type": "info",
-						"tag": "fixed",
 						"show": true
 					}
 				]

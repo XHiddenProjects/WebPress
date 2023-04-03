@@ -100,7 +100,7 @@
     "fontawesome": {
         "cssurl": "assets/fontawesome/{version}/css/all.min.css",
         "jsurl": "assets/fontawesome/{version}/js/all.min.js",
-        "version": "6.2.0"
+        "version": "6.3.0"
     },
     "notify": {
         "jsurl": "assets/notify/{version}/js/notify.min.js",
