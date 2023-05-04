@@ -172,37 +172,28 @@ function syntaxHighlight(elem,text) {
   Prism.highlightElement(result_element);
 
 }
-function linenumber(element){
-	let texts = element.value;
-	let content = document.querySelector(".line-numbers-rows");
-	
-	let splitNav = texts.split('\n');
-	for(let i=1; i<splitNav.length;i++){
-		let span = document.createElement('span');
-		content.appendChild(span);
-	}
-}
-function sync_scroll(element) {
+
+function sync_scroll(elem) {
   /* Scroll result to scroll coords of event - sync with textarea */
-  let result_element = document.querySelector("#highlighting");
+  let result_element = elem.parentElement.querySelector("#highlighting");
   // Get and set x and y
-	  result_element.scrollTop = element.scrollTop;
-	result_element.scrollLeft = element.scrollLeft; 
+	  result_element.scrollTop = elem.scrollTop;
+	result_element.scrollLeft = elem.scrollLeft; 
 }
 
-function check_tab(element, event) {
-  let code = element.value;
+function check_tab(elem, event) {
+  let code = elem.value;
   if(event.key == "Tab") {
     /* Tab key pressed */
     event.preventDefault(); // stop normal
-    let before_tab = code.slice(0, element.selectionStart); // text before tab
-    let after_tab = code.slice(element.selectionEnd, element.value.length); // text after tab
-    let cursor_pos = element.selectionEnd + 1; // where cursor moves after tab - moving forward by 1 char to after tab
-    element.value = before_tab + "\t" + after_tab; // add tab char
+    let before_tab = code.slice(0, elem.selectionStart); // text before tab
+    let after_tab = code.slice(elem.selectionEnd, elem.value.length); // text after tab
+    let cursor_pos = elem.selectionEnd + 1; // where cursor moves after tab - moving forward by 1 char to after tab
+    elem.value = before_tab + "\t" + after_tab; // add tab char
     // move cursor
-    element.selectionStart = cursor_pos;
-    element.selectionEnd = cursor_pos;
-    syntaxHighlight(element.value); // Update text to include indent
+    elem.selectionStart = cursor_pos;
+    elem.selectionEnd = cursor_pos;
+    syntaxHighlight(elem,elem.value); // Update text to include indent
   }
 }
 
@@ -275,17 +266,21 @@ function returnSearch(event){
 }
 
 function charCount(txt, out){
+	if(txt){
 	txt.addEventListener('input', function(){
 		out.innerHTML = this.value.length;
 	});
+	}
 }
 
 function saveNotes(){
 	let wpnotes = document.querySelector('.wpnotes');
 	localStorage.setItem('notes', wpnotes.value);
 }
-$(document).ready(function(){
-	document.querySelector('.wpnotes').value = localStorage.getItem('notes');
+window.addEventListener('load',function(){
+	if(localStorage.getItem('notes')){
+		document.querySelector('.wpnotes').value = localStorage.getItem('notes');
+	}
 });
 
 function copyPageURL(l){

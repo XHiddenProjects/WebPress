@@ -264,11 +264,11 @@ Se richiedi il link alla fonte del ban, gli amministratori **SONO OBBLIGATI** a 
 
   
 
-Se hai domande, ponile nelle [discussioni](https://github.com/surveybuilderteams/WebPress/discussions/2) su github.
+Se hai domande, ponile nelle [discussioni](https://github.com/XHiddenProjects/WebPress/discussions/2) su github.
 
 ### Medias
 Metti mi piace su [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Voto positivo su [producthunt](https://www.producthunt.com/posts/webpress)
 
-Collabora [Github](https://github.com/SurveyBuilderTeams/WebPress)
+Collabora [Github](https://github.com/XHiddenProjects/WebPress)

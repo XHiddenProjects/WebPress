@@ -231,7 +231,7 @@ Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. A
 #### Disallowed
 
 *   Selling illigal items: (18 U.S. Code § 1170)
-*   Child abuse/pornography: Cild Abuse: (34 U.S. Code § 20341) | Cild Pornography: (18 U.S. Code § 2256)
+*   Child abuse/pornography: Child Abuse: (34 U.S. Code § 20341) | Child Pornography: (18 U.S. Code § 2256)
 *   Threats/Harmful comments: (6 U.S. Code § 1508)
 *   Sharing others personal info, without consent: (18 U.S. Code § 798)
 *   Identity theft: (Ohio Admin. Code 3354:1-20-09)
@@ -244,7 +244,7 @@ Welcome to WebPress, a free open-source and self hosting CMS and Forum-Script. A
 
 #### Administration
 
-All these rules also refrence to you as well, not just your _Customers_. Your _Customers_ can report your account, and will be decided by [surveybuilderteams](#). Your punishement can be a _removal of account_. SurveyBuilderTeams has 0 tolerance with anything **lack of child protection** or false banning **WITHOUT** and reasonable explaination.
+All these rules also refrence to you as well, not just your _Customers_. Your _Customers_ can report your account, and will be decided by [XHiddenProjects](#). Your punishement can be a _removal of account_. XHiddenProjects has 0 tolerance with anything **lack of child protection** or false banning **WITHOUT** and reasonable explaination.
 
   
 
@@ -263,11 +263,11 @@ If you request the link to the source of ban, admins **ARE REQUIRED** to provide
 
   
 
-If you have any questions, ask them on the [discussions](https://github.com/surveybuilderteams/WebPress/discussions/2) on github.
+If you have any questions, ask them on the [discussions](https://github.com/XHiddenProjects/WebPress/discussions/2) on github.
 
 ### Medias
 Like on [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Upvote on [producthunt](https://www.producthunt.com/posts/webpress)
 
-Collaborate [Github](https://github.com/SurveyBuilderTeams/WebPress)
+Collaborate [Github](https://github.com/XHiddenProjects/WebPress)

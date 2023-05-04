@@ -1,12 +1,13 @@
 window.addEventListener('load', function(){
 	if(!window.location.href.match(/\?editpage/)){
+		if(document.querySelector('#dropbox')){
 		document.querySelector('#dropbox').removeAttribute('contenteditable');
 		let allElem = document.querySelectorAll('#dropbox *');
 		for(let i=0;i<allElem.length;i++){
 			allElem[i].removeAttribute('contenteditable');
 		}
 	}
-	
+	}
 });
 
 /*Target Areas*/
@@ -25,7 +26,8 @@ function stylizeHighlightedString() {
 }
 // Clicks selected text
 window.addEventListener('dblclick', stylizeHighlightedString);
-document.querySelector('#dropbox.editView').addEventListener('mouseup', stylizeHighlightedString);
+if(document.querySelector('#dropbox.editView'))
+	document.querySelector('#dropbox.editView').addEventListener('mouseup', stylizeHighlightedString);
 
 /*actions*/
 function allowDropItem(ev) {
@@ -381,7 +383,8 @@ function showContextMenu(){
 	return false;
 }
 function hideContextMenu(){
-	contextMenu.style.display = 'none';
+	if(contextMenu)
+		contextMenu.style.display = 'none';
 }
 function listenKeyMenu(event){
 	const key = event.keyCode || event.which;
@@ -787,7 +790,8 @@ function add2ColorList(useColor=false){
 	}
 	
 }
-$(document).ready(function(){
+window.addEventListener('load',function(){
+if(document.querySelector('#bgImgURL')){	
 document.querySelector('#bgImgURL').addEventListener('input', function(){
 	let d = document.querySelectorAll('[name=bgBlock]');
 	for(let i=0;i<d.length;i++){
@@ -807,6 +811,7 @@ document.querySelector('#bgImgURL').addEventListener('input', function(){
 	}
 	
 });	
+}
 });
 
 function hex2rgb(hex) {

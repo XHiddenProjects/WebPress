@@ -1,0 +1,26 @@
+.blogpost{
+	width: 65rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	margin-left:calc(100% - 85%); 
+	margin-top:calc(0px + 2%);
+	margin-bottom:calc(0px + 2%);
+	background-color:rgba(214, 214, 214, 0.5);
+	padding:15px;
+	color:#454e4f;
+}
+.blogpost .blog-thumbs{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: flex-end;
+}
+.blogpost .blogger-desc{
+	background-color:#bcb9b9;
+	height:32%;
+	padding:5px;
+	border-radius:5px;
+	color:#fdf6f6;
+	overflow:auto;
+}

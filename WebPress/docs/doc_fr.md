@@ -244,7 +244,7 @@ Bienvenue sur WebPress, un CMS et Forum-Script libre et auto-hébergé. En tant 
 
 #### Administration
 
-Toutes ces règles font également référence à vous, et pas seulement à vos _Clients_. Vos _Clients_ peuvent signaler votre compte et seront décidés par [surveybuilderteams](#). Votre punition peut être une _suppression de compte_. SurveyBuilderTeams a une tolérance de 0 avec tout **manque de protection de l'enfant** ou fausse interdiction **SANS** et explication raisonnable.
+Toutes ces règles font également référence à vous, et pas seulement à vos _Clients_. Vos _Clients_ peuvent signaler votre compte et seront décidés par [XHiddenProjects](#). Votre punition peut être une _suppression de compte_. XHiddenProjects a une tolérance de 0 avec tout **manque de protection de l'enfant** ou fausse interdiction **SANS** et explication raisonnable.
 
   
 
@@ -263,11 +263,11 @@ Si vous demandez le lien vers la source de l'interdiction, les administrateurs *
 
   
 
-Si vous avez des questions, posez-les sur les [discussions](https://github.com/surveybuilderteams/WebPress/discussions/2) sur github.
+Si vous avez des questions, posez-les sur les [discussions](https://github.com/XHiddenProjects/WebPress/discussions/2) sur github.
 
 ### Des médias
 Comme sur [alternativeto.net](https://alternativeto.net/software/webpress)
 
 Votez pour [producthunt](https://www.producthunt.com/posts/webpress)
 
-Collaborer [Github](https://github.com/SurveyBuilderTeams/WebPress)
+Collaborer [Github](https://github.com/XHiddenProjects/WebPress)

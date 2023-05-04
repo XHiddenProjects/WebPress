@@ -115,9 +115,6 @@
 		}elseif((int)$hrs >= 21 && (int)$hrs <= 23){
 			$out .= $lang['dashboard.side.welcome.night'];
 		}
-		$getWeather = file_get_contents('https://content.api.nytimes.com/svc/weather/v2/current.json');
-		$weather = json_decode($getWeather, true);
-		$out .= '<br/>'.$lang['dashboard.side.weather'].' <img src="'.$weather['results'][0]['image'].'" alt="'.$weather['results'][0]['phrase'].'" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$weather['results'][0]['phrase'].'"/>';
 		$out .= '<br/>'.(Utils::checkVersion()[0] ? '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i> Current '.Utils::checkVersion()[1].(Users::isProVersion() ? ' <span class="badge bg-danger probadeg">'.$lang['pro'].'</span>' : '').'</div>' : '<div class="alert alert-danger" role="alert"><i class="fas fa-upload"></i> Outdated '.Utils::checkVersion()[1].(Users::isProVersion() ? ' <span class="badge bg-danger probadeg">'.$lang['pro'].'</span>' : '').'</div>');
 		$out.='</div>';
 		$out.='<textarea class="form-control mb-2 wpnotes" oninput="saveNotes();" style="height: 130px;"></textarea>';

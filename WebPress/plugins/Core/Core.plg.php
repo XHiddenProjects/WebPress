@@ -6,7 +6,7 @@ function Core_install(){
 
 $data = array(
 'active'=>'on',
-'version'=>'2.2.8', 
+'version'=>'2.3.0', 
 'options'=>array('canDisabled'=>filter_var(false, FILTER_VALIDATE_BOOLEAN), 
 'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
 'config'=>array(

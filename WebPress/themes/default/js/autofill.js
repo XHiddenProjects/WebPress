@@ -3,6 +3,7 @@ function autocomplete(inp, arr, sep=null) {
   the text field element and an array of possible autocompleted values:*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
+  if(inp){
   inp.addEventListener("input", function(e) {
       var a, b, i, val = this.value;
       /*close any already open lists of autocompleted values*/
@@ -63,6 +64,7 @@ function autocomplete(inp, arr, sep=null) {
         }
       }
   });
+ }
   function addActive(x) {
     /*a function to classify an item as "active":*/
     if (!x) return false;

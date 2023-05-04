@@ -245,7 +245,7 @@ $kit->__toFloat($txt);
 
 ＃＃＃＃ 行政
 
-所有這些規則也適用於您，而不僅僅是您的_客戶_。 您的_Customers_ 可以報告您的帳戶，這將由 [surveybuilderteams](#) 決定。 您的懲罰可以是_刪除帳戶_。 SurveyBuilderTeams 對任何**缺乏兒童保護**或虛假禁令**沒有**和合理解釋的容忍度為 0。
+所有這些規則也適用於您，而不僅僅是您的_客戶_。 您的_Customers_ 可以報告您的帳戶，這將由 [XHiddenProjects](#) 決定。 您的懲罰可以是_刪除帳戶_。 XHiddenProjects 對任何**缺乏兒童保護**或虛假禁令**沒有**和合理解釋的容忍度為 0。
 
   
 
@@ -264,11 +264,11 @@ $kit->__toFloat($txt);
 
   
 
-如果您有任何問題，請在 github 上的[討論](https://github.com/surveybuilderteams/WebPress/discussions/2) 中提問。
+如果您有任何問題，請在 github 上的[討論](https://github.com/XHiddenProjects/WebPress/discussions/2) 中提問。
 
 ### 媒體
 喜歡 [alternativeto.net](https://alternativeto.net/software/webpress)
 
 在 [producthunt](https://www.producthunt.com/posts/webpress) 上投票
 
-協作 [Github](https://github.com/SurveyBuilderTeams/WebPress)
+協作 [Github](https://github.com/XHiddenProjects/WebPress)
