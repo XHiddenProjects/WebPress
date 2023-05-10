@@ -241,6 +241,7 @@ $lang = array(
 'dashboard.config.forum.topic'=>'Afficher le nombre de sujets',
 'dashboard.config.forum.reply'=>'Afficher le montant de la réponse',
 'dashboard.config.forum.summary'=>'Montant récapitulatif',
+'dashboard.config.forum.icons'=>'Plage d`icônes',
 'dashboard.pageResults'=>'Résultats',
 # modal
 'modal.profile'=>'Editer le profil',
@@ -596,6 +597,7 @@ $lang = array(
 'blocks.removal'=>'Suppression',
 'blocks.page.title'=>'Ajouter une page',
 'blocks.page.name'=>'Entrez le nom de la page',
+'blocks.page.mobileUser'=>'Ceci n`est pas pris en charge pour les utilisateurs mobiles!',
 'blocks.settings'=>'Paramètres',
 'blocks.settings.bg'=>'Arrière-plan',
 'blocks.settings.solid.color'=>'Couleur unie',

@@ -889,6 +889,7 @@ class Blocks{
   </div>
 </div>
 	<li class="list-group-item drag" id="p" draggable="true" data-tag="p" ondragstart="dragItem(event)"><i class="fa-solid fa-paragraph"></i> Paragraph</li>
+	<li class="list-group-item drag" id="span" draggable="true" data-tag="span" ondragstart="dragItem(event)">Span</li>
 	<li class="list-group-item drag" id="a" draggable="true" data-tag="a" ondragstart="dragItem(event)"><i class="fa-solid fa-link"></i> Link</li>
 	<li class="list-group-item drag" id="table" draggable="true" data-tag="table" ondragstart="dragItem(event)"><i class="fa-solid fa-table"></i> Table</li>
 	<li class="list-group-item drag" id="row" draggable="true" data-tag="row" ondragstart="dragItem(event)"><i class="fa-solid fa-table-rows"></i> Row</li>
@@ -925,6 +926,8 @@ class Blocks{
   </div>
   </div>
   <li class="list-group-item drag" id="img" draggable="true" data-tag="img" ondragstart="dragItem(event)"><i class="fa-solid fa-image"></i> Image</li>
+  <li class="list-group-item drag" id="video" draggable="true" data-tag="video" ondragstart="dragItem(event)"><i class="fa-solid fa-video"></i> Video</li>
+  <li class="list-group-item drag" id="iframe" draggable="true" data-tag="iframe" ondragstart="dragItem(event)"><i class="fa-solid fa-frame"></i> IFrame</li>
 		</ul>
 		
 		<button onclick="saveBlocks(\''.$BASEPATH.'/libs\', \''.self::requestPage().'\')" class="btn btn-success btn-lg mt-1 float-end fs-3"><i class="fa-solid fa-floppy-disk"></i></button>

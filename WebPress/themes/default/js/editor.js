@@ -386,8 +386,8 @@ setTimeout(function(){
 
 /*end Div*/
 
-function copyText(){
-    document.querySelector('#editing').select();
+function copyText(t){
+    t.parentElement.parentElement.parentElement.parentElement.querySelector('#editing').select();
     if(document.execCommand('copy')){
 			$.notify("Copied to clipboard",{
 				'className':'success',
@@ -405,9 +405,9 @@ function copyText(){
 	}
 }
 
-function pasteText(){
-    let ta = document.querySelector('#editing');
-	let code = targetItem.parentElement.querySelector('#highlighting-content');;
+function pasteText(t){
+    let ta = t.parentElement.parentElement.parentElement.parentElement.querySelector('#editing');
+	let code = t.parentElement.parentElement.parentElement.parentElement.querySelector('#highlighting-content');
     if(navigator.clipboard.readText()){
 		navigator.clipboard.readText().then((clipText)=>(ta.value = clipText));
 		navigator.clipboard.readText().then((clipText)=>(code.innerHTML = clipText.replace(/</g, '&lt;').replace(/>/g, '&gt;')));
@@ -428,8 +428,8 @@ function pasteText(){
 	}
 }
 
-function fullScreen(){
-	let expend = document.querySelector('.editorpanel');
+function fullScreen(tar){
+	let expend = tar.parentElement.parentElement.parentElement.parentElement;
 	if(expend.getAttribute('expended')==='false'){
 		expend.setAttribute('expended', 'true');
 	}else{
@@ -769,8 +769,8 @@ setTimeout(function(){
 });
 /*end table*/
 
-function selectAll(){
-		document.querySelector('#editing').select();
+function slctAll(elem){
+		elem.parentElement.parentElement.parentElement.parentElement.querySelector('#editing').select();
 }
 function createImg(){
 	if(selectedItem===''){
@@ -848,3 +848,19 @@ function togglePreview(element, mode){
 		document.querySelector('.lineCount').hidden=true;
 	}
 } 
+
+function VoiceControl(elem){
+	var toggleVoice = true;
+	window.SpeechRecognition = window.webkitSpeechRecognition;
+	const recognition = new SpeechRecognition();
+	recognition.interimResults = true;
+	let placement = elem.parentElement.parentElement.parentElement.parentElement;
+	recognition.addEventListener('result', e=>{
+		const transcript = Array.from(e.results)
+		.map(result => result[0])
+		.map(result => result.transcript);
+		placement.querySelector('#editing').value = transcript;
+		placement.querySelector('#highlighting-content').innerHTML = placement.querySelector('#editing').value;
+	});
+	recognition.start();
+}

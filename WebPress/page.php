@@ -17,7 +17,8 @@ if(preg_match('/\/page(?:\.php)\/[\w]+/', $_SERVER['REQUEST_URI'], $title)){
 <body>
 <?php echo Plugin::hook('beforePage'); ?>
 <?php 
-global $base; 
+global $base, $lang;
+echo '<div class="mobileUser alert alert-warning" role="alert" style="display:none"><i class="fa-solid fa-triangle-exclamation"></i> '.$lang['blocks.page.mobileUser'].'</div>'; 
 echo Blocks::dropBox(ROOT.'pages'.DS.$base.'.html');
 echo Blocks::buildPanel();
 echo Blocks::help();

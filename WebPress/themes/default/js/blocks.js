@@ -80,6 +80,11 @@ function dropItem(ev) {
 		h.style.textIndent = '0.5in';
 	   ev.target.appendChild(h);
 	  break;
+	  case 'span':
+	   h = document.createElement(data);
+		h.innerHTML = 'span';
+	   ev.target.appendChild(h);
+	  break;
 	  case 'a':
 	   h = document.createElement(data);
 		h.innerHTML = 'Link';
@@ -318,6 +323,34 @@ function dropItem(ev) {
 	  }
 	  ev.target.appendChild(h);
 	  break;
+	  case 'video':
+	  h = document.createElement('video');
+	  h.className = 'object-fit-cover';
+	  let vurl = prompt('Enter Video URL:');
+	  let vwidth = prompt('Enter Width:');
+	  let vhight = prompt('Enter Height:');
+	  if(vurl){
+		  h.src = vurl;
+		  h.controls = true;
+		  h.width = parseInt(vwidth);
+		  h.height = parseInt(vhight);
+	  }
+	  ev.target.appendChild(h);
+	  break;
+	  case 'iframe':
+	  h = document.createElement('iframe');
+	  h.className = 'object-fit-cover';
+	  let furl = prompt('Enter IFRAME SRC:');
+	  let fwidth = prompt('Enter Width:');
+	  let fhight = prompt('Enter Height:');
+	  if(furl){
+		  h.src = furl;
+		  h.controls = true;
+		  h.width = parseInt(fwidth);
+		  h.height = parseInt(fhight);
+	  }
+	  ev.target.appendChild(h);
+	  break;
   }
 
 }
@@ -407,7 +440,6 @@ window.onload = function () {
 	for (var i = 0; i < upLink.length; i++) {
 		upLink[i].addEventListener('click', function () {
 			var wrapper = targetArea.parentElement;
-		console.log(wrapper);
 			if (wrapper.previousElementSibling)
 			    wrapper.parentNode.insertBefore(wrapper, wrapper.previousElementSibling);
 		});
@@ -466,7 +498,7 @@ function blockHref(promptLang, promptTarget){
 				targetArea.parentElement.innerHTML='<a href="'+href+'" target="'+target+'">'+data+'</a>';
 		}else{
 			targetArea.href = href;
-			target.target = target;
+			targetArea.setAttribute('target',target);
 		}
 		
 	}else{
@@ -1123,7 +1155,6 @@ function makeShadowText(elem){
 					 v = elem.parentElement.querySelector('.vshadow').value+elem.parentElement.querySelector('.vshadow').parentElement.querySelector('select').value;
 					 b = elem.parentElement.querySelector('.blur').value+elem.parentElement.querySelector('.blur').parentElement.querySelector('select').value;
 					 c = elem.parentElement.querySelector('.color').value;
-					console.log(h+' '+v+' '+b+' '+c);
 						targetArea.style.textShadow = h+' '+v+' '+b+' '+c; 
 					}else{
 						targetArea.style.textShadow = 'none';

@@ -241,6 +241,7 @@ $lang = array(
 'dashboard.config.forum.topic'=>'顯示主題量',
 'dashboard.config.forum.reply'=>'顯示回復量',
 'dashboard.config.forum.summary'=>'匯總金額',
+'dashboard.config.forum.icons'=>'圖標範圍',
 'dashboard.pageResults'=>'結果',
 # 模態的
 'modal.profile'=>'編輯個人資料',
@@ -596,6 +597,7 @@ $lang = array(
 'blocks.removal'=>'移動',
 'blocks.page.title'=>'添加頁面',
 'blocks.page.name'=>'輸入頁面名稱',
+'blocks.page.mobileUser'=>'移動用戶不支持此功能！',
 'blocks.settings'=>'設置',
 'blocks.settings.bg'=>'背景',
 'blocks.settings.solid.color'=>'純色',

@@ -187,16 +187,16 @@
 		<tr>
 		  <th>'.$lang['dashboard.info.phpModules'].'</th>
 		  <th>'.implode(', ', get_loaded_extensions()).'</th>
-		</tr>
-		<tr>
+		</tr>';
+		$out.= (function_exists('memory_get_usage') ? '<tr>
 		  <th>'.$lang['dashboard.info.memory'].'</th>
 		  <th>'.Files::sizeFormat(memory_get_usage()).' ('.Files::sizeFormat(memory_get_usage()).') out of '.Files::sizeFormat(memory_get_peak_usage(true)).'</th>
-		</tr>
-		<tr>
+		</tr>' : '');
+		$out.= (function_exists('disk_free_space') ? '<tr>
 		  <th>'.$lang['dashboard.info.diskSpace'].'</th>
 		  <th>'.Files::sizeFormat(disk_free_space(dirname(dirname(dirname(ROOT))))).' out of '.Files::sizeFormat(disk_total_space(dirname(dirname(dirname(ROOT))))).'</th>
-		</tr>
-		<tr>
+		</tr>' : '');
+		$out.='<tr>
 		  <th>'.$lang['dashboard.info.dataStorage'].'</th>
 		  <th>'.Files::sizeFormat(Files::folderSize(DATA)).'</th>
 		</tr>
@@ -215,7 +215,7 @@
 		$out.='<iframe src="../phpinfo.php" style="width:100%;height:77%;"></iframe>';
 	}elseif(preg_match('/\/dashboard(?:\.php)\/profile/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('changeProfile')){
 		$info = isset($_GET['name']) ? $_GET['name'] : $_SESSION['user'];
-		$out.='<div class="card text-center h-100 w-50 position-realative m-3 start-50 translate-middle-x">
+		$out.='<div class="card text-center h-100 position-realative m-3 start-50 translate-middle-x profileDisplay" style="width:50%;">
 	  <div class="card-header">
 		'.$lang['dashboard.profile.title'].'
 	  </div>
@@ -231,8 +231,11 @@
 		</div>' : '');
 		$out.='<div class="col">
 		<p class="card-text">'.$lang['dashboard.profile.location'].Users::ipInfo($d[$info]['ip'], 'city', 'Private IP').', '.Users::ipInfo($d[$info]['ip'], 'country', 'Private IP').'</p>
-		</div>
-		</div>
+		</div>';
+		$out.='<div class="col">
+			<p class="card-text"><b>'.$lang['dashboard.config.lang.title'].': </b> '.$d[$info]['lang'].'</p>
+		</div>';
+		$out.='</div>
 		<div class="row">
 		<div class="col">
 		<p class="card-text">'.$lang['dashboard.profile.created'].Utils::toDate(explode('+',$d[$info]['created'])[0].' '.explode('+',$d[$info]['created'])[1], $conf['page']['dateFormat']).'</p>
@@ -620,6 +623,12 @@
 		<input name="displaySumAmount" class="form-control" type="number" value="'.$conf['forum']['maxSummary'].'" min="10" max="100"/>
 		</div>
 		</div>';
+		$out.='<div class="row">
+		<div class="col">
+		<h4>'.$lang['dashboard.config.forum.icons'].'</h4>
+		<input class="form-control" name="iconRange" pattern="[\d]+\,(all|[\d]+)" type="text" value="'.$conf['iconRange'].'"/>
+		</div>
+		</div>';
 		
 		$out.='<br/>
 		<div class="row">
@@ -673,7 +682,7 @@
 			$dI = isset($_POST['defaultIndex']) ? $_POST['defaultIndex'] : $conf['page']['index'];
 			$sumAmount = isset($_POST['displaySumAmount'])&&$_POST['displaySumAmount']>=10&&$_POST['displaySumAmount']<=100 ? (int)$_POST['displaySumAmount'] : (int)$conf['forum']['maxSummary'];
 			$security = isset($_POST['defaultSecurity']) ? $_POST['defaultSecurity'] : $conf['security'];
-			
+			$irange = isset($_POST['iconRange'])&&preg_match('/[\d]+\,(all|[\d]+)/',$_POST['iconRange']) ? $_POST['iconRange'] : $conf['iconRange'];
 			$d['page']['errors']['400'] = $e400;
 			$d['page']['errors']['401'] = $e401;
 			$d['page']['errors']['403'] = $e403;
@@ -716,6 +725,7 @@
 			$d['page']['defaultTimeZone'] = $timeZone;
 			$d['page']['index'] = $dI;
 			$d['security'] = $security;
+			$d['iconRange'] = $irange;
 			
 			WebDB::saveDB('CONFIG', 'config', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/configs', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/config', 'danger');
 		});

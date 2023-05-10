@@ -266,8 +266,4 @@ If you request the link to the source of ban, admins **ARE REQUIRED** to provide
 If you have any questions, ask them on the [discussions](https://github.com/XHiddenProjects/WebPress/discussions/2) on github.
 
 ### Medias
-Like on [alternativeto.net](https://alternativeto.net/software/webpress)
-
-Upvote on [producthunt](https://www.producthunt.com/posts/webpress)
-
 Collaborate [Github](https://github.com/XHiddenProjects/WebPress)

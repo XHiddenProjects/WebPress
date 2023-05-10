@@ -266,8 +266,4 @@ Si vous demandez le lien vers la source de l'interdiction, les administrateurs *
 Si vous avez des questions, posez-les sur les [discussions](https://github.com/XHiddenProjects/WebPress/discussions/2) sur github.
 
 ### Des médias
-Comme sur [alternativeto.net](https://alternativeto.net/software/webpress)
-
-Votez pour [producthunt](https://www.producthunt.com/posts/webpress)
-
 Collaborer [Github](https://github.com/XHiddenProjects/WebPress)

@@ -1,6 +1,6 @@
 {
   "name": "@surveybuilder-admin/webpress",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A free open-source CMS(content-management system) and a forum-script use custom made plugins and themes and doesn't need SQL, just JSON database",
   "main": "index.js",
   "scripts": {
@@ -19,10 +19,10 @@
     "themes",
     "webpress"
   ],
-  "author": "SurveyBuilderTeams",
+  "author": "XHiddenProjects",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/surveybuilderteams/WebPress/issues"
+    "url": "https://github.com/xhiddenprojects1/WebPress/issues"
   },
   "homepage": "https://webpress1.epizy.com"
 }

@@ -3,7 +3,7 @@
 		global $pageTitle, $defaultIcon, $conf ,$pageTheme, $lang;
 	$footer='';
 	$footer.=Plugin::hook('afterPage');
-	$footer.='<footer'.(isset($_GET['editpage']) ? ' hidden="hidden" ' : '').' class="bg-light text-center text-dark position-sticky bottom-0" style="z-index:999;">
+	$footer.='<footer'.(isset($_GET['editpage']) ? ' hidden="hidden" ' : '').' class="bg-light text-center text-dark position-sticky" style="z-index:999;bottom:0;">
 	  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
 		© 2022 '.(date('Y')==='2022' ? '' : ' - '.date('Y')).' '.$lang['index.label.copyright'].':
 		<a class="link-primary" href="mailto:surveybuildersbot@gmail.com">XHiddenProjects</a> '.$lang['index.label.license'].' <a class="link-primary" href="https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE" target="_blank">MIT</a>
@@ -48,7 +48,7 @@
 	</g>
 	</svg></a>
 		</section>
-		<div class="position-absolute fs-4 m-2 text-light" style="right:calc(0px + 2%); top:calc(0px + 8%);">
+		<div class="position-absolute fs-4 m-2 text-light" style="right: 0;bottom: calc(0px + 8%);">
 		<i class="fa-solid fa-rss d-block"></i>
 		<a class="d-block link-light" href="'.$basepath.'/feed.php/topics">'.$lang['dashboard.graph.forums.topics'].'</a>
 		<a class="d-block link-light" href="'.$basepath.'/feed.php/replies">'.$lang['dashboard.graph.forums.replies'].'</a>

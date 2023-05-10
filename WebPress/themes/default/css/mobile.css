@@ -1,0 +1,64 @@
+@media only screen and (max-width: 391px) and (min-width: 322px){
+	#userinfo{
+		left: 1%!important;
+		width: 40%!important;
+	}
+	.profileDisplay{
+	display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 100%!important;
+	}
+	.profileDisplay .card-footer, .profileDisplay .card-header{
+		width:100%;
+	}
+}
+@media only screen and (max-height: 740px) and (min-height: 732px){
+	footer{
+		bottom:14%!important;
+	}
+}
+@media only screen and (max-width: 992px){
+	#userinfo{
+		left: 1%!important;
+		width: 43%!important;
+		z-index: 500!important;
+	}
+	.display{
+	display: flex!important;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+	}
+	.display .forumNavBar{
+		width:100%!important;
+	}
+	[forum] .d-flex{
+		display:flex!important;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+	}
+	.replyBox [data-bs-title]{
+		position:absolute;
+		top: 55%;
+		left: 16%;
+	}
+	.profileDisplay{
+		width: 95%!important;
+	}
+	[data-bs-target="#settingsBar"]{
+		right: calc(0px + 15%)!important;
+	}
+	.mobileUser{
+		display:block!important;
+	}
+	#elemdata{
+		z-index: -1!important;
+		height:0px!important;
+	}
+}

@@ -22,7 +22,7 @@ function checkIfLineMade(el){
 function createLineNum(el,event){
 	let key = event.keyCode||event.which;
 	if(key===13||key==='13'||key===8||key==='8'){
-		let txtlength = el.value+'\n';
+		let txtlength = el.value;
 		el.parentElement.querySelector('.lineCount').innerHTML = '';
 		for(let i=0;i<txtlength.split(/\n/).length;i++){
 			if(i===txtlength.split(/\n/).length){

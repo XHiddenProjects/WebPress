@@ -243,7 +243,7 @@ setTimeout(function(){
 function openIconList(elem){
 	let list = elem.parentElement.parentElement.querySelector('.iconList');
 	if(list.style.height==='0px'){
-		list.style.height = '320px';
+		list.style.height = '285px';
 	}else{
 		list.style.height = '0px';
 	}
@@ -302,3 +302,26 @@ function ProfileCard(id, stat){
 	}
 	
 }
+
+function iconSearch(ico){
+	icons = ico.parentElement.querySelectorAll('[icon-id]');
+	for(let i=0;i<icons.length;i++){
+		if(ico.value===''){
+			icons[i].style.display="inline-block";
+		}else if(icons[i].getAttribute('icon-id').match(ico.value)){
+			icons[i].style.display="inline-block";
+		}else if(!icons[i].getAttribute('icon-id').match(ico.value)){
+			icons[i].style.display="none";
+		}
+	}
+}
+
+window.addEventListener('load',function(){
+	let bars = document.querySelectorAll('.toolbar');
+	for(let i=0;i<bars.length;i++){
+		let micBTN = document.createElement('div');
+		micBTN.className = 'toolbar-item';
+		micBTN.innerHTML='<button onclick="VoiceControl(this)"><i class="fa-solid fa-microphone"></i></button>';
+		bars[i].appendChild(micBTN);
+	}
+});

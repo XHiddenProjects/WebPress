@@ -254,6 +254,7 @@
 		$name = $_POST['webpressname'];
 		$user = $_POST['webpressuser'];
 		$psw = $_POST['webpresspsw'];
+		$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 		$acceptedEmail = @preg_replace('/\@[\w\W]+$/','',$_POST['webpressemail']).$conf['allowedEmail'];
 		$email = filter_var($acceptedEmail, FILTER_VALIDATE_EMAIL);
 		$isAccepted = isset($_POST['webpresstas']) ? true : false;
@@ -286,7 +287,7 @@
 				 $users = fopen(DATA_USERS.'users.dat.json', 'w+');
 				 $date=date('m-d-Y+h:i:sa');
 				 $timezone = gettype(Users::ipInfo(Users::getRealIP(), 'timezone'))==="string" ? Users::ipInfo(Users::getRealIP(), 'timezone') : Users::ipInfo(Users::getRealIP())['timezone'];
-				 $data = array($user=>array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'id'=>Users::hardwareID(),'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'orgtime'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>''));
+				 $data = array($user=>array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'id'=>Users::hardwareID(),'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'orgtime'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>'','lang'=>Utils::ISO2Lang($lang)));
 				 $store = json_encode($data, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 				 fwrite($users, $store);
 				 fclose($users);
@@ -306,8 +307,8 @@
 					$type = "member";
 				}
 				$date = date('m-d-Y+h:i:sa');
-							 $timezone = gettype(Users::ipInfo(Users::getRealIP(), 'timezone'))==="string" ? Users::ipInfo(Users::getRealIP(), 'timezone') : Users::ipInfo(Users::getRealIP(), 'timezone');
-				 $store = array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>'');
+				$timezone = gettype(Users::ipInfo(Users::getRealIP(), 'timezone'))==="string" ? Users::ipInfo(Users::getRealIP(), 'timezone') : Users::ipInfo(Users::getRealIP(), 'timezone');
+				$store = array('name'=>$name, 'psw'=>$psw, 'username'=>$user, 'email'=>$email, 'ip'=>$ip, 'type'=>$type, 'created'=>$date, 'timezone'=>$timezone, 'ban'=>array('isBanned'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),'reason'=>'', 'time'=>'', 'duration'=>'' ,'bannedBy'=>''), 'about'=>'','lang'=>Utils::ISO2Lang($lang));
 				$users[$user] = $store;
 				$users = json_encode($users, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 				$openUsers = fopen(DATA_USERS.'users.dat.json', 'w+');

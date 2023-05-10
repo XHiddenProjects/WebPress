@@ -16,7 +16,7 @@ class BBlight
 	    };
 	
 // Replace [quote]2022-10-e84c4c14[/quote] with <blockquote>User</blockquote>
-	      $this->bbcode_table["/\[quote\](\d{4}-\d{2}-[a-z\d]{8})\[\/quote\]/is"] = function ($match) {
+	      $this->bbcode_table["/\[quote\](\d{4}-\d{2}-[a-z\d]+)\[\/quote\]/is"] = function ($match) {
 		    $reply = $match[1];
 			if(WebDB::DBexists('replys', $reply))
 			{

@@ -264,8 +264,4 @@ Wenn Sie den Link zur Quelle des Banns anfordern, müssen die Administratoren **
 Wenn Sie Fragen haben, stellen Sie sie in den [Diskussionen](https://github.com/XHiddenProjects/WebPress/discussions/2) auf github.
 
 ### Medien
-Like auf [alternativeto.net](https://alternativeto.net/software/webpress)
-
-Upvote auf [producthunt](https://www.producthunt.com/posts/webpress)
-
 Zusammenarbeiten [Github](https://github.com/XHiddenProjects/WebPress)

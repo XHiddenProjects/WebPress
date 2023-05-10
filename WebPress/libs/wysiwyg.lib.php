@@ -1786,7 +1786,7 @@ function divEdit(){
 function copyText(){
 	$out='';
 		$out .= '<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="copy" onclick="copyText();">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="copy" onclick="copyText(this);">
     '.$this->dict[$this->lang]['copy']['label'].'
   </button>
 </div>';	
@@ -1796,7 +1796,7 @@ return $out;
 function pasteText(){
 	$out='';
 		$out .= '<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="paste" onclick="pasteText();">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="paste" onclick="pasteText(this);">
     '.$this->dict[$this->lang]['paste']['label'].'
   </button>
 </div>';	
@@ -1806,7 +1806,7 @@ return $out;
 function fullScreen(){
 	$out='';
 		$out .= '<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="fullscreen" onclick="fullScreen();">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="fullscreen" onclick="fullScreen(this);">
     '.$this->dict[$this->lang]['fullscreen']['label'].'
   </button>
 </div>';	
@@ -2230,7 +2230,7 @@ function tableEdit(){
 function selectAll(){
 	$out='';
 		$out .= '<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="selectAll" onclick="selectAll();">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="selectAll" onclick="slctAll(this);">
     '.$this->dict[$this->lang]['selectAll']['label'].'
   </button>
 </div>';	

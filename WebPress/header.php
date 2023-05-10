@@ -67,7 +67,7 @@
 		$_SESSION['role'] = isset($d[Users::getSession()]['type']) ? $d[Users::getSession()]['type'] : '';
 		if($d[Users::getSession()]['ip']!==Users::getRealIP()){
 			$d[Users::getSession()]['ip'] = Users::getRealIP();
-			WebDB::saveDB('users', 'users', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'./', 'success') : '';
+			WebDB::saveDB('users', 'users', $d) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/', 'success') : '';
 		}
 	}
 

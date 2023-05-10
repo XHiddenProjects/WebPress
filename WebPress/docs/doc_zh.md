@@ -267,8 +267,4 @@ $kit->__toFloat($txt);
 如果您有任何問題，請在 github 上的[討論](https://github.com/XHiddenProjects/WebPress/discussions/2) 中提問。
 
 ### 媒體
-喜歡 [alternativeto.net](https://alternativeto.net/software/webpress)
-
-在 [producthunt](https://www.producthunt.com/posts/webpress) 上投票
-
 協作 [Github](https://github.com/XHiddenProjects/WebPress)

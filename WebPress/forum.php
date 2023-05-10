@@ -84,7 +84,7 @@
 			  $db = WebDB::getDB('users', 'users');
 			  $logo='';
 			  $logo.= (isset($_SESSION['user']) ? '<div><a data-bs-toggle="collapse" href="#userinfo" role="button" aria-expanded="false" aria-controls="userinfo" style="cursor:pointer;"><img class="img-fluid ms-2" style="border-radius:15px;" width="100" height="100" src="'.(isset($_SESSION['user'])&&file_exists(DATA_UPLOADS.'avatars'.DS.$_SESSION['user'].'.png') ? $BASEPATH.DATA_AVATARS.$_SESSION['user'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/></a>' : '');
-			$logo.='<div class="collapse position-absolute" style="z-index:5000;right:1%;width:15%;" id="userinfo">
+			$logo.='<div class="collapse position-absolute" id="userinfo">
 	  <div class="card card-body">
 	  <p class="text-secondary">'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'('.(isset($_SESSION['user']) ? $db[$_SESSION['user']]['name'] : '').')</p>
 		<a href="'.$BASEPATH.'/auth.php/logout" class="mt-2"><button class="btn btn-danger">'.$lang['index.loginoutbtn'].'</button></a>
@@ -109,7 +109,7 @@
 				$color = isset($_POST['forumColor'])&&$_POST['forumColor']!=='' ? $_POST['forumColor'] : 0;
 				$desc = isset($_POST['forumDesc'])&&$_POST['forumDesc']!==''  ? $_POST['forumDesc'] : 0;
 				$icon = isset($_POST['iconpicker'])&&$_POST['iconpicker']!=='' ? $_POST['iconpicker'] : 0;
-				if($name!=0&&$color!=0&&$desc!=0&&$icon!=0){
+				if($name!==0&&$color!==0&&$desc!==0&&$icon!==0){
 					$data = array(
 						'name'=>$name,
 						'desc'=>$desc,

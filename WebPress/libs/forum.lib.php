@@ -211,7 +211,7 @@
 	<li class="list-group-item border-0" forum="'.$info['forum'].'">
 	<div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
 	  <!-- Image -->
-	  <a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"').'><img
+	  <a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"').' style="height: fit-content;"><img
 		src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"
 		alt="'.$info['author'].'"
 		class="ms-3 mt-2 me-3 rounded-circle userIcon"
@@ -418,7 +418,7 @@
 						$replyItem='<div id="'.$rInfo['id'].'" class="d-flex mt-4 replyBox">
 		<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$langs['forum.anchorID'].'" onclick="copyReplyID(\''.$rInfo['id'].'\')" class="link-primary fs-3 me-2" href="#'.$rInfo['id'].'"><i class="fa-solid fa-anchor"></i></a>  
 		<div class="position-relative">
-		<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$rInfo['author'].'"').'><img
+		<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$rInfo['author'].'"').' style="height: fit-content;"><img
 			src="'.(file_exists(ROOT.DATA_AVATARS.$rInfo['author'].'.png') ? $BASEPATH.DATA_AVATARS.$rInfo['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"
 			alt="'.$rInfo['author'].'"
 			class="me-3 rounded-circle userIcon"
