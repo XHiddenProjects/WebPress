@@ -1,19 +1,19 @@
 	{
 		"versions": {
-			"2.3.3": {
+			"2.3.4": {
 				"textsets": [
 					{
-						"text": "Version 2.3.3 has been released!",
+						"text": "Version 2.3.4 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
 						"show": true
 					},
 					{
-						"text": "Mobile Friendly!",
+						"text": "Fixed Mobile Friendly!",
 						"icon": "fa-solid fa-mobile",
 						"tag": "offical",
 						"show": true,
-						"type":"primary"
+						"type":"success"
 					}
 				]
 			}	

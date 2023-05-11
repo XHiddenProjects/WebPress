@@ -43,9 +43,12 @@
 		justify-content: center;
 		align-items: center;
 	}
+	 .replyBox{
+        position: relative;
+    }
 	.replyBox [data-bs-title]{
 		position:absolute;
-		top: 55%;
+		top: 6%;
 		left: 16%;
 	}
 	.profileDisplay{
