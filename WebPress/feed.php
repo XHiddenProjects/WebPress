@@ -23,7 +23,7 @@ echo '<id>'.Utils::baseURL().'</id>'.
 	  '<title>'.$t.'</title>'.
 	  '<subtitle>'.$conf['page']['description'][Users::getLang()].'</subtitle>'.
 	  '<updated>'.Utils::toDate(date('Y-m-d h:i:sa',filemtime('feed.php')), 'c').'</updated>'.
-	  '<link href="'.preg_replace('/\/'.MAINDIR.'\//','',$_SERVER['REQUEST_URI']).'" rel="self"></link>'.
+	  '<link href="'.str_replace('/'.MAINDIR.'/','',$_SERVER['REQUEST_URI']).'" rel="self"></link>'.
 	  '<author>
 		<name>'.$conf['page']['author'].'</name>
 		<email>'.reset($u)['email'].'</email>

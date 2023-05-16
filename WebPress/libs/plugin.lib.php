@@ -46,5 +46,12 @@ class Plugin{
 	public static function isHere($pluginName){
 		return file_exists(DATA_PLUGINS.$pluginName)&&is_dir(DATA_PLUGINS.$pluginName) ? true : false;
 	}
+	public static function toggleActive($pluginData) : bool{
+		if(isset($pluginData['active'])&&is_array($pluginData)&&$pluginData['active']){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
 ?>

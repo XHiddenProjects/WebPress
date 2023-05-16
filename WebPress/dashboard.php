@@ -1587,6 +1587,7 @@
 		
 		$out.='</form>';
 		if(isset($_GET['createFile'])){
+			preg_match('/(htdocs\\\\[\w\W]+)|(htdocs\/[\w\W]+)/',$_GET['createFile'],$add);
 				$out.='<div class="modal d-block" tabindex="-1">
 	  <div class="modal-dialog">
 		<div class="modal-content">
@@ -1596,7 +1597,7 @@
 		  </div>
 		  <div class="modal-body">
 		  <div class="input-group">
-		  <label class="input-group-text" for="filename">'.$_GET['createFile'].'</label> 
+		  <label class="input-group-text" for="filename">'.str_replace('\\','/',preg_replace('/[\w\W]+/',$add[0],$_GET['createFile'])).'</label> 
 		   <input class="form-control" id="filename" type="text" name="filename"/>
 		  </div>
 		 
@@ -1613,6 +1614,7 @@
 		}
 		$out.='</form>';
 		if(isset($_GET['createFolder'])){
+			preg_match('/(htdocs\\\\[\w\W]+)|(htdocs\/[\w\W]+)/',$_GET['createFolder'],$add);
 				$out.='<div class="modal d-block" tabindex="-1">
 	  <div class="modal-dialog">
 		<div class="modal-content">
@@ -1622,7 +1624,7 @@
 		  </div>
 		  <div class="modal-body">
 		  <div class="input-group">
-		  <label class="input-group-text" for="filename">'.$_GET['createFolder'].'</label> 
+		  <label class="input-group-text" for="filename">'.str_replace('\\','/',preg_replace('/[\w\W]+/',$add[0],$_GET['createFolder'])).'</label> 
 		   <input class="form-control" id="filename" type="text" name="filename"/>
 		  </div>
 		 
@@ -1711,43 +1713,56 @@
 		$compress = array('zip', '7z', 'rar', 'gz');
 		$hidden = array('controller', 'controller.lib.php', 'install', 'api');
 		#sender 
+		$listItems=[];
 		foreach(Files::Scan(ROOT.$path) as $send){
 			$type = @end(explode('.',strtolower($send)));
 			$name = @reset(explode('.',strtolower($send)));
 			if(is_dir(ROOT.$path.$send)){
 				if(in_array($send, $hidden)){
-					$out.='';
+					$listItems['files'][] = '';
 				}elseif(Files::LockedItem($send, array('docs', 'assets')) || !is_writable(ROOT.$path.$send)){
-				$out.= '<a style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.folder'].'"><span><i class="fa-solid fa-folder-xmark" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
+				$listItems['folder'][] = '<a style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.folder'].'"><span><i class="fa-solid fa-folder-xmark" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
 				}else{
-				$out.= '<a href="./files?path='.$path.$send.'/" style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action"><span><i class="fa-solid fa-folder" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['folder'][] = '<a href="./files?path='.$path.$send.'/" style="color:#808080;text-decoration:none;"><li class="list-group-item list-group-item-action"><span><i class="fa-solid fa-folder" style="color:#808080;"></i> '.$send.'</span> <span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 				}	
 			}elseif(Files::LockedItem($send, array()) || !is_writable(ROOT.$path.$send)){
-			$out.= '<a><li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.file'].'" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-lock"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
+			$listItems['files'][] = '<a><li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['file.locked.file'].'" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-lock"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';	
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $apache)){
-				$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-circle-info"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['files'][] = '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-circle-info"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($name, $hidden)){
-				$out.='';
+				$listItems['files'][] = '';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $code)){
-				$out.= '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['files'][] = '<a style="text-decoration:none;color:#0000ff;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $compress)){
-				$out.= '<a style="text-decoration:none;color:#29ab87;" href="../download.php?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'path='.ROOT.$path.$send.'&name='.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-sharp fa-solid fa-file-zipper"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['files'][] = '<a style="text-decoration:none;color:#29ab87;" href="../download.php?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'path='.ROOT.$path.$send.'&name='.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-sharp fa-solid fa-file-zipper"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $html)){
-				$out.= '<a style="text-decoration:none;color:#00ffff" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-html5"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$$listItems['files'][] = '<a style="text-decoration:none;color:#00ffff" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-html5"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $css)){
-				$out.= '<a style="text-decoration:none;color:#9370db;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-css3"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['files'][] = '<a style="text-decoration:none;color:#9370db;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-css3"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $js)){
-				$out.= '<a style="text-decoration:none;color:#daa520;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-js"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['files'][] = '<a style="text-decoration:none;color:#daa520;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-js"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $txt)){
-				$out.= '<a style="text-decoration:none;color:#bebebe;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-file-lines"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
+				$listItems['files'][] = '<a style="text-decoration:none;color:#bebebe;" href="./files?'.(isset($_GET['path']) ? 'path='.$path.'&' : '').'edit='.ROOT.$path.$send.'"><li class="list-group-item list-group-item-action"><i class="fa-solid fa-file-lines"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li></a>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $imgs)){
-				$out.= '<li class="list-group-item list-group-item-action" style="color:#cb4154;"><i class="fa-solid fa-image"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)). '</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li>';
+				$listItems['files'][] = '<li class="list-group-item list-group-item-action" style="color:#cb4154;"><i class="fa-solid fa-image"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)). '</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span></li>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $audio)){
-				$out.= '<li class="list-group-item list-group-item-action" style="color:#808080;"><i class="fa-solid fa-file-audio"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i>'.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span></li>';
+				$listItems['files'][] = '<li class="list-group-item list-group-item-action" style="color:#808080;"><i class="fa-solid fa-file-audio"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i>'.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span></li>';
 			}elseif(is_file(ROOT.$path.$send)&&in_array($type, $video)){
-				$out.= '<li class="list-group-item list-group-item-action" style="color:#e6e6fa;"><i class="fa-solid fa-file-video"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i>'.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span></li>';
+				$listItems['files'][] = '<li class="list-group-item list-group-item-action" style="color:#e6e6fa;"><i class="fa-solid fa-file-video"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span><span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i>'.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)).'</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span></li>';
 			}else{
-				$out.= '<li class="list-group-item list-group-item-action" style="color:#4a5d23;"><i class="fa-solid fa-file"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)). '</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span></li>';
+				$listItems['files'][] = '<li class="list-group-item list-group-item-action" style="color:#4a5d23;"><i class="fa-solid fa-file"></i> '.$send.' <span class="badge bg-secondary">'.Files::sizeFormat(filesize(ROOT.$path.$send)).'</span>'.Files::ManagerOpts(ROOT.$path.$send).'<span class="text-secondary float-end"><span class="fst-italic"><i class="fa-solid fa-clock"></i> '.date("m/d/Y h:i:sa", filemtime(ROOT.$path.$send)). '</span> | <i class="fa-solid fa-key"></i> '.(Files::Perms(ROOT.$path.$send)).'</span><span class="text-secondary">'.(Files::FullPerms(ROOT.$path.$send)).'</span></li>';
+			}
+		}
+		if(isset($listItems['folder'])){
+			ksort($listItems['folder']);
+			foreach($listItems['folder'] as $folder){
+				$out.=$folder;
+			}
+		}
+		if(isset($listItems['files'])){
+			asort($listItems['files']);
+			foreach($listItems['files'] as $folder){
+				$out.=$folder;
 			}
 		}
 		$out.='</ul>';
@@ -1868,7 +1883,7 @@
 		}
 	}
 	if(isset($_GET['rename'])){
-		preg_match('/(\w+\.\w+)|(\w+\.\w+\.\w+)/', $_GET['rename'], $name);
+		preg_match('/([\w\/\\\:\.\_]+)/', $_GET['rename'], $name);
 		$out.='<div class="modal d-block" tabindex="-1">
 	  <div class="modal-dialog modal-fullscreen">
 		<div class="modal-content">

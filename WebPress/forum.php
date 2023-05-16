@@ -50,7 +50,6 @@
 	</style>
 	</head>
 	<body>
-	<?php echo Plugin::hook('beforePage'); ?> 
 	<nav class="navbar navbar-expand-lg text-dark" style="background-color:#9f998e;">
 	  <div class="container-fluid">
 		<a class="navbar-brand text-light" href="<?php echo $BASEPATH;?>/forum"><?php echo $conf['page']['page-title'].' '.$lang['forum.title'];?></a>
@@ -83,7 +82,7 @@
 		  if(!Users::isGuest()){
 			  $db = WebDB::getDB('users', 'users');
 			  $logo='';
-			  $logo.= (isset($_SESSION['user']) ? '<div><a data-bs-toggle="collapse" href="#userinfo" role="button" aria-expanded="false" aria-controls="userinfo" style="cursor:pointer;"><img class="img-fluid ms-2" style="border-radius:15px;" width="100" height="100" src="'.(isset($_SESSION['user'])&&file_exists(DATA_UPLOADS.'avatars'.DS.$_SESSION['user'].'.png') ? $BASEPATH.DATA_AVATARS.$_SESSION['user'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/></a>' : '');
+			  $logo.= (isset($_SESSION['user']) ? '<div><a data-bs-toggle="collapse" href="#userinfo" role="button" aria-expanded="false" aria-controls="userinfo" style="cursor:pointer;"><img class="img-fluid ms-2" style="border-radius:50%;width:100px;height:100px;" width="100" height="100" src="'.(isset($_SESSION['user'])&&file_exists(DATA_UPLOADS.'avatars'.DS.$_SESSION['user'].'.png') ? $BASEPATH.DATA_AVATARS.$_SESSION['user'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'"/></a>' : '');
 			$logo.='<div class="collapse position-absolute" id="userinfo">
 	  <div class="card card-body">
 	  <p class="text-secondary">'.(isset($_SESSION['user']) ? $_SESSION['user'] : '').'('.(isset($_SESSION['user']) ? $db[$_SESSION['user']]['name'] : '').')</p>
