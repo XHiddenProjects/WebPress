@@ -106,7 +106,7 @@ function addConsoleViewer(target){
 }
 
 
-	let logCapture = document.querySelectorAll('[id="logCapture"]') ? document.querySelectorAll('[id="logCapture"]') : '';
+	 logCapture = document.querySelectorAll('[id="logCapture"]') ? document.querySelectorAll('[id="logCapture"]') : '';
 for (let i = 0; i < logCapture.length; i++) {
 	logCapture[i].addEventListener('click', function() {
 			if (document.querySelector('#log-'+this.parentElement.parentElement.getAttribute('log'))) {

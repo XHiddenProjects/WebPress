@@ -164,6 +164,19 @@ class HTMLForm{
 		$out.='</div>';
 			return $out;
 	}
+	public static function meter($name, $default=0, $min=0, $max=10, $scheme=array('0'=>'success','50'=>'warning', '100'=>'danger'), $striped=false, $animate=false, $animateSpeed=100, $animateAction="", $animateTarget="",$class=''){
+		global $lang;
+		$arr = array_flip($scheme);
+		$meter='';
+		foreach($arr as $c=>$v){
+			if(floor(($default/$max)*100)>=(int)$v){
+				$meter = '<div name="'.$name.'" id="'.$name.'" class="progress '.($class!=='' ? $class : '').'" role="progressbar" aria-valuenow="'.$default.'" aria-valuemin="'.$min.'" aria-valuemax="'.$max.'">
+			<div '.($animateAction!==''&&$animateTarget!=='' ? 'animate-'.$animateAction.'="'.$animateTarget.'"' : '').' animate-speed="'.$animateSpeed.'" animate-max="'.floor(($default/$max)*100).'" class="progress-bar'.($striped ? ' progress-bar-striped ' : '').($animate ? ' progress-bar-animated ' : '').' fw-bold bg-'.$c.'" style="width: 0%">0%</div>
+		</div>';
+			}
+		}
+		return $meter;
+	}
 }
 
 ?>

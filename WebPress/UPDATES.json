@@ -1,12 +1,19 @@
 	{
 		"versions": {
-			"2.3.5": {
+			"2.3.6": {
 				"textsets": [
 					{
-						"text": "Version 2.3.5 has been released!",
+						"text": "Version 2.3.6 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
 						"show": true
+					},
+					{
+						"text": "Added Meter in HTMLform",
+						"icon": "fas fa-meter",
+						"tag": "added",
+						"show": true,
+						"type": "primary"
 					}
 				]
 			}	

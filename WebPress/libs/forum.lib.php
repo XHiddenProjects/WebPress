@@ -124,7 +124,7 @@
 				if(preg_replace('/[\d]+/','',$args)==='pinned'){
 					if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
 						preg_match('/[\w\-\_]+$|[\w\-\_]+\?/', $_SERVER['REQUEST_URI'],$durl);
-						if(preg_match('/forum="'.str_replace('?','',$durl[0]).'"/', $t)){
+						if(preg_match('/'.str_replace('?','',$durl[0]).'/', $t)){
 							array_push($pinned, $t);
 						}
 					}else{
@@ -133,7 +133,7 @@
 				}else{
 					if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+$|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
 						preg_match('/[\w\-\_]+$|[\w\-\_]+\?/', $_SERVER['REQUEST_URI'],$durl);
-						if(preg_match('/forum="'.str_replace('?','',$durl[0]).'"/', $t)){
+						if(preg_match('/'.str_replace('?','',$durl[0]).'/', $t)){
 							array_push($items, $t);
 						}
 					}else{
@@ -170,8 +170,11 @@
 				if(preg_match('/(forum|tags|status|topic)\/[\w\-\_]+|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'])){
 					preg_match('/(forum|tags|status|topic)\/[\w\-\_]+|(forum|tags|status|topic)\/[\w\-\_]+\?/', $_SERVER['REQUEST_URI'], $ot);
 					$forum = preg_replace('/(forum|tags|status|topic)\/|\?/','',$ot[0]);
-					if($db['forum']===$forum)
+					if($db['forum']===$forum){
 						$countTopics[] = $topics;
+					}else if(strpos($forum,$db['tags'])!==FALSE){
+						$countTopics[] = $topics;
+					}
 				}else{
 					$countTopics[] = $topics;
 				}

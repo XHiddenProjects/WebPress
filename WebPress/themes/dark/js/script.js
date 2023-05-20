@@ -1,3 +1,6 @@
+setTimeout(function(){
+	document.querySelector('html').setAttribute('data-bs-theme', 'dark');
+}, 100);
 setInterval(function(){
 	setTimeout(function(){
 		let name = $('#webpress-name').val();
@@ -106,12 +109,11 @@ function addConsoleViewer(target){
 }
 
 
-	let logCapture = document.querySelectorAll('[id="logCapture"]') ? document.querySelectorAll('[id="logCapture"]') : '';
+	 logCapture = document.querySelectorAll('[id="logCapture"]') ? document.querySelectorAll('[id="logCapture"]') : '';
 for (let i = 0; i < logCapture.length; i++) {
 	logCapture[i].addEventListener('click', function() {
 			if (document.querySelector('#log-'+this.parentElement.parentElement.getAttribute('log'))) {
 				setTimeout(addConsoleViewer(document.querySelector('#log-'+this.parentElement.parentElement.getAttribute('log'))), 100);
-
 			}else{
 				console.error('can\'t find '+'#log-'+this.parentElement.parentElement.getAttribute('log'));
 			}

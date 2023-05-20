@@ -1,3 +1,0 @@
-<?php
-CONST WEBPRESSPRO = 'TRUE';
-?>

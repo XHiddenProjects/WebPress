@@ -190,11 +190,11 @@
 		</tr>';
 		$out.= (function_exists('memory_get_usage') ? '<tr>
 		  <th>'.$lang['dashboard.info.memory'].'</th>
-		  <th>'.Files::sizeFormat(memory_get_usage()).' ('.Files::sizeFormat(memory_get_usage()).') out of '.Files::sizeFormat(memory_get_peak_usage(true)).'</th>
+		  <th>'.Files::sizeFormat(memory_get_usage()).' ('.Files::sizeFormat(memory_get_usage()).') out of '.Files::sizeFormat(memory_get_peak_usage(true)).' '.HTMLForm::meter('memory',memory_get_usage(),0,memory_get_peak_usage(true)).'</th>
 		</tr>' : '');
 		$out.= (function_exists('disk_free_space') ? '<tr>
 		  <th>'.$lang['dashboard.info.diskSpace'].'</th>
-		  <th>'.Files::sizeFormat(disk_free_space(dirname(dirname(dirname(ROOT))))).' out of '.Files::sizeFormat(disk_total_space(dirname(dirname(dirname(ROOT))))).'</th>
+		  <th>'.Files::sizeFormat(disk_free_space(dirname(dirname(dirname(ROOT))))).' out of '.Files::sizeFormat(disk_total_space(dirname(dirname(dirname(ROOT))))).' '.HTMLForm::meter('diskspace', disk_free_space(dirname(dirname(dirname(ROOT)))), 0, disk_total_space(dirname(dirname(dirname(ROOT))))).'</th>
 		</tr>' : '');
 		$out.='<tr>
 		  <th>'.$lang['dashboard.info.dataStorage'].'</th>
@@ -209,7 +209,6 @@
 	</table>
 	</div>';
 	$out.='</div>';
-
 
 	}elseif(preg_match('/\/dashboard(?:\.php)\/phpinfo/', $_SERVER['REQUEST_URI'])&&Users::isAdmin()){
 		$out.='<iframe src="../phpinfo.php" style="width:100%;height:77%;"></iframe>';

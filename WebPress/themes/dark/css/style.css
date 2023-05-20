@@ -8,6 +8,7 @@
 	/*Counter(used for editor)*/
 	counter-reset: lineCount;	
 	background-color:#000!important;
+	color:#fff!important;
 	}
 	#pageColor{
 		background-color:#000000!important;

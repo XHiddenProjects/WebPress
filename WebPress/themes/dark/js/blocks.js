@@ -311,9 +311,9 @@ function dropItem(ev) {
 	  case 'img':
 	  h = document.createElement('img');
 	  h.className = 'img img-fluid';
-	  let url = prompt('Enter Image URL:');
-	  let width = prompt('Enter Width:');
-	  let hight = prompt('Enter Height:');
+	  url = prompt('Enter Image URL:');
+	  width = prompt('Enter Width:');
+	  height = prompt('Enter Height:');
 	  let alt = prompt('Alt Name:')
 	  if(url){
 		  h.src = url;
@@ -326,9 +326,9 @@ function dropItem(ev) {
 	   case 'video':
 	  h = document.createElement('video');
 	  h.className = 'object-fit-cover';
-	  let url = prompt('Enter Video URL:');
-	  let width = prompt('Enter Width:');
-	  let hight = prompt('Enter Height:');
+	  url = prompt('Enter Video URL:');
+	  width = prompt('Enter Width:');
+	  height = prompt('Enter Height:');
 	  if(url){
 		  h.src = url;
 		  h.controls = true;

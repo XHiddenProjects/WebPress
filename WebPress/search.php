@@ -33,6 +33,7 @@ foreach(Files::Scan(DATA_TOPICS) as $topics){
 if($success==0){
 	echo '<li class="list-group-item"> '.$lang['forum.search.failed'].'</li>';
 }
+	echo '<center><a href="'.$BASEPATH.'/forum"><button class="btn btn-primary w-100 mt-1">'.$lang['register.back'].'</button></a></center>';
 ?>
 </ul>
 

@@ -109,6 +109,6 @@
     "lang": "en-US",
     "editor": "bbcode",
     "allowedEmail": "@webpress.com",
-    "iconRange": "100,500",
+    "iconRange": "0,1000",
     "debug": true
 }
