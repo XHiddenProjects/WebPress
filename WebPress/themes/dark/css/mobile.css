@@ -1,0 +1,93 @@
+@media only screen and (max-width: 992px){
+	#userinfo{
+		left: 1%!important;
+		width: 43%!important;
+		z-index: 500!important;
+	}
+	[name="webpresslogout"]{
+		position:relative;
+		right: -91vw;
+	}
+	.display{
+	display: flex!important;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+	}
+	.display .forumNavBar{
+		width:100%!important;
+	}
+	[forum] .d-flex{
+		display:flex!important;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+	}
+	 .replyBox{
+        position: relative;
+    }
+	.replyBox [data-bs-title]{
+		position:absolute;
+		top: 6%;
+		left: 16%;
+	}
+	.profileDisplay{
+		width: 95%!important;
+	}
+	[data-bs-target="#settingsBar"]{
+		right: calc(0px + 15%)!important;
+	}
+	.mobileUser{
+		display:block!important;
+	}
+	#elemdata{
+		z-index: -1!important;
+		height:0px!important;
+	}
+	.infocard{
+		left: calc(0px + 26.3%)!important;
+		top: calc(0px + 21%)!important;
+	}
+}
+@media only screen and (max-width: 321px){
+	[name="webpresslogout"]{
+		position:relative;
+		right: auto!important;
+	}
+}
+@media only screen and (max-width: 391px) and (min-width: 322px){
+	#userinfo{
+		left: 1%!important;
+		width: 40%!important;
+	}
+	[name="webpresslogout"]{
+		position:relative;
+		right: -91vw;
+	}
+	.profileDisplay{
+		display: inline-flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		overflow: auto;
+		width: 80%!important;
+	}
+	.profileDisplay .card-footer, .profileDisplay .card-header{
+		width:100%;
+	}
+	[name="webpresslogout"]{
+		position:relative;
+		right: -80vw!important;
+	}
+	.infocard{
+		left: calc(0px + 8.3%)!important;
+		top: calc(0px + 21%)!important;
+	}
+}
+@media only screen and (max-height: 740px) and (min-height: 732px){
+	footer{
+		bottom:14%!important;
+	}
+}

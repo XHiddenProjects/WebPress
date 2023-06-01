@@ -4,7 +4,8 @@
 		"de":"Default",
 		"it":"Predefinito",
 		"fr": "Défaut",
-		"zh": "默認"
+		"zh": "默認",
+		"ru": "По умолчанию"
 	},
 	"active": "on",
 	"desc": {
@@ -12,10 +13,11 @@
 		"de":"Dies ist ein immer aktives Standardthema, das die WebPress-Software mit ein bisschen Animation und Stil ausführt",
 		"it":"Questo è un tema predefinito sempre attivo che esegue il software WebPress con un po' di animazioni e stile",
 		"fr":"Il s'agit d'un thème par défaut toujours actif qui exécute le logiciel WebPress avec un peu d'animations et de style",
-		"zh":"這是一個始終處於活動狀態的默認主題，它運行帶有一些動畫和样式的 WebPress 軟件"
+		"zh":"這是一個始終處於活動狀態的默認主題，它運行帶有一些動畫和样式的 WebPress 軟件",
+		"ru": "Это всегда активная тема по умолчанию, которая запускает программное обеспечение WebPress с небольшим количеством анимации и стиля."
 	},
 	"options":{
 		"canDisabled": false,
-		"usedLang": ["en-US","de-DE","it-IT", "fr-FR", "zh-CN"]
+		"usedLang": ["en-US","de-DE","it-IT", "fr-FR", "zh-CN", "ru-RU"]
 	}
 }

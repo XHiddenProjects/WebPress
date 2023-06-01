@@ -25,7 +25,7 @@ if(preg_match('/\/config(?:\.php)\/plugin/', $_SERVER['REQUEST_URI'])){
 	
 	$name = preg_replace('/\/[\w\W]+\/config(?:\.php)\/plugin\//', '', $_SERVER['REQUEST_URI']);
 	$out .= head('config '.$name.'', $BASEPATH);
-	$out.='<style>form{height:70%;overflow:auto;}</style>';
+	$out.='<style>form{height:70%;overflow:auto;}body{background-color:lightgray;}</style>';
 	$out.='<h1 class="text-center mb-4">'.$lang['config.label'].' '.$name.' <a href="'.$BASEPATH.'/dashboard.php/plugins"><button class="btn btn-primary">'.$lang['index.dashboardbtn'].'</button></a></h1>';
 	$out .= Plugin::forceExecute('config', $name);
 	$out .= foot($BASEPATH);

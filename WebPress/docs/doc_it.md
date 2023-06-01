@@ -1,4 +1,4 @@
-[Documentazione grezza](../docs/doc_en.md)
+[Documentazione grezza](../docs/doc_it.md)
 
 # WebPress
 
@@ -264,7 +264,7 @@ Se richiedi il link alla fonte del ban, gli amministratori **SONO OBBLIGATI** a 
 
   
 
-Se hai domande, ponile nelle [discussioni](https://github.com/XHiddenProjects/WebPress/discussions/2) su github.
+Se hai domande, ponile nelle [discussioni](https://github.com/XHiddenProjects1/WebPress/discussions/2) su github.
 
 ### Medias
-Collabora [Github](https://github.com/XHiddenProjects/WebPress)
+Collabora [Github](https://github.com/XHiddenProjects1/WebPress)

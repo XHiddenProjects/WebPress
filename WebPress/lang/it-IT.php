@@ -5,7 +5,8 @@ $lang = array(
 'de-DE'=>'Deutsch',
 'it-IT'=>'Italiano',
 'fr-FR'=>'Français',
-'zh-CN'=>'中國人(傳統的)'
+'zh-CN'=>'中國人(傳統的)',
+'ru-RU'=>'Русский'
 ),
 'sitemap.title'=>'WebPress-Sitemaps',
 'index.authdown'=> 'Autorizzazione',

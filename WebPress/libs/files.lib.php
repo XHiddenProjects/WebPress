@@ -206,14 +206,17 @@ public static function LockedItem($file, $locked){
 }	
 public static function ManagerOpts($path){
 	global $lang;
-	$fileName = preg_match('/([\w\-\_]+\.[\w\-\_]+)|([\w\_\-]+\.[\w\-\_]+\.[\w\-\_]+)/',$path,$name);
+	preg_match('/([\w\-\_]+\.[\w\-\_]+)|([\w\_\-]+\.[\w\-\_]+\.[\w\-\_]+)/',$path,$name);
 	$inits = str_replace('/','\\',$_SERVER['DOCUMENT_ROOT']);
 	$convert = str_replace($inits.'\\','/',$path);
 		$out='';
-		$out.='<a href="./files?delete='.$path.'"><button class="btn btn-danger float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.delete'].'"><i class="fa-solid fa-trash-can"></i></button></a>';
-		$out.='<a href="./files?chmod='.$path.'"><button class="btn btn-secondary float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.chmod'].'"><i class="fa-solid fa-key"></i></button></a>';
-		$out.='<a href="./files?rename='.$path.'"><button class="btn btn-warning float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.rename'].'"><i class="fa-solid fa-pen-to-square"></i></button></a>';
-		if(isset($name)&&$fileName){
+		
+		$out.=(!is_dir($path) ? '<a onclick="copyHashID(this);"><button class="btn btn-primary float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy Hash" hash-id="'.@reset($name).'=>'.sha1_file($path).'"><i class="fa-regular fa-hashtag-lock"></i></button></a>' : '');
+		$out.='<a href="./files?'.(isset($_GET['path']) ? 'path='.$_GET['path'].'&' : '').'delete='.$path.'"><button class="btn btn-danger float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.delete'].'"><i class="fa-solid fa-trash-can"></i></button></a>';
+		$out.='<a href="./files?'.(isset($_GET['path']) ? 'path='.$_GET['path'].'&' : '').'chmod='.$path.'"><button class="btn btn-secondary float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.chmod'].'"><i class="fa-solid fa-key"></i></button></a>';
+		$out.='<a href="./files?'.(isset($_GET['path']) ? 'path='.$_GET['path'].'&' : '').'rename='.$path.'"><button class="btn btn-warning float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.rename'].'"><i class="fa-solid fa-pen-to-square"></i></button></a>';
+		$out.='<a href="./files?'.(isset($_GET['path']) ? 'path='.$_GET['path'].'&' : '').'copy='.$path.'"><button class="btn btn-dark float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Copy"><i class="fa-solid fa-copy"></i></button></a>';
+		if(isset($name[0])&&$name[0]){
 		$out.='<a href="../download.php?path='.$convert.'&name='.@reset($name).'"><button class="btn btn-info float-end ms-2 me-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$lang['files.download'].'"><i class="fa-solid fa-download"></i></button></a>';			
 		}
 

@@ -316,6 +316,18 @@ function iconSearch(ico){
 	}
 }
 
+function dblistSearch(v){
+	let a = document.querySelectorAll('#dbListCon a');
+	for(let i=0;i<a.length;i++){
+		if(v.replace(' ','').value===''){
+			a[i].style.display = 'block';
+		}else if(a[i].innerText.toLowerCase().match(v.toLowerCase().replace(' ',''))){
+			a[i].style.display="block";
+		}else if(!a[i].innerText.toLowerCase().match(v.toLowerCase().replace(' ',''))){
+			a[i].style.display="none";
+		}
+	}
+}
 
 window.addEventListener('load',function(){
 	let bars = document.querySelectorAll('.toolbar');

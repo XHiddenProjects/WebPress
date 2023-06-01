@@ -34,7 +34,7 @@
 	date_default_timezone_set($conf['page']['defaultTimeZone']);
 	foreach($plugins as $plugin){
 		if(!file_exists(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php')){
-			 echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
+			echo 'You are required to have '.$conf['lang'].'.php for "'.$plugin.'"';
 		}else{
 			include_once(ROOT.'plugins'.DS.$plugin.DS.'lang'.DS.$conf['lang'].'.php');
 			include_once(ROOT.'plugins'.DS.$plugin.DS.$plugin.'.plg.php');
@@ -168,7 +168,7 @@
 	$header .= '<meta name="keywords" content="'.$conf['page']['keywords'].'"/>';
 	$header.= '<meta name="robots" content="'.($conf['page']['robots']['index'] ? 'index' : 'noindex').', '.($conf['page']['robots']['follow'] ? 'follow' : 'nofollow').'"/>';
 	$header.= $conf['page']['rating']!=="null" ? '<meta name="rating" content="'.$conf['page']['rating'].'"/>' : '';
-	$header.='<meta name="buildcopyright" content="SurveyBuilderTeams(WebPress)"/>';
+	$header.='<meta name="buildcopyright" content="XHiddenProjects(WebPress)"/>';
 	$header .= $conf['page']['copyright']!=='' ? '<meta name="copyright" content="'.$conf['page']['copyright'].'"/>' : '';
 	$header .= '<meta http-equiv="content-language" content="'.strtoupper(Users::getLang()).'">';
 	$header .= '<meta name="email" content="'.$email.'"/>';

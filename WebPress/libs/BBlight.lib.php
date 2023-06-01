@@ -56,8 +56,7 @@ class BBlight
 		  global $cur;
 		  $url = urldecode(rawurldecode($match[1]));
 		  return ($cur=='home') ? '🎬&hellip;' : '<iframe src="//www.dailymotion.com/embed/video/' .$match[1]. '" allowfullscreen="" width="480" height="270" frameborder="0"></iframe>';	  
-	    };	    
-	        	
+	    };	      	
 	  }
 	  
 	  public function toHTML ($str, $escapeHTML=false, $nr2br=false) {

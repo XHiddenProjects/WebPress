@@ -1497,6 +1497,303 @@ class WYSIWYG
 					'label'=>'<i class="fa-solid fa-video"></i>'
 				)
 				
+			),
+			'ru'=>array(
+			'modal'=>array(
+				'divContainer'=>array(
+					'title'=>'Свойства контейнера Div'
+					),
+				'anchor'=>array(
+					'title'=>'Якорные свойства'
+				),
+				'link'=>array(
+					'title'=>'Свойства ссылки'
+				),
+				'table'=>array(
+					'title'=>'Свойства таблицы'
+				),
+				'uploads'=>array(
+					'title'=>'Загрузить свойства',
+					'label'=>'Загрузить файл'
+				),
+				'style'=>'Стиль',
+				'classes'=>'Классы таблиц стилей',
+				'id'=>'ИДЕНТИФИКАТОР',
+				'lang'=>'Код языка',
+				'advisorytitle'=>'Консультативный заголовок',
+				'close'=>'Закрывать',
+				'save'=>'Сохранять',
+				'advanced'=>'Передовой',
+				'general'=>'Общий',
+				'dir'=>'Языковое направление',
+				'name'=>'Имя',
+				'type'=>'Тип',
+				'protocol'=>'Протокол',
+				'url'=>'URL-адрес',
+				'target'=>'Цель',
+				'email'=>array(
+					'title'=>'Адрес электронной почты',
+					'subject'=>'Тема сообщения',
+					'body'=>'Тело сообщения'
+				),
+				'phone'=>'Телефон',
+				'displayname'=>'Отображаемое имя',
+				'advisorycontenttype'=>'Консультативный тип контента',
+				'linkedresourcecharset'=>'Набор символов связанного ресурса',
+				'rel'=>'Отношение',
+				'download'=>'Принудительная загрузка',
+				'width'=>'Ширина',
+				'height'=>'Высота',
+				'borderSpacing'=>'Расстояние между границами'
+			),
+			'pf'=>array(
+				'label'=>'Формат абзаца',
+				'lists'=>array(
+					''=>'Нормальный',
+					'h1'=>'Заголовок 1',
+					'h2'=>'Заголовок 2',
+					'h3'=>'Заголовок 3',
+					'h4'=>'Заголовок 4',
+					'h5'=>'Заголовок 5',
+					'h6'=>'Заголовок 6',
+					'pre'=>'Отформатировано',
+					'address'=>'Адрес',
+					'div'=>'Нормальный (ДЕЛ)'
+				)
+				),
+				'fs'=>array(
+					'label'=>'Размер шрифта',
+					'lists'=>array(
+					''=>'По умолчанию',
+					'8'=>'8',
+					'9'=>'9',
+					'10'=>'10',
+					'11'=>'11',
+					'12'=>'12',
+					'14'=>'14',
+					'16'=>'16',
+					'18'=>'18',
+					'20'=>'20',
+					'22'=>'22',
+					'24'=>'24',
+					'26'=>'26',
+					'28'=>'28',
+					'36'=>'36',
+					'48'=>'48',
+					'72'=>'72'
+					)
+				),
+				'fn'=>array(
+					'label'=>'Название шрифта',
+					'lists'=>array(
+						''=>'По умолчанию',
+						'Arial,Helvetica,sans-serif'=>'Эйрал',
+						'Comic Sans MS,cursive'=>'Комик Санс МС',
+						'Courier New,Courier,monospace'=>'Новый Курьер',
+						'Georgia,serif'=>'Грузия',
+						'Lucida Sans Unicode,Lucida Grande,sans-serif'=>'Люсида без Юникода',
+						'Tahoma,Geneva,sans-serif'=>'Тахома',
+						'Times New Roman,Times,serif'=>'Таймс Нью Роман',
+						'Trebuchet MS,Helvetica,sans-serif'=>'Требюше МС',
+						'Verdana,Geneva,sans-serif'=>'вердана'
+					)
+				
+				),
+				'bs'=>array(
+					'label'=>'Стиль блока',
+					'lists'=>array(
+						# ',' используются для нескольких действий
+						''=>'По умолчанию',
+						'h2,italic'=>'Курсивное название',
+						'h3,italic'=>'Подзаголовок',
+						'attr,special-container'=>'<span class="special-container">Специальный контейнер</span>',
+						'attr,marker'=>'<span class="marker">Маркер</span>',
+						'big'=>'Большой',
+						'small'=>'маленький',
+						'tt'=>'Печатная машинка',
+						'code'=>'Компьютерный код',
+						'kbd'=>'Клавиатурная фраза',
+						'samp'=>'Образец текста',
+						'var'=>'Переменная',
+						'del'=>'Удаленный текст',
+						'ins'=>'Вставить текст',
+						'cite'=>'Цитируемая работа',
+						'q'=>'Встроенная цитата',
+						'attr,rtl'=>'<span dir="rtl">Язык: RTL</span>',
+						'attr,ltr'=>'<span dir="ltr">Язык: LTR</span>'
+					)
+				),
+				'prebtn'=>array(
+					'label'=>'Переключить предварительный просмотр'
+				),
+				'tc'=>array(
+					'label'=>'<i class="fa-solid fa-paintbrush"></i>',
+					'lists'=>array(
+						'rgba(0,0,0,0)'=>'<span style="color:black;">Прозрачный</span>',
+						'#000000'=>'Черный',
+						'#ffffff'=>'Белый',
+						'#ff0000'=>'Красный',
+						'#ffa500'=>'Оранжевый',
+						'#ffff00'=>'Желтый',
+						'#00ff00'=>'Лайм',
+						'#008000'=>'Зеленый',
+						'#00ffff'=>'Голубой',
+						'#0000ff'=>'Синий',
+						'#800080'=>'Фиолетовый',
+						'#ff00ff'=>'Пурпурный',
+						'#ffc0cb'=>'Розовый',
+						'#808080'=>'Серый',
+						'#d3d3d3'=>'Светло-серый',
+						'#c0c0c0'=>'Серебро',
+						'#f5f5f5'=>'Белый дым',
+						'#2f4f4f'=>'Темно-серый'
+					)
+					),
+					'bg'=>array(
+						'label'=>'<i class="fas fa-fill-drip"></i>',
+						'lists'=>array(
+							'rgba(0,0,0,0)'=>'<span style="color:black;">Прозрачный</span>',
+							'#000000'=>'Черный',
+							'#ffffff'=>'Белый',
+							'#ff0000'=>'Красный',
+							'#ffa500'=>'Оранжевый',
+							'#ffff00'=>'Желтый',
+							'#00ff00'=>'Лайм',
+							'#008000'=>'Зеленый',
+							'#00ffff'=>'Голубой',
+							'#0000ff'=>'Синий',
+							'#800080'=>'Фиолетовый',
+							'#ff00ff'=>'Пурпурный',
+							'#ffc0cb'=>'Розовый',
+							'#808080'=>'Серый',
+							'#d3d3d3'=>'Светло-серый',
+							'#c0c0c0'=>'Серебро',
+							'#f5f5f5'=>'Белый дым',
+							'#2f4f4f'=>'Темно-серый'
+					)
+				),
+				'bold'=>array(
+					'label'=>'<i class="fas fa-bold"></i>'
+				),
+				'italic'=>array(
+					'label'=>'<i class="fas fa-italic"></i>'
+				),
+				'underline'=>array(
+					'label'=>'<i class="fas fa-underline"></i>'
+				),
+				'strikethrough'=>array(
+					'label'=>'<i class="fas fa-strikethrough"></i>'
+				),
+				'superscript'=>array(
+					'label'=>'<i class="fas fa-superscript"></i>'
+				),
+				'subscript'=>array(
+					'label'=>'<i class="fas fa-subscript"></i>'
+				),
+				'align'=>array(
+					'label'=>'<i class="fas fa-align-left"></i>',
+					'lists'=>array(
+						'left'=>'<i class="fas fa-align-left"></i>',
+						'center'=>'<i class="fas fa-align-center"></i>',
+						'right'=>'<i class="fas fa-align-right"></i>',
+						'justify'=>'<i class="fas fa-align-justify"></i>'
+					)
+				),
+				'bq'=>array(
+					'label'=>'<i class="fas fa-quote-left"></i>'
+				),
+				'div'=>array(
+					'label'=>'<i class="fas fa-code"></i>'
+				),
+				'uploads'=>array(
+					'label'=>'<i class="fa-solid fa-upload"></i>'
+				),
+				'copy'=>array(
+					'label'=>'<i class="fas fa-copy"></i>'
+				),
+				'paste'=>array(
+					'label'=>'<i class="fas fa-paste"></i>'
+				),
+				'fullscreen'=>array(
+					'label'=>'<i class="fa-solid fa-expand"></i>'
+				),
+				'pdir'=>array(
+					'label'=>'<i class="fas fa-paragraph"></i>',
+					'lists'=>array(
+						'ltr'=>'<i class="fas fa-paragraph-rtl" style="transform: scaleX(-1);"></i>',
+						'rtl'=>'<i class="fas fa-paragraph-rtl"></i>'
+					)
+				),
+				'indent'=>array(
+					'label'=>'<i class="fas fa-indent"></i>',
+					'lists'=>array(
+						'increase'=>'<i class="fas fa-indent"></i>',
+						'decrease'=>'<i class="fas fa-indent" style="transform: scaleX(-1);"></i>'
+					)
+				),
+				'listing'=>array(
+					'label'=>'<i class="fas fa-list-alt"></i>',
+					'lists'=>array(
+						'ol'=>'<i class="fas fa-list-ol"></i>',
+						'ul'=>'<i class="fas fa-list-ul"></i>'
+					)
+				),
+				'anchor'=>array(
+					'label'=>'<i class="fas fa-anchor"></i>'
+				),
+				'link'=>array(
+					'label'=>'<i class="fas fa-link"></i>',
+					'lists'=>array(
+						'url'=>'URL-адрес',
+						'anchor'=>'Якорь',
+						'email'=>'Электронная почта',
+						'phone'=>'Телефон'
+					),
+					'targets'=>array(
+						''=>'&lt;Не задано&gt;',
+						'_blank'=>'Новое окно',
+						'_top'=>'Самое верхнее окно',
+						'_self'=>'То же окно',
+						'_parent'=>'Родительское окно'
+					)
+				),
+				'table'=>array(
+					'label'=>'<i class="fal fa-table"></i>',
+					'rows'=>'Ряды',
+					'cols'=>'Столбцы',
+					'cellSpacing'=>'Расстояние между ячейками',
+					'cellPadding'=>'Заполнение ячейки',
+					'headers'=>array(
+						'label'=>'Заголовки',
+						'lists'=>array(
+							''=>'Никто',
+							'firstrow'=>'Первая строка',
+							'firstcol'=>'Первая колонка',
+							'both'=>'Оба'
+						)
+					),
+					'align'=>array(
+						'label'=>'Выравнивание',
+						'lists'=>array(
+							''=>'&lt;Не задано&gt;',
+							'left'=>'Левый',
+							'center'=>'Центр',
+							'right'=>'Верно'
+						)
+					),
+					'caption'=>'Подпись',
+					'summary'=>'Краткое содержание'
+				),
+				'selectAll'=>array(
+					'label'=>'<i class="fa-solid fa-highlighter"></i>'
+				),
+				'imgs'=>array(
+					'label'=>'<i class="fa-solid fa-image"></i>'
+				),
+				'vids'=>array(
+					'label'=>'<i class="fa-solid fa-video"></i>'
+				)
+				
 			)
 			
 		);

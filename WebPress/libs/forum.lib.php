@@ -207,14 +207,14 @@
 						}else{
 							$comma = '';
 						}
-						$listTags .= '<a class="link-primary fst-italic" href="'.$BASEPATH.'/forum.php/tags/'.$tags.'">'.$tags.'</a>'.$comma.' ';
+						$listTags .= '<a class="link-primary fst-italic" href="'.$BASEPATH.'/search.php?results='.$tags.'">'.$tags.'</a>'.$comma.' ';
 						$dontIncludeLastTag++;
 					}
 					$dinfo = '<!-- Media object -->
 	<li class="list-group-item border-0" forum="'.$info['forum'].'">
 	<div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
 	  <!-- Image -->
-	  <a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"').' style="height: fit-content;"><img
+	  <a style="height: fit-content;"><img
 		src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"
 		alt="'.$info['author'].'"
 		class="ms-3 mt-2 me-3 rounded-circle userIcon"
@@ -231,6 +231,7 @@
 				<span class="d-block mt-2 mb-2">'.Users::createBadge($info['author']).'</span>
 				<p class="text-secondary">'.Page::summary($userInfo[$info['author']]['about'], $conf['forum']['maxSummary']).'</p>
 				<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$info['author'].':<'.$userInfo[$info['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
+				<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"').'><button class="btn btn-outline-secondary w-100 mt-1"><i class="fas fa-user"></i> '.(isset($langs['dashboard.side.profile']) ? str_replace('<i class="fas fa-user"></i>','', $langs['dashboard.side.profile']) : 'Profile').'</button></a>
 				'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$info['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
 				'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
 				'.(Plugin::hook('profileCards_btn')).'
@@ -351,7 +352,7 @@
 								$dinfo = '<!-- Media object -->
 	<li class="list-group-item replyItem border-0" forum="'.$info['forum'].'"><div class="d-flex m-2 text-bg-light w-100" style="background-color:rgba(219,215,210,1)!important;border-radius:15px;">
 	  <!-- Image -->
-	  <a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"').'><img
+	  <a style="height: fit-content;"><img
 		src="'.(file_exists(ROOT.DATA_AVATARS.$info['author'].'.png') ? $BASEPATH.DATA_AVATARS.$info['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"
 		alt="'.$info['author'].'"
 		class="ms-3 mt-2 me-3 rounded-circle userIcon"
@@ -368,6 +369,7 @@
 				<span class="d-block mt-2 mb-2">'.Users::createBadge($info['author']).'</span>
 				<p class="text-secondary">'.Page::summary($userInfo[$info['author']]['about'], $conf['forum']['maxSummary']).'</p>
 				<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$info['author'].':<'.$userInfo[$info['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
+				<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$info['author'].'"').'><button class="btn btn-outline-secondary w-100 mt-1"><i class="fas fa-user"></i> '.str_replace('<i class="fas fa-user"></i>','',$langs['dashboard.side.profile']).'</button></a>
 				'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$info['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
 				'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$info['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
 				'.(Plugin::hook('profileCards_btn')).'
@@ -421,7 +423,7 @@
 						$replyItem='<div id="'.$rInfo['id'].'" class="d-flex mt-4 replyBox">
 		<a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="'.$langs['forum.anchorID'].'" onclick="copyReplyID(\''.$rInfo['id'].'\')" class="link-primary fs-3 me-2" href="#'.$rInfo['id'].'"><i class="fa-solid fa-anchor"></i></a>  
 		<div class="position-relative">
-		<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$rInfo['author'].'"').' style="height: fit-content;"><img
+		<a style="height: fit-content;"><img
 			src="'.(file_exists(ROOT.DATA_AVATARS.$rInfo['author'].'.png') ? $BASEPATH.DATA_AVATARS.$rInfo['author'].'.png?v='.self::generate_imgVer() : $BASEPATH.DATA_AVATARS.'default.png').'"
 			alt="'.$rInfo['author'].'"
 			class="me-3 rounded-circle userIcon"
@@ -439,6 +441,7 @@
 				<span class="d-block mt-2 mb-2">'.Users::createBadge($rInfo['author']).'</span>
 				<p class="text-secondary">'.Page::summary($userInfo[$rInfo['author']]['about'],$conf['forum']['maxSummary']).'</p>
 				<a href="/'.MAINDIR.'/dashboard.php/mail?to='.$rInfo['author'].':<'.$userInfo[$rInfo['author']]['email'].'>"><button class="btn btn-outline-secondary w-100"><i class="fa-solid fa-envelope"></i> '.(isset($langs['contact.title']) ? $langs['contact.title'] : 'Contact').'</button></a>
+				<a '.('href="'.$BASEPATH.'/dashboard.php/profile?name='.$rInfo['author'].'"').'><button class="btn btn-outline-secondary w-100 mt-1"><i class="fas fa-user"></i> '.str_replace('<i class="fas fa-user"></i>','',$langs['dashboard.side.profile']).'</button></a>
 				'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$rInfo['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=add&request='.$rInfo['author'].'"><button class="btn btn-outline-secondary w-100 mt-2"><i class="fa-solid fa-user-plus"></i> '.(isset($langs['friends_add']) ? $langs['friends_add'] : 'Add Friend').'</button></a>' : '').'
 				'.(WebDB::dbExists('plugins', 'friends/plugin')&&WebDB::getDB('plugins', 'friends/plugin')['active']&&$rInfo['author']!==$session ? '<a href="/'.MAINDIR.'/dashboard.php/view?plugins=friends&view=online&blockuser='.$info['author'].'"><button class="btn btn-outline-danger w-100 mt-2">'.(isset($langs['friends_blockUserLabel']) ? $langs['friends_blockUserLabel'] : 'Block User').'</button></a>' : '').'
 				'.(Plugin::hook('profileCards_btn')).'

@@ -118,7 +118,8 @@
 		$out .= '<br/>'.(Utils::checkVersion()[0] ? '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i> Current '.Utils::checkVersion()[1].(Users::isProVersion() ? ' <span class="badge bg-danger probadeg">'.$lang['pro'].'</span>' : '').'</div>' : '<div class="alert alert-danger" role="alert"><i class="fas fa-upload"></i> Outdated '.Utils::checkVersion()[1].(Users::isProVersion() ? ' <span class="badge bg-danger probadeg">'.$lang['pro'].'</span>' : '').'</div>');
 		$out.='</div>';
 		$out.='<textarea class="form-control mb-2 wpnotes" oninput="saveNotes();" style="height: 130px;"></textarea>';
-		  $out.= '  <ul class="list-group list-group-flush">
+		$out.='<div class="input-group mb-2"><span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span><input type="search" class="form-control" placeholder="Search..." oninput="dblistSearch(this.value)"/></div>';
+		$out.= '  <ul class="list-group list-group-flush" id="dbListCon">
 			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/">'.$lang['dashboard.side.home'].'</a>
 			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard">'.$lang['dashboard.side.back'].'</a>
 			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/forum">'.$lang['dashboard.side.forum'].'</a>
@@ -1882,7 +1883,7 @@
 		}
 	}
 	if(isset($_GET['rename'])){
-		preg_match('/([\w\/\\\:\.\_]+)/', $_GET['rename'], $name);
+		preg_match('/([\w\/\\\:\.\_\-]+)/', $_GET['rename'], $name);
 		$out.='<div class="modal d-block" tabindex="-1">
 	  <div class="modal-dialog modal-fullscreen">
 		<div class="modal-content">
@@ -1916,10 +1917,24 @@
 	</div>';
 	}
 	if(isset($_POST['renameFile'])){
-		preg_match('/(\w+\.\w+)|(\w+\.\w+\.\w+)/', $_GET['rename'], $name);
+		preg_match('/([\w\-\_]+\.[\w\-\_]+)|([\w\-\_]+\.[\w\-\_]+\.[\w\-\_]+)/', $_GET['rename'], $name);
 		$oldName = isset($_POST['oldname']) ? $_POST['oldname'] : 'error';
 		$newName = isset($_POST['newname'])&&$_POST['newname']!=='' ? $_POST['newname'] : $oldName;
-		echo @Files::renameFile(str_replace($name,'',$_GET['rename']).$oldName, str_replace($name,'',$_GET['rename']).$newName) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
+		echo @Files::renameFile($oldName, $newName) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
+	}
+	if(isset($_GET['copy'])){
+		$file = $_GET['copy'];
+		$path = preg_replace('/([\w\-\_]+\.[\w\-\_]+)|([\w\-\_]+\.[\w\-\_]+\.[\w\-\_]+)/','',$_GET['copy']);
+		preg_match('/([\w\-\_]+\.[\w\-\_]+)|([\w\-\_]+\.[\w\-\_]+\.[\w\-\_]+)/', $_GET['copy'], $file);
+		preg_match('/\.[\w\-\_]+$/',$_GET['copy'], $extend);
+		$countNum = array();
+		foreach(Files::Scan($path) as $f){
+			if(stripos($f, str_replace('.php','',$file[0]))!==FALSE){
+				$countNum[] = $f;
+			}
+		}
+		$newfile = str_replace('.php','',$file[0]).'-'.(count($countNum)+1).$extend[0];
+		echo @Files::copyFile($path.$file[0], $path.$newfile) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/files'.(isset($_GET['path']) ? '?path='.$_GET['path'] : ''), 'danger');
 	}
 	# other
 	if(isset($_GET['edit'])){

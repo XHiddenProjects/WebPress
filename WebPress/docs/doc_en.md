@@ -263,7 +263,7 @@ If you request the link to the source of ban, admins **ARE REQUIRED** to provide
 
   
 
-If you have any questions, ask them on the [discussions](https://github.com/XHiddenProjects/WebPress/discussions/2) on github.
+If you have any questions, ask them on the [discussions](https://github.com/XHiddenProjects1/WebPress/discussions/2) on github.
 
 ### Medias
-Collaborate [Github](https://github.com/XHiddenProjects/WebPress)
+Collaborate [Github](https://github.com/XHiddenProjects1/WebPress)

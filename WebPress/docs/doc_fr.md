@@ -263,7 +263,7 @@ Si vous demandez le lien vers la source de l'interdiction, les administrateurs *
 
   
 
-Si vous avez des questions, posez-les sur les [discussions](https://github.com/XHiddenProjects/WebPress/discussions/2) sur github.
+Si vous avez des questions, posez-les sur les [discussions](https://github.com/XHiddenProjects1/WebPress/discussions/2) sur github.
 
 ### Des médias
-Collaborer [Github](https://github.com/XHiddenProjects/WebPress)
+Collaborer [Github](https://github.com/XHiddenProjects1/WebPress)

@@ -164,8 +164,7 @@ class BBCode extends BBlight
 		  global $cur;
 		  $url = urldecode(rawurldecode($match[1]));
 		  return ($cur=='home') ? '🎬&hellip; ' : '<iframe width="560" height="315" src="//www.dailymotion.com/embed/video/' .$match[1]. '" allowfullscreen="" frameborder="0"></iframe>';	  
-	    };   
-
+	    };     
 	    // Replace [video]...[/video] with <iframe src="..."></iframe>
 	    $this->bbcode_table["/\[video width=(\d+) height=(\d+)\](.*?)\[\/video\]/s"] = function ($match) {
 		  global $cur;

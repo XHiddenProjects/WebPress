@@ -1,16 +1,16 @@
 	{
 		"versions": {
-			"2.3.6": {
+			"2.3.7": {
 				"textsets": [
 					{
-						"text": "Version 2.3.6 has been released!",
+						"text": "Version 2.3.7 has been released!",
 						"icon": "fas fa-check",
 						"tag": "offical",
 						"show": true
 					},
 					{
-						"text": "Added Meter in HTMLform",
-						"icon": "fas fa-meter",
+						"text": "Added Russian Language",
+						"icon": "fa-solid fa-language",
 						"tag": "added",
 						"show": true,
 						"type": "primary"

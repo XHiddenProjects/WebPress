@@ -6,14 +6,14 @@ function online_install(){
 
 $data = array(
 	'active'=>'',
-	'version'=>'0.1.2',  
+	'version'=>'0.1.3',  
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'color'=>'success',
 		'display'=>'icon'
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN','ru-RU')
 	)
 	);
 	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';

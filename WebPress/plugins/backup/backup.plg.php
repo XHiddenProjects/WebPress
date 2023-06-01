@@ -7,12 +7,12 @@ function backup_install(){
 
 $data = array(
 	'active'=>'',
-	'version'=>'1.0.4',  
+	'version'=>'1.0.5',  
 	'config'=>array(
 		'use'=>filter_var(false, FILTER_VALIDATE_BOOLEAN),
 	),
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),  
-	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')));
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN', 'ru-RU')));
 	$out.= WebDB::saveDB('plugins', $plugin.'/plugin', $data) ? '' : 'Error';
 	@mkdir(dirname(ROOT).'/backup');
 	return $out; 

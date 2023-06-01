@@ -470,7 +470,7 @@
 		z-index:100;
 	}
 	.replyItem .infocard{
-		height:20%!important;
+		height:auto!important;
 	}
 	.replyBox .infocard{
 		position:absolute;
@@ -553,3 +553,7 @@
 	[forum] a{
 		height: fit-content;
 	}
+	iframe{
+     display: flex;
+     width: 100%;
+    }

@@ -1,4 +1,4 @@
-[原始文檔](../docs/doc_en.md)
+[原始文檔](../docs/doc_zh.md)
 
 # 網絡出版社
 
@@ -264,7 +264,7 @@ $kit->__toFloat($txt);
 
   
 
-如果您有任何問題，請在 github 上的[討論](https://github.com/XHiddenProjects/WebPress/discussions/2) 中提問。
+如果您有任何問題，請在 github 上的[討論](https://github.com/XHiddenProjects1/WebPress/discussions/2) 中提問。
 
 ### 媒體
-協作 [Github](https://github.com/XHiddenProjects/WebPress)
+協作 [Github](https://github.com/XHiddenProjects1/WebPress)

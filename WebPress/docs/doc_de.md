@@ -1,4 +1,4 @@
-[Rohdokumentation](../docs/doc_en.md)
+[Rohdokumentation](../docs/doc_de.md)
 
 # WebPress
 
@@ -261,7 +261,7 @@ An der Seite Ihres Bildschirms wird eine Chat-Leiste angezeigt. Füllen Sie die 
 Wenn Sie den Link zur Quelle des Banns anfordern, müssen die Administratoren **ERFORDERLICH** diesen angeben, andernfalls würde das Urteil aufgehoben und der Bann aufgehoben, da der Administrator keinen Beweis erbracht hat.
 **Hinweis:** Manipulieren Sie _KEINE_ Beweise bei der Überprüfung, dies ist überprüfbar und kann bestraft werden.
 
-Wenn Sie Fragen haben, stellen Sie sie in den [Diskussionen](https://github.com/XHiddenProjects/WebPress/discussions/2) auf github.
+Wenn Sie Fragen haben, stellen Sie sie in den [Diskussionen](https://github.com/XHiddenProjects1/WebPress/discussions/2) auf github.
 
 ### Medien
-Zusammenarbeiten [Github](https://github.com/XHiddenProjects/WebPress)
+Zusammenarbeiten [Github](https://github.com/XHiddenProjects1/WebPress)

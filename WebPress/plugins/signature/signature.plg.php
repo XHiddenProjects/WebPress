@@ -6,9 +6,9 @@
 
 	$data = array(
 	'active'=>'',
-	'version'=>'2.0.0', 
+	'version'=>'2.0.1', 
 	'options'=>array('canDisabled'=>filter_var(true, FILTER_VALIDATE_BOOLEAN), 
-	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN')),
+	'usedLang'=>array('en-US','de-DE','it-IT', 'fr-FR', 'zh-CN','ru-RU')),
 	'config'=>array(
 		'use'=>filter_var(true, FILTER_VALIDATE_BOOLEAN),
 		'valid'=>array()

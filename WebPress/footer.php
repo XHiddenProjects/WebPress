@@ -91,6 +91,13 @@
 	for(let i=0; i<displayLoad.length;i++){
 		displayLoad[i].innerHTML = "'.$lang['dashboard.pageLoaded'].'<i class=\'fa-solid fa-clock\'></i> '.Page::Loaded().'"
 	}
+	function copyHashID(id){
+		if(navigator.clipboard.writeText(id.querySelector("button").getAttribute("hash-id"))){
+			alert("Copied");
+		}else{
+			alert("Error");
+		}
+	}
 	</script>';
 	return $footer;	
 	}
