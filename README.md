@@ -1,8 +1,39 @@
 # WebPress
 <p align="center"><img src="https://github.com/surveybuilderteams/WebPress/blob/master/WebPress/themes/default/images/256x256.png?raw=true" alt="WebPress-logo" title="WebPress-logo"/></p>
 
+***
+
+### Description
+
 A free open-source CMS(content management system) and forum script that allows you to showcase your website by using a custom made themes and plugins. This also includes easy configuration and easy way to make your own plugins. This uses JSON database (no SQL required) to make it easier to read the database. You can also have collaborations with…
  
+ ***
+ 
+ ### Includments
+ * Easy _drag-and-drop_ blocks to make your website
+ * In-app _mailing server_ (**@webpress.com**).
+ * Simple _plugin and theme_ that can be configured and changed.
+ * JSON flat-file format
+ * Good Security, includes: filehash, over 3 layers of hashing/encryption, easy tracking, function allowabilty.
+ * File Management/Editor
+ * In-app documentation
+ * Custom roles
+ * Add toolkit
+ * Multiple Language support
+ * Custom logo/title
+ * SEO tools
+ * icon listing
+ * in-app fourm
+ * Custom DateTime
+ * 3 editors (_bbcode, markdown, and WYSIWYG_)
+ * Console, shows top _X_ error/warnings you can check for any pervious problems.
+ * Sitemap - fixing
+ * Feed
+ * Mobile friendly
+ * Authorization key (_for admin's_)
+ ***
+ 
+ ### Info
 [![GitHub](https://img.shields.io/github/license/XHiddenProjects1/webpress?color=blue&style=plastic)](https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/XHiddenProjects1/webpress?color=orange&label=version&style=plastic)](https://github.com/XHiddenProjects1/WebPress/releases)
 [![GitHub repo size](https://img.shields.io/github/repo-size/XHiddenProjects1/webpress?color=red&label=Download%20Size&style=plastic)](https://github.com/XHiddenProjects1/WebPress/archive/refs/heads/master.zip)
