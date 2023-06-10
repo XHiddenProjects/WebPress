@@ -9,7 +9,7 @@ A free open-source CMS(content management system) and forum script that allows y
  
  ***
  
- ### Includments
+ ### Includements
  * Easy _drag-and-drop_ blocks to make your website
  * In-app _mailing server_ (**@webpress.com**).
  * Simple _plugin and theme_ that can be configured and changed.
