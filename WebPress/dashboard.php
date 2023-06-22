@@ -2377,12 +2377,13 @@
 	$langList=array();
 	$users = WebDB::getDB('users','users');
 	foreach($users as $u=>$i){
-		$langList[$i['lang']] = $i['lang'];
+		
 		if(isset($langCount[$i['lang']])){
-			$langCount[$i['lang']] = (int)$langCount[$i['lang']]++;
+			$langCount[$i['lang']] = (int)$langCount[$i['lang']]+1;
 		}else{
 			$langCount[$i['lang']] = 1;
 		}
+		
 	}
 	function arrayQuote($quote){
 		return '"'.$quote.'"';
