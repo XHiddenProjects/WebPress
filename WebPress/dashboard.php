@@ -2379,7 +2379,7 @@
 	foreach($users as $u=>$i){
 		$langList[$i['lang']] = $i['lang'];
 		if(isset($langCount[$i['lang']])){
-			$langCount[$i['lang']] = (int)$langList[$i['lang']]++;
+			$langCount[$i['lang']] = (int)$langCount[$i['lang']]++;
 		}else{
 			$langCount[$i['lang']] = 1;
 		}
