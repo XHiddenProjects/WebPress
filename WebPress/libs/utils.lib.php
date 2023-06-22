@@ -259,7 +259,6 @@
 		}
 		public static function mailNotify(){
 			global $lang, $BASEPATH, $session;
-			$mail = json_decode(file_get_contents(ROOT.'MAILUPDATE.json'),true);
 			$sentMail = array();
 			$sentReplies = array();
 			$fr = '';
