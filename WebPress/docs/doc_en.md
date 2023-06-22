@@ -258,8 +258,8 @@ On the side of your screen there is going to be a going to be a chat bar display
 4.  Reson of ban(will be shown on the ban screen)
 5.  Link to source of ban(provided by admin, make sure you request it.)
 
-If you request the link to the source of ban, admins **ARE REQUIRED** to provide it, otherwise jugement would be cancelled and the ban is released, since adminstrator failed to prove evidence.  
-**Note:** Do not tamper _with ANY_ evidence when in review, this is checkable and punishement can occur.
+If you request the link to the source of ban, admins **ARE REQUIRED** to provide it, otherwise jugement would be cancelled and the ban is released, since administrator failed to prove evidence.  
+**Note:** Do not tamper _with ANY_ evidence when in review, this is checkable, and punishment can occur.
 
   
 

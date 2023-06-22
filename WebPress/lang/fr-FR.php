@@ -142,6 +142,9 @@ $lang = array(
 'dashboard.side.files'=>'Des dossiers <i class="fa-solid fa-files"></i>',
 'dashboard.side.events'=>'Événements <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.side.pages'=>'Pages <i class="fa-solid fa-page"></i>',
+'dashboard.side.utils'=>'Utilitaires <i class="fa-solid fa-wrench"></i>',
+'dashboard.side.advanced'=>'Avancé <i class="fa-solid fa-user-lock"></i>',
+'dashboard.side.other'=>'Ajouter <i class="fa-solid fa-circle-plus"></i>',
 'dashboard.graph.user.label'=>'utilisateurs',
 'dashboard.graph.user.y'=>'Utilisateurs enregistrés',
 'dashboard.graph.subtitle'=>'Ce sera clair sur ',
@@ -442,6 +445,8 @@ $lang = array(
 'ban.UI.banBy'=>'Type d`interdiction',
 'ban.UI.submit'=>'Utilisateur banni',
 #date
+'year'=>'ans',
+'month'=>'mois',
 'day' => 'jours',
 'hour' => 'heures',
 'minute' => 'minutes',

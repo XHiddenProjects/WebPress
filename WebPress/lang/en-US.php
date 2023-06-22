@@ -142,6 +142,9 @@ $lang = array(
 'dashboard.side.files'=>'Files <i class="fa-solid fa-files"></i>',
 'dashboard.side.events'=>'Events <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.side.pages'=>'Pages <i class="fa-solid fa-page"></i>',
+'dashboard.side.utils'=>'Utilities <i class="fa-solid fa-wrench"></i>',
+'dashboard.side.advanced'=>'Advanced <i class="fa-solid fa-user-lock"></i>',
+'dashboard.side.other'=>'Addon <i class="fa-solid fa-circle-plus"></i>',
 'dashboard.graph.user.label'=>'users',
 'dashboard.graph.user.y'=>'Registered Users',
 'dashboard.graph.subtitle'=>'This will be clear out on ',
@@ -442,6 +445,8 @@ $lang = array(
 'ban.UI.banBy'=>'Ban Type',
 'ban.UI.submit'=>'Ban User',
 #date
+'year'=>'years',
+'month'=>'months',
 'day' => 'days',
 'hour' => 'hours',
 'minute' => 'minutes',

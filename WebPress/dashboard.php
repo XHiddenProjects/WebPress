@@ -2,7 +2,6 @@
 	require_once('init.php');
 	require_once('header.php');
 	require_once('footer.php');
-
 	global $lang, $selLang, $conf, $defaultIcon;
 	include_once('lang/'.$selLang.'.php');
 	?>
@@ -96,8 +95,8 @@
 	  </span>
 	</nav>';
 		$out.='
-	<div style="background:#b5b5b5;" class="offcanvas offcanvas-start"  tabindex="-1" id="webpress-sidebar" aria-labelledby="webpressdashnav">
-	  <div class="offcanvas-header">
+	<div style="background-color:#4169e1;" class="offcanvas offcanvas-start"  tabindex="-1" id="webpress-sidebar" aria-labelledby="webpressdashnav">
+	  <div class="offcanvas-header text-light">
 		<h5 class="offcanvas-title" id="webpressdashnav">'.$lang['dashboard.side'].'</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	  </div>
@@ -119,28 +118,48 @@
 		$out.='</div>';
 		$out.='<textarea class="form-control mb-2 wpnotes" oninput="saveNotes();" style="height: 130px;"></textarea>';
 		$out.='<div class="input-group mb-2"><span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span><input type="search" class="form-control" placeholder="Search..." oninput="dblistSearch(this.value)"/></div>';
-		$out.= '  <ul class="list-group list-group-flush" id="dbListCon">
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/">'.$lang['dashboard.side.home'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard">'.$lang['dashboard.side.back'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/forum">'.$lang['dashboard.side.forum'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/phpinfo">'.$lang['dashboard.side.phpinfo'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/profile">'.$lang['dashboard.side.profile'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/configs">'.$lang['dashboard.side.config'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/docs">'.$lang['dashboard.side.docs'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/themes">'.$lang['dashboard.side.themes'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/plugins">'.$lang['dashboard.side.plugins'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/console#log-1">'.$lang['dashboard.side.console'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/editors">'.$lang['dashboard.side.editors'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/assets">'.$lang['dashboard.side.assets'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/mail">'.$lang['dashboard.side.mail'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/ban">'.$lang['dashboard.side.ban'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/roles">'.$lang['dashboard.side.roles'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/files">'.$lang['dashboard.side.files'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/events">'.$lang['dashboard.side.events'].'</a>
-			<a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/pages">'.$lang['dashboard.side.pages'].'</a>
-			';
+		$out.= '<nav class="navbar" id="dbListCon">
+			<ul class="navbar-nav">
+			<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/">'.$lang['dashboard.side.home'].'</a></li>
+			<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard">'.$lang['dashboard.side.back'].'</a></li>
+			<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/forum">'.$lang['dashboard.side.forum'].'</a></li>
+			<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle collapsed" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#collapseUtils" aria-expanded="false">
+				'.$lang['dashboard.side.utils'].'
+			</a>
+			<ul class="collapse list-group list-group-flush" style="border:0!important;" id="collapseUtils">
+				<li class="nav-item"><a class="list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/phpinfo">'.$lang['dashboard.side.phpinfo'].'</a></li>
+				<li class="nav-item"><a class="list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/profile">'.$lang['dashboard.side.profile'].'</a></li>
+				<li class="nav-item"><a class="list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/docs">'.$lang['dashboard.side.docs'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/editors">'.$lang['dashboard.side.editors'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/assets">'.$lang['dashboard.side.assets'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/mail">'.$lang['dashboard.side.mail'].'</a></li>
+			</ul>
+			</li>';
+			$out.=(Users::isAdmin() ? '<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle collapsed" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#collapseAdvanced" aria-expanded="false">
+				'.$lang['dashboard.side.advanced'].'
+			</a>
+			<ul class="collapse list-group list-group-flush" style="border:0!important;" id="collapseAdvanced">
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/themes">'.$lang['dashboard.side.themes'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/plugins">'.$lang['dashboard.side.plugins'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/console#log-1">'.$lang['dashboard.side.console'].'</a></li>
+				<li class="nav-item"><a class="list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/configs">'.$lang['dashboard.side.config'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/ban">'.$lang['dashboard.side.ban'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/roles">'.$lang['dashboard.side.roles'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/files">'.$lang['dashboard.side.files'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/events">'.$lang['dashboard.side.events'].'</a></li>
+				<li class="nav-item"><a class="mb-2 list-group-item list-group-item-action list-group-item-secondary" aria-current="page" href="'.$BASEPATH.'/dashboard.php/pages">'.$lang['dashboard.side.pages'].'</a></li>
+			</ul>
+			</li>' : '');
+			$out.='<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle collapsed" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#OtherTabs" aria-expanded="false">
+				'.$lang['dashboard.side.other'].'
+			</a>
+			<ul class="collapse list-group list-group-flush" style="border:0!important;" id="OtherTabs">';
 			$out.= Plugin::hook('dblist');
-			$out.='
+			$out.='</ul>
+			</ul>
 		  </ul>
 		</div>
 	  </div>
@@ -149,15 +168,16 @@
 		$d = WebDB::DBexists('users', 'users') ? WebDB::getDB('users', 'users') : '';
 	$out.='<h1 class="text-center">'.$lang['dashboard'].'</h1>';
 	$out.='<center><div class="text-light bg-secondary p-2 w-75 rounded">'.$lang['dashboard.desc'].'</div></center>';
-	$out.='<center><div style="height:80%;overflow:auto;">';
-	$out.='<canvas id="webpress-users" class="dashboard-status"></canvas>';
-	$out.='<br/>';
-	$out.='<canvas id="webpress-views" class="dashboard-status"></canvas>';
-	$out.='<br/>';
-	$out.='<canvas id="webpress-forums" class="dashboard-status"></canvas>';
-	$out.='<br/>';
-	$out .= '<div></center>
-	<table class="table table-striped table-hover">
+	$out.='<div class="container container-fluid">
+		   <div class="row">
+				<div class="col"><div class="card shadow m-2"><div class="card-body"><canvas id="webpress-users" class="dashboard-status"></canvas></div></div></div>
+				<div class="col"><div class="card shadow m-2"><div class="card-body"><canvas id="webpress-views" class="dashboard-status"></canvas></div></div></div>
+			</div>
+			<div class="row">
+				<div class="col"><div class="card shadow m-2"><div class="card-body"><canvas id="webpress-forums" class="dashboard-status"></canvas></div></div></div>
+				<div class="col"><div class="card shadow m-2"><div class="card-body"><canvas id="webpress-lang" class="dashboard-status"></canvas></div></div></div>
+		   </div>';
+	$out.='<table class="table table-striped table-hover">
 	  <thead>
 		<tr>
 		  <th scope="col">Query</th>
@@ -787,6 +807,8 @@
 	}
 	$out.='</ul>';
 	$out.= Paginate::pageLink(Paginate::pid($conf['themesDisplayAmount']), Paginate::countPage(Files::Scan(DATA_THEMES), $conf['themesDisplayAmount']), './themes?');
+	}elseif(preg_match('/\/dashboard(?:\.php)\/(view\/|view)/', $_SERVER['REQUEST_URI'])){
+		$out .= Plugin::useHook('view', $_GET['plugins']);	
 	}elseif(preg_match('/\/dashboard(?:\.php)\/plugins/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('activePlugins')){
 	$out.='<ul class="list-group list-group-flush list-group-horizontal">';
 	$listPlugins = array();
@@ -1056,29 +1078,32 @@
 		$fromEmail = '&lt;'.$_POST['fromemail'].'&gt;';
 		$to = str_replace(' ','',$_POST['toemail']);
 		$toArgs = array();
+		$toNames = array();
 		$msg = $_POST['sendmsg'];
 		$prioiry = isset($_POST['prioiry']) ? $_POST['prioiry'] : '';
 		
 		$toArgs[$fromName] = $fromEmail;
+		$toNames[] = $fromName;
+		$nameList = array();
 		if(@explode(',',$to)){
 			$to = explode(',',$to);
 			foreach($to as $t){
 				$set = explode(':', $t);
+				$toNames[] = $set[0];
 				$toArgs[$set[0]] = htmlentities($set[1]);
 			}
 		}else{
 			$set = explode('>', $t);
 			$toArgs[$set[0]] = $set[1];	
 		}
-		$exploitMsg = array('msg'=>array('subject'=>$subject, 'from'=>array('name'=>$fromName, 'email'=>$fromEmail), 'to'=>$toArgs, 'text'=>$msg, 'sentTime'=>date('m-d-Y h:i:sa'), 'status'=>'new', 'replys'=>array()));
+		foreach($toNames as $names){
+			$nameList[$names] = 'new';
+		}
+		$exploitMsg['msg'] = array('subject'=>$subject, 'from'=>array('name'=>$fromName, 'email'=>$fromEmail), 'to'=>$toArgs, 'text'=>$msg, 'sentTime'=>date('m-d-Y h:i:sa'), 'status'=>$nameList, 'replys'=>array());
 		# create Message
 		if(WebDB::DBexists('MAIL', $fileSub))
 			echo '<div class="alert alert-danger" role="alert">'.$lang['contact.msg.exists'].'</div>';
-			/*getNotifiedData*/
-			$updates = json_decode(file_get_contents(ROOT.'UPDATES.json'), true);
-			array_push($updates['versions'][Utils::getVersion()]['textsets'], array('text'=>$msg, 'icon'=>'fa-solid fa-envelope', 'tag'=>'mail', 'show'=>filter_var(true, FILTER_VALIDATE_BOOLEAN), 'type'=>'secondary'));
-			$updates['needsAttation'] = filter_var('true', FILTER_VALIDATE_BOOLEAN);
-			file_put_contents(ROOT.'UPDATES.json',json_encode($updates, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
+			file_put_contents(ROOT.'MAILUPDATE.json',json_encode($exploitMsg, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
 			/*end nottify data*/
 		WebDB::makeDB('MAIL', $fileSub);
 		echo WebDB::saveDB('MAIL', $fileSub, $exploitMsg) ? Utils::redirect('modal.pedit.title', 'config.success', $BASEPATH.'/dashboard.php/mail', 'success') : Utils::redirect('modal.failed.title', 'config.failed', $BASEPATH.'/dashboard.php/mail', 'danger');
@@ -1105,6 +1130,7 @@
 		$session = Users::getSession();
 		
 		$d = WebDB::DBexists('MAIL', $sub) ? WebDB::getDB('MAIL', $sub) : '';
+		$d['msg']['status'] = 'new';
 			$pushMsg = array('from'=>$session, 'sentTime'=>date('m-d-Y h:i:sa'), 'to'=>$target, 'text'=>$msg);
 			array_push($d['msg']['replys'], $pushMsg);
 		
@@ -1975,8 +2001,6 @@
 		
 
 		
-	}elseif(preg_match('/\/dashboard(?:\.php)\/(view|view\/)/', $_SERVER['REQUEST_URI'])){
-		$out .= Plugin::useHook('view', $_GET['plugins']);
 	}elseif(preg_match('/\/dashboard(?:\.php)\/(events\/|events)/', $_SERVER['REQUEST_URI'])&&Users::hasPermission('events')){
 		$out.='<div class="h-50" style="overflow:auto;"><table class="table">
 		<thead class="position-sticky top-0">
@@ -2347,6 +2371,47 @@
 		  }
 		}
 	  }
+	});
+	</script>';
+	$langCount=array();
+	$langList=array();
+	$users = WebDB::getDB('users','users');
+	foreach($users as $u=>$i){
+		$langList[$i['lang']] = $i['lang'];
+		if(isset($langCount[$i['lang']])){
+			$langCount[$i['lang']] = (int)$langList[$i['lang']]++;
+		}else{
+			$langCount[$i['lang']] = 1;
+		}
+	}
+	function arrayQuote($quote){
+		return '"'.$quote.'"';
+	}
+	$out.='<script>
+	var langX = ['.implode(',',array_map('arrayQuote',$langList)).'];
+	var langY = ['.implode(',',$langCount).'];
+	var barColors = ['.implode(',',array_map('arrayQuote',Utils::genHex(count($langList)))).']
+	new Chart("webpress-lang", {
+		type:"doughnut",
+		data:{
+			labels:langX,
+			datasets: [{
+				backgroundColor: barColors,
+				data: langY
+			}]
+		},
+		options: {
+			plugins: {
+				title: {
+					display: true,
+					text: "'.$lang['dashboard.config.lang.title'].'"
+				},
+				subtitle:{
+					 display: true,
+					 text:"'.$lang['dashboard.graph.subtitle'].date('Y', strtotime('+1 years')).'"
+				 }
+			}
+  }
 	});
 	</script>';
 	echo $out;

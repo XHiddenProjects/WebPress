@@ -56,7 +56,7 @@
 	 if(!file_exists('data/mail/welcome.dat.json')&&isset($_SESSION['user'])){
 			 $open = fopen('data/mail/welcome.dat.json', 'w+');
 			 $data = WebDB::getDB('users', 'users');
-			 $msg = json_encode(array('msg'=>array('subject'=>'Welcome to WebPress', 'from'=>array('name'=>'Server', 'email'=>'&lt;server@webpress.com&gt;'), 'to'=>array('Server'=>'&lt;server@webpress.com&gt;',$_SESSION['user']=>'&lt;'.$data[$_SESSION['user']]['email'].'&gt;'), 'text'=>'Welcome to <b>WebPress</b>, this is a fun and excited place to make your own CMS and forum-script!' ,'sentTime'=>date('m-d-Y h:i:sa'), 'status'=>'new', 'replys'=>array())),JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+			 $msg = json_encode(array('msg'=>array('subject'=>'Welcome to WebPress', 'from'=>array('name'=>'Server', 'email'=>'&lt;server@webpress.com&gt;'), 'to'=>array('Server'=>'&lt;server@webpress.com&gt;',$_SESSION['user']=>'&lt;'.$data[$_SESSION['user']]['email'].'&gt;'), 'text'=>'Welcome to <b>WebPress</b>, this is a fun and excited place to make your own CMS and forum-script!' ,'sentTime'=>date('m-d-Y h:i:sa'), 'status'=>array($_SESSION['user']=>'new'), 'replys'=>array())),JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
 			 fwrite($open, $msg);
 			 fclose($open);
 		 }
@@ -149,7 +149,7 @@
 	$email = '';
 	$db = @WebDB::dbExists('USERS', 'users') ? WebDB::getDB('USERS', 'users') : [];
 	foreach($db as $u => $data){
-		if($data['type'] === 'admin'){
+		if(isset($data['type'])&&$data['type']==='admin'){
 			$email = $data['email'];
 		}
 	}

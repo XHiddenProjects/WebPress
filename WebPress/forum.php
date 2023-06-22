@@ -213,7 +213,7 @@
 			}
 		  ?>
 	<div class="display d-flex">
-	<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-primary forumNavBar" style="width: 280px;">
+	<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-primary forumNavBar rounded-bottom" style="width: 280px;">
 		<a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 		  <span class="fs-4"><?php echo $lang['forum.sidebar'];?></span>
 		</a>
@@ -345,7 +345,7 @@
 			<div class="row">
 			<div class="col">
 				<label class="form-label" for="topicAuthor"><?php echo $lang['forum.inputTopicAuthor'];?></label>
-					<input type="text" id="topicAuthor" name="topicAuthor" readonly value="<?php echo $session;?>" class="form-control"/>
+					<input type="text" id="topicAuthor" name="topicAuthor" <?php echo (Users::isAdmin() ? '' : 'readonly');?> value="<?php echo $session;?>" class="form-control"/>
 				</div>
 			</div>
 			<div class="row mt-5" style="margin-bottom:10rem!important;">

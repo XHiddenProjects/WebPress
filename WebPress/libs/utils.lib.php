@@ -191,6 +191,124 @@
 				}
 			}
 		}
+		public static function standtomil($hrs, $apm){
+			$am = [
+				'12'=>'00',
+				'01'=>'01',
+				'02'=>'02',
+				'03'=>'03',
+				'04'=>'04',
+				'05'=>'05',
+				'06'=>'06',
+				'07'=>'07',
+				'08'=>'08',
+				'09'=>'09',
+				'10'=>'10',
+				'11'=>'11',
+			];
+			$pm = [
+				'12'=>'12',
+				'01'=>'13',
+				'02'=>'14',
+				'03'=>'15',
+				'04'=>'16',
+				'05'=>'17',
+				'06'=>'18',
+				'07'=>'19',
+				'08'=>'20',
+				'09'=>'21',
+				'10'=>'22',
+				'11'=>'23',
+			];
+			if($apm==='pm'){
+				$hrs = str_replace($hrs, $pm[$hrs], $hrs);
+			}elseif($apm==='am'){
+				$hrs = str_replace($hrs, $am[$hrs], $hrs);
+			}
+			return $hrs;
+		}
+		public static function get_time_ago($t){
+			global $lang;
+		
+			$t1 = explode(' ',$t);
+			$t1[1] = substr_replace($t1[1],':',-2,0);
+			$t2 = explode(':',$t1[1]);
+			$t2[0] = self::standtomil($t2[0],$t2[3]);
+			unset($t2[3]);
+			$t3 = explode('-',$t1[0]);
+			$tt = $t3[2].'-'.$t3[0].'-'.$t3[1].' '.$t2[0].':'.$t2[1].':'.$t2[2];
+			$time_difference = time()-strtotime($tt);
+			if( $time_difference < 1 ) { return '< 1s '.$lang['ago']; }
+			$condition = array( 12 * 30 * 24 * 60 * 60 => $lang['year'],
+						30 * 24 * 60 * 60       =>  $lang['month'],
+						24 * 60 * 60            =>  $lang['day'],
+						60 * 60                 =>  $lang['hour'],
+						60                      =>  $lang['minute'],
+						1                       =>  $lang['second']
+			);
+
+			foreach( $condition as $secs => $str )
+			{
+				$d = $time_difference / $secs;
+				if( $d >= 1 )
+				{
+					$t = round( $d );
+					return '~'.$t . ' ' . $str . ' '.$lang['ago'];
+				}
+			}
+		}
+		public static function mailNotify(){
+			global $lang, $BASEPATH, $session;
+			$mail = json_decode(file_get_contents(ROOT.'MAILUPDATE.json'),true);
+			$sentMail = array();
+			$sentReplies = array();
+			$fr = '';
+			foreach(Files::Scan(DATA_MAIL) as $mail){
+				$o = WebDB::getDB('mail', str_replace('.dat.json','',$mail));
+				/*replies*/
+				if(stripos($o['msg']['status'][$session], 'new')!==FALSE){
+					foreach($o['msg']['replys'] as $id=>$reply){
+						if(strpos($reply['from'],$session)===FALSE){
+						$sentReplies[] = '<div class="toast show text-bg-secondary" role="alert" aria-live="assertive" aria-atomic="true">
+						  <div class="toast-header">
+						   <img class="img-fluid img-thumbnail m-1 rounded" width="32" height="32" src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$reply['from'].'.png') ? $BASEPATH.DATA_AVATARS.$reply['from'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'" class="rounded me-2" alt="...">
+							<strong class="me-auto">'.$reply['from'].'</strong>
+							<small>'.self::get_time_ago($reply['sentTime']).'</small>
+						  </div>
+						</div>';
+						}
+					}
+					/*startMail*/
+					if(strpos($o['msg']['from']['name'],$session)===FALSE){
+						$id = uniqid();
+						$sentMail[] = '<li class="list-group-item dropdown">
+									<div class="toast show text-bg-info" role="alert" aria-live="assertive" aria-atomic="true">
+						  <div class="toast-header">
+						   <img class="img-fluid img-thumbnail m-1 rounded" width="32" height="32" src="'.(file_exists(DATA_UPLOADS.'avatars'.DS.$o['msg']['from']['name'].'.png') ? $BASEPATH.DATA_AVATARS.$o['msg']['from']['name'].'.png' : $BASEPATH.DATA_AVATARS.'default.png').'" class="rounded me-2" alt="...">
+							<strong class="me-auto">'.$o['msg']['from']['name'].' - <a class="text-decoration-none link-info" href="'.$BASEPATH.DS.'dashboard.php'.DS.'mail"><em>'.$o['msg']['subject'].'</em></a></strong>
+							<small>'.self::get_time_ago($o['msg']['sentTime']).'</small>
+						  </div>
+						  <div class="toast-body">
+							<button class="btn btn-primary w-100" data-bs-toggle="collapse" data-bs-target="#'.$id.'" aria-expanded="false" aria-controls="collapseExample">'.$lang['forum.replysNoIcon'].'</button>
+							<div class="collapse mt-1" id="'.$id.'">'.join('',$sentReplies).'</div>
+						  </div>
+						</div></li>';
+					}
+				}
+					
+			}
+			$out = '';
+			$out.='<button type="button" class="position-relative" style="background-color:transparent;border:0;" data-bs-toggle="collapse" data-bs-target="#panel-mail" aria-expanded="false" aria-controls="panelMail"><i class="fa-solid fa-envelope"></i>
+			<span style="font-size: 8.7px;" class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-pill">'.(count($sentMail)+count($sentReplies)).'<span class="visually-hidden">unread message</span></span></span></button>';
+			$out.='<div id="panel-mail" class="collapse text-bg-secondary">
+				<ul class="list-group list-group-flush"><div class="toast-container position-static">';
+				foreach($sentMail as $mail){
+					$out.=$mail;
+				}
+				$out.='</div></ul>
+			</div>';
+			return $out;
+		}
 		public static function notification($version='', $file='UPDATES'){
 			global $lang;
 			$out='';
@@ -203,12 +321,13 @@
 		   '').
 		   '</button>
 			<div id="panel-notify" class="collapse text-bg-secondary">
-			 <a href="./mail?notify=clear" class="link-light">'.$lang['notify.clear'].'</a>
-				'.Utils::getUpdates($version, (!preg_match('/\.json/',$file) ? $file.'.json' : $file)).'
+				'.self::getUpdates($version, (!preg_match('/\.json/',$file) ? $file.'.json' : $file)).'
 			</div>
+			'.self::mailNotify().'
 		</div>';
 		return $out;
 		}
+		
 		public static function RGB2Hex($r,$g,$b){
 			return sprintf("#%02x%02x%02x", (int)$r, (int)$g, (int)$b);
 		}
@@ -249,6 +368,20 @@
 			}else{
 				return 'unknown';
 			}
+		}
+		public static function genHex(int $loop):array{
+			$hex = array();
+			$list = '0123456789abcdef';
+			for($i=0;$i<$loop;$i++){
+				$h='#';
+				for($k=0;$k<6;$k++){
+					$rand = rand(0,strlen($list)-1);
+					$l = str_split($list);
+					$h.=$l[$rand];
+				}
+				$hex[$h] = $h;
+			}
+			return $hex;
 		}
 	}
 	?>

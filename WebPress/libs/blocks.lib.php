@@ -56,30 +56,30 @@ class Blocks{
 			$panel.='<button type="button" style="z-index:1000;" class="position-absolute m-3 btn btn-secondary bottom-0 end-0 rounded-circle fs-2" data-bs-toggle="offcanvas" data-bs-target="#editorBar" aria-controls="offcanvasScrolling"><i class="fa-solid fa-pencil"></i></button>';
 			$panel.='<button type="button" style="right:calc(0px + 5%); z-index:1000;" class="position-absolute m-3 btn border-0 bottom-0 rounded-circle fs-2" data-bs-toggle="offcanvas" data-bs-target="#settingsBar" aria-controls="offcanvasScrolling"><i style="color:black;" class="fa-solid fa-gear"></i></button>';
 	$panel.='<div class="offcanvas offcanvas-end" tabindex="-1" id="settingsBar" aria-labelledby="offcanvasLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasLabel">'.$lang['blocks.settings'].'</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <form>
+ <div class="offcanvas-header">
+ <h5 class="offcanvas-title" id="offcanvasLabel">'.$lang['blocks.settings'].'</h5>
+ <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+ </div>
+ <div class="offcanvas-body">
+ <form>
 	<div class="btn-group mt-2 mb-2 d-flex justify-content-center" role="group">
-  <input type="radio" class="btn-check" value="body" name="bgBlock" id="blockBody" autocomplete="off" checked>
-  <label class="btn btn-outline-secondary" for="blockBody">'.$lang['blocks.settings.bgBlock.body'].'</label>
+ <input type="radio" class="btn-check" value="body" name="bgBlock" id="blockBody" autocomplete="off" checked>
+ <label class="btn btn-outline-secondary" for="blockBody">'.$lang['blocks.settings.bgBlock.body'].'</label>
 
-  <input type="radio" class="btn-check" value="target" name="bgBlock" id="selectedTarget" autocomplete="off">
-  <label class="btn btn-outline-secondary" for="selectedTarget">'.$lang['blocks.settings.bgBlock.target'].'</label>
+ <input type="radio" class="btn-check" value="target" name="bgBlock" id="selectedTarget" autocomplete="off">
+ <label class="btn btn-outline-secondary" for="selectedTarget">'.$lang['blocks.settings.bgBlock.target'].'</label>
 </div>
 
 	<h6>'.$lang['blocks.settings.bg'].'</h6>
 	<div class="btn-group" role="group">
-  <input type="radio" class="btn-check" value="solidColor" name="bgSetting" id="solidColor" autocomplete="off" checked>
-  <label class="btn btn-outline-primary" for="solidColor">'.$lang['blocks.settings.solid.color'].'</label>
+ <input type="radio" class="btn-check" value="solidColor" name="bgSetting" id="solidColor" autocomplete="off" checked>
+ <label class="btn btn-outline-primary" for="solidColor">'.$lang['blocks.settings.solid.color'].'</label>
 
-  <input type="radio" class="btn-check" value="uploadImage" name="bgSetting" id="uploadImage" autocomplete="off">
-  <label class="btn btn-outline-primary" for="uploadImage">'.$lang['blocks.settings.bg.img'].'</label>
-  
-  <input type="radio" class="btn-check" value="customColor" name="bgSetting" id="customColor" autocomplete="off">
-  <label class="btn btn-outline-primary" for="customColor">'.$lang['blocks.settings.custom.color'].'</label>
+ <input type="radio" class="btn-check" value="uploadImage" name="bgSetting" id="uploadImage" autocomplete="off">
+ <label class="btn btn-outline-primary" for="uploadImage">'.$lang['blocks.settings.bg.img'].'</label>
+ 
+ <input type="radio" class="btn-check" value="customColor" name="bgSetting" id="customColor" autocomplete="off">
+ <label class="btn btn-outline-primary" for="customColor">'.$lang['blocks.settings.custom.color'].'</label>
 </div>
 
 
@@ -172,11 +172,11 @@ class Blocks{
 	
 	<h6>'.$lang['blocks.settings.color'].'</h6>
 	<div class="btn-group" role="group">
-  <input type="radio" class="btn-check" value="solidColor2" name="colorSetting" id="solidColor2" autocomplete="off" checked>
-  <label class="btn btn-outline-primary" for="solidColor2">'.$lang['blocks.settings.solid.color'].'</label>
-  
-  <input type="radio" class="btn-check" value="customColor2" name="colorSetting" id="customColor2" autocomplete="off">
-  <label class="btn btn-outline-primary" for="customColor2">'.$lang['blocks.settings.custom.color'].'</label>
+ <input type="radio" class="btn-check" value="solidColor2" name="colorSetting" id="solidColor2" autocomplete="off" checked>
+ <label class="btn btn-outline-primary" for="solidColor2">'.$lang['blocks.settings.solid.color'].'</label>
+ 
+ <input type="radio" class="btn-check" value="customColor2" name="colorSetting" id="customColor2" autocomplete="off">
+ <label class="btn btn-outline-primary" for="customColor2">'.$lang['blocks.settings.custom.color'].'</label>
 </div>
 	<div class="solidColor2">
 		<ul class="list-group list-group-flush list-group-horizontal d-flex flex-wrap">
@@ -844,20 +844,20 @@ class Blocks{
 		<hr class="border border-3 border-primary bg-primary"/>
 	<h6>'.$lang['blocks.settings.required'].'</h6>
 	<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" onclick="configRequire(this.checked)">
-  <label class="form-check-label"></label>
+ <input class="form-check-input" type="checkbox" role="switch" onclick="configRequire(this.checked)">
+ <label class="form-check-label"></label>
 </div>
 	<hr class="border border-3 border-primary bg-primary"/>
 	<h6>'.$lang['blocks.settings.readOnly'].'</h6>
 	<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" onclick="configReadOnly(this.checked)">
-  <label class="form-check-label"></label>
+ <input class="form-check-input" type="checkbox" role="switch" onclick="configReadOnly(this.checked)">
+ <label class="form-check-label"></label>
 </div>
 	<hr class="border border-3 border-primary bg-primary"/>
 	<h6>'.$lang['blocks.settings.disabled'].'</h6>
 	<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" onclick="configDisabled(this.checked)">
-  <label class="form-check-label"></label>
+ <input class="form-check-input" type="checkbox" role="switch" onclick="configDisabled(this.checked)">
+ <label class="form-check-label"></label>
 </div>
 		<hr class="border border-3 border-primary bg-primary"/>
 	<h6>'.$lang['blocks.settings.regexp'].'</h6>
@@ -866,7 +866,7 @@ class Blocks{
 	
 	</div>
 	</form>
-  </div>
+ </div>
 </div>';
 	$panel.='<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="editorBar" aria-labelledby="offcanvasScrollingLabel">
 			<div class="offcanvas-header">
@@ -876,17 +876,17 @@ class Blocks{
 	<div class="offcanvas-body">
 		<ul class="list-group">
 		 <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#heading" aria-expanded="false" aria-controls="collapseExample">
-   <i class="fa-solid fa-heading"></i> Heading
-  </button>
+ <i class="fa-solid fa-heading"></i> Heading
+ </button>
 		<div class="collapse" id="heading">
-  <div class="card card-body">
+ <div class="card card-body">
 		<li class="list-group-item drag" id="h1" draggable="true" data-tag="h1" ondragstart="dragItem(event)"><i class="fa-solid fa-h1"></i> Heading 1</li>
 		<li class="list-group-item drag" id="h2" draggable="true" data-tag="h2" ondragstart="dragItem(event)"><i class="fa-solid fa-h2"></i> Heading 2</li>
 		<li class="list-group-item drag" id="h3" draggable="true" data-tag="h3" ondragstart="dragItem(event)"><i class="fa-solid fa-h3"></i> Heading 3</li>
 		<li class="list-group-item drag" id="h4" draggable="true" data-tag="h4" ondragstart="dragItem(event)"><i class="fa-solid fa-h4"></i> Heading 4</li>
 		<li class="list-group-item drag" id="h5" draggable="true" data-tag="h5" ondragstart="dragItem(event)"><i class="fa-solid fa-h5"></i> Heading 5</li>
 		<li class="list-group-item drag" id="h6" draggable="true" data-tag="h6" ondragstart="dragItem(event)"><i class="fa-solid fa-h6"></i> Heading 6</li>
-  </div>
+ </div>
 </div>
 	<li class="list-group-item drag" id="p" draggable="true" data-tag="p" ondragstart="dragItem(event)"><i class="fa-solid fa-paragraph"></i> Paragraph</li>
 	<li class="list-group-item drag" id="span" draggable="true" data-tag="span" ondragstart="dragItem(event)">Span</li>
@@ -899,10 +899,10 @@ class Blocks{
 	<li class="list-group-item drag" id="hr" draggable="true" data-tag="hr" ondragstart="dragItem(event)"><i class="fa-solid fa-horizontal-rule"></i> Horizontal Line</li>
 	<li class="list-group-item drag" id="form" draggable="true" data-tag="form" ondragstart="dragItem(event)"><i class="fa-solid fa-square-poll-horizontal"></i> Forms</li>
 			 <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#forms" aria-expanded="false" aria-controls="collapseExample">
-   <i class="fa-solid fa-square-poll-horizontal"></i> Forms
-  </button>
+ <i class="fa-solid fa-square-poll-horizontal"></i> Forms
+ </button>
 		<div class="collapse" id="forms">
-  <div class="card card-body">
+ <div class="card card-body">
 			<li class="list-group-item drag" id="label" draggable="true" data-tag="label" ondragstart="dragItem(event)"><i class="fa-solid fa-font"></i> Label</li>
 	<li class="list-group-item drag" id="text" draggable="true" data-tag="text" ondragstart="dragItem(event)"><i class="fa-solid fa-input-text"></i> Textbox</li>
 	<li class="list-group-item drag" id="number" draggable="true" data-tag="number" ondragstart="dragItem(event)"><i class="fa-solid fa-input-numeric"></i> Number</li>
@@ -923,11 +923,11 @@ class Blocks{
 	<li class="list-group-item drag" id="hidden" draggable="true" data-tag="hidden" ondragstart="dragItem(event)"><i class="fa-solid fa-input-pipe"></i> Hidden</li>
 	<li class="list-group-item drag" id="search" draggable="true" data-tag="search" ondragstart="dragItem(event)"><i class="fa-solid fa-magnifying-glass"></i> Search</li>
 	<li class="list-group-item drag" id="upload" draggable="true" data-tag="upload" ondragstart="dragItem(event)"><i class="fa-solid fa-upload"></i> Upload</li>
-  </div>
-  </div>
-  <li class="list-group-item drag" id="img" draggable="true" data-tag="img" ondragstart="dragItem(event)"><i class="fa-solid fa-image"></i> Image</li>
-  <li class="list-group-item drag" id="video" draggable="true" data-tag="video" ondragstart="dragItem(event)"><i class="fa-solid fa-video"></i> Video</li>
-  <li class="list-group-item drag" id="iframe" draggable="true" data-tag="iframe" ondragstart="dragItem(event)"><i class="fa-solid fa-frame"></i> IFrame</li>
+ </div>
+ </div>
+ <li class="list-group-item drag" id="img" draggable="true" data-tag="img" ondragstart="dragItem(event)"><i class="fa-solid fa-image"></i> Image</li>
+ <li class="list-group-item drag" id="video" draggable="true" data-tag="video" ondragstart="dragItem(event)"><i class="fa-solid fa-video"></i> Video</li>
+ <li class="list-group-item drag" id="iframe" draggable="true" data-tag="iframe" ondragstart="dragItem(event)"><i class="fa-solid fa-frame"></i> IFrame</li>
 		</ul>
 		
 		<button onclick="saveBlocks(\''.$BASEPATH.'/libs\', \''.self::requestPage().'\')" class="btn btn-success btn-lg mt-1 float-end fs-3"><i class="fa-solid fa-floppy-disk"></i></button>
@@ -964,13 +964,13 @@ class Blocks{
 		$edit = isset($_GET['editpage'])&&Users::isAdmin()||Users::hasPermission('pages')&&isset($_GET['editpage']) ? true : false;
 		if($edit)
 			$help = '<div class="modal fade" id="blockshelper" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        '.$lang['blocks.usage'].'
-      </div>
-    </div>
-  </div>
+ <div class="modal-dialog">
+ <div class="modal-content">
+ <div class="modal-body">
+  '.$lang['blocks.usage'].'
+ </div>
+ </div>
+ </div>
 </div><button style="z-index:1000;" data-bs-toggle="modal" data-bs-target="#blockshelper" class="btn fs-2 position-absolute bottom-0 btn-dark"><i class="fa-solid fa-circle-question"></i></button>';
 		
 		return $help;

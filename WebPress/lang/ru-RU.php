@@ -142,6 +142,9 @@ $lang = array(
 'dashboard.side.files'=>'Файлы <i class="fa-solid fa-files"></i>',
 'dashboard.side.events'=>'События <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.side.pages'=>'Страницы <i class="fa-solid fa-page"></i>',
+'dashboard.side.utils'=>'Утилиты <i class="fa-solid fa-wrench"></i>',
+'dashboard.side.advanced'=>'Передовой <i class="fa-solid fa-user-lock"></i>',
+'dashboard.side.other'=>'Добавить <i class="fa-solid fa-circle-plus"></i>',
 'dashboard.graph.user.label'=>'пользователи',
 'dashboard.graph.user.y'=>'Зарегистрированные пользователи',
 'dashboard.graph.subtitle'=>'Это будет ясно на ',
@@ -442,6 +445,8 @@ $lang = array(
 'ban.UI.banBy'=>'Тип бана',
 'ban.UI.submit'=>'Заблокировать пользователя',
 #дата
+'year'=>'годы',
+'month'=>'месяцы',
 'day' => 'дни',
 'hour' => 'Часы',
 'minute' => 'минуты',

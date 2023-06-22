@@ -3,7 +3,7 @@
 		global $pageTitle, $defaultIcon, $conf ,$pageTheme, $lang;
 	$footer='';
 	$footer.=Plugin::hook('afterPage');
-	$footer.='<footer'.(isset($_GET['editpage']) ? ' hidden="hidden" ' : '').' class="bg-light text-center text-dark position-sticky" style="z-index:999;bottom:0;">
+	$footer.='<footer'.(isset($_GET['editpage']) ? ' hidden="hidden" ' : '').' class="bg-light text-center text-dark position-sticky" style="z-index:999;bottom:0!important;">
 	  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
 		© 2022 '.(date('Y')==='2022' ? '' : ' - '.date('Y')).' '.$lang['index.label.copyright'].':
 		<a class="link-primary" href="mailto:surveybuildersbot@gmail.com">XHiddenProjects</a> '.$lang['index.label.license'].' <a class="link-primary" href="https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE" target="_blank">MIT</a>
@@ -75,7 +75,7 @@
 				}else{
 					$comma='';
 				}
-				$footer.='"'.$info['username'].':&lt;'.$info['email'].'&gt;"'.$comma;
+				if(isset($info['username'])&&isset($info['email'])) $footer.='"'.$info['username'].':&lt;'.$info['email'].'&gt;"'.$comma;
 			}
 			$footer.="];
 			</script>";

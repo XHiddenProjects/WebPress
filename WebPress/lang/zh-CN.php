@@ -142,6 +142,9 @@ $lang = array(
 'dashboard.side.files'=>'文件 <i class="fa-solid fa-files"></i>',
 'dashboard.side.events'=>'事件 <i class="fa-regular fa-calendar-lines-pen"></i>',
 'dashboard.side.pages'=>'頁數 <i class="fa-solid fa-page"></i>',
+'dashboard.side.utils'=>'公用事業 <i class="fa-solid fa-wrench"></i>',
+'dashboard.side.advanced'=>'先進的 <i class="fa-solid fa-user-lock"></i>',
+'dashboard.side.other'=>'添加在 <i class="fa-solid fa-circle-plus"></i>',
 'dashboard.graph.user.label'=>'用戶',
 'dashboard.graph.user.y'=>'註冊用戶',
 'dashboard.graph.subtitle'=>'這將在 ',
@@ -442,6 +445,8 @@ $lang = array(
 'ban.UI.banBy'=>'禁令類型',
 'ban.UI.submit'=>'禁止用戶',
 #日期
+'year'=>'年',
+'month'=>'幾個月',
 'day' => '天',
 'hour' => '小時',
 'minute' => '分鐘',
