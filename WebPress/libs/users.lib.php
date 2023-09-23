@@ -336,8 +336,12 @@
 			return WebDB::getDB('users', 'users');
 		}else{
 			$users = WebDB::getDB('users', 'users');
-			foreach($users as $u=>$i){
-				$users[$u] = $u;
+			if(is_array($users)){
+				foreach($users as $u=>$i){
+					$users[$u] = $u;
+				}
+			}else{
+				$users = [];
 			}
 			return $users;
 		}
