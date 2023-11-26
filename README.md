@@ -37,15 +37,13 @@ A free open-source CMS(content management system) and forum script that allows y
 [![GitHub](https://img.shields.io/github/license/XHiddenProjects1/webpress?color=blue&style=plastic)](https://github.com/surveybuilderteams/WebPress/blob/master/LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/XHiddenProjects1/webpress?color=orange&label=version&style=plastic)](https://github.com/XHiddenProjects1/WebPress/releases)
 [![GitHub repo size](https://img.shields.io/github/repo-size/XHiddenProjects1/webpress?color=red&label=Download%20Size&style=plastic)](https://github.com/XHiddenProjects1/WebPress/archive/refs/heads/master.zip)
-[![GitHub Repo stars](https://img.shields.io/github/stars/XHiddenProjects1/webpress?style=plastic)](https://github.com/XHiddenProjects1/WebPress/stargazers)
-[![GitHub watchers](https://img.shields.io/github/watchers/XHiddenProjects1/webpress?color=green&style=plastic)](https://github.com/XHiddenProjects1/WebPress/watchers)
-![GitHub top language](https://img.shields.io/github/languages/top/XHiddenProjects1/webpress)
+[![GitHub Repo stars](https://img.shields.io/github/stars/XHiddenProjects/webpress?style=plastic)](https://github.com/XHiddenProjects/WebPress/stargazers)
+[![GitHub watchers](https://img.shields.io/github/watchers/XHiddenProjects/webpress?color=green&style=plastic)](https://github.com/XHiddenProjects1/WebPress/watchers)
+![GitHub top language](https://img.shields.io/github/languages/top/XHiddenProjects/webpress)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/XHiddenProjects1/webpress/php.yml)
-[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/XHiddenProjects1/webpress?style=plastic)](https://www.codefactor.io/repository/github/surveybuilderteams/webpress)
-[![GitHub contributors](https://img.shields.io/github/contributors/XHiddenProjects1/webpress?style=plastic)](https://github.com/XHiddenProjects1/WebPress/graphs/contributors)
-[![Matrix](https://img.shields.io/matrix/WebPressChat:matrix.org)](https://matrix.to/#/#WebPressChat:matrix.org)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/XHiddenProjects/webpress?style=plastic)](https://www.codefactor.io/repository/github/surveybuilderteams/webpress)
+[![GitHub contributors](https://img.shields.io/github/contributors/XHiddenProjects/webpress?style=plastic)](https://github.com/XHiddenProjects1/WebPress/graphs/contributors)
 [![npm](https://img.shields.io/npm/v/@surveybuilder-admin/webpress)](https://www.npmjs.com/package/@surveybuilder-admin/webpress)
-[![Website](https://img.shields.io/website?up_message=online&url=http%3A%2F%2Fwebpress1.epizy.com)](https://webpress1.epizy.com/)
 
 ***
 
